@@ -2,7 +2,7 @@ name: Curiosity -- College of Arts & Sciences
 type: theme
 description: One theme to rule them all
 package: themes
-core: 9.x
+core: 8.x
 screenshot: screenshot.jpg
 base theme: stable
 
