@@ -1,0 +1,27 @@
+{#
+
+/* -------------------------
+
+Title: newsletter Photo Text Block
+Descr: Set main wrapper for photo text item
+        passess wrapperClass and content to a table layout
+
+--------------------------- */
+
+#}
+{# {{vardumper()}} #}
+{% set group_base_class = 'pcWrapper' %}
+{% set group_modifiers = ['photoText'] %}
+
+{% set groupItems = content.field_newsletter_photo_text_refe %}
+helloooooo
+ 
+
+
+{# {% if content.field_photo_text_reference['#is_multiple'] == true %}
+	{% set multiple = true %}
+{% endif %} #}
+
+{{groupItems}}
+
+{# {% endembed %}  #}

@@ -1,0 +1,17 @@
+{# 
+
+/* -------------------------
+
+Title: field--field-page-components.html.twig
+Descr: Just outputs item.content for each of the page-components
+--------------------------- */ 
+
+#}
+
+{% set test= 'field--field-page-components' %}
+
+{% embed "@content/atoms/_field.twig" with {
+    modifiers : ["grid", "page_components"],
+    classes : ['main-content']
+} %}
+{% endembed %}

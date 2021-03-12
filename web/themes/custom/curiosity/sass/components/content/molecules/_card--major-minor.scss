@@ -1,0 +1,144 @@
+/* -------------------------
+
+Title: _card--major-minor.scss
+Descr: Sets all specific styles for an m/m/g card and teasers 
+
+--------------------------- */
+
+// Jellybeans
+.levels {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  // margin-left: 5px;
+  padding: 0;
+  .level {
+    color: var(--as-white);
+    display: inline-block;
+    height: 1em;
+    font-size: 0.6rem; // change to change size of circles
+    height: calc(1.5em - 0.1em);
+    border-radius: 4px;
+    background: var(--blue-blue);
+    @include dropShadow($spread: 2px);
+    text-align: center;
+    font-weight: var(--light);
+    padding-top: 0.1em;
+    opacity: 0.7;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+    position: relative;
+    width: 70px;
+    &:before {
+      top: 3px;
+      left: 3px;
+      position: absolute;
+      width: 1em;
+      height: 1em;
+      opacity: 0;
+      transition: all 0.1s;
+    }
+    &--major {
+      background: var(--as-dark-blue);
+      &:before {
+        // content: "M";
+      }
+    }
+    &--minor {
+      background: var(--as-teal-dark);
+      &:before {
+        // content: "M";
+      }
+    }
+    &--graduate {
+      background: var(--as-purple);
+      &:before {
+        // content: "G";
+      }
+    }
+  }
+}
+
+.card--major-minor {
+  .card__copy {
+    padding: 1rem;
+    @include baseGrid($g-gap: 0px);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      ". . level"
+      "label label label";
+  }
+  // if fancybox
+
+  .card__title {
+    grid-area: label;
+    font-size: var(--base-24);
+    // margin-top: 0.5rem;
+    // margin-bottom: 1em;
+    margin: 0.5em 0 1em 0;
+    line-height: 1.2;
+  }
+  .card__level {
+    grid-area: level;
+  }
+  .card__links {
+    grid-area: links;
+    font-size: var(--base-16);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card__copy {
+    grid-template-areas:
+      "links links links"
+      "label label label"
+      "level level level";
+  }
+
+  .levels {
+    .level {
+      // width: 1.5em;
+      // color: transparent;
+      &:before {
+        color: var(--as-white);
+        opacity: 1;
+      }
+    }
+  }
+
+  &:hover {
+    .levels {
+      .level {
+        animation-name: jellybean-animation;
+        animation-duration: 0.3s;
+        animation-timing-function: ease-out;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-delay: 250ms;
+        &:before {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
+
+// jellybean animation
+@keyframes jellybean-animation {
+  0% {
+    transform: scale(1);
+    color: transparent;
+  }
+  30% {
+    transform: scale(0.8);
+  }
+  // 60% {
+  //   width: 50px;
+  // }
+
+  100% {
+    transform: scale(1);
+    color: var(--as-white);
+    // background: red;
+  }
+}

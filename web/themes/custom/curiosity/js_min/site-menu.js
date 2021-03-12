@@ -1,0 +1,1 @@
+!function(n){n(".siteNavOpener").on({click:function(){n(".nav--site > .nav").toggleClass("expanded")}})}(jQuery);

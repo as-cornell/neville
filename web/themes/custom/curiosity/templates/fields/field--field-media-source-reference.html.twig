@@ -1,0 +1,12 @@
+{#
+/**
+ *field--field-related.html.twig
+ makes link to news filtered by byline
+ */
+#}
+
+{%  set base_url = url('<front>')  %}
+{% for item in items %}
+  {% set link = item.content["#title"] %}
+  <a href="{{base_url}}news?media_source={{link}}">{{ item.content["#title"] }}</a>
+{% endfor %}

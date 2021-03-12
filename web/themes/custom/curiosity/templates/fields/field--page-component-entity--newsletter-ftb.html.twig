@@ -1,0 +1,22 @@
+{#
+/**
+ *field--page-component-entity--newsletter-ftb.html.twig
+  just outputting articles becasuse twig is dumb.
+  Hopefully article just smushed into a big <td> further up will flow properly
+ */
+#}
+
+
+{% for item in items %}
+	<tr>
+		<td>
+			<table style="background: #fff;">
+				<tr>
+					<td style="padding: 20px;">
+						{{item.content}}
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+{% endfor %}

@@ -1,0 +1,235 @@
+:root {
+  --as-white: white;
+  --as-black: #2c2c2c;
+  --dark-text: #414249;
+  --gray-dark: #707070;
+  --gray-med: #959595;
+  --gray-lt: #c2c0c0;
+  --gray-lightest: #fbfbfb;
+
+  --dusk: red;
+  --fog: red;
+  --storm: red;
+
+  --gold: #ffd91f;
+  --as-gold: #ffd91f;
+  --as-red: #952020;
+
+  --as-blue-gray: #435363;
+  --as-blue-base: #006699;
+
+  --as-dark-blue: #024d73;
+  --as-light-blue: #287ec4;
+  // --as-purple: #a63fe6;
+
+  --dark-purple-blue: #131c69;
+  --as-purple: #461262;
+
+  --as-brown-dark: #81681e;
+  --as-brown-light: #b08918;
+
+  // --as-green: #1f8335;
+  // --as-green-light: #619f38;
+
+  --as-green: #0e5548;
+  --as-green-dark: #102e26;
+
+  --as-teal: #85c4ca;
+  // --as-teal-dark: #33a19b;
+  --as-teal-dark: #117b98;
+
+  // gradients
+  --blurple-linear: linear-gradient(
+    144deg,
+    var(--as-light-blue) 0%,
+    var(--as-purple) 100%
+  );
+
+  --purple-radial: radial-gradient(#230c49 0%, #131c69 100%);
+
+  --dark-purple-radial: radial-gradient(
+    var(--dark-purple-blue) 0%,
+    var(--as-purple) 100%
+  );
+
+  --ampresand: linear-gradient(120deg, var(--as-gold) 0%, var(--as-red) 60%);
+
+  --teal-purple: linear-gradient(
+    90deg,
+    var(--as-teal-dark) 0%,
+    var(--as-purple) 100%
+  );
+  --teal-purple-radial: radial-gradient(
+    var(--as-teal) 0%,
+    var(--as-teal-dark) 100%
+  );
+
+  --main-card-border: linear-gradient(
+    90deg,
+    hsla(177, 48, 70, 0.66) 0%,
+    hsla(281, 70, 66, 0.38) 100%
+  );
+
+  --green-green: linear-gradient(
+    90deg,
+    var(--as-green) 0%,
+    var(--as-green-dark) 100%
+  );
+
+  // --brown-brown: linear-gradient(
+  //   90deg,
+  //   var(--as-brown-light) 0%,
+  //   var(--as-brown-dark) 100%
+  // );
+
+  --blue-blue: linear-gradient(
+    60deg,
+    var(--as-blue-base) 0%,
+    var(--as-blue-gray) 100%
+  );
+
+  --teal-teal: linear-gradient(60deg, var(--as-teal-dark) 0%, #027c8a 100%);
+
+  --storm-radial: radial-gradient(rgb(65, 139, 161) 0, rgb(18, 101, 126) 100%);
+
+  --green-radial: radial-gradient(var(--as-green) 0, var(--as-green-dark) 100%);
+
+  --white: red; //depricated
+  --black: red; //depricated
+  --gray: red; // depricate
+  --gray-light: red; // depricate
+  --near-white: red; // depricate
+
+  // page widths moved to _01-breakpoints.scss so they can be used here
+  --xs: 320px;
+  --small: 480px;
+  --medium: 782px; // 782
+  --large: 1224px; // 1,224
+  --xl: 1432px; // 1,432
+  --xxl: 1640px; // 1640
+
+  // Font families
+  --font-sans: "canada-type-gibson", sans-serif;
+  --font-serif: "freight-macro-pro", serif;
+
+  // font size
+  --base-font-size: 20px;
+  @include medium {
+    --base-font-size: 24px;
+  }
+
+  // --medium-font-size: 20px;
+  // --small-font-size: 16px;
+  // --sidebar-font-size: 20px;
+  // --main-font-size: 28px;
+  // --font-size--huge: 60px;
+
+  --base-16: 0.666rem; // 16px at full
+  --base-18: 0.75rem;
+  --base-20: 0.8333rem;
+  --base-24: 1rem;
+  --base-28: 1.2rem;
+  --base-36: 1.5rem;
+  --base-48: 2rem;
+
+  --base-56: 2rem;
+  @include medium() {
+    --base-56: 2.33rem;
+  }
+
+  --base-64: 2rem;
+  @include medium() {
+    --base-64: 2.66rem;
+  }
+
+  --base-84: 2rem;
+  // @include small() {
+  //   --base-84: 2.6rem;
+  // }
+  @include large() {
+    --base-84: 3.5rem;
+  }
+
+  //font weights
+
+  --light: 200;
+  --regular: 400;
+  --semi: 600;
+  --heavy: 800;
+
+  --line-height: 1.4;
+
+  --line-width: 60ch;
+
+  // border-variables
+
+  --border-width: 1px;
+  --border-color: var(--gray-light);
+  --border-radius: 4px;
+
+  // spacing elements
+  --space: 1rem;
+  @include medium() {
+    --space: 1.5rem;
+  }
+
+  --bottom-margin: 2rem;
+  @include large() {
+    --bottom-margin: 4rem;
+  }
+
+  // set specific margins usually for containers will collapse at smaller sizes.
+  --margin-3: 2rem;
+  @include medium() {
+    --margin-3: 3rem;
+  }
+
+  --margin-4: 2rem;
+  @include medium() {
+    --margin-4: 4rem;
+  }
+
+  --margin-6: 2rem;
+  @include medium() {
+    --margin-6: 6rem;
+  }
+
+  // ..........
+  // trying to get away from everythinb gelow here.
+  // ..........
+
+  // gutter on first level wrappers; header, .container
+
+  --mainGutter: var(--space);
+  @include small() {
+    --mainGutter: var(--space); // 1 rem
+  }
+
+  @include medium() {
+    --mainGutter: calc(2 * var(--space)); // 2rem
+  }
+
+  // Base grid variables
+
+  --auto-grid-min-size: calc(10 * var(--space));
+
+  --base-grid-column: 84px;
+
+  // @include medium(){
+  //     --base-grid-gap: calc(1.5 * var(--space));
+  // }
+
+  // universal spacing variables
+
+  --component-bottom-margin: calc(1 * var(--space));
+}
+
+//annimations
+@keyframes simpleFadeIn {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

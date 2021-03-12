@@ -1,0 +1,28 @@
+{#
+
+/* -------------------------
+
+Title: node--article--newsletter
+Descr: defines content for basic article newsletter
+card_nodeId -- used for lightbox
+
+field_newsletter_image
+field_summary
+field_card_label
+field_dateline
+field_byline_reference
+--------------------------- */
+
+#}
+
+{% embed "@content/molecules/_newsletter--article.twig" with {
+    newsletter_title: label,
+    newsletter_label: content.field_card_label,
+    newsletter_link_url: url,
+    newsletter_image : content.field_newsletter_image,
+   newsletter_byline: article_byline,
+   newsletter_dateline: content.field_dateline,
+   newsletter_nodeId : node.id
+} %}
+
+{% endembed %}

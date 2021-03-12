@@ -1,0 +1,157 @@
+/* 
+  Base styles for all figures
+  - basic figure
+  - figure based on different view modes
+  - extra class based on image style to set max widths
+*/
+
+figure {
+  margin: 1rem 0;
+  background: var(--gray-lightest);
+  border-radius: var(--border-radius);
+  // width: 100%;
+  @include boxShadow();
+  // border-radius: var(--border-radius);
+  &.figure {
+    &--pano {
+      margin: 0;
+      box-shadow: none;
+      img figcaption {
+        color: var(--gray-lt);
+        transition: all 0.5s;
+        &:hover {
+          color: var(--as-black);
+        }
+      }
+    }
+    &--image {
+    }
+    &--video {
+      // display: block;
+      margin: auto auto var(--bottom-margin) auto;
+      max-width: 80%;
+    }
+    &--card {
+    }
+    &--thumbnail {
+      background: none;
+    }
+    &--inline {
+      // max-width: 600px;
+    }
+    &--hasCaption,
+    &--hasCredit {
+      // background: red;
+      img {
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+      }
+    }
+    // other styles here....
+  }
+  img {
+    border-radius: var(--border-radius);
+  }
+  figcaption {
+    font-size: var(--base-16);
+    .caption {
+      display: block;
+      // padding: 0.75rem;
+    }
+    .credit {
+      display: block;
+      font-size: var(--base-16);
+      font-weight: var(--light);
+      margin-right: 8px;
+      margin-top: -10px;
+      text-align: right;
+    }
+    @include large() {
+      font-size: var(--base-18);
+    }
+  }
+}
+
+// landing page things
+.landingPage {
+  .figure {
+    &--video {
+      max-width: 80%;
+    }
+  }
+  .content .figure--pano {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// figures in pageComponent--ftb, and photoText__text need special width restrictions
+.pcWrapper--ftb,
+.photoText__text {
+  .figure {
+    // max-width: 300px;
+    // margin-top: 1.25rem; // to align with top of text
+    margin: 1.5rem 0;
+    @include medium() {
+      &--1_1_phototext {
+        max-width: 248px;
+      }
+    }
+    @include large() {
+      &--6_4_newsletter {
+        max-width: 600px;
+      }
+      &--5_4 {
+        max-width: 520px;
+      }
+    }
+    &--video {
+      max-width: 100%;
+    }
+    &--4_5 {
+      max-width: 320px;
+    }
+  }
+}
+
+figcaption {
+  font-weight: var(--light);
+  font-size: var(--base-20);
+  font-weight: var(--regular);
+  padding: 0.75rem;
+  // .caption {
+  //   display: block;
+  //   // padding: 0.75rem;
+  // }
+  // .credit {
+  //   display: block;
+  //   font-size: var(--base-16);
+  //   font-weight: var(--light);
+  //   margin-right: 8px;
+  //   margin-top: -10px;
+  //   text-align: right;
+  // }
+}
+
+//hide figcaption for pcWrapper--featured
+// .pcWrapper--photoText.pcWrapper--featured{
+//   figcaption{
+//     @extend .sr-only;
+//   }
+// }
+
+// video Wrapper
+
+.videoContainer {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+
+.videoContainer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

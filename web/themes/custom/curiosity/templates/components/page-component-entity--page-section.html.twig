@@ -1,0 +1,36 @@
+{#
+
+/* -------------------------
+
+Title: page-component-entity--page-secton
+Descr: outputs a page section
+
+--------------------------- */
+
+#}
+{# {{vardumper()}} #}
+
+{% set group_base_class = 'pageSection' %}
+{% set group_modifiers = ['page-section'] %}
+
+{# hid labels from group headers on landing pages #}
+{% set heading_modifiers = ['sr-only'] %}
+
+{% set items = content.field_page_components %}
+{% set items_length = items|length %}
+
+{% set divid = content.field_page_section_title|field_value|safe_join(', ')|lower|replace({" ": "-", ",": "", "&#039;": "-"}) %}
+
+
+{% if content.field_page_components['#is_multiple'] == true %}
+	{% set multiple = true %}
+{% endif %}
+
+{% embed "@content/molecules/_grouping.twig" with{
+  groupItems: content.field_page_components,
+  title: content.field_page_section_title,
+  divid : divid,
+secondary_label : content.field_page_section_title
+
+} %}
+{% endembed %}

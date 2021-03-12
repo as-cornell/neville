@@ -1,0 +1,25 @@
+{#
+
+/* -------------------------
+
+Title: block--as-events.html.twig
+Descr: sets up event list
+  pases list class of 'eventList
+  passes isList
+  show label will override default group label hiding on landing pages
+
+--------------------------- */
+
+#}
+{% set group_base_class = 'pcWrapper' %}
+{% set group_modifiers = ['events'] %}
+
+{% set list_base_class = 'eventList' %}
+
+{% include "@content/molecules/_grouping.twig" with {
+    groupItems : content,
+    group_base_class : group_base_class,
+    group_modifiers : group_modifiers,
+    group_label : label
+}
+%}

@@ -1,0 +1,13 @@
+{#
+/**
+ *field--field-related.html.twig
+ adds ul wrapper to list of related people
+ */
+#}
+
+{% set ul_modifiers = ['related-people'] %}
+
+{% embed "@content/molecules/_grouping.twig" with{
+  groupItems : items
+} %}
+{% endembed %}

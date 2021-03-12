@@ -1,0 +1,45 @@
+{#
+
+/* -------------------------
+
+Title: views-view
+Descr: main output business for views. Classes are from the view-display settings form. Rows gets output by views-view-list with _grouping.twig.
+
+--------------------------- */
+
+#}
+
+{# this is super important to have in the wrapper for ajax stuff #}
+OLD!!!
+{%
+  set domID = [
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+  ]
+%}
+
+{% set main_element_extra_classes = ['main'] %}
+{% set main_element_extra_classes = main_element_extra_classes|merge([domID.0]) %}
+
+{% set main_element_base_class = 'basicSidebar' %}
+{% set main_element_modifiers = ['viewContainer', 'department-program'] %}
+
+{% set view_title = view.element['#title'] %}
+
+{% if (view.getExposedInput.type) %}
+ {% set view_header = 'Type: ' %}
+  {% for key, item in view.getExposedInput.type %}
+    {% set termname = drupal_field('name', 'taxonomy_term', item)|field_value|safe_join(', ') ~ ' '%}
+    {% set view_header = view_header ~ termname  %}
+  {% endfor %}
+{% endif %}
+{% set view_content = rows %}
+{% set view_pager = pager %}
+{% set view_sidebar = exposed %}
+
+{% include "@pages/_view-list.twig" with {
+  view_title : view_title,
+  view_header : view_header,
+  view_content : view_content,
+  view_pager : view_pager,
+  view_sidebar : view_sidebar
+}%}

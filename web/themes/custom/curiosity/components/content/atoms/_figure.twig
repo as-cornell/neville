@@ -1,0 +1,45 @@
+{% set image_figure_base_class = image_figure_base_class | default('figure') %}
+{% set image_figure_blockname = image_figure_blockname | default('') %}
+{% set figure_modifiers = figure_modifiers | default(['image']) %}
+{% set image_link_base_class = image_link_base_class | default('link') %}
+{% set figure_alignment = figure_alignment | default('') %}
+
+
+{# {{vardumper()}} #}
+{# set defaults from figrure.image in data.yaml #}
+{% set img_url = figures.image.url %}
+
+
+{# {% set img_src = figures.image.src %} #}
+{% set img_caption = img_caption | default('') %}
+{% set img_credit = figures.image.credit %}
+
+
+{# {{figure_modifiers}} #}
+	<figure {{ bem(image_figure_base_class, (figure_modifiers), image_figure_blockname, alignment) }}> {{title_suffix}}
+	{% if img_url %}
+		<a {{ bem(image_link_base_class, (image_link_modifiers), image_link_blockname|default(image_figure_base_class)) }} href=" {{ img_url }} ">
+		{% endif %}
+
+		{{fullImage}}
+
+		{% if img_url %}
+		</a>
+	{% endif %}
+
+	{% if hasCredit or hasCaption %}
+
+		<figcaption {{ bem('caption', (figcaption_modifiers), figcaption_blockname|default(image_figure_base_class)) }}>
+			{% if hasCredit %}
+				<span class="credit">
+					{{credit}}
+				</span>
+			{% endif %}
+			{% if hasCaption %}
+				<span class="caption">
+					{{ img_caption }}
+				</span>
+			{% endif %}
+		</figcaption>
+	{% endif %}
+</figure>

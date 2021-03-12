@@ -1,0 +1,33 @@
+{#
+
+/* -------------------------
+
+Title: page-component-entity--page-secton
+Descr: outputs a page section
+set up on grid
+
+--------------------------- */
+
+#}
+{# {{vardumper()}} #}
+{% set group_base_class = 'pcWrapper' %}
+{% set group_modifiers = ['stat'] %}
+{% set group_classes = [''] %}
+
+
+{% set items = content.field_stats %}
+{# {% set items_length = items|length %} #}
+
+
+{% if content.field_stats['#is_multiple'] == true %}
+	{% set multiple = true %}
+{% endif %}
+
+{# set number of items to help with flex #}
+{% set count = content.field_stats['#items']|length %}
+{% set group_classes = group_classes|merge(['items--'~count]) %}
+
+{% embed "@content/molecules/_grouping.twig" with{
+  groupItems: content.field_stats,
+} %}
+{% endembed %}

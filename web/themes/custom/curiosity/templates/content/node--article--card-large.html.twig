@@ -1,0 +1,32 @@
+{#
+
+/* -------------------------
+
+Title: node--article--card-large
+Descr: defines content  for a feature image in a campfire
+same info as card--article just adds class feature
+
+--------------------------- */
+
+#}
+{% set card_modifiers =  ["article", "feature"]%}
+
+{% if content.field_byline_reference|render is not empty %}
+	{% set show_byline = true %}
+	{% set article_byline = content.field_byline_reference %}
+{% endif %}
+
+
+{% embed "@content/molecules/_card--article.twig" with {
+    card_feature: 'true',
+    card_title: label,
+    card_label: content.field_card_label,
+    card_link_url: url,
+    card_image : content.field_image,
+    card_byline : article_byline,
+    card_dateline: content.field_dateline,
+
+    card_nodeId : node.id
+
+} %}
+{% endembed %}

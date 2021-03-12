@@ -1,0 +1,17 @@
+/* -------------------------
+
+Title: pageComponent--recentMedia
+Descr: 
+    styles for pageComponets as recentMedia
+
+
+--------------------------- */
+
+.pcWrapper--recentMedia {
+  display: grid;
+  gap: var(--space);
+  grid-template-columns: repeat(2, 1fr);
+  @include large() {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

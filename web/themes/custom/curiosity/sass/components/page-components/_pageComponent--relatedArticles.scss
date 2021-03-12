@@ -1,0 +1,53 @@
+/* -------------------------
+
+Title: pageComponent--relatedArticles
+Descr: 
+    styles for pageComponets as relatedArticles
+
+
+--------------------------- */
+
+.pcWrapper--relatedArticles {
+  h4 {
+    @extend .sr-only;
+  }
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include medium() {
+      flex-wrap: nowrap;
+    }
+    li {
+      flex: 0 0 47%;
+      @include medium() {
+        flex: 100%;
+        margin-right: 1.5rem;
+      }
+      // flex-basis: 100%;
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
+.sidebar {
+  .pcWrapper--relatedArticles {
+    ul {
+      flex-direction: column;
+    }
+  }
+}
+// in layout group
+.pcWrapper--layoutGroup {
+  .pcWrapper--relatedArticles {
+    ul {
+      li {
+        flex: 0 0 47%;
+      }
+    }
+  }
+}

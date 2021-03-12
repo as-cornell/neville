@@ -1,0 +1,66 @@
+<footer>
+	{% block footer_content %}
+		{# {{vardumper()}} #}
+		<div class="footer">
+			{# {{content}} #}
+			{# {{ drupal_form('exposedformsearchpage_2') }} #}
+
+				<div class="footer__currentStudents"> <h2>
+					For current students
+				</h2>
+				{{ drupal_menu('for-current-students', 1, 2, true)	}}
+			</div>
+			<div class="footer__importantLinks">
+				{{ drupal_menu('footer', 1, 2, true) }}
+			</div>
+			<div class="footer__socialLinks">
+				<ul>
+					<li><a href="https://twitter.com/CornellCAS" class="socialLink socialLink--twitter">Twitter</a></li>
+					<li><a href="https://instagram.com/cornellcas" class="socialLink socialLink--instagram">Instagram</a></li>
+					<li><a href="https://www.facebook.com/CornellCAS" class="socialLink socialLink--facebook">Facebook</a></li>
+				</ul>
+			</div>
+			<div class="footer__logo">
+				<a href="http://cornell.edu" title="Cornell University" class="cu-logo">
+					Cornell University
+				</a>
+				<a class="as-logo" href="/" title="College of Arts & Sciences">
+					The College of Arts & Sciences
+				</a>
+
+			</div>
+			<div class="footer__address">
+				KG17 Klarman Hall
+				<br/>
+				Ithaca, NY 14853
+				<br/>
+				United states
+			</div>
+			<div class="footer__contacts">
+				+1(607) 255-4833
+			</br>
+			<a href="mailto:as_admissions@cornell.edu">
+				as_admissions@cornell.edu
+			</a>
+		</div>
+		<div class="footer__otherInformation">
+			{# <p>
+				If you have a disability and are having trouble accessing information on this website or need materials in an alternate format
+													contact
+				<a href="mailto:web-accessibility@cornell.edu">
+					web-accessibility@cornell.edu
+				</a>
+				for assistance.
+			</p> #}
+      <ul class="extraLinks">
+        <li>&copy; 2021 College of Arts &amp; Sciences</li>
+        <li><a href="/web-accessibility">Website Accessibility</a></li>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+        <li><a href="https://hr.cornell.edu/our-culture-diversity/diversity-inclusion/equal-opportunity-and-affirmative-action/equal-education">Equal Education &amp; Employment</a></li>
+        <li><a href="https://emergency.cornell.edu/">Emergency Information</a></li>
+      </ul>
+
+		</div>
+
+	</div>
+{% endblock %}</footer><a href="#top" class="toTopButton" title="got to top of page">Top</a>

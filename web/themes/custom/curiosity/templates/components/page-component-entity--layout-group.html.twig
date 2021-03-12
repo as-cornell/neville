@@ -1,0 +1,29 @@
+{#
+
+/* -------------------------
+
+Title: Component Entity Layout Group
+Descr: Group wrapper for layout entity item. Passes wrapper class and items.
+
+--------------------------- */
+
+ #}
+{% set group_base_class = 'pcWrapper' %}
+{% set group_modifiers = ['layoutGroup'] %}
+
+{# set items #}
+{% set items = content.field_columns %}
+
+{# set alignment #}
+{% set alignment = content.field_layout|field_value|safe_join(', ') %}
+
+{# set length to help with column layouts #}
+{% set count = content.field_columns['#items']|length %}
+
+{# set classes #}
+{% set group_classes = ['flex', alignment, 'items--'~count] %}
+{# {{vardumper()}} #}
+{% include "@content/molecules/_grouping.twig" with {
+    groupItems : content.field_columns
+}
+%}

@@ -1,0 +1,82 @@
+{#
+
+/* -------------------------
+
+Title: node--article.html.twig
+Descr: Sets up variables and content for _article.twig
+Passes:
+  --- Images - pano and image get output as figures by meida--image--default.html.twig so they can now just be passed to _article.twig as a field.
+  --- article and has-aside passed to <main>
+
+--------------------------- */
+
+#}
+
+{# Set up main
+    - extra class main
+    - base class page
+    - modifier basic, toc, has-sidebar
+ #}
+
+{% set main_element_extra_classes = ['main'] %}
+{% set main_element_base_class = main_element_base_class | default('article') %}
+{% set main_element_modifiers = [''] %}
+
+
+{# Content wrapper modifiers#}
+{% set content_wrapper_modifiers = ['article'] %}
+
+{# if field_pano not empty add to content_wrapper_modifiers #}
+	{% if content.field_pano|render is not empty %}
+	{% set hasPano = true %}
+{% set main_element_modifiers = main_element_modifiers|merge(['pano']) %}
+{% endif %}
+
+{# Related department program taxonomy #}
+	{% if content.field_department_program|render is not empty %}
+	{% set show_related_departments_programs = true %}
+{% set related_departments_programs = content.field_department_program %}
+{% endif %}
+
+{# Related articles #}
+	{% if content.field_related_articles|render is not empty %}
+	{% set show_related_articles = true %}
+{% set related_articles = content.field_related_articles %}
+{% endif %}
+
+{# Related people #}
+	{% if content.field_related_people|render is not empty %}
+	{% set show_related_people = true %}
+{% set related_people = content.field_related_people %}
+{% endif %}
+
+{# byline #}
+	{% if content.field_byline_reference|render is not empty %}
+	{% set show_byline = true %}
+{% set byline = content.field_byline_reference %}
+{% endif %}
+
+{# mediasource #}
+	{% if content.field_media_source_reference|render is not empty %}
+	{% set show_mediasource = true %}
+{% set mediasource = content.field_media_source_reference %}
+{% endif %}
+
+{% include "@pages/_article.twig" with {
+
+  article_pano : content.field_pano,
+  article_card : content.field_image,
+
+  content_wrapper_modifiers : content_wrapper_modifiers,
+  main_element_modifiers : main_element_modifiers,
+
+  title: node.label,
+  label: content.field_card_label,
+  main_content : content.field_article_components_entity,
+  aside_content : content.field_aside_components,
+
+  article_dateline: content.field_dateline,
+  article_byline: byline,
+  article_mediasource: mediasource,
+
+} %}

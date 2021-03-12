@@ -1,0 +1,35 @@
+{#
+/*
+
+ name = page-component-entity--person--card-small.html.twig
+ person card small
+
+ */
+#}
+
+{% set pathtoken = content.field_link.0['#title']|split('/')[4] %}
+{% set pathtoken = content.field_people_uuid|field_value|safe_join(' ') %}
+
+{% set person = parse_people_json(pathtoken) %}
+
+
+{% set card_link_url = '/people'~person.path %}
+
+{# {{vardumper()}} #}
+{% set image %}
+{% if person.imagepath == "https://people.asd8.as.cornell.edu" %}
+	<img src="https://people.as.cornell.edu/sites/people/files/Klarmanarticle_4784_2.jpg" alt="Klarman Hall"/>
+{% else %}
+	<img src="{{person.imagepath}}" alt="{{person.alt}}">
+{% endif %}
+{% endset %}
+
+{% embed "@content/molecules/_card--person.twig" with {
+    card_modifiers : ["person", "small"],
+    person_name: person.title,
+    person_image_path : person.imagepath,
+    person_image_alt : person.alt,
+    person_jobtitle: person.jobtitle,
+    person_nodeId : node.id
+} %}
+{% endembed %}

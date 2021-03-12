@@ -1,0 +1,139 @@
+/* -------------------------
+
+Title: view containers
+Descr: 
+    uses the <main> 12 column grid as a base.
+    under /pages because it includes the <main> element
+
+--------------------------- */
+
+.basicSidebar--viewContainer {
+  grid-template-rows: auto auto 1fr;
+  grid-template-columns: repeat(12, 1fr);
+  .sidebar {
+    grid-area: sidebar;
+    .sidebar--filters {
+      // position: sticky;
+      // top: 150px;
+    }
+  }
+  .pageTitle {
+    grid-area: title;
+  }
+  .content {
+    grid-area: content;
+  }
+  .pager {
+    grid-area: pager;
+  }
+  // base layout
+  grid-template-areas:
+    "sidebar"
+    "title"
+    "content"
+    "pager";
+  // medium layout
+  @include medium {
+    grid-template-areas:
+      "sidebar sidebar sidebar title title title title title title title title title "
+      "sidebar sidebar sidebar content content content content content content content content content "
+      "sidebar sidebar sidebar pager pager pager pager pager pager pager pager pager ";
+  }
+}
+
+/*
+  layouts for teasers and cards in list views
+*/
+
+// list--teasers
+
+// list--cards
+.list--cards {
+  .content {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space);
+    @include medium() {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+// trying it out as a landing page
+.landingPage--viewContainer {
+  grid-template-rows: auto auto 1fr;
+  grid-template-columns: 1fr;
+  @include medium() {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .view--form {
+    grid-area: form;
+    // position: sticky;
+    // top: 0.5rem;
+    // z-index: 1;
+  }
+  .view--facets {
+    grid-area: facets;
+    // grid-area: facets;
+    // border: 1px solid var(--as-teal);
+    // padding: 1rem;
+    // border-radius: var(--border-radius);
+    font-size: var(--base-18);
+    margin-bottom: 1rem;
+    ul {
+      margin-bottom: 0;
+    }
+  }
+  .pageTitle {
+    grid-area: title;
+  }
+  .content {
+    grid-area: content;
+  }
+  .pager {
+    grid-area: pager;
+  }
+  // base layout
+  grid-template-areas:
+    "title"
+    "form"
+    "facets"
+    "content"
+    "pager";
+  // medium layout
+  @include medium {
+    grid-template-areas:
+      ". title title title title title title title title title title . "
+      ". facets facets facets facets facets facets facets facets facets facets . "
+      ". form form form form form form form form form form . "
+      ". content content content content content content content content content content . "
+      ". pager pager pager pager pager pager pager pager pager pager . ";
+  }
+  &.list--cards {
+    @include medium {
+      grid-template-areas:
+        ". title title title title title title title title title title . "
+        ". facets facets facets facets facets facets facets facets facets facets . "
+        ". form form form form form form form form form form . "
+        "content content content content content content content content content content content content "
+        ". pager pager pager pager pager pager pager pager pager pager . ";
+    }
+  }
+}
+
+//people list
+
+.list--people {
+  .content {
+    display: grid;
+    @include medium() {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include large() {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    gap: var(--space);
+  }
+}

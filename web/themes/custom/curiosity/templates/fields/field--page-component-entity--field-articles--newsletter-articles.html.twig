@@ -1,0 +1,16 @@
+{#
+/**
+ *field--page-component-entity--newsletter-articles.html.twig
+  just outputting articles becasuse twig is dumb.
+  Hopefully article just smushed into a big <td> further up will flow properly
+ */
+#}
+
+{% set group_modifiers = ['articles'] %}
+{% set group_base_class = 'pcWrapper' %}
+{% set li_base_class = 'articleList' %}
+
+{% embed "@content/molecules/_grouping.twig" with{
+  groupItems : items
+} %}
+{% endembed %}

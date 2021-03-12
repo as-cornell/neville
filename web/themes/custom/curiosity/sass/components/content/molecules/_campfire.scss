@@ -1,0 +1,71 @@
+/* -------------------------
+
+Title: campfire
+Descr: 
+    sets up main campfire, three columns, and responsive breakdown
+
+--------------------------- */
+.campfire {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: var(--bottom-margin);
+  // margin-top: 2rem;
+  @include small() {
+    flex-direction: row;
+    flex-wrap: wrap;
+    &__feature {
+      flex: 0 0 100%;
+      margin-bottom: 2rem;
+      h1 {
+        margin-top: 0;
+      }
+      .spotlight {
+        font-size: var(--base-64);
+        line-height: 1;
+        @include text-gradient(var(--storm-radial));
+      }
+    }
+    &__articles {
+      flex: 0 0 calc(50% - 1rem);
+    }
+  }
+  @include headerBreak() {
+    margin-top: 2rem;
+    &__feature {
+      flex: 0 0 44%;
+      order: 2;
+      margin-top: -3rem;
+      h1 {
+        margin-top: .25em;
+      }
+    }
+    &__articles {
+      flex: 0 0 23%;
+      order: 1;
+      &:last-of-type {
+        order: 3;
+      }
+    }
+  }
+}
+
+// campfire specific styles
+.campfire__support {
+  p {
+    @include xl {
+      font-size: 1.25rem;
+    }
+    &:last-of-type{
+margin-top: 3rem;
+    }
+  }
+  h2 {
+    font-weight: var(--semi);
+    margin-top: 0.5em;
+    font-size: var(--base-36);
+  }
+  .group__title {
+    @extend .sr-only;
+  }
+}

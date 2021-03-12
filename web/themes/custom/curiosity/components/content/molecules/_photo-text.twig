@@ -1,0 +1,22 @@
+{#
+/**
+ * Out put for the photo text and each slide in a phototext slider
+ *  
+
+{# <div {{ bem('element',['mod1', 'mod2'], 'block') }}> #}
+
+{% set PT_base_class = PT_base_class | default(['photoText']) %}
+
+{% set base_class = base_class | default('') %}
+{% set modifiers = modifiers | default(['']) %}
+{% set classes = classes | default(['']) %}
+
+<div {{ bem(base_class, (modifiers),'', classes) }}>
+  {{ title_suffix }}
+  <div {{ bem('image','', base_class) }}>
+    {{image}}
+  </div>
+  <div {{ bem('text','', base_class) }}>
+    {{text}}
+  </div>
+</div>

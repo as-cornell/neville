@@ -1,0 +1,20 @@
+{#
+
+/* -------------------------
+
+Title: page-component-entity--search-block.html.twig
+Descr: Sets up search block
+
+--------------------------- */
+
+#}
+
+{% set group_base_class = 'pageComponent' %}
+{% set group_modifiers = ['searchBlock'] %}
+{% set group_classes = ['searchBlock'] %}
+{# {{vardumper()}} #}
+{% include "@content/molecules/_searchblock.twig" with {
+    group_base_class : group_base_class,
+    group_modifiers : group_modifiers,
+    form_label: content.name
+} %}

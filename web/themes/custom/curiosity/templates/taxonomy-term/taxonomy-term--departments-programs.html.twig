@@ -1,0 +1,89 @@
+{#
+/**
+ * @file
+ * Department and program fields layout and content.
+ *
+ * Available variables:
+ * - url: URL of the current term.
+ * - name: Name of the current term.
+ * - content: Items for the content of the term (fields and description).
+ *   Use 'content' to print them all, or print a subset such as
+ *   'content.description'. Use the following code to exclude the
+ *   printing of a given child element:
+ *   @code
+ *   {{ content|without('description') }}
+ *   @endcode
+ * - attributes: HTML attributes for the wrapper.
+ * - page: Flag for the full page state.
+ * - term: The taxonomy term entity, including:
+ *   - id: The ID of the taxonomy term.
+ *   - bundle: Machine name of the current vocabulary.
+ * - view_mode: View mode, e.g. 'full', 'teaser', etc.
+ *
+ * @see template_preprocess_taxonomy_term()
+ */
+#}
+{#vardumper(term.tid.value)#}
+{#drupal_block('people_department_block', {deptid: term.tid.value})#}
+{% set main_element_extra_classes = ['main'] %}
+{% set main_element_base_class = main_element_base_class | default('department-program') %}
+{% set main_element_modifiers = [''] %}
+
+{# Related articles
+{% if content.field_related_articles.0 %}
+	{% set show_related_articles = true %}
+	{% set related_articles = (content.field_related_articles|render is not empty) ? content.field_related_articles %}
+{% endif %}
+#}
+
+{# Articles Block #}
+
+
+{% set related_articles = drupal_view('news', 'block_2', name.0['#context']['value']) %}
+{% if related_articles %}
+  {% set show_related_articles = true %}
+{% endif %}
+
+{# Related discipline #}
+{% if content.field_discipline.0 %}
+	{% set show_disciplines = true %}
+	{% set disciplines = (content.field_discipline|render is not empty) ? content.field_discipline %}
+{% endif %}
+
+{# Related People#}
+{% set related_people = drupal_block('people_dept_faculty_block', {deptid: term.tid.value}) %}
+{% if related_people %}
+  {% set show_related_people = true %}
+{% endif %}
+{# {{vardumper()}} #}
+{% set type = content.field_type.0['#plain_text'] %}
+
+{% set websiteLink %}
+<a href="{{content.field_department_website.0["#url"]}}" class="btn--blue">Visit {{name}}</a>
+{% endset %}
+
+
+{% if content.field_links.0 %}
+{% set showLinks = true %}
+{% endif %}
+
+{% include "@pages/_department-program.twig" with{
+  title : name,
+  type : type,
+
+  image : content.field_image,
+
+  description: content.description,
+  body: content.field_page_components,
+  outcomes: content.field_long_text_one,
+  requirements: content.field_long_text_two,
+  classes: content.field_classes,
+  links: content.field_links,
+
+
+  related_articles: related_articles,
+  disciplines: disciplines,
+  related_people: related_people
+
+
+} %}

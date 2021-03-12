@@ -1,0 +1,14 @@
+{#
+/**
+ *field--taxonomy-term--field-links.html.twig
+ using _ul.twig because just a plain list not a page component
+ */
+#}
+
+{% set ul_modifiers = ['related-links'] %}
+
+
+{% embed "@content/atoms/_ul.twig" with{
+  ul_items : items
+} %}
+{% endembed %}

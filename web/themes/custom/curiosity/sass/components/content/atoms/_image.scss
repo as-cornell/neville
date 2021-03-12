@@ -1,0 +1,34 @@
+/* -------------------------
+
+Title: image
+Descr: 
+    Most basic universal image styles
+    Include all masking styles for feature images
+
+--------------------------- */
+img,
+picture {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  border-radius: var(--border-radius);
+}
+
+//masking styles
+.mask-one {
+  clip-path: url(#mask-one);
+  -webkit-clip-path: url(#mask-one);
+}
+@for $i from 1 through 3 {
+  .mask-#{$i} {
+    clip-path: url(#mask-#{$i});
+    -webkit-clip-path: url(#mask-#{$i});
+  }
+}
+
+@for $i from 1 through 3 {
+  .pano-mask-#{$i} {
+    clip-path: url(#pano-mask-#{$i});
+    -webkit-clip-path: url(#pano-mask-#{$i});
+  }
+}

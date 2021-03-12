@@ -1,0 +1,85 @@
+{# [module]/templates/my-template.html.twig #}
+
+
+{% set person = parse_people_json(pathtoken) %}
+
+
+
+{% set contact = drupal_block('ldap_block', {netid: person.netid}) %}
+{# edcuation #}
+{% if person.education %}
+	{% set show_education = true %}
+	{% set education = person.education %}
+{% endif %}
+
+{# summary #}
+{% if person.summary %}
+	{% set show_summary = true %}
+	{% set summary = person.summary|raw %}
+{% endif %}
+
+{# responsibilities #}
+{% if person.responsibilities %}
+	{% set show_responsibilities = true %}
+	{% set responsibilities = person.responsibilities|raw %}
+{% endif %}
+
+
+{# researchfocus #}
+{% if person.researchfocus %}
+	{% set show_researchfocus = true %}
+	{% set researchfocus = person.researchfocus %}
+{% endif %}
+
+{# publications #}
+{% if person.publications %}
+	{% set show_publications = true %}
+	{% set publications = person.publications %}
+{% endif %}
+
+{# departments #}
+{% if person.departments %}
+	{% set show_departments = true %}
+	{% set departments = person.departments %}
+{% endif %}
+
+{# links #}
+{% if person.links %}
+	{% set show_links = true %}
+	{% set links = person.links %}
+{% endif %}
+
+{# related articles #}
+{% set puuid = person.uuid|json_encode(constant('JSON_PRETTY_PRINT'))|replace({'"': ''})%}
+{% set view = drupal_view_result('news', 'block_related_articles', puuid)|length %}
+{% if view > 0 %}
+  {% set related_articles = drupal_view('news', 'block_related_articles', puuid) %}
+  {% set show_related_articles = true %}
+{% endif %}
+{% set main_element_extra_classes = ['main'] %}
+{% set main_element_base_class = main_element_base_class | default('person') %}
+{% set main_element_modifiers = [''] %}
+
+{# set image #}
+{% if person.imagepath %}
+	{% set image %}
+	{% if (person.imagepath == "https://people.asd8.as.cornell.edu") or (person.imagepath == "https://people.asd8.as.cornell.edu/sites/people/files/Angie%20Torres-Beltran.jpg")%}
+		<img src="https://people.as.cornell.edu/sites/people/files/Klarmanarticle_4784_2.jpg" alt="Klarman Hall"/>
+	{% else %}
+		<img src="{{person.imagepath}}" alt="{{person.alt}}">
+	{% endif %}
+	{% endset %}
+{% endif %}
+
+{% include "@pages/_person.twig" with{
+  name : person.title,
+  title : person.jobtitle,
+
+  image : image,
+
+  contact: contact,
+
+  links: links,
+
+  related_articles: related_articles
+} %}

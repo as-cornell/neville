@@ -1,0 +1,27 @@
+/* -------------------------
+
+Title: Swiss Army 
+Descr: Where all little helper classes that don't go on one specific component css will live. They all must be applicable to multiple elements.
+
+--------------------------- */
+
+// Hidden, only for items that need to be hidden from everything, including screen readers
+.hidden {
+  display: none;
+}
+.offscreen {
+  position: absolute;
+  z-index: -1;
+}
+
+.sr-only {
+  display: block;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(1px);
+  white-space: nowrap;
+  position: absolute;
+}

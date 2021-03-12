@@ -1,0 +1,89 @@
+// Mixin - Base Grid
+@mixin baseGrid($g-gap: var(--space), $g-row-gap: var(--space)) {
+  display: grid;
+  grid-gap: $g-gap;
+}
+@mixin base12GridColumns() {
+  grid-template-columns: repeat(12, calc(8.59% - 2rem));
+}
+@mixin base24GridColumns() {
+  grid-template-columns: repeat(24, calc(5.1% - 2rem));
+  grid-gap: 1.5rem;
+}
+
+// Fonts
+@mixin baseFont(
+  $size: var(--base-font-size),
+  $color: var(--dark-text),
+  $weight: var(--light),
+  $line-height: var(--line-height),
+  $family: var(--font-sans)
+) {
+  font-family: $family;
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+  line-height: $line-height;
+}
+
+// Box and Drop shadow
+@mixin boxShadow($x: 0, $y: 0, $spread: 8px, $color: var(--gray-lt)) {
+  box-shadow: $x $y $spread 0px $color;
+}
+
+@mixin dropShadow($spread: 8px, $color: var(--gray-med)) {
+  filter: drop-shadow(0 0 $spread $color);
+}
+
+@mixin list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// gradient-border needs two parts. one for the conatiner/border, one that sets the :before for the actual visible background color
+@mixin gradient-border {
+  position: relative;
+  background: var(--main-card-border);
+  background-origin: padding-box, border-box;
+  background-repeat: no-repeat;
+  border-radius: var(--border-radius);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    bottom: 1px;
+    left: 1px;
+    right: 1px;
+    border-radius: var(--border-radius);
+    background: var(--as-white);
+    z-index: 0;
+  }
+}
+
+// text gradients need to set up to take variables for background
+@mixin text-gradient($background: var(--storm-radial)) {
+  background: $background;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 8px;
+}
+
+// links that look like buttons
+@mixin btnLink($background: var(--gray-lightest), $color: var(--storm)) {
+  display: inline-block;
+  background: $background;
+  padding: 0.75em;
+  border-radius: var(--border-radius);
+  font-size: var(--base-20);
+  text-align: center;
+  font-weight: var(--regular);
+  // font-weight: var(--semi);
+  color: $color !important;
+  @include boxShadow();
+  // margin-right: 1rem;
+  margin-top: 1em;
+  &:hover {
+    box-shadow: none;
+  }
+}

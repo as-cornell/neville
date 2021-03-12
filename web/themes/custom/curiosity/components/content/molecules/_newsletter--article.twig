@@ -1,0 +1,35 @@
+{#
+
+/* -------------------------
+
+Title: _newsletter--article.twig
+Descr: i dont' even fucking know
+
+--------------------------- */#}
+{# {{vardumper()}} #}
+<tr>
+	<td>
+		<table style="background: #fff;">
+			<tr>
+				<td style="padding: 20px 20px 0 20px;">
+					{{newsletter_image}}
+				</td>
+			</tr>
+			<tr>
+				<td style="padding: 20px;">
+					<h1>
+						<a href="https://as.cornell.edu{{newsletter_link_url}}">
+							{{newsletter_title}}
+						</a>
+					</h1>
+					{{content.field_summary|raw}}
+					<p>
+						<a href="https://as.cornell.edu{{newsletter_link_url}}">
+							Learn more
+						</a>
+					</p>
+				</td>
+			</tr>
+		</table>
+	</td>
+</tr>

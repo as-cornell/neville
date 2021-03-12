@@ -1,0 +1,101 @@
+{#
+
+/* -------------------------
+
+Title: _article.twig
+Descr: Layout for default articles.
+details:
+  --- updates <main> based on article and has pano values
+  --- shows pano if available
+  --- shows aside for related information
+
+Needed? :
+  --- probably need to add a default 4 card news thing with links to all news to bottom of page.
+
+--------------------------- */
+
+#}
+
+{% set isTitle = true %}
+<main {{ bem(main_element_base_class, (main_element_modifiers), main_blockname, main_element_extra_classes) }}>
+{{titles_suffix}}
+{{ title_prefix }}
+	{% if hasPano %}
+  <div class="article__pano">
+    {{article_pano}}
+  </div>
+
+	{% endif %}
+
+	<div class="article__title">
+		{% include "@content/atoms/_heading.twig" with {
+      "heading_level" : 1,
+      "heading" : title,
+      "heading_modifiers" : ["margin"],
+      "heading_base_class" : "title"
+    } %}
+    <p class="article__label">{{label}}</p>
+    {% if show_byline or show_mediasource or article_dateline %}
+      <p class="article__byline">
+      {% if show_byline or show_mediasource %}
+        {% if show_byline %}
+        By | {{ byline }}
+        {% endif %}
+
+        {% if show_byline and show_mediasource %}, {% endif %}
+        {% if show_mediasource %}
+          {{mediasource}}
+        {% endif %}
+        <br/>
+        {% endif %}
+      </p>
+    {% endif %}
+    <span class="article__dateline">{{article_dateline}}</span>
+	</div>
+	{# <div class="article__social">
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="socialLink socialLink--twitter socialLink--dark-teal twitter-share-button" data-show-count="false">
+      Share on Twitter
+    </a> #}
+    {# <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> #}
+    {# <a href="" class="socialLink socialLink--facebook socialLink--dark-teal ">
+      Share on Facebook
+    </a>
+	</div> #}
+	<div class="article__content">
+		{{main_content}}
+    <h2>More News from A&S</h2>
+    <div class="smallCards pcWrapper pcWrapper--relatedArticles">{{ drupal_view('news', 'block_2') }}
+    <a href="/news" class="btn btn--blue">View all news</a>
+    </div>
+
+
+	</div>
+	<div class="article__thumbnail">
+		{{article_card}}
+	</div>
+	<aside role="complimentary">
+
+    {% if show_related_articles %}
+      <h3>
+        Related articles
+      </h3>
+      {{related_articles}}
+    {% endif %}
+
+    {% if show_related_departments_programs %}
+      <h3>
+        Related department or program
+      </h3>
+      {{related_departments_programs}}
+    {% endif %}
+
+    {% if show_related_people %}
+      <h3>
+        Related people
+      </h3>
+      {# {{vardumper()}} #}
+      {{related_people}}
+
+    {% endif %}
+	</aside>
+</main>

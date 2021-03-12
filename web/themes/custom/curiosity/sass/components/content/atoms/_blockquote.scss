@@ -1,0 +1,163 @@
+/* -------------------------
+
+Title: blockquote
+Descr: 
+   - style block quote.
+   - pcWrapper--blockQuote and pcWrapper--ftb blockquote have the same styles for different markup presented in each place.
+   - hasPerson does light mods to person card small styles
+
+--------------------------- */
+
+// base blockquotes
+// blockquote {
+.pcWrapper--blockQuote,
+.pcWrapper--ftb blockquote {
+  background: var(--gray-lightest);
+  font-size: 1.25rem;
+  // margin: 3rem 0;
+  padding: 2em;
+  position: relative;
+  // z-index: -1;
+  margin: 1em 0;
+  @include large() {
+    padding: 3rem;
+    font-size: 1.5rem;
+    margin: 4rem auto;
+    max-width: 80%;
+  }
+
+  // font-style: italic;
+
+  font-weight: var(--regular);
+  border-radius: var(--border-radius);
+  @include boxShadow;
+  .attribution {
+    font-weight: var(--regular);
+    font-size: var(--base-24);
+  }
+  &.blue {
+    background: var(--storm-radial);
+    color: var(--as-white);
+  }
+  blockquote {
+    position: relative;
+  }
+  p {
+    position: relative;
+    z-index: 1;
+    // background: red;
+    &:before {
+      position: absolute;
+      height: 45px;
+      width: 60px;
+      content: "";
+      background-image: var(--blurple-linear);
+      background-size: 300%;
+      animation: bg-animation 3s infinite alternate;
+      z-index: 0;
+      margin-left: -3rem;
+      margin-top: -1rem;
+      clip-path: url(#open-quote);
+    }
+    &:before {
+    }
+
+    &:first-of-type {
+      text-indent: 2rem;
+    }
+    &:last-of-type {
+      &:before,
+      &:after {
+        content: "";
+        display: none;
+      }
+    }
+  }
+  &:hover {
+    p:before {
+      background-position: right;
+    }
+  }
+}
+.pcWrapper--blockQuote {
+  blockquote {
+    position: relative;
+    &:before {
+      position: absolute;
+      height: 45px;
+      width: 60px;
+      content: "";
+      background-image: var(--blurple-linear);
+      background-size: 300%;
+      animation: bg-animation 3s infinite alternate;
+      z-index: 0;
+      margin-left: -1rem;
+      margin-top: -1rem;
+      clip-path: url(#open-quote);
+    }
+  }
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+.pcWrapper--blockQuote {
+  blockquote {
+    // font-size: 2rem;
+    .attribution {
+      font-size: 1rem;
+    }
+  }
+
+  // with person
+  &.pcWrapper--hasPerson {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--bottom-margin);
+    .blockquote__quote {
+      flex: 0 0 75%;
+      margin: 0;
+      blockquote {
+        // margin: 0 3rem;
+      }
+    }
+    .blockquote__person {
+      .person__departments {
+        @extend .sr-only;
+      }
+      .card {
+        flex-direction: column;
+        margin-bottom: 0;
+        // align-items: center;
+        h2 {
+          font-size: var(--base-24);
+          margin: 1em 0 0.5em 0;
+        }
+        p {
+          text-indent: 0;
+        }
+        &:before {
+          display: none;
+        }
+        figure {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+// blockquotes in articles
+.article.main {
+  blockquote {
+    @include large() {
+      margin-left: -3rem;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{#
+/* -------------------------
+
+Title: PCE--campfire
+Descr: Main drupal template for outputting campfire component.
+
+--------------------------- */
+#}
+
+{% include "@content/molecules/_campfire.twig" with {
+    "campfire_center" : content.field_main_article,
+    "campfire_center_ftb" : content.field_formatted_text,
+    "campfire_other_news" : content.field_articles,
+    "campfire_articles_1" : content.field_campfire_before,
+    "campfire_articles_2" : content.field_campfire_after,
+    "campfire_label" : content.field_label
+} %}

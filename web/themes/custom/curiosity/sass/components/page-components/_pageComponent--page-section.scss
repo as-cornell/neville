@@ -1,0 +1,47 @@
+/* -------------------------
+
+Title: Page Section
+Descr: Specific styles for page sections wrappers, headings
+
+--------------------------- */
+
+.pageSection {
+  &:first-of-type {
+    .group__title {
+      margin-top: 0;
+    }
+  }
+  margin-bottom: var(--bottom-margin);
+  position: relative;
+  &:before {
+    // display: block;
+    // content: "";
+    // height: 50px;
+    // margin: -50px 0 0;
+  }
+  &:target {
+    animation-name: simpleFadeIn;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+  }
+}
+
+// direct decent pcWrappers get margin bottom of 3rem on landing pages.
+.landingPage {
+  .pageSection {
+    > .pcWrapper {
+      margin-bottom: var(--bottom-margin);
+    }
+  }
+}
+
+// basic page pageSections need less bottom margin b/c they show the title
+.basicSidebar {
+  .pageSection {
+    margin-bottom: 0;
+    > .pcWrapper {
+      margin-bottom: 0;
+    }
+  }
+}

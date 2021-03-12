@@ -1,0 +1,32 @@
+{#
+
+/* -------------------------
+
+Title: Photo Text Block
+Descr: Set main wrapper for photo text item
+        passess wrapperClass and content to photo-text-block.twig
+
+--------------------------- */
+
+#}
+{# {{vardumper()}} #}
+{% set group_base_class = 'pcWrapper' %}
+{% set group_modifiers = ['photoText'] %}
+
+{% set groupItems = content.field_photo_text_reference %}
+
+
+{% if content.field_photo_text_wrapper_class|render is not empty %}
+	{% set wrapperClass = content.field_photo_text_wrapper_class|field_value|safe_join(', ') %}
+	{% set group_modifiers = group_modifiers|merge([wrapperClass]) %}
+{% endif %}
+
+{% if content.field_photo_text_reference['#is_multiple'] == true %}
+	{% set multiple = true %}
+{% endif %}
+
+{% embed "@content/molecules/_grouping.twig" with{
+
+  title: content.name
+} %}
+{% endembed %}

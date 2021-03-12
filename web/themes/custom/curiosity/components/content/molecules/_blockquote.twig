@@ -1,0 +1,23 @@
+{#
+
+/* -------------------------
+
+Title: _blockquote.twig
+Descr: output for blockquote view modes
+receives:
+
+--------------------------- */
+
+#}
+
+<div{{bem(group_base_class,(group_modifiers),'',group_classes)}}>
+
+	<div class="blockquote__quote">
+		{{quote}}
+	</div>
+	{% if hasPerson %}
+		<div class="blockquote__person">
+			{{person}}
+		</div>
+	{% endif %}
+</div>

@@ -1,0 +1,61 @@
+{#
+
+/* -------------------------
+
+Title: node--article--teaser.html.twig
+Descr: sets up variable to pass to _teaser.twig
+--- nodeType
+--- teaser_modifiers
+--- teaser_summary
+--- teaser_chopped_body
+--- thumbnail image
+--- dateline
+--- media source
+--- byline
+
+Setting up new block class of 'teaser'
+
+--------------------------- */
+#}
+
+{% set nodeType = 'landingPage' %}
+{% set teaser_modifiers = [''] %}
+
+
+{% set teaser_modifiers = teaser_modifiers|merge([nodeType]) %}
+{% set teaser_summary = content.field_summary %}
+
+{% set byline = content.field_byline_reference.0['#plain_text'] %}
+
+
+{# if no summary set to chopped body #}
+{% if content.field_summary|render is not empty %}
+	{% set teaser_body = teaser_summary %}
+{% else %}
+  {% set teaser_body = '<p>' ~ content.field_article_components_entity|field_target_entity.field_formatted_text.value|striptags|truncate(400, true, '...') ~ '</p>' %}
+{% endif %}
+
+{% if elements['#search_api_excerpt'] %}
+  {% set teaser_body = elements['#search_api_excerpt'] %}
+{% endif %}
+
+{# if not thumbnail set to field_image #}
+{% if content.field_thumbnail_image|render is not empty %}
+	{% set teaser_img = content.field_thumbnail_image %}
+{% else %}
+	{% set teaser_img = content.field_image %}
+{% endif %}
+
+
+{% embed "@content/molecules/_teaser.twig" with {
+  teaser_title: label,
+  teaser_body: content.body,
+  teaser_link_url: url,
+  teaser_img: teaser_img,
+  teaser_dateline: content.field_dateline,
+  teaser_media_source : content.field_media_source_reference,
+  teaser_byline : content.field_byline_reference,
+  teaser_body : teaser_body
+} %}
+
+{% endembed %}

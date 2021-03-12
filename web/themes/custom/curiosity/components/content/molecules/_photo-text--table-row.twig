@@ -1,0 +1,29 @@
+{#
+/**
+ * Out put for the photo text and each slide in a phototext slider
+ *  
+
+{# <div {{ bem('element',['mod1', 'mod2'], 'block') }}> #}
+
+{% set PT_base_class = PT_base_class | default(['photoText']) %}
+
+{% set base_class = base_class | default('') %}
+{% set modifiers = modifiers | default(['']) %}
+{% set classes = classes | default(['']) %}
+
+<tr>
+	<table>
+		<tbody>
+			<tr>
+				<td>
+					{{image}}
+				</td>
+			</tr>
+			<tr>
+				<td style="padding: 20px;">
+					{{text}}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</tr>

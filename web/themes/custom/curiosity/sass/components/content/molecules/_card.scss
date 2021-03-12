@@ -1,0 +1,73 @@
+/* -------------------------
+
+Title: Cards
+Descr: Sets shape and border of cards
+Variations: 
+
+  Article cards on _card--article.scss
+  
+--------------------------- */
+
+// default card styles
+
+.card {
+  @include boxShadow;
+  // @include baseBorder();
+  border-radius: var(--border-radius);
+  margin-bottom: var(--space);
+  @include gradient-border();
+  align-items: flex-start;
+  figure {
+    margin: 0;
+    box-shadow: none;
+    img {
+      border-radius: 2px 2px 0 0;
+    }
+  }
+  > * {
+    position: relative;
+  }
+}
+
+.card__title {
+  // font-size: 1rem;
+  // line-height: 1.3;
+  // font-weight: var(--regular);
+  &-link {
+    color: var(--as-dark-blue);
+    display: block;
+    &:hover {
+      color: var(--as-blue-base);
+    }
+  }
+}
+
+.card__label {
+  margin-bottom: 0;
+}
+
+.card__body {
+  margin: 0.7em 0 1em;
+}
+
+.card__copy {
+  padding: 1rem;
+}
+
+// .card--no-image {
+//   .card__copy {
+//     grid-column: 1 / -1;
+//   }
+// }
+
+// for embedded small cards
+[data-embed-button="article_entity_embed"] {
+  .card--small {
+    max-width: 400px;
+  }
+}
+
+// COURSES
+.card--course {
+  padding: 1rem;
+}

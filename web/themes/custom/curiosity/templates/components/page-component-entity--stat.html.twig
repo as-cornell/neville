@@ -1,0 +1,32 @@
+{#
+
+/* -------------------------
+
+Title: entity--stat
+Descr: pushes relevant content for a stat to 01-card.twig
+
+--------------------------- */
+
+#}
+{# {{vardumper()}} #}
+{% if content.field_related_content|render is not empty %}
+
+	{% set hasLink = true%}
+  {# {% set link = "/node/" ~ content.field_related_content %} #}
+	{% set link = "/node/" ~ content.field_related_content.0["#plain_text"]%}
+  {% elseif content.field_link|render is not empty %}
+  	{% set hasLink = true%}
+  {# {% set link = "/node/" ~ content.field_related_content %} #}
+	{% set link = content.field_link.0["#url_title"]%}
+{% endif %}
+{# {{link}} #}
+{# {{link}} #}
+{% embed "@content/molecules/_card--stat.twig" with {
+  card_modifiers: ["stat"],
+  card_title: label,
+  card_label: content.field_stat_number,
+  card_body: content.field_stat_description,
+  card_link_url: link
+} %}
+
+{% endembed %}

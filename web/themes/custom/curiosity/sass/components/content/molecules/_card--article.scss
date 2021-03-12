@@ -1,0 +1,220 @@
+/* -------------------------
+
+Title: _card--article.scss
+Descr: Sets all specific styles for an article card
+  sets css for card--feature as they are articles
+
+--------------------------- */
+
+.card--article {
+  grid-row: span 2;
+
+  .card__copy {
+    padding: 1rem;
+    @include baseGrid($g-gap: 0px);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "label label label"
+      "title title title"
+      "date byline byline";
+  }
+  .card__title {
+    grid-area: title;
+    margin: 0.75em 0 2em 0;
+    font-weight: var(--regular);
+    font-size: var(--base-20);
+    line-height: 1.4;
+  }
+  .card__label {
+    grid-area: label;
+    color: var(--as-black);
+    font-size: var(--base-18);
+    font-weight: var(--semi);
+    margin-bottom: 0.5em;
+  }
+  .card__date {
+    grid-area: date;
+    text-align: left;
+    font-size: var(--base-16);
+    margin-top: 2px;
+  }
+  .card__byline {
+    grid-area: byline;
+    font-size: var(--base-16);
+    text-align: right;
+  }
+  // links for article cards
+  a.card__title-link {
+    display: block;
+    padding-bottom: 1em;
+    text-decoration: underline;
+    text-decoration-color: var(--gray-lt);
+    position: relative;
+    &:before {
+      position: absolute;
+      content: "";
+      width: 50%;
+      height: 1px;
+      bottom: 0;
+      left: 25%;
+      transition: all 0.2s;
+      background-image: var(--teal-purple);
+    }
+    &:hover {
+      &:before {
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+  // &.card--small {
+  //   // grid-template-columns: 180px 1fr;
+  //   border: none;
+  //   margin-bottom: 1rem;
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: flex-start;
+  //   background: none;
+  //   box-shadow: none;
+  //   :before {
+  //     display: none;
+  //   }
+  //   figure {
+  //     flex: 0 0 30%;
+  //     margin-right: 1rem;
+  //     @include boxShadow();
+  //   }
+  //   .card__copy {
+  //     flex: 1 0 60%;
+  //     padding: 0;
+  //   }
+  //   .card__title {
+  //     grid-area: title;
+  //     margin: 0;
+  //     font-size: var(--base-20);
+  //   }
+  //   .label,
+  //   .card__byline,
+  //   .card__date {
+  //     display: none;
+  //   }
+  //   .card__label {
+  //     font-size: var(--base-16);
+  //   }
+  //   img {
+  //     border-radius: var(--border-radius);
+  //   }
+  // }
+  figcaption {
+    display: none;
+  }
+}
+
+.sidebar,
+aside,
+.smallCards {
+  .card--article {
+    // &.card--small {
+    // grid-template-columns: 180px 1fr;
+    border: none;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: none;
+    box-shadow: none;
+    :before {
+      display: none;
+    }
+    figure {
+      flex: 0 0 30%;
+      margin-right: 1rem;
+      @include boxShadow();
+    }
+    .card__copy {
+      flex: 1 0 60%;
+      padding: 0;
+    }
+    .card__title {
+      grid-area: title;
+      margin: 0;
+      font-size: var(--base-20);
+    }
+    .label,
+    .card__byline,
+    .card__date {
+      display: none;
+    }
+    .card__label {
+      font-size: var(--base-16);
+    }
+    img {
+      border-radius: var(--border-radius);
+    }
+  }
+}
+
+.smallCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  > div {
+    flex: 0 1 47%;
+  }
+  .btn {
+    flex: 0 0 30%;
+    margin: 1rem auto;
+  }
+}
+
+.card--feature {
+  margin-bottom: 3rem !important;
+  .card__copy {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "label"
+      "title"
+      "byline";
+  }
+  a.card__title-link {
+    padding-bottom: 0;
+    &:before {
+      display: none;
+    }
+    span {
+      display: block;
+    }
+  }
+  .figure {
+    grid-area: image;
+    background: transparent;
+    width: calc(100% + 2rem);
+    margin-left: -1rem;
+    padding-top: 2rem;
+    box-shadow: none;
+  }
+  .card__title {
+    // padding: 0 1rem;
+    margin-bottom: 1em;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: var(--semi);
+  }
+  .card__label {
+    color: var(--as-black);
+    font-size: var(--base-18);
+    font-weight: var(--semi);
+    text-align: center;
+  }
+  .card__date {
+    font-size: var(--base-16);
+    display: none;
+  }
+  .card__byline {
+    font-size: var(--base-18);
+    text-align: center;
+  }
+  img {
+    @extend .mask-2;
+  }
+}

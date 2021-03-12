@@ -1,0 +1,46 @@
+/* -------------------------
+
+Title: lists
+Descr: Sets grid default <ul> <ol>
+Variations: 
+
+
+--------------------------- */
+
+ul,
+ol {
+  padding-left: 1rem;
+  margin-bottom: 1em;
+  li {
+    margin-bottom: 0.25em;
+    max-width: var(--line-width);
+  }
+}
+ul.inline {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    margin-right: 1rem;
+  }
+}
+ul.thumbnails {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 2rem;
+  li {
+    clear: both;
+    margin-bottom: 1.5rem;
+    .figure {
+      margin-top: 6px;
+      max-width: 240px;
+      img {
+        // margin-bottom: 1.5rem;
+      }
+    }
+  }
+}
+ul.columns {
+  columns: 2;
+}

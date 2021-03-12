@@ -1,0 +1,28 @@
+{#
+
+/* -------------------------
+
+Title: searchblock
+Descr: ouputs custom search form block
+
+--------------------------- */
+
+ #}
+
+<div {{bem(group_base_class,(group_modifiers),'',group_classes)}}>
+
+	{{title_prefix}}
+
+	<form action="/site-search" id="searchform" class="form form--simpleSearch form--searchBlock">
+		<label for="search-input">
+			{{form_label}}
+		</label>
+		<span class="searchField">
+			<input data-drupal-selector="edit-keywords" type="text" id="edit-keywords" name="keywords" value="{{content.field_search_terms.0}}" size="30" maxlength="128" class="form-text form-item__textfield"/>
+			<input data-drupal-selector="edit-submit-search" type="submit" id="edit-submit-search" value="Search" class="js-form-submit form-submit form-item__submit"/>
+		</span>
+	</form>
+
+	{{ title_suffix }}
+
+</div>

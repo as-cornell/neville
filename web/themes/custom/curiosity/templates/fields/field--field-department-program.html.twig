@@ -1,0 +1,14 @@
+{#
+/**
+ *field--field-department-program.html.twig
+ adds ul wrapper to list of departments and programs
+ */
+#}
+
+{% set ul_modifiers = ['department-program'] %}
+
+
+{% embed "@content/atoms/_ul.twig" with{
+  ul_items : items
+} %}
+{% endembed %}

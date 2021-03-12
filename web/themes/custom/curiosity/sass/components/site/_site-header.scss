@@ -1,0 +1,207 @@
+/* -------------------------
+
+Title: Site header styles
+Descr: Set 
+        - #skip
+        - header
+        - .cu-logo
+        - .as-logo
+all search form design in _forms.scss
+
+--------------------------- */
+#skip {
+  position: absolute;
+  top: -20px;
+  z-index: 3;
+  a {
+    z-index: 0;
+    position: absolute;
+    left: -5000px;
+    width: 300px;
+    font-weight: 600;
+    &:focus {
+      left: 200px;
+    }
+  }
+}
+
+header {
+  // background: yellow;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
+  margin: 1em auto;
+  max-width: var(--xl);
+  position: relative;
+
+  @include medium() {
+    margin: 1rem auto 2rem auto;
+  }
+
+  @include large() {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto;
+    align-items: center;
+    margin: 1rem auto 2rem auto;
+  }
+
+  @include xl {
+    margin: 3rem auto;
+    grid-template-columns: auto auto 1fr auto;
+  }
+
+  .header__searchForm {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    display: flex;
+    justify-content: center;
+    @include headerBreak() {
+      grid-row: 4;
+    }
+    @include large() {
+      grid-row: 3;
+    }
+  }
+
+  .cu-logo {
+    text-indent: -9999px;
+
+    flex: 0 0 100%;
+    width: 200px;
+    height: 45px;
+    // background: url(/themes/custom/curiosity/images/CU-insignia.svg);
+    grid-column: 1 / 1;
+    background: url(/themes/custom/curiosity/images/cornell-reduced-black.svg);
+    background-repeat: no-repeat;
+    background-size: 200px 45px;
+
+    @include xl() {
+      grid-row: 1;
+      width: 73px;
+      height: 73px;
+      background: url(/themes/custom/curiosity/images/CU-insignia.svg);
+      background-repeat: no-repeat;
+      background-size: 73px 73px;
+    }
+  }
+
+  .as-logo {
+    text-indent: -9999px;
+    flex: 0 0 100%;
+
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 1rem 0;
+    grid-column: 1;
+    grid-row: 2;
+    background-repeat: no-repeat;
+    background-position: center;
+    //small logo
+    background: url(/themes/custom/curiosity/images/the-college-three-line.svg);
+    width: 238px;
+    height: 71px;
+    background-size: 238px 71px;
+
+    @include small() {
+      background: url(/themes/custom/curiosity/images/the-college-one-line.svg);
+      // background-repeat: no-repeat;
+      // background-position: center;
+      // margin: 1rem 0 0 calc(50% - 200px);
+      width: 400px;
+      height: 56px;
+      background-size: 400px 56px;
+    }
+    @include headerBreak() {
+      width: 600px;
+      height: 56px;
+      background-size: 600px 56px;
+      margin: 2rem 0 2rem 0;
+    }
+
+    @include large {
+      background: url(/themes/custom/curiosity/images/the-college-three-line.svg);
+      width: 238px;
+      height: 71px;
+      background-size: 238px 71px;
+      grid-column: 1;
+      grid-row: 2;
+    }
+    @include xl {
+      grid-column: 2;
+      grid-row: 1;
+      position: relative;
+      margin-left: 38px;
+      &:before {
+        position: absolute;
+        width: 1px;
+        background: var(--gray-lt);
+        height: 100%;
+        top: 0;
+        left: -19px;
+        content: "";
+        // @include headerBreak() {
+        //   left: -20px;
+        // }
+      }
+    }
+  }
+
+  .header__mainNav {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    display: flex;
+    justify-content: center;
+
+    @include large() {
+      grid-column: 2 / -1;
+      grid-row: 2;
+    }
+    @include xl {
+      grid-column: 3;
+      grid-row: 1;
+    }
+  }
+  .header__buttons {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    button {
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+    .iconButton--showNav {
+      @include headerBreak() {
+        display: none;
+      }
+    }
+    @include large() {
+      grid-column: 3;
+      grid-row: 1;
+    }
+    @include xl() {
+      grid-column: 4;
+      grid-row: 1;
+    }
+  }
+  .main-nav-toggle {
+    grid-area: navIcon;
+  }
+  // .img {
+  //   max-width: initial; // force logo full size
+  // }
+}
+
+//page type specific header styles
+body.landing_page {
+  header {
+    //large screen
+    @include xl() {
+      padding: 6rem 1rem 5rem 1rem;
+    }
+  }
+}
+
+// show nav and search buttons

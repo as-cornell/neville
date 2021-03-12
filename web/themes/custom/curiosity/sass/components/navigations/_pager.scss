@@ -1,0 +1,32 @@
+/* -------------------------
+
+Title: pager
+Descr: pager on views
+
+--------------------------- */
+
+.pager {
+  display: flex;
+  justify-content: center;
+  &__items {
+    list-style-type: none;
+    display: flex;
+  }
+  &__item {
+    width: 1rem;
+    border-radius: var(--border-radius);
+    background: var(--gray-lightest);
+    margin: 0 0.25em;
+    padding: 0.25em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a[title="Current page"] {
+      font-weight: var(--semi);
+    }
+  }
+  &__item--first,
+  &__item--last {
+    width: 3rem;
+  }
+}

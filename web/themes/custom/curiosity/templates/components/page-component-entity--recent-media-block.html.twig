@@ -1,0 +1,64 @@
+{#
+/**
+ name = page-component-entity--recent-media-block.html.twig
+ Displays specified number of recent media
+
+ */
+#}
+{#vardumper(content.field_posts_shown.0['#markup'])#}
+{% set items_shown = content.field_posts_shown.0['#markup']%}
+{% set items = parse_media_json(items_shown) %}
+{# {{vardumper()}} #}
+
+{% set group_base_class = 'pcWrapper' %}
+{% set group_modifiers = ['recentMedia'] %}
+{% set group_classes = [''] %}
+	<h2>
+		{{content.name}}
+	</h2>
+<div{{bem(group_base_class,(group_modifiers),'',group_classes)}} {% if divid %} id="{{divid}}" {% endif %}>
+
+	{% for item in items %}
+		<div class="card card--recentMedia">
+			<div class="card__copy">
+				<div class="card__title">
+					<h2>
+						<a href="{{item.link}}">
+							{{item.title}}
+						</a>
+					</h2>
+
+				</div>
+				<div class="card__source">
+					<p>
+						{{item.source}}
+					</p>
+				</div>
+				<div class="card__about">
+					{% if item.people %}
+						<p>
+							<strong>
+								Related people
+							</strong>
+							<br/>
+							{{item.people}}
+						</p>
+					{% endif %}
+					{% if item.departments %}
+						<p>
+							<strong>
+								Related Departments
+							</strong>
+							<br/>
+							{{item.departments}}
+						</p>
+					{% endif %}
+				</div>
+				<div class="card__date">
+					{{item.date}}
+				</div>
+
+			</div>
+		</div>
+	{% endfor %}
+</div>

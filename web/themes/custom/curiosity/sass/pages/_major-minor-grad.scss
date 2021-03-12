@@ -1,0 +1,55 @@
+/* -------------------------
+
+Title: major minor grad field
+Descr: 
+    uses the <main> 12 column grid as a base.
+    under /pages because it includes the <main> element
+
+    defines main layouts for default m/m/g pages
+
+    all jellybean stuff is on _card--major-minor
+
+--------------------------- */
+
+.major-minor-grad {
+  @include base12GridColumns();
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas:
+    "title title title title title title title . level level level level "
+    // ". description description description description description description description . sidebar sidebar sidebar "
+    "content content content content content content content content sidebar sidebar sidebar sidebar";
+  @include large() {
+    grid-template-areas:
+      ". title title title title title title . level level level . "
+      // ". description description description description description description description . sidebar sidebar sidebar "
+      ". content content content content content content . sidebar sidebar sidebar .";
+  }
+
+  .title {
+    grid-area: title;
+  }
+
+  .degree-levels {
+    grid-area: level;
+    display: flex;
+    align-items: center;
+  }
+  .description {
+    grid-area: description;
+  }
+  .image {
+    grid-area: thumbnail;
+  }
+  .content {
+    grid-area: content;
+    > .pageComponent {
+      margin-bottom: 0;
+    }
+  }
+  .sidebar {
+    grid-area: sidebar;
+    h3 {
+      font-size: var(--base-24);
+    }
+  }
+}

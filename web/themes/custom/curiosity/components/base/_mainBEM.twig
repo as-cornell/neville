@@ -1,0 +1,25 @@
+{# 
+
+/* -------------------------
+
+Title: _mainBEM.twig
+Descr: sets classes for the <main> element
+
+--------------------------- */ 
+
+#}
+
+{% set classes = [
+  base_class, extra_class
+] %}
+
+{% if modifiers %}
+  {% for item in modifiers %}
+    {% set mebc = base_class %}
+    {% set modifier = item %}
+    {% set class =  mebc~'--'~modifier %}
+    {% set classes = classes|merge([class]) %}
+  {% endfor %}
+{% endif %}
+
+<main {{attributes.addClass(classes)}} >

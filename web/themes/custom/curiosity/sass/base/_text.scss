@@ -1,0 +1,124 @@
+/* -------------------------
+
+Title: text
+Descr: Styles for things that are not anywhere else. Essentially css atoms.
+
+--------------------------- */
+p {
+  margin: 0;
+  // max-width: var(--line-width);
+}
+* + p {
+  margin-top: 1em;
+}
+strong {
+  font-weight: var(--regular);
+  color: var(--as-black);
+}
+
+// special decoration classes for big messaging labels
+
+.spotlight {
+  font-family: var(--font-serif);
+  font-weight: var(--heavy);
+  text-align: center;
+  font-size: var(--base-84);
+  max-width: 25ch;
+  margin: 2.5em auto 1em auto;
+  line-height: 1em;
+}
+
+// target just the first .spotlight on landing pages
+.landingPage
+  > .content
+  > .pageSection:nth-of-type(1)
+  > .pcWrapper--ftb
+  > .spotlight {
+  margin-top: 0;
+}
+
+/* 
+// gradient text colors
+*/
+
+.blue-blue {
+  @include text-gradient(var(--blue-blue));
+}
+.green-green {
+  @include text-gradient(var(--green-green));
+}
+.teal-purple {
+  @include text-gradient(var(--teal-purple-radial));
+}
+.blue-purple {
+  @include text-gradient(var(--blurple-linear));
+}
+.blue-radial {
+  @include text-gradient(var(--storm-radial));
+}
+.teal-teal {
+  @include text-gradient(var(--teal-teal));
+}
+
+.eyebrow {
+  font-family: var(--font-serif);
+  font-size: var(--base-24);
+  font-weight: var(--regular);
+}
+
+.pageIntroduction {
+  @extend .base-36;
+  max-width: var(--large);
+  margin-top: 0;
+  text-align: center;
+  margin: 2rem auto 3rem auto;
+}
+
+.sectionTitle {
+  @extend .base-84;
+  font-family: var(--font-serif);
+}
+.sectionIntroduction {
+  @extend .base-28;
+  max-width: var(--large);
+  margin-top: 0;
+  text-align: center;
+  margin: 2rem auto 3rem auto;
+}
+
+/*
+// font size choices
+*/
+
+.base-24 {
+  font-size: var(--base-24);
+  line-height: var(--line-height);
+}
+.base-28 {
+  font-size: var(--base-28);
+  line-height: 1.4;
+}
+.base-36 {
+  font-size: var(--base-36);
+  margin-bottom: 0;
+  margin-top: 1em;
+}
+.base-48 {
+  font-size: var(--base-48);
+  margin-bottom: 0.5em;
+  line-height: 1em;
+}
+.base-56 {
+  font-size: var(--base-56);
+  margin-bottom: 0.44em;
+  line-height: 1.2em;
+}
+.base-64 {
+  font-size: var(--base-64);
+  line-height: 1em;
+}
+.base-84 {
+  font-size: var(--base-84);
+  line-height: 0.9em;
+  margin-bottom: 1em;
+}

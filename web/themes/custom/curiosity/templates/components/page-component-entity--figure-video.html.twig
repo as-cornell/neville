@@ -1,0 +1,20 @@
+{#
+
+/* -------------------------
+
+Title: page-component-entity--figure-video.html.twig
+Descr: Sets up video wrapper
+
+--------------------------- */
+
+#}
+
+
+{% for key, item in content.field_video_embed_code if key|first != '#' %}
+  {% include "@content/atoms/_video.twig" with {
+      video_content : item['#context'].value|raw,
+      video_caption: content.field_video_caption,
+      "field_component_alignment" : content.field_component_alignment|field_value|safe_join(', ')
+  } %}
+{% endfor %}
+

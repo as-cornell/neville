@@ -1,0 +1,103 @@
+/* -------------------------
+
+Title: _pageComponent--listBlock
+Descr: sets styles for various pce listBlocks
+  
+
+  .pcWrapper
+    --articlescards
+    --articlessmallcards
+
+  **Items is the number of cards. Does not include the text block if present
+
+--------------------------- */
+.pcWrapper {
+  &--listBlock {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 1.5rem;
+    @include medium() {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    gap: var(--space);
+    // margin-bottom: var(--margin-6);
+    .listBlock__text {
+      grid-column: 1 / -1;
+      > h2:first-of-type,
+      > h3:first-of-type {
+        margin-top: 0;
+      }
+    }
+    > a {
+      grid-column: 1 / -1;
+      margin-left: auto;
+      margin-right: auto;
+      @extend .btn--blue;
+    }
+  }
+  &.four-items {
+    .listBlock__text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: var(--margin-3);
+      p {
+        max-width: var(--large);
+      }
+    }
+  }
+  &.two-items {
+    .listBlock__text {
+      grid-column: 1 / 3;
+    }
+  }
+  &.six-items {
+    // grid-template-columns: repeat(2, 1fr);
+    .listBlock__text {
+      grid-column: 1 / 3;
+    }
+  }
+}
+
+// for items in a 2x layout group
+.pcWrapper--layoutGroup {
+  .pcWrapper--listBlock {
+    margin-top: 0;
+    margin-bottom: 0;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pcWrapper--listItems {
+    flex-wrap: wrap;
+    .card {
+      flex-basis: calc(50% - 1rem);
+    }
+  }
+}
+
+// sidebar listBlock
+.sidebar {
+  .pcWrapper--listBlock {
+    > div {
+      grid-column: 1 / -1;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+  }
+}
+
+//basic page overrides
+.basicSidebar {
+  .pcWrapper {
+    &--listBlock {
+      @include medium() {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include large() {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}

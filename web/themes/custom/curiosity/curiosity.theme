@@ -1,0 +1,136 @@
+<?php
+
+use Drupal\media_entity\entity\Media;
+use Drupal\node\Entity\Node;
+
+
+/**
+ * @file
+ * Functions to support theming in the Pattern Lab theme.
+ */
+
+/**
+ * Implements template_preprocess_image().
+ */
+// function curiosity_preprocess_image(&$variables)
+// {
+
+//   // Remove explicit width & height declaration.
+//   unset($variables['width'], $variables['height'], $variables['attributes']['width'], $variables['attributes']['height']);
+// }
+
+
+// adapted from https://github.com/ilrWebServices/gigeconomydata/blob/master/web/themes/custom/freelance/freelance.theme
+
+/**
+ * Implements template_preprocess_node().
+ * Pepares the image entity for theming
+ */
+function curiosity_preprocess_node(&$variables)
+{
+    /** @var \Drupal\node\Entity\Node $node */
+    $node = &$variables['node'];
+    // here's where to put any image fields that are media refrences outside of paragraphs
+    if ($node->hasField('field_image')) {
+        $media_entity = curiosity_get_media_entity_from_reference($node->get('field_image')->first());
+        $variables['field_image_img'] = curiosity_get_image_properties_from_media_entity($media_entity);
+    }
+    if ($node->hasField('field_pano_image')) {
+        $media_entity = curiosity_get_media_entity_from_reference($node->get('field_pano_image')->first());
+        $variables['field_pano_image_img'] = curiosity_get_image_properties_from_media_entity($media_entity);
+    }
+}
+
+/**
+ * Implements hook_preprocess_entity().
+ */
+function curiosity_preprocess_page_component_entity(&$variables)
+{
+    $page_component_entity = &$variables['elements']['#page_component_entity'];
+
+    if ($page_component_entity->hasField('field_figure_image')) {
+        $media_entity = curiosity_get_media_entity_from_reference($page_component_entity->get('field_figure_image')->first());
+        $variables['img'] = curiosity_get_image_properties_from_media_entity($media_entity);
+    }
+    if ($page_component_entity->hasField('field_image')) {
+        $media_entity = curiosity_get_media_entity_from_reference($page_component_entity->get('field_image')->first());
+        $variables['img'] = curiosity_get_image_properties_from_media_entity($media_entity);
+    }
+
+}
+
+function curiosity_preprocess_media(&$variables)
+{
+    if ($variables['media']->bundle() == 'image') {
+        $variables['img'] = curiosity_get_image_properties_from_media_entity($variables['media']);
+    }
+}
+
+
+
+/**
+ * Takes an entity_reference and returns the media_entity
+
+ * @param  $media_reference
+ *
+ * @return object the media entity
+ */
+function curiosity_get_media_entity_from_reference($media_reference = null)
+{
+    if ($media_reference) {
+        $media_entity = $media_reference->get('entity')->getTarget();
+        return $media_entity;
+    }
+    return null;
+}
+
+/**
+ * Takes a media entity and returns a keyed array of entities: file, image, and media.
+ *
+ * @param $media_entity
+ *
+ * @return array containing a file, image, and media entity or null
+ */
+function curiosity_get_image_properties_from_media_entity($media_entity)
+{
+    if ($media_entity) {
+        if ($img_entity = $media_entity->get('field_media_image')->first()) {
+            if ($file_entity = $img_entity->get('entity')->getTarget()) {
+                return [
+                    'uri' => $file_entity->get('uri')->getString(),
+                    'alt' => $img_entity->get('alt')->getString(),
+                    'title' => $img_entity->get('title')->getString(),
+                    'caption' => $media_entity->get('field_caption')->value,
+                    'credit' => $media_entity->get('field_credit')->value,
+                ];
+            }
+        }
+    }
+    return null;
+}
+
+/**
+ * Implements hook_theme_suggestions_taxonomy_term_alter().
+ */
+function curiosity_theme_suggestions_taxonomy_term_alter(array &$suggestions, array $variables)
+{
+  /** @var \Drupal\taxonomy\TermInterface $term */
+  $term = $variables['elements']['#taxonomy_term'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+  // Add view mode theme suggestions.
+  $suggestions[] = 'taxonomy_term__' . $sanitized_view_mode;
+  $suggestions[] = 'taxonomy_term__' . $term->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'taxonomy_term__' . $term->id() . '__' . $sanitized_view_mode;
+}
+
+/* Allow is_front to be used on other templates */
+function curiosity_preprocess(&$variables, $hook)
+{
+  try {
+    $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+  } catch (Exception $e) {
+    $variables['is_front'] = FALSE;
+  }
+  // Ensure the cache varies correctly (new in Drupal 8.3).
+  $variables['#cache']['contexts'][] = 'url.path.is_front';
+}

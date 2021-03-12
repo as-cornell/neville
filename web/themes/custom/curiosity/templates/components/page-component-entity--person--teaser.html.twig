@@ -1,0 +1,49 @@
+{#
+/**
+ name = page-component-entity--person--card.html.twig
+ Makes name a link to page
+
+ */
+#}
+
+{% set pathtoken = content.field_link.0['#title']|split('/')[4] %}
+{% set pathtoken = content.field_people_uuid|field_value|safe_join(' ') %}
+{% set person = parse_people_json(pathtoken) %}
+
+{% if person.departments %}
+	{% set person_departments %}
+	<div class="person__departments">
+		<p>
+			<strong>
+				Departments
+			</strong>
+		</p>
+		<ul>
+			{{person.departments}}
+		</ul>
+	</div>
+	{% endset %}
+{% endif %}
+{# {{vardumper(person)}} #}
+
+{# iamge #}
+{% set teaser_img %}
+<img src="{{person.imagepath}}" alt="{{person.alt}}">
+{% endset %}
+
+{# url #}
+{% set teaser_link_url = '/people'~person.path %}
+
+{% set card_link_url = 'people/'~pathtoken %}
+{% embed "@content/molecules/_teaser--person.twig" with {
+    teaser_modifiers : ["person"],
+    teaser_title: person.title,
+
+    teaser_image_path : person.imagepath,
+    teaser_image_alt : person.alt,
+    teaser_label: person.jobtitle,
+    teaser_departments: person_departments,
+    teaser_nodeId : node.id,
+    teaser_summary: person.summary
+} %}
+{% endembed %}

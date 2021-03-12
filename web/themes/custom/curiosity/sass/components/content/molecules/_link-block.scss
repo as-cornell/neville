@@ -1,0 +1,53 @@
+/* -------------------------
+
+Title: link block
+Descr: sets background, color options, link styles for link blocks
+
+--------------------------- */
+.linkBlock {
+  ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 0;
+    li {
+      margin: 0 0.5rem;
+    }
+  }
+}
+
+.landingPage {
+  .linkBlock {
+    background: var(--teal-teal);
+    color: var(--as-white);
+    text-align: center;
+    padding: 2em 2em;
+    border-radius: var(--border-radius);
+    @include boxShadow();
+    h2 {
+      color: var(--as-white);
+      margin-top: 0.5em;
+    }
+
+    a {
+      @include btnLink(var(--as-white), var(--as-dark-blue));
+      margin-right: 1em;
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.basicSidebar {
+  .linkBlock {
+    a {
+      @include btnLink(var(--teal-teal), var(--as-white));
+      margin-right: 1em;
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}

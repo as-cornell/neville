@@ -1,0 +1,72 @@
+{#
+
+/* -------------------------
+
+Title: node--article.html.twig
+Descr: Sets up variables and content for _article.twig
+Passes:
+  --- Images - pano and image get output as figures by meida--image--default.html.twig so they can now just be passed to _article.twig as a field.
+  --- article and has-aside passed to <main>
+
+--------------------------- */
+
+#}
+
+{% set netid = content.field_person_netid.0['#context']['value'] %}
+{% set contact = drupal_block('ldap_block', {netid: content.field_person_netid.0['#context']['value']}) %}
+{# edcuation #}
+{% if content.field_person_education|render|striptags|trim %}
+  {% set show_education = true %}
+  {% set education = content.field_person_education %}
+{% endif %}
+
+{# summary #}
+{% if content.field_summary|render|striptags|trim %}
+  {% set show_summary = true %}
+  {% set summary = content.field_summary|raw %}
+{% endif %}
+
+{# responsibilities #}
+{% if content.field_responsibilities|render|striptags|trim %}
+  {% set show_responsibilities = true %}
+  {% set responsibilities = content.field_responsibilities|raw %}
+{% endif %}
+
+
+{# publications #}
+{% if content.field_person_publications|render|striptags|trim %}
+  {% set show_publications = true %}
+  {% set publications = content.field_person_publications|raw %}
+{% endif %}
+
+{# departments #}
+{% if content.field_departments_programs|render|striptags|trim %}
+  {% set show_departments = true %}
+  {% set departments = content.field_departments_programs %}
+{% endif %}
+
+{# links #}
+{% if content.field_links|render|striptags|trim %}
+  {% set show_node_links = true %}
+  {% set links = content.field_links %}
+{% endif %}
+
+
+{% set main_element_extra_classes = ['main'] %}
+{% set main_element_base_class = main_element_base_class | default('person') %}
+{% set main_element_modifiers = [''] %}
+
+
+
+{% include "@pages/_person.twig" with{
+  name : node.label,
+  title : content.field_person_title,
+
+  image : content.field_image,
+
+  contact: contact,
+
+  links: links,
+
+
+} %}

@@ -1,0 +1,99 @@
+{#
+
+/* -------------------------
+
+Title: views-view
+Descr: main output business for views. Classes are from the view-display settings form. Rows gets output by views-view-list with _grouping.twig.
+
+--------------------------- */
+
+#}
+
+{# this is super important to have in the wrapper for ajax stuff #}
+
+{%
+  set domID = [
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+  ]
+%}
+{# include fancybox #}
+
+{% set show_fancybox = true %}
+
+{# set up classes #}
+
+{% set main_element_extra_classes = ['main', 'list--cards'] %}
+{% set main_element_extra_classes = main_element_extra_classes|merge([domID.0]) %}
+{% set main_element_base_class = 'landingPage' %}
+{% set main_element_modifiers = ['viewContainer', 'departments-and-programs'] %}
+
+
+{# set secondary title search for #}
+{% set search_terms = exposed.keywords['#value'] %}
+{% if search_terms is not empty %}
+	{% set view_sub_title = 'Search results for ' ~ '"'~search_terms~'"' %}
+{% endif %}
+
+{# set main variables #}
+
+{% set view_title = view.title %}
+{% set view_content = rows %}
+{% set view_pager = pager %}
+{% set view_header = header %}
+
+{# set view specific sidebar #}
+
+
+
+{% if (view.getExposedInput) %}
+	{% set showFacets = true %}
+{% endif %}
+
+
+
+{# adding "now viewing" labels #}
+
+{% if (view.getExposedInput.keywords) %}
+	{% set view_filters_1 = 'Keyword: ' %}
+	{% set keyword = view.getExposedInput.keywords %}
+	{% set view_filters_1 = '<strong>' ~ view_filters_1 ~ '</strong>'  ~ keyword  %}
+{% endif %}
+
+{% if (view.getExposedInput.discipline != 'All' or '') %}
+	{% set view_filters_2 = 'Discipline: ' %}
+	{% set number = view.getExposedInput.discipline %}
+	{% set termname = drupal_field('name', 'taxonomy_term', number)|field_value|render|replace({'&amp;': '&'}) ~ '<br />' %}
+	{% set view_filters_2 = '<strong>' ~ view_filters_2 ~ '</strong>' ~ termname  %}
+{% endif %}
+
+{% if (view.getExposedInput.type  != 'All' or '') %}
+	{% set view_filters_3 = 'Type: ' %}
+	{% set number = view.getExposedInput.type %}
+	{% set termname = drupal_field('name', 'taxonomy_term', number)|field_value|render|replace({'&amp;': '&'}) ~ '<br />' %}
+	{% set view_filters_3 = '<strong>' ~ view_filters_3 ~ '</strong>' ~ termname  %}
+{% endif %}
+
+
+
+{% set facets %}
+{% if showFacets %}
+	<p>
+		{{view_filters_1|raw}}
+		{{view_filters_2|raw}}
+		{{view_filters_3|raw}}
+
+	</p>
+{% endif %}
+{% endset %}
+
+
+
+
+{% include "@pages/_view-list.twig" with {
+  view_title : view_title,
+  view_content : view_content,
+  view_pager : view_pager,
+  view_sidebar : view_sidebar,
+  view_form: exposed,
+  view_header: view_header
+}%}

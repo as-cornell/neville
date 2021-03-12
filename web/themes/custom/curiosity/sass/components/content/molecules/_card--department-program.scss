@@ -1,0 +1,42 @@
+/* -------------------------
+
+Title: _card--dept-program.scss
+Descr: Sets all specific styles for an m/m/g card and teasers 
+
+--------------------------- */
+.card--department-program {
+  background: pink;
+  .card__copy {
+    padding: 1rem;
+    @include baseGrid($g-gap: 0px);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      ". . type"
+      "label label label";
+  }
+  // if fancybox
+
+  .card__title {
+    grid-area: label;
+    margin: 1em 0;
+    font-size: var(--base-24);
+    line-height: 1.2;
+  }
+  .card__type {
+    grid-area: type;
+  }
+  .card__links {
+    grid-area: links;
+    font-size: var(--base-16);
+    display: flex;
+    justify-content: space-between;
+  }
+  &.card--fancybox {
+    .card__copy {
+      grid-template-areas:
+        "links links links"
+        "label label label"
+        "type type type";
+    }
+  }
+}

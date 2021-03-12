@@ -1,0 +1,54 @@
+{#
+
+/* -------------------------
+
+Title: _teaser--person.twig
+Descr: output for teaser view modes
+receives:
+--- image as thumbnail
+--- title
+--- type (article, dept, major/minor, page)
+--- byline_reference and media_source_reference if article
+--- summary or trimmed
+--- link to content
+Setting up new block class of 'teaser'
+
+--if show_fancybox for teasers that are part of a fancybox or gallery
+
+--------------------------- */
+
+#}
+
+{# {{ vardumper(content) }} #}
+{% set teaser_base_class = 'teaser' %}
+{# {% set teaser_byline = teaser_byline | default('') %} #}
+{% set teaser_dateline = teaser_dateline | default('') %}
+
+{# fancybox wrapper #}
+
+
+	<div {{ bem(teaser_base_class, (teaser_modifiers), teaser_blockname, teaser_classes) }} {% if teaser_nodeId %} aria-labelledby="article-title-{{teaser_nodeId}}" {% endif %}>
+
+<figure>{{teaser_img}}</figure>
+		
+		<div {{ bem(teaser_copy_base_class|default('teaser__copy'), (teaser_copy_modifiers), teaser_copy_blockname) }}>
+			{% if teaser_label %}
+				<p class="teaser__label eyebrow">
+					{{ teaser_label }}
+				</p>
+			{% endif %}
+			{% include "@content/atoms/_heading.twig" with {
+        "heading_level": 2,
+        "heading": teaser_title,
+        "heading_url": teaser_title_link|default(teaser_link_url),
+        "heading_blockname": teaser_title_blockname|default(teaser_base_class),
+        "heading_modifiers": teaser_title_modifiers,
+        "heading_link_base_class": teaser_title_link_base_class|default('title-link'),
+        "heading_link_blockname": teaser_base_class,
+        "heading_base_class": teaser_title_base_class|default('title'),
+        "isAriaLabel" : teaser_nodeId
+    } %}
+{# {{teaser_summary}} #}
+  {{person_departments}}
+	</div>
+</div>

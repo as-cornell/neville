@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Default theme implementation to each level of menu.
+ */
+#}
+{% import _self as menu %}
+
+{{ menu.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+	{% import _self as menu_links %}
+	{% set listClass = 'nav-2' %}
+	<ul class="{{listClass}}">
+		{% for key, item in items if key|first != '#' %}
+			{% set menu_item_classes = [
+      listClass ~ '__item',
+      item.in_active_trail ? listClass ~ '__item--active-trail',
+      item.content.children ? listClass ~ '__item--with-nav-3 with-sub',
+    ] %}
+
+			<li{{item.attributes.addClass(menu_item_classes)}}>
+				{{ link(item.title, item.url, { 'class':[listClass ~ '__link'], 'data-drupal-link-system-path':[NULL]}) }}
+				{% if item.in_active_trail %}
+					{# implements as_menu_plug #}
+					{% set menuLinkID = item.content['#menu_link_content'].id.value %}
+					{% set menuLevel = item.menu_level %}
+					{% if menuLinkID %}
+						{{drupal_block('menu_plug_block', {menu_link_id:menuLinkID, menu_level:menuLevel}) }}
+					{% endif %}
+				{% endif %}
+				{% set rendered_content = item.content|without('') %}
+				{% if rendered_content|render %}
+					{{ rendered_content }}
+				{% endif %}
+			</li>
+
+		{% endfor %}
+	</ul>
+{% endmacro %}

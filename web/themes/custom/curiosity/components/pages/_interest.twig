@@ -1,0 +1,48 @@
+{#
+
+/* -------------------------
+
+Title: _interest.twig
+Descr: defines content and blocks for interest detail pages
+
+--------------------------- */
+
+#}
+{% set sidebar_wrapper_extra_classes = sidebar_wrapper_extra_classes | default(['']) %}
+<main {{ bem(main_element_base_class, (main_element_modifiers), main_blockname, main_element_extra_classes) }}>
+	{{title_suffix}}
+	<p class="type eyebrow">
+
+		{{type}}
+
+	</p>
+	{% include "@content/atoms/_heading.twig" with {
+    "heading_level" : 1,
+    "heading" : title,
+    "heading_modifiers" : ["margin"],
+    "heading_base_class" : "title"
+  } %}
+
+
+	<div class="content">
+		{{description}}
+		{{body}}
+		{% if show_related_majors %}
+			<h3>
+				Related Majors, Minors and Graduate Fields
+			</h3>
+			{{related_majors}}
+		{% endif %}
+		{% if show_related_departments %}
+			<h3>
+				Related Departments and Programs
+			</h3>
+			{{related_departments}}
+		{% endif %}
+
+
+	</div>
+	<div class="sidebar">
+
+	</div>
+</main>

@@ -1,0 +1,21 @@
+/* -------------------------
+
+Title: _base.scss
+Descr: sets HTML and Body styles
+
+--------------------------- */
+
+html {
+  font-size: var(--base-font-size);
+  scroll-behavior: smooth;
+}
+
+body {
+  @include baseFont();
+  overflow-x: hidden;
+  padding: 0 1rem;
+  @include medium() {
+    padding: 0 2rem;
+  }
+  margin: 0;
+}

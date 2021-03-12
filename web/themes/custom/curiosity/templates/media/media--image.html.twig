@@ -1,0 +1,40 @@
+{#
+
+/* -------------------------
+
+Title: media--image--card.html.twig
+Descr: Sets up variables and content for to get passed to figure.twig. This makes it nice and tidy to include media images as default. Can create for different view modes if needed.
+Passes:
+  --- caption
+  --- fullImage
+
+--------------------------- */
+
+#}
+
+{% set fullImage = content.field_media_image %}
+
+{% set figure_modifiers = ['inline'] %}
+{# check for caption and set it and add hasCaption #}
+	{% if content.field_caption|render is not empty %}
+	{% set hasCaption = true %}
+	{% set figure_modifiers = figure_modifiers|merge(['hasCaption']) %}
+{% set caption = content.field_caption %}
+{% endif %}
+
+	{% if content.field_credit|render is not empty %}
+	{% set hasCredit = true %}
+	{% set figure_modifiers = figure_modifiers|merge(['hasCredit']) %}
+{% set credit = content.field_credit %}
+
+{% endif %}
+
+{% set image_style = content.field_media_image.0['#image_style'] %}
+{% set figure_modifiers = figure_modifiers|merge([image_style]) %}
+
+
+{% include "@content/atoms/_figure.twig" with {
+  img_caption : caption,
+  credit : content.field_credit,
+  fullImage : fullImage
+}%}

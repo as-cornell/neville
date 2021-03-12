@@ -1,0 +1,1 @@
+const pageTitle1=document.querySelector(".main > .title"),toTopButton=document.querySelector(".toTopButton"),otpNavOptions1={threshold:0},toTopObserver=new IntersectionObserver((function(t,o){t.forEach(t=>{console.log(t.target),t.isIntersecting?toTopButton.classList.remove("show"):toTopButton.classList.add("show")})}),otpNavOptions1);toTopObserver.observe(pageTitle1);

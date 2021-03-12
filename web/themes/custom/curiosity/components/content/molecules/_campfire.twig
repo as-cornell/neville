@@ -1,0 +1,38 @@
+{#
+/* -------------------------
+
+Title: PCE--campfire
+Descr:  - campfire_center
+            campfire_center_ftb, campfire_other_news
+
+ campfire articles
+    - campfire_articles_1 and campfire_articles_2 are reference fields and the items are displayed with standard article-card components
+
+--------------------------- */
+#}
+
+{# {{vardumper()}} #}
+<div class="campfire">
+	{{ title_suffix }}
+	<div class="campfire__feature">
+  <h1 class="spotlight spotlight--storm">{{campfire_label}}</h1>
+		{{campfire_center}}
+		<div class="campfire__support">
+			{{campfire_center_ftb}}
+
+				{{campfire_other_news}}
+<p>
+	<a href="/news" class="btn--blue block">
+		Read more A&S news
+	</a>
+</p>
+
+		</div>
+	</div>
+	<div class="campfire__articles">
+		{{campfire_articles_1}}
+	</div>
+	<div class="campfire__articles">
+		{{campfire_articles_2}}
+	</div>
+</div>

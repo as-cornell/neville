@@ -1,0 +1,12 @@
+/* styles only for IE  */
+@media all and (-ms-high-contrast:none)
+{
+header .cu-logo, header .as-logo{
+  background: none;
+  text-indent: 0;
+}
+.pcWrapper--photoText img{
+  max-width: 300px;
+}
+h1, h2{background: none !important;}
+}

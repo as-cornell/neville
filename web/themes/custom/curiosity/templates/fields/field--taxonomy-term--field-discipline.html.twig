@@ -1,0 +1,13 @@
+{#
+/**
+ *field--taxonomy-term--field-disciplines.html.twig
+ using _ul.twig because just a plain list not a page component
+ */
+#}
+
+{% set ul_modifiers = ['related-disciplines'] %}
+
+{% embed "@content/atoms/_ul.twig" with{
+  ul_items : items
+} %}
+{% endembed %}

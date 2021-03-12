@@ -1,0 +1,35 @@
+{#
+
+/* -------------------------
+
+Title: main-menu.twig
+Descr: adds main nav burger icon calls _menu.twig and passes all the conent
+
+--------------------------- */
+
+#}
+
+<button href="#" id="toggle-menu" class="main-nav-toggle">
+	<span class="toggle-expand__open">
+		{% include "@content/atoms/_icon.twig" with {
+      icon_base_class: "icon",
+
+      icon_name: "burger",
+      icon_modifiers: ['bars']
+    } %}
+		<span class="sr-only">
+			Main Menu
+		</span>
+	</span>
+	<span class="toggle-expand__close">
+		<span class="sr-only">
+			Close
+		</span>
+	</span>
+</button>
+<nav id="main-nav" class="main-nav" aria-label="main navigation" id="as-main-nav">
+	{% include "@navigations/_menu.twig" with {
+    menu_class: "mainNav",
+    items: menu_items,
+  } %}
+</nav>

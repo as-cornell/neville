@@ -1,0 +1,58 @@
+{#
+
+/* -------------------------
+
+Title: _grouping.twig
+Descr: Provides container for all items in a grouping. If it's a multiple it shows a title for the block derived from the name of the component entered.
+Gets: Label, content, title
+
+group_base_class = group
+group_modifiers = type of component
+group_classes = pageComponent
+
+isList -- show <ul>
+list_base_class / list_base_modifiers
+
+
+
+** going with generic <div> rather than <ul> so we don't have to have different templates for showing single items. If we used <ul> then card templates would need to be <li> and that would mess up single elements.
+--------------------------- */
+
+#}
+
+{% set group_base_class = group_base_class | default('') %}
+{% set group_modifiers = group_modifiers | default(['']) %}
+{% set group_label_level = group_label_level | default('2') %}
+{# {% set group_classes = group_classes | default(['pcWrapper']) %} #}
+
+{% if group_label %}
+	{% include "@content/atoms/_heading.twig" with {
+  "heading_level" : group_label_level,
+  "heading" : group_label,
+
+  heading_blockname : 'group',
+  heading_base_class : 'title'
+} %}
+{% endif %}
+<div{{bem(group_base_class,(group_modifiers),'',group_classes)}} {% if divid %} id="{{divid}}" {% endif %}>
+
+	{% if secondary_label %}
+		{% include "@content/atoms/_heading.twig" with {
+  "heading_level" : group_label_level,
+  "heading" : secondary_label,
+
+  heading_blockname : 'group',
+  heading_base_class : 'title'
+} %}
+	{% endif %}
+
+
+	{% if isList %}
+		{% include "@content/atoms/_ul.twig" with {
+    "ul_items" : groupItems
+  } %}
+	{% else %}
+		{{groupItems}}
+	{% endif %}
+
+</div>

@@ -1,0 +1,54 @@
+{#
+
+/* -------------------------
+
+Title: node--article--teaser.html.twig
+Descr: sets up variable to pass to _teaser.twig
+--- nodeType
+--- teaser_modifiers
+--- teaser_summary
+--- teaser_chopped_body
+--- thumbnail image
+--- dateline
+--- media source
+--- byline
+
+Setting up new block class of 'teaser'
+
+--------------------------- */
+#}
+
+{% set nodeType = 'page' %}
+{% set teaser_modifiers = [''] %}
+
+
+{% set teaser_modifiers = teaser_modifiers|merge([nodeType]) %}
+
+{# Can't reliably get a chopped text field #}
+
+{% if content.field_summary|render is not empty %}
+	{% set teaser_body = content.field_summary %}
+{% else %}
+	{% set teaser_body = '<p>Needs summary</p>' %}
+{% endif %}
+
+{% if elements['#search_api_excerpt'] %}
+	{% set teaser_body = elements['#search_api_excerpt'] %}
+{% endif %}
+
+{# if not thumbnail set to field_image #}
+{% if content.field_thumbnail_image|render is not empty %}
+	{% set teaser_img = content.field_thumbnail_image %}
+{% else %}
+	{% set teaser_img = content.field_image %}
+{% endif %}
+
+{% embed "@content/molecules/_teaser.twig" with {
+  teaser_title: label,
+  teaser_body: content.body,
+  teaser_link_url: url,
+  teaser_img: teaser_img,
+  teaser_body : teaser_body
+} %}
+
+{% endembed %}

@@ -1,0 +1,46 @@
+name: Curiosity -- College of Arts & Sciences
+type: theme
+description: One theme to rule them all
+package: themes
+core: 8.x
+screenshot: screenshot.jpg
+base theme: stable
+
+# Libraries (These are loaded on every page. Use https://www.drupal.org/developing/api/8/assets#twig whenever possible.)
+libraries:
+  - "curiosity/global"
+  - "curiosity/global-scripts"
+
+# Regions
+regions:
+  header: Header
+  content: Content # the content region is required
+  sidebar: Sidebar
+  footer: Footer
+  newsletter: Newsletter
+
+# CKEditor stylesheet loads in wysiwyg to give content editors a better experience
+ckeditor_stylesheets:
+  - https://use.typekit.net/dsj5vco.css
+  - css/style.css
+
+#component libraries - it's a module thing
+component-libraries:
+  base:
+    paths:
+      - components/base
+  site:
+    paths:
+      - components/site
+  navigations:
+    paths:
+      - components/navigations
+  pages:
+    paths:
+      - components/pages
+  content:
+    paths:
+      - components/content
+  images:
+    paths:
+      - images

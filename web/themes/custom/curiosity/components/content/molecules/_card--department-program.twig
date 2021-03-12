@@ -1,0 +1,63 @@
+{# /* -------------------------
+
+Title: _card--department-program.twig
+Descr: builds cards for departments and programs
+
+--------------------------- */ #}
+
+
+{% set card_base_class = 'card' %}
+{% set card_byline = card_byline | default('') %}
+{% set card_dateline = card_dateline | default('') %}
+
+{# {% include "@base/_divBEM.twig" with {
+  base_class : card_base_class,
+  modifiers : card_modifiers,
+  extra_classes : card_extra_classes
+} %} #}
+
+{# {{vardumper()}} #}
+
+
+{# {% set figure_modifiers = ['mask-one'] %} #}
+{{title_suffix}}
+	<div {{ bem(card_base_class, (card_modifiers), card_blockname) }} {% if card_nodeId %} aria-labelledby="item--{{card_nodeId}}" {% endif %}> {{card_image|raw}}
+
+
+	<div {{ bem(card_copy_base_class|default('card__copy'), (card_copy_modifiers), card_copy_blockname) }}>
+
+		{% if card_title %}
+			{% include "@content/atoms/_heading.twig" with {
+        "heading_level": 2,
+        "heading": card_title,
+        "heading_url": card_title_link|default(card_link_url),
+        "heading_blockname": card_title_blockname|default(card_base_class),
+        "heading_modifiers": card_title_modifiers,
+        "heading_link_base_class": card_title_link_base_class|default('title-link'),
+        "heading_link_blockname": card_base_class,
+        "heading_base_class": card_title_base_class|default('title'),
+        "isAriaLabel" : card_nodeId
+    } %}
+		{% endif %}
+
+		{% if card_label %}
+			<span class="card__label">
+				{{ card_label }}
+			</span>
+		{% endif %}
+		{% if card_body %}
+			{{card_body}}
+		{% endif %}
+
+		{% if show_fancybox %}
+			<span class="card__links">
+				<a data-fancybox="gallery" data-src="#{{fancyboxID}}" href="javascript:;">
+					Quick look
+				</a>
+				<a href="{{card_title_link}}">
+					Full details
+				</a>
+			</span>
+		{% endif %}
+	</div>
+</div>

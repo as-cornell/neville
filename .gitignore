@@ -31,3 +31,5 @@ private
 drush-backups
 .console
 /.editorconfig
+# Ignore .DS_Store files from mac
+*.DS_Store

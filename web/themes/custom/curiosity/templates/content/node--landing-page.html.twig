@@ -1,0 +1,92 @@
+
+{#
+
+/* -------------------------
+
+Title: node--landing-page.html.twig
+Descr: Sets up variables and content for _basic-page.twig
+        landing pages do not have sidebars or asides.
+        they do have campfires and panos.
+
+--------------------------- */
+
+#}
+
+
+{# Set up main
+    - extra class main
+    - base class page
+    - modifier basic
+    - turn off sidebarNav
+ #}
+{% set main_element_extra_classes = ['main'] %}
+
+{% set main_element_base_class = 'landingPage' %}
+{% set main_element_modifiers = [''] %}
+
+
+
+{# landing page has no sideber nav aside or sidebarcontent #}
+{% set sidebarNav = false %}
+{% set aside = false %}
+{% set sidebarContent = false %}
+
+{# {% set heading_base_class = 'spotlight' %}
+{% set heading_modifiers = ['title'] %}#}
+{% set heading_class = [''] %}
+{% if is_front %}
+	{% set heading_class = heading_class|merge(['sr-only']) %}
+{% set main_element_modifiers = main_element_modifiers|merge(['homepage']) %}
+
+{% endif %}
+
+
+{#
+  If pano image
+  -- Currently not using pano on landing page.
+#}
+{# if field_pano not empty add to content_wrapper_modifiers #}
+{% if content.field_pano|render is not empty %}
+	{% set hasPano = true %}
+	{% set main_element_modifiers = main_element_modifiers|merge(['pano']) %}
+{% else %}
+  {% set main_element_modifiers = main_element_modifiers|merge(['no-pano']) %}
+{% endif %}
+
+{% set linkValues = [] %}
+{% for item in node.field_page_components %}
+  {% if item.entity.field_page_section_title.0.value %}
+  {% set linkValues = linkValues|merge([item.entity.field_page_section_title.0.value]) %}
+  {% endif %}
+{% endfor %}
+
+{# if page section values set aside_nav to the page menu block #}
+{% if linkValues %}
+  {% set otp_nav %}
+  <div class="otpNavWrapper otpNav--landing_page">
+  <h4 class="otpToggle">On this page:</h4>
+    {{ drupal_block('page_menu_block', {link_values:linkValues}) }}
+  </div>
+  {% endset %}
+  {% set aside = true %}
+
+{% set main_element_modifiers = main_element_modifiers|merge(['has-aside']) %}
+
+{% endif %}
+
+
+
+
+{% include "@pages/_basic-page.twig" with {
+    title : label,
+    main_element_modifiers : main_element_modifiers,
+    pano : content.field_pano,
+
+    main_content : content.field_page_components,
+
+    content_wrapper_modifiers : content_wrapper_modifiers,
+    main_content_modifiers : main_content_modifiers,
+
+    otp_nav: otp_nav
+    }
+%}

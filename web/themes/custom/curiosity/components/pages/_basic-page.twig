@@ -1,0 +1,64 @@
+{# 
+
+/* -------------------------
+
+Title: _basic-page.twig
+Descr: defines content and blocks for _default.twig for content type 'basic page', 'landing page'
+    * sidebar shows up basedon 
+
+--------------------------- */ 
+
+#}
+
+
+{% set sidebar_wrapper_extra_classes = sidebar_wrapper_extra_classes | default(['']) %}
+
+
+<main {{ bem(main_element_base_class, (main_element_modifiers), main_element_blockname, main_element_extra_classes) }} id="mainContent">
+
+
+	<div class="title">
+		{% if hasPano %}
+			{{pano}}
+		{% endif %}
+		{% include "@content/atoms/_heading.twig" with {
+        "heading_level" : 1,
+        "heading" : title,
+        "heading_modifiers" : heading_modifiers,
+        "heading_base_class" : heading_base_class,
+        "heading_class" : heading_class
+      } %}
+	</div>
+
+
+	<div class="content">
+		{{main_content}}
+	</div>
+	{% if sidebarNav != false %}
+		<nav class="nav--site">
+			<p class="siteNavOpener">
+				<span>
+					Expand site nav
+				</span>
+				<button class="subNav-toggle icon icon--button " aria-haspopup="true" aria-label="secondary menu closed" aria-expanded="false">
+					<svg viewbox="0 0 20 20" class="icon--arrow">
+						<use xlink:href="#chevron-down"></use>
+					</svg>
+				</button>
+
+			</p>
+			{{ sidebar_nav }}
+		</nav>
+	{% endif %}
+	{% if sidebarContent %}
+		<div class="sidebar">
+			{{sidebar_content}}
+		</div>
+	{% endif %}
+	{% if aside %}
+		<aside role="complimentary">
+			{{ otp_nav }}
+			{{ aside_content }}
+		</aside>
+	{% endif %}
+</main>

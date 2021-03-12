@@ -1,0 +1,21 @@
+{#
+
+/* -------------------------
+
+Title: media--image--thumbnail.html.twig
+Descr: Sets up variables and content for to get passed to figure.twig. This makes it nice and tidy to include media images as default. Can create for different view modes if needed.
+Passes: 
+  --- fullImage
+
+no captions on thumbnails
+--------------------------- */
+
+#}
+
+{% set fullImage = content.field_media_image %}
+
+{% set figure_modifiers = ['thumbnail'] %}
+
+{% include "@content/atoms/_figure.twig" with { 
+  fullImage : fullImage 
+}%}

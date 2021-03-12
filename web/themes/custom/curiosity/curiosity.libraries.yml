@@ -1,0 +1,32 @@
+markjs:
+  js:
+    js_min/mark.js: {}
+
+global:
+  css:
+    theme:
+      css/style.css: {}
+
+global-scripts:
+  js:
+    js_min/main-menu.js: {}
+    js_min/site-menu.js: {}
+    js_min/on-this-page-nav.js: {}
+    js_min/forms.js: {}
+    js_min/svgxuse.min.js: {}
+    js_min/list-filter.js: {}
+    js_min/to-top.js:
+  dependencies:
+    - core/jquery
+
+magnific:
+  js:
+    js_min/magnific-popup.js: {}
+    js_min/magnific-popup-pops.js: {}
+
+fancybox:
+  js:
+    js_min/jquery.fancybox.min.js: {}
+    js_min/jquery.fancybox-scripts.min.js: {}
+  dependencies:
+    - core/jquery

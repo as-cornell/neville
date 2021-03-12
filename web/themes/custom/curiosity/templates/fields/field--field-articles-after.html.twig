@@ -1,0 +1,14 @@
+{#
+/**
+ *field--field-articles-after.html.twig
+ adds ul wrapper to list of articles under campfire
+ */
+#}
+
+{% set ul_modifiers = ['related-articles'] %}
+
+
+{% embed "@content/atoms/_ul.twig" with{
+  ul_items : items
+} %}
+{% endembed %}

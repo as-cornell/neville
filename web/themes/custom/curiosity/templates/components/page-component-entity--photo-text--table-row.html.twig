@@ -1,0 +1,20 @@
+{#
+
+/* -------------------------
+
+Title: pce--photo-text
+Descr: passes image, text and modifiers to build a single photo text entity.
+
+--------------------------- */
+
+#}
+
+{% set base_class = 'photoText' %}
+table row yo
+
+{% embed "@content/molecules/_photo-text--table-row.twig" with {
+    text: content.field_formatted_text,
+    image : content.field_image,
+    modifiers: modifiers
+}%}
+{% endembed %}

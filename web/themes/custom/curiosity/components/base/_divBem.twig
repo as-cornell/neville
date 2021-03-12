@@ -1,0 +1,32 @@
+{# 
+
+/* -------------------------
+
+Title: _divBem.twig
+Descr: sets classes for the <div> elements
+  in our case we are making base_class the "block"
+
+--------------------------- */ 
+
+#}
+
+{% set classes = [
+  base_class, extra_class
+] %}
+
+{% if modifiers %}
+  {% for item in modifiers %}
+    {% set base_class = base_class %}
+    {% set modifier = item %}
+    {% set class =  base_class~'--'~modifier %}
+    {% set classes = classes|merge([class]) %}
+  {% endfor %}
+{% endif %}
+{% if element %}
+  {% set base_class = base_class %}
+  {% set element = element %}
+  {% set class =  base_class~'--'~element %}
+  {% set classes = classes|merge([class]) %}
+{% endif %}
+
+<div {{attributes.addClass(classes)}} >

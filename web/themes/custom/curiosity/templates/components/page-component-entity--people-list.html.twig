@@ -1,0 +1,56 @@
+{#
+
+/* -------------------------
+
+Title: pce - list-block
+Descr: basic for list-wrapper. Needed b/c it's a pce, all of the action happens on views-view-list.html.twig because the content here is jus
+
+--------------------------- */
+
+#}
+
+{#
+/**
+ * @file page_component_entity.html.twig
+ * Default theme implementation to present Item data.
+ *
+ * This template is used when viewing Item pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_page_component_entity()
+ *
+ * @ingroup themeable
+ */
+#}
+
+
+
+{% set group_base_class = 'pcWrapper' %}
+{% set group_modifiers = ['peopleList', 'listBlock'] %}
+
+
+{% set group_classes = ['people'] %}
+
+
+{% set layout = content.field_display.0["#markup"] %}
+
+{% if layout == "list"%}
+{% embed "@content/molecules/_grouping.twig" with{
+  items: content.field_person,
+  group_label : title
+} %}{% endembed %}
+
+{% elseif layout == "table" %}
+
+{% embed "@content/molecules/_table.twig" with{
+  items: content.field_person,
+  group_label : title
+} %}{% endembed %}
+
+{% endif %} 
+
+

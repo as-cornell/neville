@@ -1,0 +1,33 @@
+{#
+
+/* -------------------------
+
+Title: page-component-entity--blockquote.html.twig
+Descr: Sets up block quote 
+
+--------------------------- */
+
+#}
+
+
+{% set group_base_class = 'pcWrapper' %}
+{% set group_modifiers = ['blockQuote'] %}
+
+{# {{vardumper()}} #}
+
+{% if content.field_related_person|render is not empty %}
+	{% set hasPerson = true %}
+	{% set group_modifiers = group_modifiers|merge(['hasPerson']) %}
+{% else %}
+	{% set group_modifiers = group_modifiers|merge(['noPerson']) %}
+
+{% endif %}
+
+{# {{group_modifiers}} #}
+
+{% include "@content/molecules/_blockquote.twig" with {
+    group_base_class : group_base_class,
+    group_modifiers : group_modifiers,
+    quote : content.field_formatted_text,
+    person : content.field_related_person
+} %}

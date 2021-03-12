@@ -1,0 +1,32 @@
+{# /* -------------------------
+
+Title: _table_row--person.twig
+Descr: builds table row for simple listings
+
+--------------------------- */ #}
+
+{% set table_row_base_class = 'table_row' %}
+{% set table_row_byline = table_row_byline | default('') %}
+{% set table_row_dateline = table_row_dateline | default('') %}
+
+
+{# {% set figure_modifiers = ['mask-one'] %} #}
+{{title_suffix}}
+<tr {{ bem(table_row_base_class, (table_row_modifiers), table_row_blockname) }} {% if table_row_nodeId %} aria-labelledby="article-title-{{table_row_nodeId}}" {% endif %}>
+	<td
+		class="">
+		{# <a href="{{table_row_link_url}}"> #}
+		<strong>
+			{{person_name}}
+		</strong>
+		{# </a> #}
+	</td>
+	<td>
+		{% if person_jobtitle %}
+			{{ person_jobtitle }}
+		{% endif %}
+	</td>
+	<td class="">
+		{{contact}}
+	</td>
+</tr>

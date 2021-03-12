@@ -1,0 +1,30 @@
+{#
+/**
+ * name taxonomy-term--departments-programs--list.html.twig
+
+  Shows a d/p item as a link to page with name as the content of the link.
+
+ */
+#}
+{# {{vardumper()}} #}
+{# {% set main_element_extra_classes = ['main'] %} #}
+
+{# {% set main_element_base_class = main_element_base_class | default('major-minor-grad') %}
+{% set card_modifiers = ['major-minor'] %} #}
+
+{# 
+
+{% include "@content/molecules/card.twig" with{
+  card_title : name,
+  mm_level: content.field_level,
+  card_title_link: url,
+  card_image : card_image,
+  card_description: content.description
+} %} #}
+
+{% embed "@content/atoms/_link.twig" with {
+    link_modifiers : ["department-program"],
+    link_content: name,
+    link_url: url,
+    link_list: 'yes'
+} %}{% endembed %}

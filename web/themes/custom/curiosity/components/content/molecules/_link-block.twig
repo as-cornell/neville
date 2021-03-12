@@ -1,0 +1,37 @@
+{#
+
+/* -------------------------
+
+Title: _listBlock.twig
+Descr: container for any list block. they never are a list and have groups inside that just make the nesting too tricky
+
+group_base_class = group
+group_modifiers = type of component
+group_classes = pageComponent
+
+isList -- show <ul>
+list_base_class / list_base_modifiers
+
+
+--------------------------- */
+
+#}
+{% set group_base_class = group_base_class | default('') %}
+{% set group_modifiers = group_modifiers | default(['']) %}
+{% set group_classes = group_classes | default(['pcWrapper']) %}
+
+
+<div{{bem(group_base_class,(group_modifiers),'',group_classes)}} {% if divid %} id="{{divid}}" {% endif %}>
+	{% include "@content/atoms/_heading.twig" with {
+  "heading_level" : 3,
+  "heading" : group_label,
+ 
+  heading_blockname : 'linkBlock',
+  heading_base_class : 'title'
+} %}
+
+
+	{{groupItems}}
+
+
+</div>

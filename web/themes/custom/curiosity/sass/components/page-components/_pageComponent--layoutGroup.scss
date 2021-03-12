@@ -1,0 +1,43 @@
+/* -------------------------
+
+Title: _pageComponent--layoutGroup.scss
+Descr: Sets grid for columns pce--layout-group.html.twig
+
+--------------------------- */
+.pcWrapper {
+  &--layoutGroup {
+    @include medium() {
+      // display: flex;
+      // justify-content: space-between;
+      // margin-bottom: var(--bottom-margin);
+      > div {
+        flex: 0 0 calc(50% - 1rem);
+      }
+      &.heavyRight {
+        > div:first-of-type {
+          flex: 0 0 40%;
+        }
+        > div:last-of-type {
+          flex: 0 0 calc(60% - 2rem);
+        }
+      }
+      &.heavyLeft {
+        > div:first-of-type {
+          flex: 0 0 calc(60% - 2rem);
+        }
+        > div:last-of-type {
+          flex: 0 0 40%;
+        }
+      }
+      &.threeCol {
+        > div {
+          flex: 0 0 calc(33% - 1rem);
+        }
+      }
+    }
+    h2:first-of-type,
+    h3:first-of-type {
+      margin-top: 0;
+    }
+  }
+}

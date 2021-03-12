@@ -1,0 +1,17 @@
+{#
+
+/* -------------------------
+
+Title: page-component-entity--formatted-text-block
+Descr: includes formatted-text-block.twig.
+
+--------------------------- */
+
+ #}
+{% set group_base_class = 'pcWrapper' %}
+{% set group_modifiers = ['ftb'] %}
+
+{% include "@content/atoms/_formatted-text-block.twig" with {
+    group_base_class : group_base_class,
+    group_modifiers : group_modifiers
+} %}

@@ -1,0 +1,59 @@
+{#
+
+/* -------------------------
+
+Title: views-view
+Descr: main output business for views. Classes are from the view-display settings form. Rows gets output by views-view-list with _grouping.twig.
+
+--------------------------- */
+
+#}
+
+{# this is super important to have in the wrapper for ajax stuff #}
+
+{%
+  set domID = [
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+  ]
+%}
+
+{% set main_element_extra_classes = ['main', 'list--cards']%}
+{% set main_element_extra_classes = main_element_extra_classes|merge([domID.0]) %}
+
+{% set main_element_base_class = 'basicSidebar' %}
+{% set main_element_modifiers = ['viewContainer', 'newsList'] %}
+{#
+ {{ vardumper()}}
+{{ view.getExposedInput.byline }}
+{{ view.getExposedInput.media_source }} #}
+
+
+{# set view_title = view.storage.label #}
+{% set view_title = view.element['#title'] %}
+
+{% if (view.getExposedInput.media_source) %}
+  {% set view_title = "Articles appearing in " ~ view.getExposedInput.media_source %}
+{% elseif (view.getExposedInput.byline) %}
+  {% set view_title = "Articles by " ~ view.getExposedInput.byline %}
+{% endif %}
+
+{% set view_content = rows %}
+{% set view_pager = pager %}
+{% set view_sidebar = exposed %}
+{# Hiding header for now {{header.view}} #}
+{% set show_search = 'news' %}
+{{ view.getExposedInput.byline }}
+{# {% set view_header = header.view %} #}
+
+
+
+
+{% include "@pages/_view-list.twig" with {
+  view_title : view_title,
+  view_content : view_content,
+  view_pager : view_pager,
+  view_sidebar : view_sidebar,
+  view_header : view_header,
+  show_search : show_search
+
+}%}

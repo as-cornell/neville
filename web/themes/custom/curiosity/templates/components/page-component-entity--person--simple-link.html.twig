@@ -1,0 +1,47 @@
+{#
+/**
+ name = page-component-entity--person--list.html.twig
+ Makes name a link to page
+
+ */
+#}
+
+{% set netid = content.field_netid|field_value|safe_join(', ') %}
+{% set personlink = content.field_link.0['#url'] %}
+{# {{content.name}} #}
+{# set blocky = drupal_block('person_card_block', {netid:netid}) #}
+{% set badlarry = parse_people_json(netid) %}
+{#vardumper(badlarry)#}
+
+
+	{% if badlarry.title is empty %}
+
+	{% embed "@content/atoms/_link.twig" with {
+    link_modifiers : ["person"],
+    link_content: content.name,
+    link_url: personlink
+} %}
+	{% endembed %}
+
+{% else %}
+	<ul>
+		<li>
+			{{badlarry.imagepath}}
+		</li>
+		<li>
+			{{badlarry.alt}}
+		</li>
+		<li>
+			{{badlarry.path}}
+		</li>
+		<li>
+			{{badlarry.title}}
+		</li>
+		<li>
+			{{badlarry.jobtitle}}
+		</li>
+		<li>
+			{{badlarry.departments}}
+		</li>
+	</ul>
+{% endif %}

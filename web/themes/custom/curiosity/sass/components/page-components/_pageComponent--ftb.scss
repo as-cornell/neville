@@ -1,0 +1,33 @@
+/* -------------------------
+
+Title: pageComponent--ftb
+Descr: 
+    specific styles for PC-FTB that are not specific to a cotnent type
+
+--------------------------- */
+
+.pcWrapper--ftb {
+  // margin-bottom: var(--bottom-margin);
+  p,
+  ul {
+    // max-width: var(--line-width);
+  }
+}
+
+// pcWrapper--ftb is on _landingPage.scss
+
+.landingPage {
+  .content > .pcWrapper--ftb,
+  .pageSection > .pcWrapper--ftb {
+    @include medium() {
+      max-width: var(--large);
+    }
+    margin-left: auto;
+    margin-right: auto;
+    p {
+      max-width: 100%;
+    }
+  }
+}
+
+// .pcWrapper

@@ -1,0 +1,42 @@
+/* -------------------------
+
+Title: teasers
+Descr: Sets grid default teaser styles
+Variations: 
+  teaser
+** still have to figure out why teasers with summaeries  are differnet sizes
+--------------------------- */
+
+.teaser {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--bottom-margin);
+  figure {
+    margin-right: var(--space);
+    flex: 0 0 200px;
+    figcaption {
+      @extend .sr-only;
+    }
+  }
+  .teaser__title {
+    font-size: var(--base-36);
+    font-weight: var(--semi);
+    &-link {
+      color: var(--as-dark-blue);
+      display: block;
+      text-decoration: underline;
+      &:hover {
+        color: var(--as-blue-base);
+      }
+    }
+  }
+  .teaser__copy {
+    flex-grow: 1;
+  }
+  ul {
+    padding-left: 0;
+    margin-left: 0;
+    margin-top: 0;
+  }
+}

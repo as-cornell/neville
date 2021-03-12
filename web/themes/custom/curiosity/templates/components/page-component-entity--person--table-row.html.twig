@@ -1,0 +1,27 @@
+{#
+/**
+ name = page-component-entity--person--card.html.twig
+ Makes name a link to page
+
+ */
+#}
+{% set link = content.field_link.0['#title'] %}
+{% set pathtoken = content.field_people_uuid|field_value|safe_join(' ') %}
+{% set person = parse_people_json(pathtoken) %}
+
+{# HIDDEN til i get new ldap #}
+{% set contact = drupal_block('ldap_block', {netid: person.netid}) %}
+
+
+{% set table_row_link_url = link %}
+{% embed "@content/molecules/_table-row--person.twig" with {
+    group_modifiers : ["person"],
+    person_name: person.title,
+
+
+    person_jobtitle: person.jobtitle,
+    person_departments: person.departments,
+
+    person_nodeId : node.id
+} %}
+{% endembed %}

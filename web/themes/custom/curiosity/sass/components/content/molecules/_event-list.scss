@@ -1,0 +1,99 @@
+/* -------------------------
+
+Title: Event List
+Descr: Sets grid default ( full width ) and stacked (in columns) event lists
+        Sets all default individual event listings
+
+--------------------------- */
+
+// Default event list
+
+.eventList {
+  display: grid;
+  grid-gap: var(--grid-gap);
+  padding-left: 0;
+  @include medium() {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+  margin: 0 0 var(--component-bottom-margin) 0;
+}
+
+// Event list in columns
+.columns {
+  .eventList {
+    grid-template-columns: auto;
+  }
+}
+
+// Event listing item
+.event {
+  // flex: 0 0 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  // grid-gap: var(--space);
+  // grid-row-gap: 0;
+  // grid-template-columns: 84px 1fr;
+  // grid-template-areas: "date content";
+  &__dateTime {
+    flex: 0 0 24%;
+    grid-area: date;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include boxShadow();
+    padding: 0.25rem;
+    border-radius: var(--border-radius);
+  }
+  &__month {
+    // font-weight: var(--heavy);
+  }
+  &__date {
+    font-weight: var(--semi);
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin-bottom: 0.25rem;
+    padding-bottom: 0.25rem;
+    position: relative;
+    width: 69px;
+    &:after {
+      position: absolute;
+      content: "";
+      left: 10%;
+      top: 40%;
+      width: 3rem;
+      height: 2px;
+      background: var(--gray-lt);
+      transform: rotate(-30deg);
+    }
+    .event__month {
+      // background: red;
+      text-align: left;
+    }
+    .event__day {
+      // background: pink;
+      text-align: right;
+    }
+  }
+  &__time {
+    font-size: var(--base-18);
+    font-weight: var(--semi);
+  }
+  &__content {
+    flex: 0 0 65%;
+    // grid-area: content;
+  }
+  &__title {
+    // grid-area: title;
+  }
+  &__location {
+    // grid-area: location;
+  }
+  a {
+    // color: var(--gray-dark);
+  }
+  span {
+    // display: block;
+  }
+}

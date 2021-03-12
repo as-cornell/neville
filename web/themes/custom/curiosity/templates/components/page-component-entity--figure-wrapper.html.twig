@@ -1,0 +1,21 @@
+{#
+
+/* -------------------------
+
+Title: Component Entity Layout Group
+Descr: Group wrapper for layout entity item. Passes wrapper class and items.
+
+--------------------------- */
+
+ #}
+
+
+{% set group_base_class = 'pcWrapper' %}
+{% set group_modifiers = ['figure'] %}
+{% include "@content/molecules/_grouping.twig" with {
+    items : content.field_figures_reference,
+    group_base_class : group_base_class,
+    group_modifiers : group_modifiers,
+
+}
+%}

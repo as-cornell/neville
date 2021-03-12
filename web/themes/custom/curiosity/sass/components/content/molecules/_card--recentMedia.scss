@@ -1,0 +1,52 @@
+/* -------------------------
+
+Title: _card--recentMedia.scss
+Descr: Sets all specific styles for an recentMedia card
+  sets css for card--feature as they are recentMedia
+
+--------------------------- */
+
+.card--recentMedia {
+  // flex-basis: 100%;
+  margin-bottom: 0 !important;
+  .card__copy {
+    padding: 1rem;
+    @include baseGrid($g-gap: 0px);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "source source source"
+      "title title title"
+      "about about about"
+      "date byline byline";
+  }
+  .card__title {
+    grid-area: title;
+    font-weight: var(--regular);
+    line-height: 1.4;
+    h2 {
+      margin-bottom: 1em;
+      font-size: var(--base-24);
+      line-height: 1.2em;
+    }
+  }
+  .card__source {
+    grid-area: source;
+    color: var(--as-black);
+    font-size: var(--base-18);
+    font-weight: var(--semi);
+    // margin-bottom: 0.5em;
+  }
+  .card__about {
+    grid-area: about;
+    color: var(--as-black);
+    font-size: var(--base-18);
+    // font-weight: var(--semi);
+    margin-bottom: 0.5em;
+  }
+  .card__date {
+    grid-area: date;
+    text-align: left;
+    font-size: var(--base-16);
+    // margin-top: 2px;
+  }
+}

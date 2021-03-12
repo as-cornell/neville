@@ -1,0 +1,172 @@
+/* -------------------------
+
+Title: _pageComponent--photoText.scss
+Descr: Sets styles for 
+  -- pcWrapper--photoText
+  -- photoText
+
+--------------------------- */
+
+// pcWrapper--photoText pcWrapper--featured
+.pcWrapper--photoText {
+  &[class*="pcWrapper--featured"] {
+    .photoText {
+      //adjust figure default
+
+      h2 {
+        margin-top: 0;
+      }
+      // set up masks
+      @for $i from 1 through 3 {
+        &:nth-of-type(3n + #{$i}) {
+          .photoText__image {
+            // background: red;
+            figure {
+              background: none;
+              box-shadow: none;
+            }
+            figcaption {
+              @extend .sr-only;
+            }
+            img {
+              @extend .mask-#{$i};
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &[class*="gray"],
+  &[class*="purple"],
+  &[class*="blue"] {
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--bottom-margin);
+
+    font-weight: var(--regular);
+    @include boxShadow();
+
+    .photoText {
+      margin-bottom: 0;
+    }
+    h2,
+    p {
+      @include dropShadow();
+    }
+  }
+  &[class*="blue"] {
+    background: var(--teal-teal);
+    color: var(--as-black);
+    // padding: 3rem;
+    // border-radius: var(--border-radius);
+    // margin-bottom: var(--bottom-margin);
+
+    // font-weight: var(--regular);
+    // @include boxShadow();
+
+    // .photoText {
+    //   margin-bottom: 0;
+    // }
+    h2,
+    p,
+    ul {
+      color: var(--as-white);
+      // @include dropShadow();
+    }
+    a {
+      color: var(--as-white);
+    }
+  }
+
+  &[class*="gray"] {
+    background: var(--as-text);
+    color: var(--as-black);
+    // padding: 3rem;
+    // border-radius: var(--border-radius);
+    // margin-bottom: var(--bottom-margin);
+
+    // font-weight: var(--regular);
+    // @include boxShadow();
+
+    // .photoText {
+    //   margin-bottom: 0;
+    // }
+    h2,
+    p,
+    ul {
+      color: var(--as-white);
+      // @include dropShadow();
+    }
+    a {
+      color: var(--as-white);
+    }
+  }
+  &[class*="purple"] {
+    background: var(--purple-radial);
+    color: var(--as-black);
+    // padding: 3rem;
+    // border-radius: var(--border-radius);
+    // margin-bottom: var(--bottom-margin);
+
+    // font-weight: var(--regular);
+    // @include boxShadow();
+
+    // .photoText {
+    //   margin-bottom: 0;
+    // }
+    h2,
+    p,
+    ul {
+      color: var(--as-white);
+      // @include dropShadow();
+    }
+    a {
+      color: var(--as-white);
+    }
+  }
+}
+
+// photoText
+.photoText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--margin-4);
+  font-size: var(--base-24);
+
+  &__text {
+    flex: 0 0 calc(70% - var(--space));
+  }
+  &__image {
+    flex: 0 0 calc(34% - var(--space));
+  }
+  @include large() {
+    // align-items: center;
+    &__image {
+      flex: 0 0 40%;
+    }
+    &__text {
+      flex: 0 0 55%;
+    }
+  }
+  h2 {
+    .slider & {
+      font-size: 3rem;
+    }
+  }
+  h3 + h2 {
+    // margin-top: 0;
+  }
+  h3 {
+    font-family: var(--font-serif);
+    font-size: var(--base-24);
+  }
+  @include medium() {
+    flex-direction: row;
+    &:nth-last-of-type(odd) {
+      flex-direction: row-reverse;
+    }
+  }
+}

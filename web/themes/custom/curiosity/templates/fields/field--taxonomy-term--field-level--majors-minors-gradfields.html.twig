@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Theme override majors minors level
+ *
+ * @see template_preprocess_field()
+ */
+#}
+
+
+{% set group_base_class = 'levels' %}
+
+
+	{% for item in items %}
+    {% set label = item.content['#taxonomy_term']['#values']['name'] %}
+  {% endfor %}
+
+{% set li_base_class = "level" %}
+
+{% embed "@content/molecules/_grouping.twig" with{
+  groupItems : items
+} %}
+{% endembed %}

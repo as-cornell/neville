@@ -1,0 +1,67 @@
+/* -------------------------
+
+Title: tables
+Descr: 
+   - style tables
+
+--------------------------- */
+
+table,
+.as-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 3rem;
+  font-size: var(--base-20);
+  caption {
+    @extend .sr-only;
+  }
+
+  thead {
+    // tr {
+    //   background: var(--as-teal-dark);
+    // }
+  }
+
+  th {
+    position: sticky;
+    top: 0;
+    background: var(--as-teal-dark);
+    font-weight: var(--semi);
+    // font-size: 13px;
+    padding: 0.5em;
+    text-align: left;
+    color: var(--as-white);
+    // text-transform: uppercase;
+  }
+
+  tr {
+    &:nth-of-type(even) {
+      background: var(--gray-lightest);
+    }
+    &:nth-of-type(odd) {
+      // background: #fafafa;
+    }
+    &:first-of-type {
+      //background: $as-white;
+    }
+
+    @include small {
+      // border-top: 1px solid var(--gray-lt);
+    }
+  }
+
+  td {
+    // border-top: 1px solid var(--gray-lt);
+    // border-bottom: 1px solid var(--gray-lt);
+    padding: 0.5em;
+
+    @include medium {
+      border-bottom: none;
+      border-top: none;
+      // display: inline-block;
+    }
+  }
+}
+tbody {
+  border-top: none;
+}
