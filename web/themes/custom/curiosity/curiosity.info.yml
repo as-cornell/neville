@@ -3,6 +3,7 @@ type: theme
 description: One theme to rule them all
 package: themes
 core: 8.x
+core_version_requirement: ^8 || ^9
 screenshot: screenshot.jpg
 base theme: stable
 
