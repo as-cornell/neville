@@ -1,0 +1,12 @@
+name: Discovery
+type: theme
+description: 'A Drupal 9 comptible theme for A&S department websites.'
+core_version_requirement: ^8 || ^9
+libraries:
+  - discovery/global-styling
+base theme: classy
+regions:
+  header: Header
+  content: Content
+  sidebar_first: 'Sidebar first'
+  footer: Footer
