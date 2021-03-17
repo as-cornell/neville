@@ -82,7 +82,6 @@ hooks:
         cd web
         drush -y cache-rebuild
         drush -y updatedb
-        drush -y config-import
 
 # The configuration of app when it is exposed to the web.
 web:
