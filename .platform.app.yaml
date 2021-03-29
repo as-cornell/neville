@@ -17,7 +17,6 @@ runtime:
     # Enable the redis extension so Drupal can communicate with the Redis cache.
     extensions:
         - redis
-        - zip
 
 # The relationships of the application with services or other applications.
 #
