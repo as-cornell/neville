@@ -1,0 +1,197 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+
+function as_dept_people_json_get_person_json($pathtoken)
+{
+  //set cache id (verify parameters are safe values to use as cache id)
+  $cid = "as_people_json:" . $pathtoken;
+  $person_data = [];
+  //check cache
+  if ($cache = \Drupal::cache('data')->get($cid)) {
+    //fetch cache data
+    $person_data = $cache->data;
+    //check cache expiration
+  }
+  // if no data check url
+  else {
+    $url = 'https://people.as.cornell.edu/jsonapi/node/person/?filter[id]=' . $pathtoken .'&include=field_image.field_media_image';
+    //fetch data and set cache
+    $data = file_get_contents($url);
+    $json = json_decode($data, true);
+    if (!empty($json)) {
+      if (!empty($json['data'])) {
+        $person_data['data'] = $json['data'];
+        }
+      if (!empty($json['included'])) {
+    $person_data['included'] = $json['included'];
+        }
+    \Drupal::cache('data')
+      ->set($cid, $json, time() + 360);
+    }
+  }
+  //return data
+  return $person_data;
+}
+
+function as_dept_people_json_get_department_people_json($deptid)
+{
+  //set cache id (verify parameters are safe values to use as cache id)
+  $cid = "as_people_json_department:" . $deptid;
+  $department_data = [];
+  //check cache
+  if ($cache = \Drupal::cache('data')->get($cid)) {
+    //fetch cache data
+    $department_data = $cache->data;
+    //check cache expiration
+  }
+  // if no data check url
+  else {
+    $url = 'https://people.as.cornell.edu/jsonapi/node/person/?filter[field_departments_programs.tid][value]=' . $deptid ;
+    //fetch data and set cache
+    $data = file_get_contents($url);
+    $json = json_decode($data, true);
+    $department_data['data'] = $json['data'];
+    $department_data['included'] = $json['included'];
+    \Drupal::cache('data')
+      ->set($cid, $json, time() + 360);
+  }
+  //return data
+  return $department_data;
+}
+
+function as_dept_people_json_get_department_faculty_json($deptid)
+{
+  //set cache id (verify parameters are safe values to use as cache id)
+  $cid = "as_people_json_department_faculty:" . $deptid;
+  $json = [];
+  $department_data = [];
+  //check cache
+  if ($cache = \Drupal::cache('data')->get($cid)) {
+    //fetch cache data
+    $department_data = $cache->data;
+    //check cache expiration
+  }
+  // if no data check url
+  else {
+    $url = 'https://people.as.cornell.edu/jsonapi/node/person/?filter[field_departments_programs.tid][value]='. $deptid .'&filter[field_person_type.tid][value]=80099&sort=field_person_last_name';
+    //fetch data and set cache
+    $data = file_get_contents($url);
+    $json = json_decode($data, true);
+    if (!empty($json['data'])){
+    $department_data['data'] = $json['data'];
+      }
+    if (!empty($json['included'])){
+    $department_data['included'] = $json['included'];
+      }
+    \Drupal::cache('data')
+      ->set($cid, $json, time() + 360);
+
+  }
+  //return data
+  return $department_data;
+}
+
+function as_dept_people_json_get_department_staff_json($deptid)
+{
+  //set cache id (verify parameters are safe values to use as cache id)
+  $cid = "as_people_json_department_staff:" . $deptid;
+  $department_data = [];
+  //check cache
+  if ($cache = \Drupal::cache('data')->get($cid)) {
+    //fetch cache data
+    $department_data = $cache->data;
+    //check cache expiration
+  }
+  // if no data check url
+  else {
+    $url = 'https://people.as.cornell.edu/jsonapi/node/person/?filter[field_departments_programs.tid][value]='. $deptid .'&filter[field_person_type.tid][value]=80100&sort=field_person_last_name' ;
+    //fetch data and set cache
+    $data = file_get_contents($url);
+    $json = json_decode($data, true);
+    $department_data['data'] = $json['data'];
+    $department_data['included'] = $json['included'];
+    \Drupal::cache('data')
+      ->set($cid, $json, time() + 360);
+  }
+  //return data
+  return $department_data;
+}
+
+function as_dept_people_json_get_dept_json($deptuuid)
+{
+  //set cache id (verify parameters are safe values to use as cache id)
+  $cid = "as_people_dept_json:" . $deptuuid;
+  $dept_data = [];
+  //check cache
+  if ($cache = \Drupal::cache('data')->get($cid)) {
+    //fetch cache data
+    $dept_data = $cache->data;
+    //check cache expiration
+  }
+  // if no data check url
+  else {
+    $url = 'https://people.as.cornell.edu/jsonapi/taxonomy_term/departments_and_programs/' . $deptuuid;
+    //fetch data and set cache
+    $data = file_get_contents($url);
+    $json = json_decode($data, true);
+    $dept_data['data'] = $json['data'];
+    \Drupal::cache('data')
+      ->set($cid, $json, time() + 360);
+  }
+  //return data
+  return $dept_data;
+}
+
+function as_dept_people_json_get_people_summary_json($summaryuuid)
+{
+  //set cache id (verify parameters are safe values to use as cache id)
+  $cid = "as_people_summary_json:" . $summaryuuid;
+  $summary_data = [];
+  //check cache
+  if ($cache = \Drupal::cache('data')->get($cid)) {
+    //fetch cache data
+    $summary_data = $cache->data;
+    //check cache expiration
+  }
+  // if no data check url
+  else {
+    $url = 'https://people.as.cornell.edu/jsonapi/paragraph/person_description_standard/' . $summaryuuid;
+    //fetch data and set cache
+    $data = file_get_contents($url);
+    $json = json_decode($data, true);
+    $summary_data['data'] = $json['data'];
+    \Drupal::cache('data')
+      ->set($cid, $json, time() + 360);
+  }
+  //return data
+  return $summary_data;
+}
+
+/**
+ * Implements hook_help().
+ */
+function as_dept_people_json_help($route_name, RouteMatchInterface $route_match)
+{
+  switch ($route_name) {
+    case 'help.as_people_json':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The A&S People JSON module provides various blocks of people that consume JSON API from people.as.cornell.edu.') . '</p>';
+
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function as_dept_people_json_theme($existing, $type, $theme, $path) {
+  return [
+    'person' => [
+      'variables' => ['netid' => NULL],
+      'variables' => ['pathtoken' => NULL],
+    ],
+  ];
+}

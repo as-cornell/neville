@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains as_people_stub.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function as_people_stub_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the as_people_stub module.
+    case 'help.page.as_people_stub':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Contains migration to import people stubs from Drupal 7 into Drupal 8') . '</p>';
+      return $output;
+
+    default:
+  }
+}

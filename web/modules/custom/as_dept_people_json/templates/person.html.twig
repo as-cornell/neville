@@ -1,0 +1,9 @@
+{# [module]/templates/my-template.html.twig #}
+<p>netid: {{ netid }}</p>
+{% set badlarry = parse_people_json(netid) %}
+<ul>
+
+    <li>
+      {{badlarry.path}}
+    </li>
+  </ul>

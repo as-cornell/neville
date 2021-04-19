@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: people
+label: People
+description: 'Migrate people content from Drupal 7 to Drupal 8'
+source_type: 'Drupal 7'
+module: null
+shared_configuration: null
