@@ -8,7 +8,7 @@ dependencies:
       - as_dept_people_stub
 
 destination:
-  plugin: entity:page_component_entity
+  plugin: entity:node
 
 source:
   plugin: url
