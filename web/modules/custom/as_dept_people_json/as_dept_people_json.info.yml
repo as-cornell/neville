@@ -1,9 +1,7 @@
 name: A&S Department People JSON
-description: "Provides people records from people.as JSONAPI for use in department sites."
+description: "Provides people records from people.as.cornell.edu JSONAPI for use in person template."
 package: AS
 type: module
-version: '8.x-1.0'
-core: 8.x
+version: '9.x-1.0'
+core: 9.x
 configure: as_dept_people_json.list
-dependencies:
-  - system (>=8.2.0)

@@ -1,7 +1,0 @@
-as_dept_people_json.content:
-  path: '/people/{pathtoken}'
-  defaults:
-    _controller: '\Drupal\as_dept_people_json\Controller\PeopleController::content'
-    _title: 'People'
-  requirements:
-    _permission: 'access content'
