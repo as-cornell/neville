@@ -1,5 +1,0 @@
-name: 'A&S People Stub'
-type: module
-description: 'Contains a migration to import people stubs from Drupal 7 into Drupal 8'
-core: 8.x
-package: 'AS'

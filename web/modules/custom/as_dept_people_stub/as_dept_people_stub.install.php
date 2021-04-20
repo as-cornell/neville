@@ -5,7 +5,7 @@ use Symfony\Component\Yaml\Yaml;
 /**
  * Implements hook_install().
  */
-function as_people_stub_install() {
+function as_dept_people_stub_install() {
   // Don't do anything during config sync.
   if (\Drupal::isConfigSyncing()) {
     return;
@@ -13,7 +13,7 @@ function as_people_stub_install() {
   $overridden_config = [
   ];
 
-  $config_path = \Drupal::root() . '/' . drupal_get_path('module', 'as_people_stub') . '/config/optional/';
+  $config_path = \Drupal::root() . '/' . drupal_get_path('module', 'as_dept_people_stub') . '/config/optional/';
 
   foreach ($overridden_config as $config) {
     $editable_config = Drupal::configFactory()->getEditable($config);
