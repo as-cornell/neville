@@ -3,5 +3,4 @@ description: "Displays LDAP people data from directory.cornell.edu by NetID in a
 package: AS
 type: module
 core_version_requirement: ^8.7.7 || ^9
-core: 8.x
 configure: as_people_ldap.list
