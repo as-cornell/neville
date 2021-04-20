@@ -56,7 +56,7 @@ process:
   type:
     plugin: default_value
     default_value: person
-  name: title
+  title: title
   field_person_last_name: field_person_last_name
   field_people_uuid: uuid
   'field_link/uri':
