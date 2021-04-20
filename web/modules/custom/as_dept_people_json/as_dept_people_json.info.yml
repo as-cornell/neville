@@ -3,5 +3,5 @@ description: "Provides people records from people.as.cornell.edu JSONAPI for use
 package: AS
 type: module
 version: '9.x-1.0'
-core: 9.x
+core: 8.x
 configure: as_dept_people_json.list
