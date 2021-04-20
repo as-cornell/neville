@@ -64,7 +64,7 @@ process:
     source:
       - 'constants/person_base_path'
       - link
-  field_departments_and_programs:
+  field_departments_programs:
     -
       plugin: skip_on_empty
       method: process

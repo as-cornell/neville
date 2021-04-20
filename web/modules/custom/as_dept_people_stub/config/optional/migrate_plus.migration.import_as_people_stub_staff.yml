@@ -55,7 +55,7 @@ source:
 process:
   type:
     plugin: default_value
-    default_value: person
+    default_value: article
   name: title
   field_person_last_name: field_person_last_name
   field_people_uuid: uuid
@@ -64,7 +64,7 @@ process:
     source:
       - 'constants/person_base_path'
       - link
-  field_departments_and_programs:
+  field_departments_programs:
     -
       plugin: skip_on_empty
       method: process
