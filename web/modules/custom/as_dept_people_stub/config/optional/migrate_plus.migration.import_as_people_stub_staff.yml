@@ -58,7 +58,7 @@ process:
     default_value: article
   title: title
   field_person_last_name: field_person_last_name
-  field_people_uuid: uuid
+  field_remote_uuid: uuid
   'field_link/uri':
     plugin: concat
     source:
