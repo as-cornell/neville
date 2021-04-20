@@ -1,5 +1,5 @@
 name: 'A&S Departments People Stub'
 type: module
 description: 'Contains migrations to import people stubs from people.as.cornell.edu to departments.as.cornell.edu'
-version: '9.x-1.0'
+core_version_requirement: ^8.7.7 || ^9
 package: 'AS'
