@@ -1,5 +1,5 @@
 # Migration configuration for imported stats.
-id: dept_people_stub_faculty
+id: as_dept_people_stub_faculty
 label: Faculty records from people.as.cornell.edu to departments.as.cornell.edu
 migration_group: people
 dependencies:
@@ -73,7 +73,7 @@ process:
       plugin: explode
       delimiter: ', '
     -
-      plugin: entity_lookup
+      plugin: entity_generate
       entity_type: taxonomy_term
       bundle: departments_programs
       value_key: name

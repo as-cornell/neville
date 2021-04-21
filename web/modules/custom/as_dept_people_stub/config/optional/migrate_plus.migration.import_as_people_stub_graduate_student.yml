@@ -1,5 +1,5 @@
 # Migration configuration for imported stats.
-id: dept_people_stub_graduate_student
+id: as_dept_people_stub_graduate_student
 label: Graduate Student records from people.as.cornell.edu to departments.as.cornell.edu
 migration_group: people
 dependencies:
