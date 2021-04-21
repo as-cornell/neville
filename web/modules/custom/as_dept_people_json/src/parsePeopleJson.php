@@ -86,7 +86,9 @@ class parsePeopleJson extends \Twig_Extension
           foreach ($person_data['relationships']['field_summary']['data'] as $summary_data) {
               $summaryuuid = $summary_data['id'];
               $summary_json = as_dept_people_json_get_people_summary_json($summaryuuid);
-              $summary = $summary . $summary_json['data']['attributes']['field_description']['processed'];
+              if (!empty($summary_json['data']['attributes']['field_description']['processed'])) {
+                $summary = $summary . $summary_json['data']['attributes']['field_description']['processed'];
+              }
               if (!empty($summary_json['data']['attributes']['field_person_research_focus']['processed'])) {
                 $researchfocus = $researchfocus . $summary_json['data']['attributes']['field_person_research_focus']['processed'];
               }

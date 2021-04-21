@@ -2,3 +2,6 @@ name: neville
 recipe: platformsh
 config:
   id: mm3lcf5ygjhvq
+proxy:
+  app:
+    - neville.lndo.site

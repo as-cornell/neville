@@ -111,37 +111,40 @@
   {% endset %}
   <div><img src="{{person.imagepath}}" alt="{{person.alt}}"></div>
 {% endif %}
+
 {# job title #}
 {% if person.jobtitle %}
   {% set show_jobtitle = true %}
   {% set jobtitle = person.jobtitle %}
   <div>{{jobtitle}}</div>
 {% endif %}
+
 {# departments #}
 {% if person.departments %}
   {% set show_departments = true %}
   {% set departments = person.departments %}
   <div>{{departments}}</div>
 {% endif %}
+
 {# edcuation #}
 {% if person.education %}
   {% set show_education = true %}
   {% set education = person.education %}
-  <div>{{education}}</div>
+  <div>{{education|striptags}}</div>
 {% endif %}
 
 {# summary #}
 {% if person.summary %}
   {% set show_summary = true %}
-  {% set summary = person.summary|striptags %}
-  <div>{{summary}}</div>
+  {% set summary = person.summary %}
+  <div>{{summary|striptags}}</div>
 {% endif %}
 
 {# responsibilities #}
 {% if person.responsibilities %}
   {% set show_responsibilities = true %}
-  {% set responsibilities = person.responsibilities|raw %}
-  <div>{{responsibilities}}</div>
+  {% set responsibilities = person.responsibilities %}
+  <div>{{responsibilities|striptags}}</div>
 {% endif %}
 
 
@@ -149,21 +152,23 @@
 {% if person.researchfocus %}
   {% set show_researchfocus = true %}
   {% set researchfocus = person.researchfocus %}
-  <div>{{researchfocus}}</div>
+  <div>{{researchfocus|striptags}}</div>
 {% endif %}
 
 {# publications #}
 {% if person.publications %}
   {% set show_publications = true %}
   {% set publications = person.publications %}
-  <div>{{publications}}</div>
+  <div>{{publications|striptags}}</div>
 {% endif %}
 
 {# links #}
 {% if person.links %}
   {% set show_links = true %}
   {% set links = person.links %}
-  <div>{{links}}</div>
+  {% for link in links %}
+        <li><a href='{{link.uri}}'>{{link.title}}</a></li>
+    {% endfor %}
 {% endif %}
 
 
