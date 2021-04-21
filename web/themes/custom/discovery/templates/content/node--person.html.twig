@@ -92,33 +92,56 @@
   {{ title_suffix }}
 
   <div{{ content_attributes.addClass('node__content') }}>
-    {{ content }}
+    {# content #}
 
   </div>
   <div>
-  {{content.field_remote_uuid.0}}
+
   {% set pathtoken = content.field_remote_uuid[0]['#context']['value'] %}
   {% set person = parse_people_json(pathtoken) %}
 
 
 
 {# set contact = drupal_block('ldap_block', {netid: person.netid}) #}
+
+{# set image #}
+{% if person.imagepath %}
+  {% set image %}
+    <img src="{{person.imagepath}}" alt="{{person.alt}}">
+  {% endset %}
+  <div><img src="{{person.imagepath}}" alt="{{person.alt}}"></div>
+{% endif %}
+{# job title #}
+{% if person.jobtitle %}
+  {% set show_jobtitle = true %}
+  {% set jobtitle = person.jobtitle %}
+  <div>{{jobtitle}}</div>
+{% endif %}
+{# departments #}
+{% if person.departments %}
+  {% set show_departments = true %}
+  {% set departments = person.departments %}
+  <div>{{departments}}</div>
+{% endif %}
 {# edcuation #}
 {% if person.education %}
   {% set show_education = true %}
   {% set education = person.education %}
+  <div>{{education}}</div>
 {% endif %}
 
 {# summary #}
 {% if person.summary %}
   {% set show_summary = true %}
-  {% set summary = person.summary|raw %}
+  {% set summary = person.summary|striptags %}
+  <div>{{summary}}</div>
 {% endif %}
 
 {# responsibilities #}
 {% if person.responsibilities %}
   {% set show_responsibilities = true %}
   {% set responsibilities = person.responsibilities|raw %}
+  <div>{{responsibilities}}</div>
 {% endif %}
 
 
@@ -126,38 +149,30 @@
 {% if person.researchfocus %}
   {% set show_researchfocus = true %}
   {% set researchfocus = person.researchfocus %}
+  <div>{{researchfocus}}</div>
 {% endif %}
 
 {# publications #}
 {% if person.publications %}
   {% set show_publications = true %}
   {% set publications = person.publications %}
-{% endif %}
-
-{# departments #}
-{% if person.departments %}
-  {% set show_departments = true %}
-  {% set departments = person.departments %}
+  <div>{{publications}}</div>
 {% endif %}
 
 {# links #}
 {% if person.links %}
   {% set show_links = true %}
   {% set links = person.links %}
+  <div>{{links}}</div>
 {% endif %}
 
 
 {% set main_element_extra_classes = ['main'] %}
 {% set main_element_base_class = main_element_base_class | default('person') %}
 {% set main_element_modifiers = [''] %}
-<img src="{{person.imagepath}}" alt="{{person.alt}}">
-{# set image #}
-{{person.imagepath}}
-{% if person.imagepath %}
-  {% set image %}
-    <img src="{{person.imagepath}}" alt="{{person.alt}}">
-  {% endset %}
-{% endif %}
+
+
+
   </div>
 
 </article>

@@ -40,14 +40,11 @@ class parsePeopleJson extends \Twig_Extension
    */
   public function parse_people_json($pathtoken)
   {
-    dump($pathtoken);
-    //$pathtoken ='a5d82574-af55-425c-b045-430b8675dcba';
     $person_record = [];
     $departments = '';
     $summary = '';
     $researchfocus = '';
     $people_json = as_dept_people_json_get_person_json($pathtoken);
-    dump($people_json['data'][0]['attributes']['field_person_first_name']);
     if (!empty($people_json['data'])) {
       // get image path from json
       //foreach($people_json['included'] as $image) {
@@ -62,11 +59,21 @@ class parsePeopleJson extends \Twig_Extension
         $person_record['path'] = $person_data['attributes']['path']['alias'];
         $person_record['title'] = $person_data['attributes']['title'];
         $person_record['jobtitle'] = $person_data['attributes']['field_person_title'];
-        //$person_record['responsibilities'] = $person_data['attributes']['field_responsibilities']['value'];
-        //$person_record['keywords'] = strip_tags($person_data['attributes']['field_keywords']['value']);
-        //$person_record['education'] = $person_data['attributes']['field_person_education']['value'];
-        //$person_record['publications'] = $person_data['attributes']['field_person_publications']['value'];
-        //$person_record['links'] = $person_data['attributes']['field_links'];
+        if (!empty($person_data['attributes']['field_responsibilities']['value'])) {
+          $person_record['responsibilities'] = $person_data['attributes']['field_responsibilities']['value'];
+          }
+        if (!empty($person_data['attributes']['field_keywords']['value'])) {
+          $person_record['keywords'] = strip_tags($person_data['attributes']['field_keywords']['value']);
+          }
+        if (!empty($person_data['attributes']['field_person_education']['value'])) {
+          $person_record['education'] =$person_data['attributes']['field_person_education']['value'];
+          }
+        if (!empty($person_data['attributes']['field_person_publications']['value'])) {
+          $person_record['publications'] = $person_data['attributes']['field_person_publications']['value'];
+          }
+        if (!empty($person_data['attributes']['field_links'])) {
+          $person_record['links'] = $person_data['attributes']['field_links'];
+          }
         // get department label from json
         foreach ($person_data['relationships']['field_departments_programs']['data'] as $dept_data) {
           $deptuuid = $dept_data['id'];
@@ -75,14 +82,22 @@ class parsePeopleJson extends \Twig_Extension
         }
         $person_record['departments'] = rtrim($departments, ', ');
         // get summary from json
-       //foreach ($person_data['relationships']['field_summary']['data'] as $summary_data) {
-          //$summaryuuid = $summary_data['id'];
-          //$summary_json = as_dept_people_json_get_people_summary_json($summaryuuid);
-          //$summary = $summary . $summary_json['data']['attributes']['field_description']['processed'];
-          //$researchfocus = $researchfocus . $summary_json['data']['attributes']['field_person_research_focus']['processed'];
-        //}
-        //$person_record['summary'] = $summary;
-        //$person_record['researchfocus'] = $researchfocus;
+        if (!empty($person_data['relationships']['field_summary']['data'])) {
+          foreach ($person_data['relationships']['field_summary']['data'] as $summary_data) {
+              $summaryuuid = $summary_data['id'];
+              $summary_json = as_dept_people_json_get_people_summary_json($summaryuuid);
+              $summary = $summary . $summary_json['data']['attributes']['field_description']['processed'];
+              if (!empty($summary_json['data']['attributes']['field_person_research_focus']['processed'])) {
+                $researchfocus = $researchfocus . $summary_json['data']['attributes']['field_person_research_focus']['processed'];
+              }
+            }
+          if (!empty($summary)) {
+            $person_record['summary'] = $summary;
+          }
+          if (!empty($researchfocus)) {
+            $person_record['researchfocus'] = $researchfocus;
+          }
+        }
       }
     }
 
