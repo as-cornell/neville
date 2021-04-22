@@ -130,21 +130,21 @@
 {% if person.education %}
   {% set show_education = true %}
   {% set education = person.education %}
-  <div>{{education|striptags}}</div>
+  <div>{{education|raw}}</div>
 {% endif %}
 
 {# summary #}
 {% if person.summary %}
   {% set show_summary = true %}
   {% set summary = person.summary %}
-  <div>{{summary|striptags}}</div>
+  <div>{{summary|raw}}</div>
 {% endif %}
 
 {# responsibilities #}
 {% if person.responsibilities %}
   {% set show_responsibilities = true %}
   {% set responsibilities = person.responsibilities %}
-  <div>{{responsibilities|striptags}}</div>
+  <div>{{responsibilities|raw}}</div>
 {% endif %}
 
 
@@ -152,14 +152,14 @@
 {% if person.researchfocus %}
   {% set show_researchfocus = true %}
   {% set researchfocus = person.researchfocus %}
-  <div>{{researchfocus|striptags}}</div>
+  <div>{{researchfocus|raw}}</div>
 {% endif %}
 
 {# publications #}
 {% if person.publications %}
   {% set show_publications = true %}
   {% set publications = person.publications %}
-  <div>{{publications|striptags}}</div>
+  <div>{{publications|raw}}</div>
 {% endif %}
 
 {# links #}
