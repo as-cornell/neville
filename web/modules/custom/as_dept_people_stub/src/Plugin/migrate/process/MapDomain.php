@@ -21,26 +21,37 @@ class MapDomain extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     try {
-      //if (!empty($value)) {
-        if ($value == 'Molecular Biology and Genetics') {
-            $domain = 'dept1_as_cornell_edu';
+
+      if (!empty($value)) {
+        $domainstring = $value;
+        // break string into title and uri
+        $domainarray = explode(', ', $domainstring);
+        $domains = array();
+        foreach ($domainarray as $key => $domain) {
+
+          if ($domain == 'Molecular Biology and Genetics') {
+              $domain = 'dept1_as_cornell_edu';
+            }
+          elseif ($domain == 'Music') {
+              $domain = 'dept2_as_cornell_edu';
+            }
+          elseif ($domain == 'Romance Studies') {
+              $domain = 'dept3_as_cornell_edu';
+            }
+          elseif ($domain == 'Government') {
+              $domain = 'dept4_as_cornell_edu';
+            }else{
+              $domain = 'dept5_as_cornell_edu';
+            }
+            $domains[$key]['domain'] = $domain;
+
           }
-        elseif ($value == 'Music') {
-            $domain = 'dept2_as_cornell_edu';
-          }
-        elseif ($value == 'Romance Studies') {
-            $domain = 'dept3_as_cornell_edu';
-          }
-        elseif ($value == 'Government') {
-            $domain = 'dept4_as_cornell_edu';
-          }else{
-            $domain = 'dept5_as_cornell_edu';
-          }
-      //}
+        }
+      }
     }
     catch (\Exception $e) {
       throw new MigrateException('Invalid department name.');
     }
-    return $domain;
+    return $domains;
   }
 }
