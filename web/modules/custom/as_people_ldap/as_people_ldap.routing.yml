@@ -1,0 +1,13 @@
+as_people_ldap.content:
+  path: '/people_ldap/{netid}'
+  defaults:
+    _controller: '\Drupal\as_people_ldap\Controller\PeopleLdapController::content'
+    _title: 'People LDAP'
+  requirements:
+    _permission: 'access content'
+as_people_ldap.settings:
+  path: 'admin/config/services/as-people-ldap-settings'
+  defaults:
+   _form: '\Drupal\as_people_ldap\Form\AsPeopleLdapSettingsForm'
+  requirements:
+    _permission: 'administer site configuration'

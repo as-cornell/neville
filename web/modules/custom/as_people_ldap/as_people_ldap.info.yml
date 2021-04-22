@@ -1,0 +1,6 @@
+name: A&S People LDAP
+description: "Displays LDAP people data from directory.cornell.edu by NetID in a block"
+package: AS
+type: module
+core_version_requirement: ^8.7.7 || ^9
+configure: as_people_ldap.list

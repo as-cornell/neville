@@ -1,0 +1,5 @@
+services:
+  as_dept_people_json.parsePeopleJson:
+    class: Drupal\as_dept_people_json\parsePeopleJson
+    tags:
+      - { name: twig.extension }

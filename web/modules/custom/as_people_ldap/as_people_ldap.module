@@ -1,0 +1,60 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+function as_people_ldap_get_netid_ldap($netid) {
+
+  // get settings
+  $config = \Drupal::config("as_people_ldap.credentials");
+  $settings = [];
+  $settings["ldaprdn"] = $config->get("ldaprdn");
+  $settings["ldappass"] = $config->get("ldappass");
+   //set cache id (verify parameters are safe values to use as cache id)
+  $cid = 'as_people_ldap:' . $netid;
+  $info = [];
+  //check cache
+  if ($cache = \Drupal::cache('data')->get($cid)) {
+    //fetch cache data
+    $info = $cache->data;
+    //check cache expiration
+    } else {
+    // basic sequence with LDAP is connect, bind, search, interpret search
+    // result, close connection
+    // using ldap bind
+    // Connect to directory.cornell.edu
+    $ds=ldap_connect('ldap://directory.cornell.edu');
+    // If connection OK, Bind to server
+    if (!empty($ds)) {
+            $r=ldap_bind($ds, $settings["ldaprdn"], $settings["ldappass"]);
+            $sr=ldap_search($ds,'ou=People,o=Cornell University,c=US','uid='.$netid);
+            $info = ldap_get_entries($ds, $sr);
+            $entry = ldap_first_entry($ds, $sr);
+            if (!empty($entry)) {
+            //print_r ($info);
+            \Drupal::cache('data')
+              ->set($cid, $info, time() + 360);
+            ldap_close($ds);
+            }
+        } //close if ($entry)
+    } //close if ($ds)
+return $info;
+
+}
+
+
+
+/**
+ * Implements hook_help().
+ */
+function as_people_ldap_help($route_name, RouteMatchInterface $route_match)
+{
+  switch ($route_name) {
+    case 'help.as_people_ldap':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Displays LDAP people data from directory.cornell.edu by NetID in a block.') . '</p>';
+
+      return $output;
+  }
+}
+

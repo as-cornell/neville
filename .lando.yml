@@ -2,9 +2,6 @@ name: neville
 recipe: platformsh
 config:
   id: mm3lcf5ygjhvq
-# proxy:
-#   node:
-#     - neville.lndo.site:3000
 services:
   node:
     type: node
@@ -24,3 +21,6 @@ tooling:
     service: node
   # yarn:
   #   service: node
+proxy:
+  app:
+    - neville.lndo.site

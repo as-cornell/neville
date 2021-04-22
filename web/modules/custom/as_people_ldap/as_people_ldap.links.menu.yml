@@ -1,0 +1,6 @@
+as_people_ldap.settings:
+ title: 'AS People LDAP Settings'
+ description: 'Settings for Cornell LDAP directory server integration'
+ parent: system.admin_config_services
+ route_name: as_people_ldap.settings
+ weight: 100
