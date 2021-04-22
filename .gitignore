@@ -8,6 +8,9 @@
 /web/libraries/
 console/
 
+# Ignore node modules
+*/node_modules/
+
 # Ignore sensitive information
 /web/sites/*/settings.local.php
 

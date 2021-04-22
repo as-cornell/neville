@@ -1,0 +1,5 @@
+global:
+  css:
+    theme:
+      css/test.css: {}
+      css/blah.css: {}
