@@ -82,15 +82,8 @@ process:
     plugin: entity_lookup
     source: field_person_type
   'field_domain_access/target_id':
-    -
-      plugin: skip_on_empty
-      method: process
-      source: field_departments_programs
-    -
-      plugin: explode
-      delimiter: ', '
-    -
-      plugin: mapdomain
+    plugin: mapdomain
+    source: field_departments_programs
   uid:
     plugin: default_value
     default_value: 1
