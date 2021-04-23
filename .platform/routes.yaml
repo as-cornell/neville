@@ -40,6 +40,12 @@
     cache:
       enabled: true
       cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+"https://africana.as.cornell.edu/":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
 "https://americanstudies.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
@@ -52,13 +58,61 @@
     cache:
       enabled: true
       cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+"https://archaeology.as.cornell.edu/":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+"https://arthistory.as.cornell.edu/":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+"https://asianamericanstudies.as.cornell.edu/":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
 "https://asianstudies.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
       cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+"https://astronomy.as.cornell.edu/":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+"https://research.astronomy.as.cornell.edu/":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+"https://caps.as.cornell.edu/":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+"https://cderdev.as.cornell.edu/":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
 "https://chemistry.as.cornell.edu/":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+"https://cinema.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
@@ -71,6 +125,12 @@
       enabled: true
       cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
 "https://economics.as.cornell.edu/":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+"https://english.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
@@ -100,6 +160,12 @@
     cache:
       enabled: true
       cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+"https://math.as.cornell.edu/":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
 "https://mbg.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
@@ -124,7 +190,25 @@
     cache:
       enabled: true
       cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+"https://physics.as.cornell.edu/":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+"https://psychology.as.cornell.edu/":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
 "https://romancestudies.as.cornell.edu/":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+"https://sociology.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
