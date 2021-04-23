@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Implements hook_help().
@@ -21,4 +22,25 @@ function as_dept_people_stub_help($route_name, RouteMatchInterface $route_match)
 
     default:
   }
+}
+
+
+/**
+ * Transforms department name to domain id.
+ */
+
+
+function as_dept_people_stub_map_dept_domain($deptname) {
+      $termids = \Drupal::entityQuery('taxonomy_term')
+        ->condition('vid', 'departments_programs')
+        ->condition('name', $deptname)
+        ->execute();
+        if (!empty($termids)){
+          foreach($termids as $tid)
+            {
+              $term = Term::load($tid);
+              $domainid = $term->get('field_domain_access_target_id')->value;
+            }
+          }
+        return $domainid;
 }

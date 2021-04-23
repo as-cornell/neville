@@ -26,24 +26,14 @@ class MapDomain extends ProcessPluginBase {
 
     if (!empty($value)) {
       // replace department name with domain key
-      //$domainstring = $value;
       $deptname = explode(',', $value)[0];
+      //simple find and replace with array
       //$deptname = 'History';
-      $departments = array('Molecular Biology and Genetics', 'Institute for Comparative Modernities', 'American Studies Program','Government', 'Music' );
-      $domainids   = array('mbg_as_cornell_edu', 'icmdev_as_cornell_edu', 'americanstudies_as_cornell_edu', 'government_as_cornell_edu', 'music_as_cornell_edu');
-      $domainmap = str_replace($departments, $domainids, $deptname);
-
-     // $termids = \Drupal::entityQuery('taxonomy_term')
-       // ->condition('vid', 'departments_programs')
-       // ->condition('name', $deptname)
-       // ->execute();
-       // if (!empty($termids)){
-         // foreach($termids as $tid)
-           // {
-             // $term = Term::load($tid);
-             // $domainid = $term->get('field_domain_access_target_id')->value;
-            //}
-          //}
+      //$departments = array('Molecular Biology and Genetics', 'Institute for Comparative Modernities', 'American Studies Program','Government', 'Music' );
+      //$domainids   = array('mbg_as_cornell_edu', 'icmdev_as_cornell_edu', 'americanstudies_as_cornell_edu', 'government_as_cornell_edu', 'music_as_cornell_edu');
+      //$domainmap = str_replace($departments, $domainids, $deptname);
+      //use entity query to look up domain id
+      $domainmap = as_dept_people_stub_map_dept_domain($deptname);
       }
     }
     catch (\Exception $e) {
