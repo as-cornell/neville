@@ -3,7 +3,25 @@
 Base .scss aggregator for departmetn and program sites
 
 */
+/* -------------------------
+
+Title: _base.scss
+Descr: sets HTML and Body styles
+
+--------------------------- */
+html {
+  scroll-behavior: smooth;
+  background: pink; }
+
 body {
-  color: green; }
+  font-family: "Times New Roman", Times, serif; }
+
+/*
+
+Basic text styles
+
+*/
+h1 {
+  color: blue; }
 
 /*# sourceMappingURL=styles.css.map */

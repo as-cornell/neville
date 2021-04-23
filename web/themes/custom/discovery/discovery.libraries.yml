@@ -1,5 +1,4 @@
 global:
   css:
     theme:
-      css/test.css: {}
-      css/blah.css: {}
+      css/styles.css: {}
