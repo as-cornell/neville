@@ -1,0 +1,116 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+
+function as_dept_articles_json_get_article_json($pathtoken)
+{
+  //set cache id (verify parameters are safe values to use as cache id)
+  $cid = "as_article_json:" . $pathtoken;
+  $person_data = [];
+  //check cache
+  if ($cache = \Drupal::cache('data')->get($cid)) {
+    //fetch cache data
+    $article_data = $cache->data;
+    //check cache expiration
+  }
+  // if no data check url
+  else {
+    $url = 'https://as.cornell.edu/jsonapi/node/article/?filter[id]=' . $pathtoken .'&include=field_image.field_media_image';
+    //fetch data and set cache
+    $data = file_get_contents($url);
+    $json = json_decode($data, true);
+    if (!empty($json)) {
+      if (!empty($json['data'])) {
+        $article_data['data'] = $json['data'];
+        }
+      if (!empty($json['included'])) {
+    $article_data['included'] = $json['included'];
+        }
+    \Drupal::cache('data')
+      ->set($cid, $json, time() + 360);
+    }
+  }
+  //return data
+  return $article_data;
+}
+
+
+
+function as_dept_articles_json_get_dept_json($deptuuid)
+{
+  //set cache id (verify parameters are safe values to use as cache id)
+  $cid = "as_people_dept_json:" . $deptuuid;
+  $dept_data = [];
+  //check cache
+  if ($cache = \Drupal::cache('data')->get($cid)) {
+    //fetch cache data
+    $dept_data = $cache->data;
+    //check cache expiration
+  }
+  // if no data check url
+  else {
+    $url = 'https://people.as.cornell.edu/jsonapi/taxonomy_term/departments_and_programs/' . $deptuuid;
+    //fetch data and set cache
+    $data = file_get_contents($url);
+    $json = json_decode($data, true);
+    $dept_data['data'] = $json['data'];
+    \Drupal::cache('data')
+      ->set($cid, $json, time() + 360);
+  }
+  //return data
+  return $dept_data;
+}
+
+function as_dept_articles_json_get_article_body_json($summaryuuid)
+{
+  //set cache id (verify parameters are safe values to use as cache id)
+  $cid = "as_article_body_json:" . $summaryuuid;
+  $article_body = [];
+  //check cache
+  if ($cache = \Drupal::cache('data')->get($cid)) {
+    //fetch cache data
+    $article_body = $cache->data;
+    //check cache expiration
+  }
+  // if no data check url
+  else {
+    $url = 'https://as.cornell.edu/jsonapi/paragraph/person_description_standard/' . $summaryuuid;
+    //fetch data and set cache
+    $data = file_get_contents($url);
+    $json = json_decode($data, true);
+    $article_body['data'] = $json['data'];
+    \Drupal::cache('data')
+      ->set($cid, $json, time() + 360);
+  }
+  //return data
+  return $article_body;
+}
+
+
+
+/**
+ * Implements hook_help().
+ */
+function as_dept_articles_json_help($route_name, RouteMatchInterface $route_match)
+{
+  switch ($route_name) {
+    case 'help.as_articles_json':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The A&S Articles JSON module provides articles from as.cornell.edu via JSONAPI for use in articles template.') . '</p>';
+
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function as_dept_articles_json_theme($existing, $type, $theme, $path) {
+  return [
+    'article' => [
+      'variables' => ['pathtoken' => NULL],
+    ],
+  ];
+}

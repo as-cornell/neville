@@ -1,0 +1,5 @@
+services:
+  as_dept_articles_json.parseArticleJson:
+    class: Drupal\as_dept_articles_json\parseArticleJson
+    tags:
+      - { name: twig.extension }

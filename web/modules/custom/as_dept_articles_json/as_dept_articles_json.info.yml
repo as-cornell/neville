@@ -1,0 +1,6 @@
+name: A&S Department Articles JSON
+description: "Provides articles from as.cornell.edu via JSONAPI for use in articles template."
+package: AS
+type: module
+core_version_requirement: ^8.7.7 || ^9
+configure: as_dept_articles_json.list

@@ -5,3 +5,25 @@ config:
 proxy:
   app:
     - neville.lndo.site
+  node:
+    - bs.neville.lndo.site
+services:
+  node:
+    type: node
+    build:
+      - npm install
+    globals:
+      gulp-cli: latest
+    ssl: true
+    command: cd /app/web/themes/custom/discovery && lando gulp watch
+tooling:
+  npm:
+    service: node
+  node:
+    service: node
+  gulp:
+    service: node
+  drush:
+    service: app
+    env:
+      DRUSH_OPTIONS_URI: "https://neville.lndo.site"
