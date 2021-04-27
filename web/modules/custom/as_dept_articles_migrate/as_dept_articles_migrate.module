@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains as_dept_articles_migrate.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function as_dept_articles_migrate_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the as_dept_people_stub module.
+    case 'help.page.as_dept_articles_migrate':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Contains migration config to migrate articles authored by A&S Communications and department staff from Drupal 7 to Drupal 8.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
