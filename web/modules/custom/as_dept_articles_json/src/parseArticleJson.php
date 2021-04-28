@@ -36,23 +36,38 @@ class parseArticleJson extends \Twig_Extension
    * @return array $article_record
    *   data in array for theming
    */
-  public function parse_people_json($remote_uuid)
+  public function parse_article_json($remote_uuid)
   {
     $article_record = [];
     $departments = '';
+    $bylines = '';
+    $media_sources = '';
     $summary = '';
+    $article_components = '';
     $article_json = as_dept_articles_json_get_article_json($remote_uuid);
     if (!empty($article_json['data'])) {
       // get image path from json
       //foreach($people_json['included'] as $image) {
-      if (!empty($article_json['included'])) {
-      $article_record['imagepath'] = 'https://as.cornell.edu' . $people_json['included'][1]['attributes']['uri']['url'];
+      if (!empty($article_data['relationships']['field_image']['data'])) {
+        foreach ($article_data['relationships']['field_image']['data'] as $media_data) {
+        $media_id = $media_data['id'];
+        $media_type = $media_data['type'];
+        $media_json  = as_dept_articles_json_get_image_json($media_id,$media_type);
+        if (!empty($media_json['data'])) {
+          $article_record['alt'] = $media_json['data']['relationships']['field_media_image']['data']['meta']['alt'];
+          $file_uuid = $media_json['data']['relationships']['field_media_image']['data']['id'];
+          $file_type = $media_json['data']['relationships']['field_media_image']['data']['type'];
+          $file_json = as_dept_articles_json_get_file_json($file_id,$file_type);
+            foreach ($file_json['data'] as $file_data) {
+              $article_record['imagepath'] = $file_data['attributes']['uri']['url'] ;
+            }
+            }
+          }
+
         }
-      //}
+
       foreach ($article_json['data'] as $article_data) {
-                // basic fields
-        // work on getting real alt text from relationship
-        $article_record['alt'] = 'Image from ' . $article_data['attributes']['title'];
+        // basic fields
         $article_record['uuid'] = $remote_uuid;
         $article_record['path'] = $article_data['attributes']['path']['alias'];
         $article_record['title'] = $article_data['attributes']['title'];
@@ -62,28 +77,34 @@ class parseArticleJson extends \Twig_Extension
         // more reference fields like related articles
 
         // get byline label from json
-        foreach ($article_data['relationships']['field_byline_reference']['data'] as $term_data) {
-          $term_id = $term_data['id'];
-          $term_type = $term_data['type'];
-          $byline_json = as_dept_articles_json_get_term_json($term_id,$term_type);
-          $bylines = $bylines . $byline_json['data']['attributes']['name'] . ', ';
-        }
+        if (!empty($article_data['relationships']['field_byline_reference']['data'])) {
+          foreach ($article_data['relationships']['field_byline_reference']['data'] as $term_data) {
+            $term_id = $term_data['id'];
+            $term_type = $term_data['type'];
+            $byline_json = as_dept_articles_json_get_term_json($term_id,$term_type);
+            $bylines = $bylines . $byline_json['data']['attributes']['name'] . ', ';
+              }
+            }
         $article_record['bylines'] = rtrim($bylines, ', ');
         // get media source label from json
-        foreach ($article_data['relationships']['field_media_source_reference']['data'] as $term_data) {
-          $term_id = $term_data['id'];
-          $term_type = $term_data['type'];
-          $media_source_json = as_dept_articles_json_get_term_json($term_id,$term_type);
-          $media_sources = $media_sources . $media_source_json['data']['attributes']['name'] . ', ';
-        }
+        if (!empty($article_data['relationships']['field_media_source_reference']['data'])) {
+          foreach ($article_data['relationships']['field_media_source_reference']['data'] as $term_data) {
+            $term_id = $term_data['id'];
+            $term_type = $term_data['type'];
+            $media_source_json = as_dept_articles_json_get_term_json($term_id,$term_type);
+            $media_sources = $media_sources . $media_source_json['data']['attributes']['name'] . ', ';
+            }
+          }
         $article_record['media_sources'] = rtrim($media_sources, ', ');
 
         // get department label from json
-        foreach ($article_data['relationships']['field_department_program']['data'] as $term_data) {
-          $term_id = $term_data['id'];
-          $dept_json = as_dept_articles_json_get_dept_json($term_id,$term_type);
-          $departments = $departments . $dept_json['data']['attributes']['name'] . ', ';
-        }
+        if (!empty($article_data['relationships']['field_department_program']['data'])) {
+            foreach ($article_data['relationships']['field_department_program']['data'] as $term_data) {
+              $term_id = $term_data['id'];
+              $dept_json = as_dept_articles_json_get_term_json($term_id,$term_type);
+              $departments = $departments . $dept_json['data']['attributes']['name'] . ', ';
+            }
+          }
         $article_record['departments'] = rtrim($departments, ', ');
 
         // get article body
