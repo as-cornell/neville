@@ -37,29 +37,30 @@ function as_dept_articles_json_get_article_json($remote_uuid)
 
 
 
-function as_dept_articles_json_get_dept_json($deptuuid)
+function as_dept_articles_json_get_term_json($term_uuid,$term_type)
 {
   //set cache id (verify parameters are safe values to use as cache id)
-  $cid = "as_people_dept_json:" . $deptuuid;
+  $cid = "as_people_dept_json:" . $term_uuid;
   $dept_data = [];
+  $term_type = str_replace('--', '/', $term_type);
   //check cache
   if ($cache = \Drupal::cache('data')->get($cid)) {
     //fetch cache data
-    $dept_data = $cache->data;
+    $term_data = $cache->data;
     //check cache expiration
   }
   // if no data check url
   else {
-    $url = 'https://as.cornell.edu/jsonapi/taxonomy_term/departments_programs/' . $deptuuid;
+    $url = 'https://as.cornell.edu/jsonapi/'.$term_type.'/'. $term_uuid;
     //fetch data and set cache
     $data = file_get_contents($url);
     $json = json_decode($data, true);
-    $dept_data['data'] = $json['data'];
+    $term_data['data'] = $json['data'];
     \Drupal::cache('data')
       ->set($cid, $json, time() + 360);
   }
   //return data
-  return $dept_data;
+  return $term_data;
 }
 
 

@@ -50,25 +50,46 @@ class parseArticleJson extends \Twig_Extension
         }
       //}
       foreach ($article_json['data'] as $article_data) {
+                // basic fields
+        // work on getting real alt text from relationship
         $article_record['alt'] = 'Image from ' . $article_data['attributes']['title'];
-        $article_record['uuid'] = $pathtoken;
+        $article_record['uuid'] = $remote_uuid;
         $article_record['path'] = $article_data['attributes']['path']['alias'];
         $article_record['title'] = $article_data['attributes']['title'];
-        // more fields like byline and media source
+        $article_record['card_label'] = $article_data['attributes']['field_card_label'];
+        $article_record['dateline'] = $article_data['attributes']['field_dateline'];
+        $article_record['summary'] = $article_data['attributes']['field_summary'];
+        // more reference fields like related articles
 
+        // get byline label from json
+        foreach ($article_data['relationships']['field_byline_reference']['data'] as $term_data) {
+          $term_id = $term_data['id'];
+          $term_type = $term_data['type'];
+          $byline_json = as_dept_articles_json_get_term_json($term_id,$term_type);
+          $bylines = $bylines . $byline_json['data']['attributes']['name'] . ', ';
+        }
+        $article_record['bylines'] = rtrim($bylines, ', ');
+        // get media source label from json
+        foreach ($article_data['relationships']['field_media_source_reference']['data'] as $term_data) {
+          $term_id = $term_data['id'];
+          $term_type = $term_data['type'];
+          $media_source_json = as_dept_articles_json_get_term_json($term_id,$term_type);
+          $media_sources = $media_sources . $media_source_json['data']['attributes']['name'] . ', ';
+        }
+        $article_record['media_sources'] = rtrim($media_sources, ', ');
 
         // get department label from json
-        foreach ($article_data['relationships']['field_department_program']['data'] as $dept_data) {
-          $deptuuid = $dept_data['id'];
-          $dept_json = as_dept_articles_json_get_dept_json($deptuuid);
+        foreach ($article_data['relationships']['field_department_program']['data'] as $term_data) {
+          $term_id = $term_data['id'];
+          $dept_json = as_dept_articles_json_get_dept_json($term_id,$term_type);
           $departments = $departments . $dept_json['data']['attributes']['name'] . ', ';
         }
         $article_record['departments'] = rtrim($departments, ', ');
 
-        // get summary from json
-        // adapt for article body field_article_components_entity
+        // get article body
         if (!empty($article_data['relationships']['field_article_components_entity']['data'])) {
           foreach ($article_data['relationships']['field_article_components_entity']['data'] as $article_component_data) {
+            //maybe pass as an array instead of 2 strings
               $article_component_uuid = $article_component_data['id'];
               $article_component_type = $article_component_data['type'];
               $article_component_json = as_dept_articles_json_get_article_body_json($article_component_uuid,$article_component_type);
