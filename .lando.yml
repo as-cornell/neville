@@ -2,6 +2,11 @@ name: neville
 recipe: platformsh
 config:
   id: mm3lcf5ygjhvq
+proxy:
+  node:
+    - bs.neville.lndo.site:3000
+  app:
+    - neville.lndo.site
 services:
   node:
     type: node
@@ -10,8 +15,7 @@ services:
       # - gulp
     globals:
       gulp-cli: latest
-# ssl: true
-# command: cd /app/web/themes/custom/ discovery && lando gulp watch
+    # command: cd /app/web/themes/custom/discovery && gulp watch
 tooling:
   npm:
     service: node
@@ -19,8 +23,3 @@ tooling:
     service: node
   gulp:
     service: node
-  # yarn:
-  #   service: node
-proxy:
-  app:
-    - neville.lndo.site

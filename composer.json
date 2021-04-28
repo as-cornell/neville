@@ -16,6 +16,7 @@
     ],
     "require": {
         "composer/installers": "^1.9",
+        "drupal/browsersync": "^2.0",
         "drupal/components": "^2.2",
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "52de225ff4c1088bd20edd98e772a553",
+    "content-hash": "d960d1d29898081243f096da57c7131c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1870,6 +1870,54 @@
             },
             "abandoned": "roave/better-reflection",
             "time": "2020-10-27T21:46:55+00:00"
+        },
+        {
+            "name": "drupal/browsersync",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/browsersync.git",
+                "reference": "8.x-2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/browsersync-8.x-2.0.zip",
+                "reference": "8.x-2.0",
+                "shasum": "ddb044eacb86d032ffc15fe3e4e1132e85148186"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.0",
+                    "datestamp": "1608192095",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Cottser",
+                    "homepage": "https://www.drupal.org/user/1167326"
+                },
+                {
+                    "name": "jorgegc",
+                    "homepage": "https://www.drupal.org/user/834154"
+                }
+            ],
+            "description": "Integrates Browsersync (Node.js module) with Drupal.",
+            "homepage": "https://www.drupal.org/project/browsersync",
+            "support": {
+                "source": "https://git.drupalcode.org/project/browsersync"
+            }
         },
         {
             "name": "drupal/components",
