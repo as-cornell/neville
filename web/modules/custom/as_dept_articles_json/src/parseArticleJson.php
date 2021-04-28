@@ -36,12 +36,12 @@ class parseArticleJson extends \Twig_Extension
    * @return array $article_record
    *   data in array for theming
    */
-  public function parse_people_json($pathtoken)
+  public function parse_people_json($remote_uuid)
   {
     $article_record = [];
     $departments = '';
     $summary = '';
-    $article_json = as_dept_articles_json_get_article_json($pathtoken);
+    $article_json = as_dept_articles_json_get_article_json($remote_uuid);
     if (!empty($article_json['data'])) {
       // get image path from json
       //foreach($people_json['included'] as $image) {
@@ -58,7 +58,7 @@ class parseArticleJson extends \Twig_Extension
 
 
         // get department label from json
-        foreach ($article_data['relationships']['field_departments_programs']['data'] as $dept_data) {
+        foreach ($article_data['relationships']['field_department_program']['data'] as $dept_data) {
           $deptuuid = $dept_data['id'];
           $dept_json = as_dept_articles_json_get_dept_json($deptuuid);
           $departments = $departments . $dept_json['data']['attributes']['name'] . ', ';
@@ -66,17 +66,18 @@ class parseArticleJson extends \Twig_Extension
         $article_record['departments'] = rtrim($departments, ', ');
 
         // get summary from json
-        // adapt for article body
-        if (!empty($article_data['relationships']['field_summary']['data'])) {
-          foreach ($article_data['relationships']['field_summary']['data'] as $summary_data) {
-              $summaryuuid = $summary_data['id'];
-              $summary_json = as_dept_articles_json_get_article_body_json($summaryuuid);
-              if (!empty($summary_json['data']['attributes']['field_description']['processed'])) {
-                $summary = $summary . $summary_json['data']['attributes']['field_description']['processed'];
+        // adapt for article body field_article_components_entity
+        if (!empty($article_data['relationships']['field_article_components_entity']['data'])) {
+          foreach ($article_data['relationships']['field_article_components_entity']['data'] as $article_component_data) {
+              $article_component_uuid = $article_component_data['id'];
+              $article_component_type = $article_component_data['type'];
+              $article_component_json = as_dept_articles_json_get_article_body_json($article_component_uuid,$article_component_type);
+              if (!empty($article_component_json['data']['attributes']['field_formatted_text']['processed'])) {
+                $article_components = $article_components . $article_component_json['data']['attributes']['field_formatted_text']['processed'];
               }
             }
-          if (!empty($summary)) {
-            $article_record['summary'] = $summary;
+          if (!empty($article_components)) {
+            $article_record['article_components'] = $article_components;
           }
 
         }
