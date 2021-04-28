@@ -1,57 +1,58 @@
-"use strict";
-var gulp = require("gulp");
-var sass = require("gulp-sass");
-var sourcemaps = require("gulp-sourcemaps");
-var autoprefixer = require("gulp-autoprefixer");
-var importer = require("node-sass-globbing");
-var plumber = require("gulp-plumber");
-var browserSync = require("browser-sync").create();
-var cssmin = require("gulp-cssmin");
-var stripCssComments = require("gulp-strip-css-comments");
-var uglify = require("gulp-uglify-es").default;
-var livereload = require("gulp-livereload");
-var sass_config = {
-  importer: importer,
-  includePaths: ["node_modules/breakpoint-sass/stylesheets/"],
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const browserSync = require('browser-sync').create();
+const autoprefixer = require("gulp-autoprefixer");
+const cssmin = require("gulp-cssmin");
+const sassGlob = require('gulp-sass-glob');
+
+
+const sourcemaps = require('gulp-sourcemaps');
+
+const config = {
+  scss: './scss/**/*.scss',
+  cssDir: './css',
+  cssFiles: './css/*.css'
 };
 
-//Uglifies javascript
-gulp.task("uglify", function () {
-  return gulp
-    .src("js/*.js")
-    .pipe(uglify())
-    .on("error", function (e) {
-      console.log(e);
-    })
-    .pipe(gulp.dest("js_min"));
-});
 
-//Compiles sass
-gulp.task("sass", function () {
-  gulp
-    .src("./sass/**/*.scss")
-    .pipe(plumber())
+
+//compile scss into css
+// 1. init sourcemaps
+// 2. glob scss
+// 3. Sassify
+// 4. autoprefixer
+// 5. write sourcemaps to same dir as css
+// 6. minifiy css
+// 7. write to /css
+
+function sassProcessor() {
+  return gulp.src(config.scss)
     .pipe(sourcemaps.init())
-    .pipe(sass(sass_config).on("error", sass.logError))
-    .pipe(
-      autoprefixer({
-        browsers: ["last 2 version"],
-      })
-    )
-    .pipe(stripCssComments({ preserve: false }))
+    .pipe(sassGlob())
+    .pipe(sass()).on('error', sass.logError)
+    .pipe(autoprefixer({ browsers: ["last 2 version"] }))
+    .pipe(sourcemaps.write('.'))
     .pipe(cssmin())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest("./css"));
-});
+    .pipe(gulp.dest(config.cssDir))
+  .pipe(browserSync.stream());
+}
 
-//Type "gulp" on the command line to watch file changes
-gulp.task("default", function () {
-  livereload.listen();
-  gulp.watch("./sass/**/*.scss", ["sass"]);
-  gulp.watch("./js/*.js", ["uglify"]);
-  gulp.watch(["./css/style.css", "./**/*.twig", "./js_min/*.js"], function (
-    files
-  ) {
-    livereload.changed(files);
+
+function watch() {
+  browserSync.init({
+    proxy: 'http://appserver_nginx.neville.internal',
+    socket: {
+      domain: 'https://bs.neville.lndo.site/',
+      port: 80
+    },
+    open: false,
+    logLevel: "debug",
+    logConnections: true,
   });
-});
+  gulp.watch(config.scss, sassProcessor);
+  gulp.watch('./**/*.twig').on('change', browserSync.reload);
+}
+
+
+exports.sassProcessor = sassProcessor;
+exports.watch = watch;

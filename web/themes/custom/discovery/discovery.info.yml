@@ -1,12 +1,36 @@
 name: Discovery
 type: theme
-description: 'A Drupal 9 comptible theme for A&S department websites.'
+description: "A Drupal 9 comptible theme for A&S department websites."
 core_version_requirement: ^8 || ^9
+base theme: stable
+
+# Libraries
 libraries:
-  - discovery/global-styling
-base theme: classy
+  - discovery/global
+
+# Regions
 regions:
   header: Header
   content: Content
-  sidebar_first: 'Sidebar first'
+  sidebar: Sidebar
   footer: Footer
+# Component libraries - it's a module thing
+component-libraries:
+  base:
+    paths:
+      - components/base
+  site:
+    paths:
+      - components/site
+  navigations:
+    paths:
+      - components/navigations
+  pages:
+    paths:
+      - components/pages
+  content:
+    paths:
+      - components/content
+  images:
+    paths:
+      - images

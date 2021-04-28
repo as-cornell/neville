@@ -1,24 +1,24 @@
 {
-  "name": "your_project_name",
+  "name": "AS_Discovery",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
   "dependencies": {
     "breakpoint-sass": "^2.6.1",
-    "browser-sync": "^2.9.3",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^2.3.1",
-    "gulp-plumber": "^1.0.1",
-    "gulp-sass": "^2.0.4",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-watch": "^4.3.5"
+    "browser-sync": "^2.26.14",
+    "gulp": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-watch": "^4.3.5",
+    "node-sass-globbing": "0.0.23"
   },
   "devDependencies": {
-    "gulp-cssmin": "^0.1.7",
-    "gulp-livereload": "^3.8.1",
-    "gulp-strip-css-comments": "^1.2.0",
-    "gulp-uglify-es": "^2.0.0",
-    "node-sass-globbing": "0.0.23"
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-sass-glob": "^1.1.0",
+    "gulp-strip-css-comments": "^2.0.0",
+    "run-sequence": "^2.2.1"
   },
   "scripts": {},
   "author": "",

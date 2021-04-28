@@ -1,0 +1,20 @@
+/* -------------------------
+
+Title: _base.scss
+Descr: sets HTML and Body styles
+
+--------------------------- */
+
+html {
+  // font-size: var(--base-font-size);
+  scroll-behavior: smooth;
+  background: pink;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+}
+
+p {
+  font-size: 40px;
+}
