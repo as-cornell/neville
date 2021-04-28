@@ -40,9 +40,10 @@ function as_dept_articles_json_get_article_json($remote_uuid)
 function as_dept_articles_json_get_term_json($term_uuid,$term_type)
 {
   //set cache id (verify parameters are safe values to use as cache id)
-  $cid = "as_people_dept_json:" . $term_uuid;
-  $dept_data = [];
   $term_type = str_replace('--', '/', $term_type);
+  $cid = "as_people_dept_json:" . $term_type.'_'. $term_uuid;
+  $dept_data = [];
+
   //check cache
   if ($cache = \Drupal::cache('data')->get($cid)) {
     //fetch cache data
@@ -67,9 +68,9 @@ function as_dept_articles_json_get_term_json($term_uuid,$term_type)
 function as_dept_articles_json_get_article_body_json($article_component_uuid,$article_component_type)
 {
   //set cache id (verify parameters are safe values to use as cache id)
-  $cid = "as_article_body_json:" . $article_components_uuid;
-  $article_body = [];
   $article_component_type = str_replace('--', '/', $article_component_type);
+  $cid = "as_article_body_json:" . $article_component_type.'_'.$article_component_uuid;
+  $article_body = [];
   //check cache
   if ($cache = \Drupal::cache('data')->get($cid)) {
     //fetch cache data
