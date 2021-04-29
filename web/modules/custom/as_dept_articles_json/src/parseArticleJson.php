@@ -46,24 +46,16 @@ class parseArticleJson extends \Twig_Extension
     $article_components = '';
     $article_json = as_dept_articles_json_get_article_json($remote_uuid);
     if (!empty($article_json['data'])) {
-      // get image path from json
-      //foreach($people_json['included'] as $image) {
-      if (!empty($article_data['relationships']['field_image']['data'])) {
-        foreach ($article_data['relationships']['field_image']['data'] as $media_data) {
-        $media_id = $media_data['id'];
-        $media_type = $media_data['type'];
-        $media_json  = as_dept_articles_json_get_image_json($media_id,$media_type);
-        if (!empty($media_json['data'])) {
-          $article_record['alt'] = $media_json['data']['relationships']['field_media_image']['data']['meta']['alt'];
-          $file_uuid = $media_json['data']['relationships']['field_media_image']['data']['id'];
-          $file_type = $media_json['data']['relationships']['field_media_image']['data']['type'];
-          $file_json = as_dept_articles_json_get_file_json($file_id,$file_type);
-            foreach ($file_json['data'] as $file_data) {
-              $article_record['imagepath'] = $file_data['attributes']['uri']['url'] ;
-            }
-            }
+      // get image path and alt tag from json
+      if (!empty($article_json['included'][0])) {
+        if ($article_json['included'][0]['type'] == 'media--image') {
+      $article_record['imagealt'] = $article_json['included'][0]['relationships']['field_media_image']['data']['meta']['alt'];
           }
-
+        }
+      if (!empty($article_json['included'][1])) {
+        if ($article_json['included'][1]['type'] == 'file--file') {
+      $article_record['imagepath'] = 'https://as.cornell.edu' . $article_json['included'][1]['attributes']['uri']['url'];
+          }
         }
 
       foreach ($article_json['data'] as $article_data) {

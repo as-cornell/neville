@@ -65,60 +65,6 @@ function as_dept_articles_json_get_term_json($term_uuid,$term_type)
 }
 
 
-function as_dept_articles_json_get_image_json($media_uuid,$media_type)
-{
-  //set cache id (verify parameters are safe values to use as cache id)
-  $media_type = str_replace('--', '/', $media_type);
-  $cid = "as_people_dept_json:" . $media_type.'_'. $media_uuid;
-  $media_data = [];
-
-  //check cache
-  if ($cache = \Drupal::cache('data')->get($cid)) {
-    //fetch cache data
-    $term_data = $cache->data;
-    //check cache expiration
-  }
-  // if no data check url
-  else {
-    $url = 'http://fellaini.local/jsonapi/'.$media_type.'/'. $media_uuid;
-    //fetch data and set cache
-    $data = file_get_contents($url);
-    $json = json_decode($data, true);
-    $media_data['data'] = $json['data'];
-    \Drupal::cache('data')
-      ->set($cid, $json, time() + 360);
-  }
-  //return data
-  return $media_data;
-}
-
-function as_dept_articles_json_get_file_json($file_uuid,$file_type)
-{
-  //set cache id (verify parameters are safe values to use as cache id)
-  $file_type = str_replace('--', '/', $file_type);
-  $cid = "as_people_dept_json:" . $file_type.'_'. $file_uuid;
-  $file_data = [];
-
-  //check cache
-  if ($cache = \Drupal::cache('data')->get($cid)) {
-    //fetch cache data
-    $file_data = $cache->data;
-    //check cache expiration
-  }
-  // if no data check url
-  else {
-    $url = 'http://fellaini.local/jsonapi/'.$file_type.'/'. $file_uuid;
-    //fetch data and set cache
-    $data = file_get_contents($url);
-    $json = json_decode($data, true);
-    $file_data['data'] = $json['data'];
-    \Drupal::cache('data')
-      ->set($cid, $json, time() + 360);
-  }
-  //return data
-  return $file_data;
-}
-
 function as_dept_articles_json_get_article_body_json($article_component_uuid,$article_component_type)
 {
   //set cache id (verify parameters are safe values to use as cache id)
