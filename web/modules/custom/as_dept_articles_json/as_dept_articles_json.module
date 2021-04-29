@@ -16,7 +16,7 @@ function as_dept_articles_json_get_article_json($remote_uuid)
   }
   // if no data check url
   else {
-    $url = 'http://fellaini.local/jsonapi/node/article/?filter[id]=' . $remote_uuid .'&include=field_image.field_media_image';
+    $url = 'https://as.cornell.edu/jsonapi/node/article/?filter[id]=' . $remote_uuid .'&include=field_image.field_media_image';
     //fetch data and set cache
     $data = file_get_contents($url);
     $json = json_decode($data, true);
@@ -52,7 +52,7 @@ function as_dept_articles_json_get_term_json($term_uuid,$term_type)
   }
   // if no data check url
   else {
-    $url = 'http://fellaini.local/jsonapi/'.$term_type.'/'. $term_uuid;
+    $url = 'https://as.cornell.edu/jsonapi/'.$term_type.'/'. $term_uuid;
     //fetch data and set cache
     $data = file_get_contents($url);
     $json = json_decode($data, true);
@@ -79,7 +79,7 @@ function as_dept_articles_json_get_article_body_json($article_component_uuid,$ar
   }
   // if no data check url
   else {
-    $url = 'http://fellaini.local/jsonapi/'.$article_component_type.'/'.$article_component_uuid;
+    $url = 'https://as.cornell.edu/jsonapi/'.$article_component_type.'/'.$article_component_uuid;
     //fetch data and set cache
     $data = file_get_contents($url);
     $json = json_decode($data, true);

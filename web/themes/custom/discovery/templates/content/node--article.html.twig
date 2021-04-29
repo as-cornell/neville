@@ -114,7 +114,7 @@
 {# dateline #}
 {% if article.dateline %}
   {% set show_dateline = true %}
-  {% set dateline = article.dateline %}
+  {% set dateline = article.dateline|date("m/d/Y") %}
   <div>{{dateline}}</div>
 {% endif %}
 
