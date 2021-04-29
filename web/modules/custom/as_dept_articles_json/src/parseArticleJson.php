@@ -111,7 +111,7 @@ class parseArticleJson extends \Twig_Extension
                 foreach ($related_articles_json['data'] as $related_article_json) {
                     $related_articles[$key] = [
                       '#title' => $related_article_json['attributes']['title'],
-                      '#alias' => $related_article_json['attributes']['path']['alias']
+                      '#alias' => 'https://as.cornell.edu' .$related_article_json['attributes']['path']['alias']
                     ];
                   foreach ($related_articles_json['included'] as $related_article_image_json) {
                   if ($related_article_image_json['type'] =='file--file') {
@@ -141,7 +141,7 @@ class parseArticleJson extends \Twig_Extension
                 foreach ($related_people_json['data'] as $related_person_json) {
                     $related_people[$key] = [
                       '#title' => $related_person_json['attributes']['title'],
-                      '#alias' => $related_person_json['attributes']['path']['alias']
+                      '#alias' => 'https://as.cornell.edu/people' .$related_person_json['attributes']['path']['alias']
                     ];
                   foreach ($related_people_json['included'] as $related_person_image_json) {
                   if ($related_person_image_json['type'] =='file--file') {
