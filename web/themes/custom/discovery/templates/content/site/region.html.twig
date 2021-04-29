@@ -13,7 +13,6 @@
  */
 #}
 
-{% include "@site/_site-header.twig" with {
-content: content
-
-} %}
+{% if content %}
+	{{ content }}
+{% endif %}

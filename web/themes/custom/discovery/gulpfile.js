@@ -2,9 +2,9 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
 const autoprefixer = require("gulp-autoprefixer");
-const cssmin = require("gulp-cssmin");
+// const cssmin = require("gulp-cssmin");
 const sassGlob = require('gulp-sass-glob');
-
+const cssnano = require('gulp-cssnano');
 
 const sourcemaps = require('gulp-sourcemaps');
 
@@ -28,11 +28,13 @@ const config = {
 function sassProcessor() {
   return gulp.src(config.scss)
     .pipe(sourcemaps.init())
+    .pipe(sourcemaps.identityMap())
     .pipe(sassGlob())
     .pipe(sass()).on('error', sass.logError)
     .pipe(autoprefixer({ browsers: ["last 2 version"] }))
+    .pipe(cssnano)
     .pipe(sourcemaps.write('.'))
-    .pipe(cssmin())
+
     .pipe(gulp.dest(config.cssDir))
   .pipe(browserSync.stream());
 }

@@ -1,5 +1,60 @@
-<header>
-	<h1>
-		Site title
-	</h1>
+<header
+	class="header" id="top">
+	<!--
+																						  ***  SKIP NAV  ***
+																						  -->
+	<div id="skip">
+		<a href="#as-main-nav">
+			Jump to main navigation
+		</a>
+		<a href="#mainContent">
+			Jump to main content
+		</a>
+	</div>
+
+	<a href="http://cornell.edu" title="Cornell University" class="cu-logo">
+		Cornell University
+	</a>
+	<a class="department-logo" href="/" title="Test Department">
+		Department
+	</a>
+	<a href="/" class="as-logo" title="College of Arts and Sciences"></a>
+
+	<div class="header__mainNav">
+		main navigation
+		{# {{ drupal_menu('top-nav', 1, 2, true) }} #}
+	</div>
+	<div class="header__buttons">
+		<div class="iconButton iconButton--showNav">
+			<button class="icon icon--button nav-opener" id="nav-opener">
+				<span class="sr-only">
+					Open nav
+				</span>
+				<svg class='icon icon--burger' viewbox='0 0 52 32'>
+					<use xlink:href='#burger'></use>
+				</svg>
+			</button>
+		</div>
+		<div class="iconButton iconButton--search">
+			<button class="icon icon--button search-opener" id="search-opener">
+				<span class="sr-only">
+					Open search
+				</span>
+				<svg class='icon icon--search' viewbox='0 0 52 32'>
+					<use xlink:href='#search'></use>
+				</svg>
+			</button>
+		</div>
+	</div>
+	<div class="header__searchForm">
+		<form action="/site-search" id="header__searchform" class="form form--overlaySearch">
+			<label for="search-input">
+				Search for:
+			</label>
+			<span class="searchField">
+				<input data-drupal-selector="edit-keywords" type="text" id="edit-keywords" name="keywords" value="" size="30" maxlength="128" class="form-text form-item__textfield"/>
+				<input data-drupal-selector="edit-submit-search" type="submit" id="edit-submit-search" value="Search" class="js-form-submit form-submit form-item__submit"/>
+			</span>
+		</form>
+	</div>
 </header>

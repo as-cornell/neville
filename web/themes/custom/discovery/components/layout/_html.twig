@@ -32,9 +32,10 @@
 			<css-placeholder token="{{ placeholder_token|raw }}">
 				<js-placeholder token="{{ placeholder_token|raw }}"></head>
 				<body{{attributes}}>
-					<a href="#main-content" class="visually-hidden focusable">
-						{{ 'Skip to main content'|t }}
-					</a>
+					<span class="offscreen" aria-hidden="true">
+						{% include "@images/sprite.svg" %}
+					</span>
+
 					{{ page_top }}
 					{{ page }}
 					{{ page_bottom }}
