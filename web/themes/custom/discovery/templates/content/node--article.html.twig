@@ -108,7 +108,7 @@
 {% if article.card_label %}
   {% set show_card_label = true %}
   {% set card_label = article.card_label %}
-  <div>{{card_label}}</div>
+  <h3>{{card_label}}</h3>
 {% endif %}
 
 {# dateline #}
@@ -135,6 +135,7 @@
 {% endif %}
 
 {# departments #}
+<h3>Related Departments and Programs</h3>
 {% if article.departments %}
   {% set show_departments = true %}
   {% set departments = article.departments %}
@@ -143,6 +144,7 @@
 
 
 {# summary #}
+<h3>Summary</h3>
 {% if article.summary %}
   {% set show_summary = true %}
   {% set summary = article.summary %}
