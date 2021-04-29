@@ -4,7 +4,7 @@
   "description": "",
   "main": "gulpfile.js",
   "dependencies": {
-    "breakpoint-sass": "^2.6.1",
+    "breakpoint-sass": "^2.7.1",
     "browser-sync": "^2.26.14",
     "gulp": "^4.0.2",
     "gulp-plumber": "^1.2.1",

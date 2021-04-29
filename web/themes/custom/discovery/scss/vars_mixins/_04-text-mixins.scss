@@ -1,0 +1,14 @@
+// Fonts
+@mixin baseFont(
+  $size: var(--base-font-size),
+  $color: var(--dark-text),
+  $weight: var(--light),
+  $line-height: var(--line-height),
+  $family: var(--font-sans)
+) {
+  font-family: $family;
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+  line-height: $line-height;
+}
