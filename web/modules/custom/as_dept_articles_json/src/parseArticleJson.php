@@ -44,6 +44,8 @@ class parseArticleJson extends \Twig_Extension
     $media_sources = '';
     $summary = '';
     $article_components = '';
+    $related_articles = [];
+    $related_people = [];
     $article_json = as_dept_articles_json_get_article_json($remote_uuid);
     if (!empty($article_json['data'])) {
       // get image path and alt tag from json
@@ -98,6 +100,65 @@ class parseArticleJson extends \Twig_Extension
             }
           }
         $article_record['departments'] = rtrim($departments, ', ');
+
+        // get related article title, link, and thumbnail from json
+        if (!empty($article_data['relationships']['field_related_articles'])) {
+            foreach ($article_data['relationships']['field_related_articles']['data'] as $key => $related_article_data) {
+              $article_id = $related_article_data['id'];
+              //dump($article_id);
+              $related_articles_json = as_dept_articles_json_get_article_json($article_id);
+              //dump($related_articles_json);
+                foreach ($related_articles_json['data'] as $related_article_json) {
+                    $related_articles[$key] = [
+                      '#title' => $related_article_json['attributes']['title'],
+                      '#alias' => $related_article_json['attributes']['path']['alias']
+                    ];
+                  foreach ($related_articles_json['included'] as $related_article_image_json) {
+                  if ($related_article_image_json['type'] =='file--file') {
+                    //dump('https://as.cornell.edu' . $related_article_image_json['attributes']['uri']['url']);
+                    $related_articles[$key]['image']['#uri'] = 'https://as.cornell.edu' . $related_article_image_json['attributes']['uri']['url'];
+                    }
+                  if ($related_article_image_json['type'] =='media--image') {
+                    //dump($related_article_image_json['relationships']['field_media_image']['data']['meta']['alt']);
+                    $related_articles[$key]['image']['#alt'] = $related_article_image_json['relationships']['field_media_image']['data']['meta']['alt'];
+                    }
+                  }
+                }
+            }
+
+          }
+        //dump($related_articles);
+        $article_record['related_articles']= $related_articles;
+        //dump($article_record['related_articles']);
+
+        // get related people title, link, and thumbnail from json
+        if (!empty($article_data['relationships']['field_related_people'])) {
+            foreach ($article_data['relationships']['field_related_people']['data'] as $key => $related_people_data) {
+              $person_uuid = $related_people_data['id'];
+              //dump($article_id);
+              $related_people_json = as_dept_articles_json_get_person_json($person_uuid);
+              //dump($related_people_json);
+                foreach ($related_people_json['data'] as $related_person_json) {
+                    $related_people[$key] = [
+                      '#title' => $related_person_json['attributes']['title'],
+                      '#alias' => $related_person_json['attributes']['path']['alias']
+                    ];
+                  foreach ($related_people_json['included'] as $related_person_image_json) {
+                  if ($related_person_image_json['type'] =='file--file') {
+                    //dump('https://as.cornell.edu' . $related_article_image_json['attributes']['uri']['url']);
+                    $related_people[$key]['image']['#uri'] = 'https://people.as.cornell.edu' . $related_person_image_json['attributes']['uri']['url'];
+                    }
+                  if ($related_person_image_json['type'] =='media--image') {
+                    //dump($related_article_image_json['relationships']['field_media_image']['data']['meta']['alt']);
+                    $related_people[$key]['image']['#alt'] = $related_person_image_json['relationships']['field_media_image']['data']['meta']['alt'];
+                    }
+                  }
+                }
+            }
+
+          }
+        //dump($related_people);
+        $article_record['related_people'] = $related_people;
 
         // get article body
         if (!empty($article_data['relationships']['field_article_components_entity']['data'])) {

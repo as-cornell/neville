@@ -157,6 +157,36 @@
   <div>{{article_components|raw}}</div>
 {% endif %}
 
+{# related_articles #}
+<h1>Related Articles<h1>
+{% if article.related_articles %}
+  {% set show_related_articles = true %}
+  {% set related_articles = article.related_articles %}
+
+  <div>
+    {% for related_article in related_articles %}
+
+      <div><img src='{{related_article.image['#uri']}}' alt='{{related_article.image['#alt']}}'>
+      <h2><a href='{{related_article['#alias']}}'>{{related_article['#title']}}</a></h2>
+      </div>
+    {% endfor %}
+{% endif %}
+  </div>
+
+{# related_people #}
+<h1>Related People<h1>
+{% if article.related_people %}
+  {% set show_related_people = true %}
+  {% set related_people = article.related_people %}
+
+  <div>
+    {% for related_person in related_people %}
+      <div><img src='{{related_person.image['#uri']}}' alt='{{related_person.image['#alt']}}'>
+      <h2><a href='{{related_person['#alias']}}'>{{related_person['#title']}}</a></h2>
+      </div>
+    {% endfor %}
+{% endif %}
+  </div>
 
 
 {% set main_element_extra_classes = ['main'] %}

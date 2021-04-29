@@ -64,6 +64,47 @@ function as_dept_articles_json_get_term_json($term_uuid,$term_type)
   return $term_data;
 }
 
+function as_dept_articles_json_get_person_json($person_uuid)
+{
+
+  $person_data = [];
+    //using people stub uuid get full person record uuid from as.cornell.edu
+    $url = 'https://as.cornell.edu/jsonapi/page_component_entity/person/'. $person_uuid;
+    //fetch data
+    $data = file_get_contents($url);
+    $json = json_decode($data, true);
+    $people_uuid = $json['data']['attributes']['field_people_uuid'];
+    //go get full,person record json from people.as.cornell.edu
+      //set cache id (verify parameters are safe values to use as cache id)
+      $cid = "as_people_json:" . $people_uuid;
+      //check cache
+      if ($cache = \Drupal::cache('data')->get($cid)) {
+        //fetch cache data
+        $person_data = $cache->data;
+        //check cache expiration
+      }
+      // if no data check url
+      else {
+        $url = 'https://people.as.cornell.edu/jsonapi/node/person/?filter[id]=' . $people_uuid .'&include=field_image.field_media_image';
+        //fetch data and set cache
+        $data = file_get_contents($url);
+        $json = json_decode($data, true);
+
+        if (!empty($json)) {
+          if (!empty($json['data'])) {
+            $person_data['data'] = $json['data'];
+            }
+          if (!empty($json['included'])) {
+        $person_data['included'] = $json['included'];
+            }
+        \Drupal::cache('data')
+          ->set($cid, $json, time() + 360);
+        }
+      }
+
+  return $person_data;
+}
+
 
 function as_dept_articles_json_get_article_body_json($article_component_uuid,$article_component_type)
 {
