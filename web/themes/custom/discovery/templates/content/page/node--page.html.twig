@@ -1,0 +1,136 @@
+{#
+
+/* -------------------------
+
+Title: node--page.html.twig
+Descr: This is the framework for a basic page contnet type. Sets up variables and content for _basic-page.twig
+
+--------------------------- */
+
+#}
+
+{# {{vardumper()}} #}
+
+{# Set up main
+    - extra class main
+    - base class page
+    - modifier basic
+    - turn on sidebarNav
+ #}
+{# {% set main_element_extra_classes = ['main'] %}
+{% set main_element_base_class = 'basicSidebar' %}
+{% set main_element_modifiers = [''] %}
+{# set defaults #}
+{# {% set sidebarNav = true %}
+{% set aside = false %}
+{% set sidebarContent = false %} #} 
+
+{# Create classes array. The 'node' class is required for contextual edit links. #}
+{% set classes = [
+  'node'
+] %}
+
+{# BEM inspired class syntax: https://en.bem.info/
+   Enable this code if you would like node classes like "article article--layout-teaser", where article is the content type and teaser is the view mode. #}
+{% set classes = classes|merge([
+  node.bundle|clean_class,
+  view_mode ? node.bundle|clean_class ~ '--layout-' ~ view_mode|clean_class
+]) %}
+{% set title_classes = [
+  node.bundle|clean_class ~ '__title'
+] %}
+
+{{dump(classes)}}
+{{dump(title_classes)}}
+
+
+
+{#
+    - set sidebar type
+    - if sidebar = none make base class 'basic'
+    - set up sidebar_nav
+    - add has-sideber to main_element_modifiers
+    - set location of sidebar
+    - set sidebar content to field_sidebar_components
+    - add sidebar base class and modifier basic-page
+#}
+
+{# {% set sidebarType = node.field_sidebar_type.value %}
+
+{% if sidebarType == "none" %}
+	{% set main_element_base_class = 'basic' %}
+{% endif %} #}
+
+{# If sidebarContent set siebarContent to true and set content value #}
+{# {% if node.field_sidebar_components.target_id %}
+	{% set sidebarContent = true %}
+	{% set sidebar_content = content.field_sidebar_components %}
+{% endif %}
+
+{# Set sidebar_nav #}
+{# {% set sidebar_nav %}
+{{ drupal_menu('main', 1, 0, FALSE) }}
+{% endset %}  #}
+
+
+{#
+    - set aside to false
+    - if aside_components set to true, and add has-aside to main
+#}
+
+{#
+  Page Section links
+  - set up aside in-page nav
+  - link values for the nav items
+  - set aside_nav to the menu block
+#}
+
+{# {% set linkValues = [] %}
+	{% for item in node.field_page_components %}
+		{% if item.entity.field_page_section_title.0.value %}
+	{% set linkValues = linkValues|merge([item.entity.field_page_section_title.0.value]) %}
+{% endif %}
+{% endfor %} #}
+
+{# if page sectin values set aside_nav to the page menu block #}
+	{# {% if linkValues %}
+	{% set otp_nav %}
+		<div class="otpNavWrapper otpNav--basic_page"> <h4 class="otpToggle">
+			On this page:
+		</h4>
+
+		{{ drupal_block('page_menu_block', {link_values:linkValues}) }}
+	</div>
+	{% endset %}
+{% endif %} #}
+
+{#
+    - if aside_components or aside_nav set aside to true, and add has-aside to page
+#}
+
+{# {% if node.field_aside_components.target_id or otp_nav %}
+	{% set aside = true %}
+	{% set main_element_modifiers = main_element_modifiers|merge(['has-aside']) %}
+{% endif %} #}
+
+
+
+
+
+ 
+{% include "@pages/_basic-page.twig" with {
+    title : node.label,
+    main_element_modifiers : main_element_modifiers,
+
+    main_content : content.field_page_components,
+
+    aside_content : content.field_aside_components,
+    otp_nav : otp_nav,
+
+    sidebar_nav : sidebar_nav,
+    sidebar_content : sidebar_content,
+
+    content_wrapper_modifiers : content_wrapper_modifiers,
+    main_content_modifiers : main_content_modifiers
+    }
+%}

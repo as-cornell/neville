@@ -1,4 +1,4 @@
-{# {{dump(content)}} #}
+{# {{vardumper()}} #}
 <footer>
 	{% block footer_content %}
 		{# {{vardumper()}} #}
@@ -7,13 +7,15 @@
 			{# {{ drupal_form('exposedformsearchpage_2') }} #}
 
 			{# <div class="footer__currentStudents"> <h2>
-																				For current students
-																			</h2>
-																			{{ drupal_menu('for-current-students', 1, 2, true)	}}
-																		</div> #}
+																																			For current students
+																																		</h2>
+																																		{{ drupal_menu('for-current-students', 1, 2, true)	}}
+																																	</div> #}
 				<div class="footer__importantLinks"> FOOTER MENU
 				{# {{ drupal_menu('footer', 1, 2, true) }} #}
 			</div>
+			{{drupal_block('block_content:textblock_2')}}
+
 			<div class="footer__socialLinks">
 				<ul>
 					<li><a href="https://twitter.com/CornellCAS" class="socialLink socialLink--twitter">Twitter</a></li>

@@ -1,0 +1,17 @@
+{#
+  image_modifiers
+  link_href
+  link_class
+ #}
+{{img_lazy}}
+{% set image_base_class = image_base_class|default('img') %}
+
+{% if link_href %}
+	<a href="{{link_href}}" class="{{link_class}}">
+	{% endif %}
+
+	<img  {% if img_srcset %} srcset="{{ img_srcset }}" {% endif %} {% if img_sizes %} sizes="{{ img_sizes }}" {% endif %} src="{{ img_src }}" {% if img_alt %} alt="{{ img_alt }}" {% endif %} {% if img_title %} title="{{ img_title }}" {% endif %} {# {% if img_lazy %} #} loading="lazy" {# {% endif %} #}/>
+
+	{% if link_href %}
+	</a>
+{% endif %}

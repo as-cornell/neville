@@ -407,6 +407,243 @@ Still needs: expand toggle for showing main nav on mobile
 
 /* -------------------------
 
+Title: Site footer styles
+Descr: Set
+        - footer
+        - for current student menu
+        - footer menus
+all search form design in _forms.scss
+
+--------------------------- */
+footer {
+  background: var(--as-black);
+  color: var(--as-white);
+  font-size: var(--base-20);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 3rem 2rem;
+  margin-left: -2rem; }
+  footer:before {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    margin: 0 -0.5rem -0.5rem 0;
+    content: "";
+    background-image: var(--ampresand);
+    background-size: 600%;
+    animation: bg-animation 10s infinite alternate;
+    z-index: -1;
+    -webkit-clip-path: url(#bigamp);
+            clip-path: url(#bigamp);
+    z-index: 1; }
+    @media (min-width: 1224px) {
+      footer:before {
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 702px;
+        height: 105%;
+        margin: -0.5rem -2rem; } }
+  footer h2 {
+    font-size: var(--base-28);
+    color: var(--as-white); }
+  footer ul {
+    list-style-type: none;
+    padding-left: 0; }
+  footer .footer {
+    margin: 0 auto;
+    max-width: var(--xl);
+    font-weight: var(--light);
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    z-index: 2; }
+    @media (min-width: 782px) {
+      footer .footer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto;
+        gap: 1rem; } }
+    @media (min-width: 1224px) {
+      footer .footer {
+        grid-template-columns: repeat(12, 1fr); } }
+    footer .footer__currentStudents {
+      grid-column: 1 / 2;
+      grid-row: 1 / 1;
+      margin-bottom: 2rem;
+      font-size: 1.2em; }
+      @media (min-width: 1224px) {
+        footer .footer__currentStudents {
+          grid-column: 1 / 4;
+          grid-row: 1 / 1; } }
+    footer .footer__importantLinks {
+      grid-column: 2 / -1;
+      grid-row: 1; }
+      @media (min-width: 1224px) {
+        footer .footer__importantLinks {
+          grid-column: 4 / -1;
+          grid-row: 1 / 1; } }
+      footer .footer__importantLinks > ul {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+        footer .footer__importantLinks > ul > li {
+          -ms-flex: 0 0 45%;
+              flex: 0 0 45%;
+          font-weight: var(--regular); }
+          @media (min-width: 1224px) {
+            footer .footer__importantLinks > ul > li {
+              -ms-flex: 0 1 23%;
+                  flex: 0 1 23%; } }
+          footer .footer__importantLinks > ul > li > a {
+            margin-bottom: 0.5em;
+            display: block; }
+        footer .footer__importantLinks > ul ul {
+          font-weight: var(--light); }
+    footer .footer__logo {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      margin-bottom: 2rem;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center; }
+      @media (min-width: 1224px) {
+        footer .footer__logo {
+          grid-column: 1 / 5;
+          grid-row: 2; } }
+    footer .footer__address {
+      grid-column: 2;
+      grid-row: 3;
+      font-size: var(--base-16); }
+      @media (min-width: 1224px) {
+        footer .footer__address {
+          grid-column: 6 / 8;
+          grid-row: 2; } }
+    footer .footer__contacts {
+      grid-column: 1;
+      grid-row: 3;
+      font-size: var(--base-16); }
+      @media (min-width: 1224px) {
+        footer .footer__contacts {
+          grid-column: 8 / 10;
+          grid-row: 2; } }
+    footer .footer__socialLinks {
+      grid-column: 3;
+      grid-row: 3;
+      font-size: var(--base-16); }
+      @media (min-width: 1224px) {
+        footer .footer__socialLinks {
+          grid-column: 11 / -1;
+          grid-row: 2; } }
+    footer .footer .socialLink:before {
+      background: var(--as-white); }
+    footer .footer__otherInformation {
+      grid-column: 1 / -1;
+      grid-row: 4; }
+  footer .cu-logo {
+    display: none; }
+    @media (min-width: 480px) {
+      footer .cu-logo {
+        display: block;
+        text-indent: -9999px;
+        width: 73px;
+        height: 73px;
+        background: url(/themes/custom/discovery/images/cornell-white.svg);
+        background-repeat: no-repeat;
+        background-size: 73px 73px; } }
+  footer a {
+    color: var(--as-white);
+    -webkit-text-decoration-color: var(--as-blue-gray);
+            text-decoration-color: var(--as-blue-gray); }
+    footer a.btn {
+      font-weight: var(--semi);
+      text-decoration: underline; }
+  footer .as-logo {
+    text-indent: -9999px;
+    width: 238px;
+    height: 71px;
+    background: url(/themes/custom/discovery/images/the-college-two-line-white.svg);
+    background-size: 238px 71px;
+    background-repeat: no-repeat;
+    position: relative; }
+    @media (min-width: 480px) {
+      footer .as-logo {
+        margin-left: 38px; }
+        footer .as-logo:before {
+          position: absolute;
+          width: 1px;
+          background: var(--as-gray-400);
+          height: 100%;
+          top: 0;
+          left: -19px;
+          content: ""; } }
+
+@media (min-width: 480px) {
+  .extraLinks {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    font-size: var(--base-18); }
+    .extraLinks li {
+      margin-right: 1rem;
+      padding-right: 1rem;
+      border-right: 1px solid var(--gray-dark); }
+      .extraLinks li:last-of-type {
+        padding-right: 0;
+        border: none; } }
+
+.toTopButton {
+  display: block;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 3rem;
+  height: 3rem;
+  background: var(--gray-lightest);
+  border-radius: var(--border-radius);
+  z-index: 100;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  font-weight: var(--semi);
+  font-size: var(--base-18);
+  color: var(--as-black);
+  padding-bottom: 4px;
+  opacity: 0;
+  transition: opacity 250ms ease-in-out; }
+  .toTopButton:before {
+    position: absolute;
+    width: 1.5rem;
+    height: 1rem;
+    content: "";
+    top: 16px;
+    left: 18px;
+    background: var(--as-purple);
+    -webkit-clip-path: url(#chevron-up);
+            clip-path: url(#chevron-up);
+    transition: transform 250ms; }
+  .toTopButton.show {
+    opacity: 1; }
+  .toTopButton:hover:before {
+    transform: translateY(-4px) scale(1.1); }
+
+/* -------------------------
+
 Title: Site header styles
 Descr: Set 
         - #skip
