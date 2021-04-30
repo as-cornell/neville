@@ -83,6 +83,43 @@ BORDERS
     :root {
       --base-84: 3.5rem; } }
 
+/*
+----
+font size mixins
+----
+*/
+.base-24 {
+  font-size: var(--base-24);
+  line-height: var(--line-height); }
+
+.base-28, .basicSidebar .content > .pageComponent--ftb > p:first-of-type {
+  font-size: var(--base-28);
+  line-height: 1.4; }
+
+.base-36 {
+  font-size: var(--base-36);
+  margin-bottom: 0;
+  margin-top: 1em; }
+
+.base-48 {
+  font-size: var(--base-48);
+  margin-bottom: 0.5em;
+  line-height: 1em; }
+
+.base-56 {
+  font-size: var(--base-56);
+  margin-bottom: 0.44em;
+  line-height: 1.2em; }
+
+.base-64 {
+  font-size: var(--base-64);
+  line-height: 1em; }
+
+.base-84 {
+  font-size: var(--base-84);
+  line-height: 0.9em;
+  margin-bottom: 1em; }
+
 /* -------------------------
 
 Title: _base.scss
@@ -105,6 +142,33 @@ body {
   @media (min-width: 782px) {
     body {
       padding: 0 2rem; } }
+
+/* -------------------------
+
+Title: <main> layouts.
+Descr: 
+    main content is the <main> tag. It is where the main components are. It is a child of the .container.
+  - specific grid layouts on page css's
+  * _article
+  * _basicPage
+  * _landingPage
+  * _major-minor-grad
+  * _view-list
+
+--------------------------- */
+.main {
+  max-width: 1432px;
+  margin: 0 auto var(--bottom-margin) auto;
+  display: grid;
+  grid-gap: 2rem;
+  grid-row-gap: 0;
+  opacity: 1;
+  transition: opacity 150ms ease-in-out; }
+  .main.fade {
+    opacity: 0.25;
+    transition: opacity 250ms ease-in-out 250ms; }
+  .main .sidebar h3 {
+    margin-bottom: 1em; }
 
 /*
 
@@ -805,6 +869,65 @@ header {
 @media (min-width: 1432px) {
   body.landing_page header {
     padding: 6rem 1rem 5rem 1rem; } }
+
+/* -------------------------
+
+Title: <main> .basicSidebar
+Descr: 
+   basicSidebar specific 
+
+--------------------------- */
+.basicSidebar {
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas: "nav" "title" "aside" "content" "sidebar"; }
+  .basicSidebar .nav--site {
+    grid-area: nav; }
+  .basicSidebar .title {
+    grid-area: title; }
+    .basicSidebar .title h1 {
+      text-align: center;
+      font-family: var(--font-serif);
+      font-weight: var(--semi); }
+      @media (min-width: 1224px) {
+        .basicSidebar .title h1 {
+          text-align: left;
+          margin-top: 0; } }
+  .basicSidebar .sidebar {
+    grid-area: sidebar; }
+  .basicSidebar .content {
+    grid-area: content; }
+  .basicSidebar aside {
+    position: sticky;
+    top: 0;
+    margin-bottom: 2rem;
+    z-index: 1; }
+    @media (min-width: 782px) {
+      .basicSidebar aside {
+        grid-area: aside; } }
+    .basicSidebar aside .page_component_entity {
+      display: none; }
+      @media (min-width: 1224px) {
+        .basicSidebar aside .page_component_entity {
+          display: block; } }
+  @media (min-width: 782px) {
+    .basicSidebar {
+      grid-template-areas: ". title title title title title title title title title title ." "nav nav nav content content content content content content content content content" "sidebar sidebar sidebar content content content content content content content content content"; } }
+  @media (min-width: 1224px) {
+    .basicSidebar {
+      grid-template-columns: repeat(24, 1fr);
+      grid-template-areas: ". . . . . title title title title title title title title title title title title title title title . . . ." "nav nav nav nav nav content content content content content content content content content content content content content content content aside aside aside aside" "sidebar sidebar sidebar sidebar sidebar content content content content content content content content content content content content content content content aside aside aside aside"; } }
+  @media (min-width: 782px) {
+    .basicSidebar--has-aside {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-areas: ". title title title title title title title title title title ." "nav nav nav aside aside aside aside aside aside aside aside aside" "nav nav nav content content content content content content content content content" "sidebar sidebar sidebar content content content content content content content content content"; } }
+  @media (min-width: 1224px) {
+    .basicSidebar--has-aside {
+      grid-template-columns: repeat(24, 1fr);
+      grid-template-areas: ". . . . . title title title title title title title title title title title title title title title . . . ." "nav nav nav nav nav content content content content content content content content content content content content content content content aside aside aside aside" "sidebar sidebar sidebar sidebar sidebar content content content content content content content content content content content content content content content aside aside aside aside"; } }
+  .basicSidebar .content > h2:first-of-type {
+    margin-top: 0; }
+  .basicSidebar .pcWrapper {
+    margin-bottom: 3rem; }
 
 /*# sourceMappingURL=styles.css.map */
 

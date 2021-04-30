@@ -17,31 +17,20 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
     - modifier basic
     - turn on sidebarNav
  #}
-{# {% set main_element_extra_classes = ['main'] %}
+{% set main_element_extra_classes = ['main'] %}
 {% set main_element_base_class = 'basicSidebar' %}
 {% set main_element_modifiers = [''] %}
 {# set defaults #}
-{# {% set sidebarNav = true %}
+{% set sidebarNav = true %}
 {% set aside = false %}
-{% set sidebarContent = false %} #} 
+{% set sidebarContent = false %}
 
 {# Create classes array. The 'node' class is required for contextual edit links. #}
 {% set classes = [
   'node'
 ] %}
 
-{# BEM inspired class syntax: https://en.bem.info/
-   Enable this code if you would like node classes like "article article--layout-teaser", where article is the content type and teaser is the view mode. #}
-{% set classes = classes|merge([
-  node.bundle|clean_class,
-  view_mode ? node.bundle|clean_class ~ '--layout-' ~ view_mode|clean_class
-]) %}
-{% set title_classes = [
-  node.bundle|clean_class ~ '__title'
-] %}
 
-{{dump(classes)}}
-{{dump(title_classes)}}
 
 
 
@@ -112,6 +101,8 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 	{% set aside = true %}
 	{% set main_element_modifiers = main_element_modifiers|merge(['has-aside']) %}
 {% endif %} #}
+{# test #}
+{% set aside = true %}
 
 
 
@@ -122,7 +113,7 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
     title : node.label,
     main_element_modifiers : main_element_modifiers,
 
-    main_content : content.field_page_components,
+    main_content : content,
 
     aside_content : content.field_aside_components,
     otp_nav : otp_nav,

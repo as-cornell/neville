@@ -1,0 +1,33 @@
+/* -------------------------
+
+Title: <main> layouts.
+Descr: 
+    main content is the <main> tag. It is where the main components are. It is a child of the .container.
+  - specific grid layouts on page css's
+  * _article
+  * _basicPage
+  * _landingPage
+  * _major-minor-grad
+  * _view-list
+
+--------------------------- */
+
+.main {
+  // base page main conent grids
+  max-width: $xl;
+  margin: 0 auto var(--bottom-margin) auto;
+  display: grid;
+  grid-gap: 2rem;
+  grid-row-gap: 0;
+  opacity: 1;
+  transition: opacity 150ms ease-in-out;
+  &.fade {
+    opacity: 0.25;
+    transition: opacity 250ms ease-in-out 250ms;
+  }
+  .sidebar {
+    h3 {
+      margin-bottom: 1em;
+    }
+  }
+}
