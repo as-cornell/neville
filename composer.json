@@ -29,6 +29,7 @@
         "drupal/redis": "^1.5",
         "drupal/twig_field_value": "^2.0",
         "drupal/twig_tweak": "^3.0",
+        "drupal/twig_vardumper": "^3.0",
         "drush/drush": "^10.4",
         "platformsh/config-reader": "^2.4"
     },
