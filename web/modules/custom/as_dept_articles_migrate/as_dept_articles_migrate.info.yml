@@ -1,0 +1,5 @@
+name: 'A&S Departments Migrate Articles'
+type: module
+description: 'Contains migration config to migrate articles authored by A&S Communications and department staff from Drupal 7 to Drupal 8.'
+core_version_requirement: ^8.7.7 || ^9
+package: 'AS'

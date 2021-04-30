@@ -3,8 +3,6 @@ recipe: platformsh
 config:
   id: mm3lcf5ygjhvq
 proxy:
-  node:
-    - bs.neville.lndo.site:3000
   app:
     - neville.lndo.site
 services:
@@ -12,10 +10,9 @@ services:
     type: node
     build:
       - npm install
-      # - gulp
     globals:
       gulp-cli: latest
-    # command: cd /app/web/themes/custom/discovery && gulp watch
+    ssl: true
 tooling:
   npm:
     service: node
@@ -23,3 +20,7 @@ tooling:
     service: node
   gulp:
     service: node
+  drush:
+    service: app
+    env:
+      DRUSH_OPTIONS_URI: "https://neville.lndo.site"
