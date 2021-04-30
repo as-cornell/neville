@@ -1,0 +1,331 @@
+/* -------------------------
+
+Title: main navigation
+Descr: mainNav small and large, hovers and toggles for subNav
+       
+Still needs: expand toggle for showing main nav on mobile
+
+--------------------------- */
+
+.mainNav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  font-size: var(--base-20);
+  background: var(--as-black);
+  padding: 0 1rem;
+  // max-height: 0;
+  margin-top: 1rem;
+  padding: 0;
+  border-radius: var(--border-radius);
+  position: absolute;
+  z-index: 11;
+  // width: calc(100% - 3rem);
+  // animation stuff
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 150ms ease-out;
+  // @include boxShadow();
+  &.shown {
+    transform: scale(1, 1);
+    transform-origin: top;
+    transition: transform 250ms ease-in-out 250ms;
+    .mainNav__link {
+      opacity: 1;
+      transition: opacity 250ms ease-in-out 250ms;
+    }
+  }
+  .mainNav__item {
+    margin-bottom: 0;
+    max-width: 100%;
+    background: var(--as-teal-600);
+  }
+  .mainNav__link {
+    color: var(--as-gray-300);
+    font-weight: var(--light);
+    display: inline-block;
+    width: calc(100% - 2.1rem);
+    padding: 0.5rem 0 0.5rem 0.5rem;
+    border-right: 1px solid var(--as-white);
+    background: var(--as-black);
+    text-decoration: underline;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+  }
+  .mainNav__subNavToggle {
+    width: 1rem;
+    left: 2px;
+    top: -2px;
+    padding: 0;
+    background: none;
+    border: none;
+    position: relative;
+    z-index: 10;
+    svg {
+      fill: var(--as-white);
+      @include headerBreak() {
+        fill: var(--as-black);
+      }
+    }
+
+    &:focus {
+      opacity: 1;
+    }
+    &.rotated {
+      transform: rotate(180deg);
+      transform-origin: 50% 50%;
+    }
+    @include headerBreak() {
+      width: 0.75rem;
+      left: -7px;
+      top: 0;
+      opacity: 0;
+      align-items: center;
+    }
+  }
+
+  //big maiNav
+  @include medium() {
+    // max-height: 100%;
+    overflow: visible;
+    box-shadow: none;
+    // font-size: var(--base-18);
+    background: transparent;
+    color: var(--as-black);
+    padding: 0;
+    display: flex;
+    margin-top: 0;
+    transform: none;
+    width: 100%;
+    position: relative;
+    // justify-content: center;
+    //new
+    .mainNav__item {
+      position: relative;
+      background: none;
+      &:after {
+        position: absolute;
+        content: "";
+        width: calc(100% - 27px);
+        height: 3px;
+        background: var(--as-red-400);
+        top: 0;
+        left: 0;
+        transform: scaleX(0);
+        transition: all 0.15s ease-in;
+        visibility: hidden;
+        border-radius: 2px;
+      }
+      .mainNav__link {
+        background: none;
+        opacity: 1;
+      }
+      &:hover {
+        // border-top: 4px solid var(--as-red-400);
+        text-decoration-color: var(--as-gray-500);
+        &:after {
+          visibility: visible;
+          transform: scaleX(1);
+          transition: all 0.25s ease-out;
+        }
+        overflow: visible;
+
+        > .mainNav__link {
+          // border-top: 4px solid var(--as-red-400);
+          background: var(--as-gray-300);
+          box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      &.mainNav__item--active {
+        text-decoration-color: var(--as-gray-500);
+        &:after {
+          visibility: visible;
+          transform: scaleX(1);
+          transition: all 0.25s ease-out;
+          background: var(--as-teal-600);
+        }
+      }
+
+      // &:hover {
+      //   // border-top: 4px solid var(--as-red-400);
+
+      // }
+    }
+    .mainNav__link {
+      // border-top: 4px solid transparent;
+      color: var(--dark-text);
+      text-decoration-color: var(--as-gray-300);
+      padding: 0.5rem;
+      width: auto;
+      font-weight: var(--semi);
+    }
+
+    // Base for all lis in nav
+    li {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      z-index: 1;
+      // margin: 0 0.5rem;
+      @include headerBreak {
+        overflow: visible;
+      }
+      // padding: .5rem;
+      &[class$="with-sub"] {
+        margin-right: 0;
+        overflow: hidden;
+      }
+      &:last-of-type {
+        margin-right: 0;
+        padding-right: 0;
+      }
+      //show subnav on hover
+      &:hover,
+      &:focus,
+      &.withSubNav--expanded {
+        overflow: visible;
+        .subNav {
+          max-height: 1000px;
+          opacity: 1;
+          transition: opacity 250ms ease-in-out;
+          // left: -0.25rem;
+          top: 100%;
+          z-index: 10;
+        }
+      }
+      &:last-of-type {
+        &:hover {
+          .subNav {
+            right: 21px;
+          }
+        }
+      }
+      > .mainNav__link--active {
+        // border-top: 4px solid var(--as-red-400);
+      }
+    }
+  }
+  @include large() {
+    justify-content: flex-end;
+  }
+  // subNav
+  .subNav {
+    // expandable bits
+    text-align: left;
+    max-height: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+    background: var(--as-gray-300);
+    font-weight: var(--regular);
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    padding-left: 0;
+    overflow: hidden;
+    // transform: scale(1, 0);
+    // transform-origin: top;
+    // transition: transform 150ms ease-out;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+    &.subNav--expanded {
+      max-height: 100%;
+      opacity: 1;
+      transition: opacity 250ms ease-in-out 150ms;
+      // transform: scale(1, 1);
+      // transform-origin: top;
+      // transition: transform 250ms ease-in-out 250ms;
+    }
+
+    // headerBreak plus styles
+    @include headerBreak() {
+      width: 260px;
+      position: absolute;
+      font-size: var(--base-18);
+      box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 0 var(--border-radius) var(--border-radius)
+        var(--border-radius);
+      overflow: visible;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+      max-width: 100%;
+    }
+    a {
+      padding: 0.5rem 0 0.5rem 1rem;
+      display: block;
+      position: relative;
+      color: var(--as-black);
+      border-top: none;
+      // margin-left: 0.5rem;
+      text-decoration: underline;
+      &:hover,
+      &:focus {
+        background-color: var(--as-white);
+        @include headerBreak() {
+          color: var(--as-white);
+          background: var(--as-red-400);
+          &:after,
+          &:before {
+            position: absolute;
+            content: "";
+            width: 0.25rem;
+            height: 100%;
+            top: 0;
+            background: var(--as-red-400);
+            border-radius: 4px;
+          }
+          &:after {
+            right: -0.125rem;
+          }
+          &:before {
+            left: -0.125rem;
+          }
+        }
+      }
+      @include headerBreak() {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+//toggle subnav buttons
+.expand-sub {
+  background: none;
+  border: none;
+  padding: 0;
+  svg {
+    fill: var(--as-black);
+  }
+  @include headerBreak() {
+    svg {
+      fill: none;
+    }
+    &:focus {
+      svg {
+        fill: var(--as-black);
+      }
+    }
+  }
+}
+
+.main-nav-toggle {
+  background: none;
+  border: none;
+}
+
+//animations
+// mainNavDrop
+@keyframes navDrop {
+  0% {
+    max-height: 0%;
+  }
+  100% {
+    max-height: 100%;
+  }
+}

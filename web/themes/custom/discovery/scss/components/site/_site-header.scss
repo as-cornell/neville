@@ -114,6 +114,14 @@ header {
       justify-self: flex-end;
       align-self: center;
     }
+    @include headerBreak() {
+      background: url(/themes/custom/discovery/images/the-college-one-line.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 300px;
+      justify-self: flex-end;
+      align-self: center;
+    }
   }
 
   .header__mainNav {

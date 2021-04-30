@@ -32,13 +32,12 @@ function sassProcessor() {
     .pipe(sassGlob())
     .pipe(sass()).on('error', sass.logError)
     .pipe(autoprefixer({ browsers: ["last 2 version"] }))
-    .pipe(cssnano)
     .pipe(sourcemaps.write('.'))
-
-    .pipe(gulp.dest(config.cssDir))
+    .pipe(gulp.dest('./css'))
   .pipe(browserSync.stream());
 }
 
+// Still need to work cssmin or cssnano into the mix.
 
 function watch() {
   browserSync.init({
