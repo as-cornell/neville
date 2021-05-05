@@ -2,3 +2,10 @@ global:
   css:
     theme:
       css/styles.css: {}
+
+global-scripts:
+  js:
+    js_min/main-menu.js: {}
+    js_min/forms.js: {}
+  dependencies:
+    - core/jquery

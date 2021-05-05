@@ -1,0 +1,64 @@
+/* -------------------------
+
+Title: headings.
+Descr: 
+    Sets basic styles for h1-h4
+
+--------------------------- */
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-sans);
+  font-weight: var(--semi);
+  color: var(--as-gray-700);
+  clear: both;
+}
+// * + h2 {
+//   background: red;
+//   margin-top: 0;
+// }
+
+h1 {
+  @extend .base-64;
+  @include xl() {
+    font-size: var(--base-84);
+  }
+
+  &.h1--title,
+  &.title {
+    margin-top: 0;
+    font-family: var(--font-serif);
+    font-weight: var(--heavy);
+    // @include text-gradient(var(--storm-radial));
+  }
+}
+
+h2 {
+  @extend .base-48;
+}
+
+// h2 after an eyebrow gets less margin top
+.eyebrow + h2 {
+  margin-top: 0.35em !important;
+}
+
+h3 {
+  @extend .base-36;
+}
+
+h4 {
+  @extend .base-28;
+  // margin: 0 0 1em 0;
+}
+
+// Sidebar sizes for component headers
+.sidebar {
+  h2 {
+    font-size: calc(1.5 * var(--base-font-size));
+  }
+  h4 {
+    @extend .base-24;
+  }
+}

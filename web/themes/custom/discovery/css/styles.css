@@ -69,7 +69,31 @@ BORDERS
 */
   --border-width: 1px;
   --border-color: var(--as-gray-400);
-  --border-radius: 4px; }
+  --border-radius: 4px;
+  /*
+----
+WIDTHS
+  match variables from /breakpoints
+  used mostly for max widh settings page elements
+----
+*/
+  --xs: 320px;
+  --small: 480px;
+  --medium: 782px;
+  --large: 1224px;
+  --xl: 1432px;
+  --xxl: 1640px;
+  /*
+----
+MARGINS
+  - margins set to control horizontal spacing for page components
+  - collapse at smaller sizes
+----
+*/
+  --margin-2: 2rem;
+  --margin-3: 2rem;
+  --margin-4: 2rem;
+  --margin-6: 2rem; }
   @media (min-width: 782px) {
     :root {
       --base-font-size: 24px; } }
@@ -82,26 +106,35 @@ BORDERS
   @media (min-width: 1224px) {
     :root {
       --base-84: 3.5rem; } }
+  @media (min-width: 782px) {
+    :root {
+      --margin-3: 3rem; } }
+  @media (min-width: 782px) {
+    :root {
+      --margin-4: 4rem; } }
+  @media (min-width: 782px) {
+    :root {
+      --margin-6: 6rem; } }
 
 /*
 ----
 font size mixins
 ----
 */
-.base-24 {
+.base-24, .sidebar h4 {
   font-size: var(--base-24);
   line-height: var(--line-height); }
 
-.base-28, .basicSidebar .content > .pageComponent--ftb > p:first-of-type {
+.base-28, h4, .basicSidebar .content > .pageComponent--ftb > p:first-of-type {
   font-size: var(--base-28);
   line-height: 1.4; }
 
-.base-36 {
+.base-36, h3 {
   font-size: var(--base-36);
   margin-bottom: 0;
   margin-top: 1em; }
 
-.base-48 {
+.base-48, h2 {
   font-size: var(--base-48);
   margin-bottom: 0.5em;
   line-height: 1em; }
@@ -111,7 +144,7 @@ font size mixins
   margin-bottom: 0.44em;
   line-height: 1.2em; }
 
-.base-64 {
+.base-64, h1 {
   font-size: var(--base-64);
   line-height: 1em; }
 
@@ -145,6 +178,37 @@ body {
 
 /* -------------------------
 
+Title: headings.
+Descr: 
+    Sets basic styles for h1-h4
+
+--------------------------- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-sans);
+  font-weight: var(--semi);
+  color: var(--as-gray-700);
+  clear: both; }
+
+@media (min-width: 1432px) {
+  h1 {
+    font-size: var(--base-84); } }
+
+h1.h1--title, h1.title {
+  margin-top: 0;
+  font-family: var(--font-serif);
+  font-weight: var(--heavy); }
+
+.eyebrow + h2 {
+  margin-top: 0.35em !important; }
+
+.sidebar h2 {
+  font-size: calc(1.5 * var(--base-font-size)); }
+
+/* -------------------------
+
 Title: <main> layouts.
 Descr: 
     main content is the <main> tag. It is where the main components are. It is a child of the .container.
@@ -158,7 +222,7 @@ Descr:
 --------------------------- */
 .main {
   max-width: 1432px;
-  margin: 0 auto var(--bottom-margin) auto;
+  margin: 0 auto var(--margin-2) auto;
   display: grid;
   grid-gap: 2rem;
   grid-row-gap: 0;
@@ -175,9 +239,6 @@ Descr:
 Basic text styles
 
 */
-h1 {
-  color: yellow; }
-
 /* -------------------------
 
 Title: Visibilities 
@@ -225,6 +286,123 @@ ICON/SVG buttons
 
 .icon--button svg {
   width: 1.5rem; }
+
+/* -------------------------
+
+Title: _forms.scss
+Descr: 
+    Main inpage forms
+
+    .form--simpleSearch
+
+    .form--overlaySearch
+    .form--blockSearch
+
+--------------------------- */
+form {
+  background: var(--as-white);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+  margin: 0 auto;
+  padding: 1em;
+  border-radius: var(--border-radius); }
+  form * {
+    font-size: var(--base-16); }
+    @media (min-width: 782px) {
+      form * {
+        font-size: var(--base-20); } }
+    form *:focus {
+      outline: 1px dashed var(--as-purple);
+      outline-offset: -1px; }
+  form.form--searchBlock, form.form--overlaySearch {
+    max-width: var(--line-width); }
+    form.form--searchBlock .searchField, form.form--overlaySearch .searchField {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      margin-left: 1rem;
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%; }
+  form.form--overlaySearch label {
+    -ms-flex-preferred-size: 130px;
+        flex-basis: 130px; }
+  form.form--searchBlock {
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-align: start;
+        align-items: flex-start;
+    margin: 2rem 0; }
+    form.form--searchBlock > * {
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%; }
+    form.form--searchBlock label {
+      margin-bottom: 1em; }
+    form.form--searchBlock .searchField {
+      margin-left: 0;
+      width: 100%; }
+  form label {
+    font-weight: var(--semi); }
+  form .form-text {
+    border: none;
+    border: 1px solid var(--gray-lt);
+    background: var(--gray-lightest);
+    padding: 0.5em;
+    border-radius: var(--border-radius); }
+  form .form-submit {
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.5em;
+    margin-left: 1rem;
+    background: var(--storm-radial);
+    color: var(--as-white); }
+    form .form-submit + .form-submit {
+      transform: translateY(50px); }
+
+.views-exposed-form {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 3fr 3fr 1fr;
+  grid-template-rows: auto;
+  gap: 0.5em; }
+  .views-exposed-form .js-form-type-textfield {
+    grid-column: 1 / 3;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    -ms-flex-align: center;
+        align-items: center; }
+    .views-exposed-form .js-form-type-textfield .form-text {
+      margin-left: 1rem; }
+  .views-exposed-form .js-form-type-select {
+    display: grid;
+    grid-template-columns: 1fr; }
+  .views-exposed-form .form-submit {
+    grid-column: 3;
+    grid-row: 1; }
+  .views-exposed-form .bef--secondary {
+    grid-column: 1 / 3; }
+    .views-exposed-form .bef--secondary summary {
+      margin-bottom: 0.5rem; }
+    .views-exposed-form .bef--secondary .details__contents .js-form-item {
+      margin-bottom: 0.5rem; }
+
+.form--overlaySearch {
+  overflow: hidden;
+  position: absolute;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 150ms ease-out; }
+  @media (min-width: 782px) {
+    .form--overlaySearch {
+      width: calc(100% - 3rem); } }
+  .form--overlaySearch.shown {
+    transform: scale(1, 1);
+    transform-origin: top;
+    transition: transform 250ms ease-in-out 250ms;
+    z-index: 1; }
 
 /* -------------------------
 

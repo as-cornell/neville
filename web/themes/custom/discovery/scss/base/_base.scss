@@ -14,8 +14,9 @@ body {
   @include baseFont();
   overflow-x: hidden;
   padding: 0 1rem;
+  margin: 0;
   @include medium() {
     padding: 0 2rem;
   }
-  margin: 0;
+  
 }

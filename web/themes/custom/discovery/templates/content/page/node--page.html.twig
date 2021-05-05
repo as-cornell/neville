@@ -103,11 +103,7 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 {% endif %} #}
 {# test #}
 {% set aside = true %}
-
-
-
-
-
+{% set heading_class = "bob" %}
  
 {% include "@pages/_basic-page.twig" with {
     title : node.label,

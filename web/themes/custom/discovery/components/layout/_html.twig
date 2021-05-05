@@ -30,7 +30,9 @@
 				{{ head_title|safe_join(' | ') }}
 			</title>
 			<css-placeholder token="{{ placeholder_token|raw }}">
-				<js-placeholder token="{{ placeholder_token|raw }}"></head>
+				<js-placeholder token="{{ placeholder_token|raw }}">
+      <link rel="stylesheet" href="https://use.typekit.net/dsj5vco.css"/>
+    </head>
 				<body{{attributes}}>
 					<span class="offscreen" aria-hidden="true">
 						{% include "@images/sprite.svg" %}
