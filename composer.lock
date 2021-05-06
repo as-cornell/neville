@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "410c17ba16a43479f2fd0a9e2d20088a",
+    "content-hash": "afa5c799b1fa6f9067cb5cd72a61f035",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2958,58 +2958,6 @@
             }
         },
         {
-            "name": "drupal/site_settings",
-            "version": "1.19.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/site_settings.git",
-                "reference": "8.x-1.19"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/site_settings-8.x-1.19.zip",
-                "reference": "8.x-1.19",
-                "shasum": "93977299549d33c4fbaad7a332fe7d3e1e2648b8"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.19",
-                    "datestamp": "1590234916",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "scott_euser",
-                    "homepage": "https://www.drupal.org/user/3267594"
-                },
-                {
-                    "name": "stuart.wilkes@actionaid.org",
-                    "homepage": "https://www.drupal.org/user/3584735"
-                }
-            ],
-            "description": "Provides a site settings entity",
-            "homepage": "https://www.drupal.org/project/site_settings",
-            "keywords": [
-                "Drupal"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/site_settings",
-                "issues": "http://drupal.org/project/issues/site_settings"
-            }
-        },
-        {
             "name": "drupal/token",
             "version": "1.9.0",
             "source": {
@@ -3227,6 +3175,67 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/twig_vardumper",
                 "issues": "https://www.drupal.org/project/issues/twig_vardumper"
+            }
+        },
+        {
+            "name": "drupal/unified_twig_ext",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/unified_twig_ext.git",
+                "reference": "1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/unified_twig_ext-1.0.0.zip",
+                "reference": "1.0.0",
+                "shasum": "8aa03e2d9d8ef00aec2b0f84c79ef76000179b42"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0",
+                    "datestamp": "1594897928",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Salem Ghoweri",
+                    "homepage": "https://www.drupal.org/user/137505",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Grayle",
+                    "homepage": "https://www.drupal.org/user/3145497"
+                },
+                {
+                    "name": "evanmwillhite",
+                    "homepage": "https://www.drupal.org/user/562168"
+                },
+                {
+                    "name": "rembrandx",
+                    "homepage": "https://www.drupal.org/user/465048"
+                },
+                {
+                    "name": "sghoweri",
+                    "homepage": "https://www.drupal.org/user/2175670"
+                }
+            ],
+            "description": "Share Pattern Lab's custom Twig extensions with Drupal 8.",
+            "homepage": "https://www.drupal.org/project/unified_twig_ext",
+            "support": {
+                "source": "https://github.com/drupal-pattern-lab/unified-twig-extensions.git"
             }
         },
         {
