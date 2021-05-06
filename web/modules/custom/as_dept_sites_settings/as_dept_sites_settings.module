@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Implements hook_config_schema_info_alter().
+ */
+function as_dept_site_settings_config_schema_info_alter(&$definitions) {
+  $definitions['system.site']['mapping']['morp'] = [
+    'type' => 'string',
+    'label' => 'Morp',
+  ];
+}

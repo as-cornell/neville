@@ -1,0 +1,5 @@
+services:
+  as_dept_sites_settings.route_subscriber:
+    class: Drupal\as_dept_sites_settings\Routing\ASDeptSettingsRouteSubscriber
+    tags:
+      - { name: event_subscriber }
