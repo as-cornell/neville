@@ -14,12 +14,13 @@ services:
       gulp-cli: latest
     ssl: true
 tooling:
+  npm:
+    service: node
+  node:
+    service: node
+  gulp:
+    service: node
   drush:
     service: app
     env:
-<<<<<<< HEAD
-      DRUSH_OPTIONS_URI: 'https://neville.lndo.site'
-=======
       DRUSH_OPTIONS_URI: "https://neville.lndo.site"
-# test
->>>>>>> newGulp
