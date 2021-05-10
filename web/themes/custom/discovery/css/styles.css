@@ -465,7 +465,7 @@ Still needs: expand toggle for showing main nav on mobile
     .nav-1 button svg,
     .nav-2 button svg,
     .nav-3 button svg {
-      fill: red; }
+      fill: var(--as-white); }
       @media (min-width: 900px) {
         .nav button svg,
         .nav-1 button svg,
@@ -505,17 +505,17 @@ Still needs: expand toggle for showing main nav on mobile
     transition: opacity 150ms ease-in-out; }
 
 .nav-1 {
-  background: var(--as-teal-300);
   font-weight: var(--regular);
+  border-radius: 0;
   width: 100%;
   padding-left: 0;
+  margin-top: 0;
   transform: scaleY(0);
-  transition: transform 150ms ease-in-out;
   transform-origin: top; }
   .nav-1.expanded {
     opacity: 1;
     transform: scaleY(1);
-    transition: all 250ms ease-in-out 150ms; }
+    position: relative; }
   .nav-1 a {
     padding: 0.5rem 0 0.5rem 1rem;
     color: var(--as-black);
@@ -535,7 +535,10 @@ Still needs: expand toggle for showing main nav on mobile
     width: 100%;
     color: var(--as-black);
     background: transparent;
-    overflow: visible; }
+    overflow: visible;
+    position: relative;
+    -ms-flex-pack: start;
+        justify-content: flex-start; }
     .nav--main .nav__item {
       background: transparent; }
       .nav--main .nav__item:after {
@@ -597,6 +600,21 @@ Still needs: expand toggle for showing main nav on mobile
             left: -0.125rem; }
     .nav--main button {
       opacity: 0; } }
+
+@media (min-width: 1224px) {
+  .nav--main {
+    -ms-flex-pack: end;
+        justify-content: flex-end; } }
+
+@media (min-width: 782px) {
+  .nav--site {
+    background: pink;
+    position: relative;
+    transform: none;
+    overflow: visible; }
+    .nav--site .nav-1 {
+      position: relative;
+      transform: none; } }
 
 /* -------------------------
 

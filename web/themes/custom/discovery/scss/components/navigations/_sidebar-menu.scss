@@ -7,6 +7,19 @@
 
 // --------------------------- */
 
+.nav--site {
+  @include medium() {
+    background: pink;
+    position: relative;
+    transform: none;
+    overflow: visible;
+    .nav-1 {
+      position: relative;
+      transform: none;
+    }
+  }
+}
+
 // ul[class^="nav"] {
 //   font-size: var(--base-20);
 //   list-style-type: none;

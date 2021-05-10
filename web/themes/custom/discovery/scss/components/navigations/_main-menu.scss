@@ -47,7 +47,7 @@ Still needs: expand toggle for showing main nav on mobile
     position: absolute;
     z-index: 10;
     svg {
-      fill: red;
+      fill: var(--as-white);
       @include headerBreak() {
         fill: var(--as-black);
       }
@@ -82,19 +82,22 @@ Still needs: expand toggle for showing main nav on mobile
 // universal .nav-1
 
 .nav-1 {
-  background: var(--as-teal-300);
+  // background: var(--as-teal-300);
   font-weight: var(--regular);
+  border-radius: 0;
   // display: flex;
   // flex-flow: column;
   width: 100%;
   padding-left: 0;
+  margin-top: 0;
   transform: scaleY(0);
-  transition: transform 150ms ease-in-out;
+  // transition: transform 150ms ease-in-out;
   transform-origin: top;
   &.expanded {
     opacity: 1;
     transform: scaleY(1);
-    transition: all 250ms ease-in-out 150ms;
+    // transition: all 250ms ease-in-out 150ms;
+    position: relative;
   }
   a {
     padding: 0.5rem 0 0.5rem 1rem;
@@ -121,6 +124,8 @@ Still needs: expand toggle for showing main nav on mobile
     color: var(--as-black);
     background: transparent;
     overflow: visible;
+    position: relative;
+    justify-content: flex-start;
     .nav__item {
       background: transparent;
       // position: relative;
@@ -205,5 +210,8 @@ Still needs: expand toggle for showing main nav on mobile
     button {
       opacity: 0;
     }
+  }
+  @include large() {
+    justify-content: flex-end;
   }
 }
