@@ -17,4 +17,9 @@ tooling:
   drush:
     service: app
     env:
+<<<<<<< HEAD
       DRUSH_OPTIONS_URI: 'https://neville.lndo.site'
+=======
+      DRUSH_OPTIONS_URI: "https://neville.lndo.site"
+# test
+>>>>>>> newGulp
