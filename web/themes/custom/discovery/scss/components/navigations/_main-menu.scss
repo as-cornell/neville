@@ -1,33 +1,33 @@
 /* -------------------------
 
 Title: main navigation
-Descr: mainNav small and large, hovers and toggles for subNav
+Descr: nav--main small and large, hovers and toggles for subNav
        
 Still needs: expand toggle for showing main nav on mobile
 
 --------------------------- */
-
-.mainNav {
+.nav,
+.nav-1,
+.nav-2,
+.nav-3 {
   list-style-type: none;
+  padding: 0;
   margin: 0;
-  padding: 0;
   overflow: hidden;
-  width: 100%;
   font-size: var(--base-20);
-  background: var(--as-black);
-  padding: 0 1rem;
-  // max-height: 0;
-  margin-top: 1rem;
-  padding: 0;
-  border-radius: var(--border-radius);
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: var(--as-white);
+  border-radius: var(--border-radius);
+  width: 100%;
+  margin-top: 1rem;
   z-index: 11;
-  // width: calc(100% - 3rem);
-  // animation stuff
   transform: scale(1, 0);
   transform-origin: top;
   transition: transform 150ms ease-out;
-  // @include boxShadow();
+
+  //shown state for navs
   &.shown {
     transform: scale(1, 1);
     transform-origin: top;
@@ -37,39 +37,21 @@ Still needs: expand toggle for showing main nav on mobile
       transition: opacity 250ms ease-in-out 250ms;
     }
   }
-  .mainNav__item {
-    margin-bottom: 0;
-    max-width: 100%;
-    background: var(--as-teal-600);
-  }
-  .mainNav__link {
-    color: var(--as-gray-300);
-    font-weight: var(--light);
-    display: inline-block;
-    width: calc(100% - 2.1rem);
-    padding: 0.5rem 0 0.5rem 0.5rem;
-    border-right: 1px solid var(--as-white);
-    background: var(--as-black);
-    text-decoration: underline;
-    opacity: 0;
-    transition: opacity 150ms ease-in-out;
-  }
-  .mainNav__subNavToggle {
+  button {
     width: 1rem;
-    left: 2px;
-    top: -2px;
+    right: 0px;
+    top: 5px;
     padding: 0;
     background: none;
     border: none;
-    position: relative;
+    position: absolute;
     z-index: 10;
     svg {
-      fill: var(--as-white);
+      fill: red;
       @include headerBreak() {
         fill: var(--as-black);
       }
     }
-
     &:focus {
       opacity: 1;
     }
@@ -77,34 +59,72 @@ Still needs: expand toggle for showing main nav on mobile
       transform: rotate(180deg);
       transform-origin: 50% 50%;
     }
-    @include headerBreak() {
-      width: 0.75rem;
-      left: -7px;
-      top: 0;
-      opacity: 0;
-      align-items: center;
+  }
+  > .nav__item {
+    background: var(--as-teal-400);
+    margin-bottom: 0;
+    // max-width: 100%;
+    position: relative;
+  }
+  .nav__link {
+    display: inline-block;
+    position: relative;
+    color: var(--as-gray-300);
+    font-weight: var(--light);
+    background: var(--as-black);
+    padding: 0.5rem;
+    border-right: 1px solid var(--as-white);
+    width: calc(100% - 2.1rem);
+    transition: opacity 150ms ease-in-out;
+  }
+}
+
+// universal .nav-1
+
+.nav-1 {
+  background: var(--as-teal-300);
+  font-weight: var(--regular);
+  // display: flex;
+  // flex-flow: column;
+  width: 100%;
+  padding-left: 0;
+  transform: scaleY(0);
+  transition: transform 150ms ease-in-out;
+  transform-origin: top;
+  &.expanded {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: all 250ms ease-in-out 150ms;
+  }
+  a {
+    padding: 0.5rem 0 0.5rem 1rem;
+    color: var(--as-black);
+    text-decoration: underline;
+    display: block;
+    &:hover,
+    &:focus {
+      background-color: var(--as-white);
     }
   }
+}
 
-  //big maiNav
+/*
+.nav--main
+*/
+
+.nav--main {
   @include medium() {
-    // max-height: 100%;
-    overflow: visible;
-    box-shadow: none;
-    // font-size: var(--base-18);
-    background: transparent;
-    color: var(--as-black);
-    padding: 0;
-    display: flex;
-    margin-top: 0;
+    // display: flex;
+    flex-direction: row;
     transform: none;
     width: 100%;
-    position: relative;
-    // justify-content: center;
-    //new
-    .mainNav__item {
-      position: relative;
-      background: none;
+    color: var(--as-black);
+    background: transparent;
+    overflow: visible;
+    .nav__item {
+      background: transparent;
+      // position: relative;
+      // top bar thing
       &:after {
         position: absolute;
         content: "";
@@ -118,11 +138,16 @@ Still needs: expand toggle for showing main nav on mobile
         visibility: hidden;
         border-radius: 2px;
       }
-      .mainNav__link {
+      .nav__link {
         background: none;
         opacity: 1;
+        color: var(--as-black);
+        width: auto;
+        font-weight: var(--semi);
       }
-      &:hover {
+      // hover over main nav items
+      &:hover,
+      &.expanded {
         // border-top: 4px solid var(--as-red-400);
         text-decoration-color: var(--as-gray-500);
         &:after {
@@ -132,141 +157,28 @@ Still needs: expand toggle for showing main nav on mobile
         }
         overflow: visible;
 
-        > .mainNav__link {
-          // border-top: 4px solid var(--as-red-400);
-          background: var(--as-gray-300);
+        > .nav__link {
           box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
         }
-      }
-
-      &.mainNav__item--active {
-        text-decoration-color: var(--as-gray-500);
-        &:after {
-          visibility: visible;
-          transform: scaleX(1);
-          transition: all 0.25s ease-out;
-          background: var(--as-teal-600);
+        .nav-1 {
+          transform: scaleY(1);
         }
       }
-
-      // &:hover {
-      //   // border-top: 4px solid var(--as-red-400);
-
-      // }
     }
-    .mainNav__link {
-      // border-top: 4px solid transparent;
-      color: var(--dark-text);
-      text-decoration-color: var(--as-gray-300);
-      padding: 0.5rem;
-      width: auto;
-      font-weight: var(--semi);
-    }
-
-    // Base for all lis in nav
-    li {
-      position: relative;
-      overflow: hidden;
-      display: inline-block;
-      z-index: 1;
-      // margin: 0 0.5rem;
-      @include headerBreak {
-        overflow: visible;
-      }
-      // padding: .5rem;
-      &[class$="with-sub"] {
-        margin-right: 0;
-        overflow: hidden;
-      }
-      &:last-of-type {
-        margin-right: 0;
-        padding-right: 0;
-      }
-      //show subnav on hover
-      &:hover,
-      &:focus,
-      &.withSubNav--expanded {
-        overflow: visible;
-        .subNav {
-          max-height: 1000px;
-          opacity: 1;
-          transition: opacity 250ms ease-in-out;
-          // left: -0.25rem;
-          top: 100%;
-          z-index: 10;
-        }
-      }
-      &:last-of-type {
-        &:hover {
-          .subNav {
-            right: 21px;
-          }
-        }
-      }
-      > .mainNav__link--active {
-        // border-top: 4px solid var(--as-red-400);
-      }
-    }
-  }
-  @include large() {
-    justify-content: flex-end;
-  }
-  // subNav
-  .subNav {
-    // expandable bits
-    text-align: left;
-    max-height: 0;
-    margin-bottom: 0;
-    list-style-type: none;
-    background: var(--as-gray-300);
-    font-weight: var(--regular);
-    display: flex;
-    flex-flow: column;
-    width: 100%;
-    padding-left: 0;
-    overflow: hidden;
-    // transform: scale(1, 0);
-    // transform-origin: top;
-    // transition: transform 150ms ease-out;
-    opacity: 0;
-    transition: opacity 150ms ease-in-out;
-    &.subNav--expanded {
-      max-height: 100%;
-      opacity: 1;
-      transition: opacity 250ms ease-in-out 150ms;
-      // transform: scale(1, 1);
-      // transform-origin: top;
-      // transition: transform 250ms ease-in-out 250ms;
-    }
-
-    // headerBreak plus styles
-    @include headerBreak() {
+    .nav-1 {
+      margin-top: 0;
       width: 260px;
+      background: var(--as-white);
       position: absolute;
       font-size: var(--base-18);
       box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
       border-radius: 0 var(--border-radius) var(--border-radius)
         var(--border-radius);
       overflow: visible;
-    }
-
-    li {
-      margin: 0;
-      padding: 0;
-      max-width: 100%;
-    }
-    a {
-      padding: 0.5rem 0 0.5rem 1rem;
-      display: block;
-      position: relative;
-      color: var(--as-black);
-      border-top: none;
-      // margin-left: 0.5rem;
-      text-decoration: underline;
-      &:hover,
-      &:focus {
-        background-color: var(--as-white);
-        @include headerBreak() {
+      margin-left: 0;
+      .nav-1__link {
+        position: relative;
+        &:hover {
           color: var(--as-white);
           background: var(--as-red-400);
           &:after,
@@ -287,45 +199,11 @@ Still needs: expand toggle for showing main nav on mobile
           }
         }
       }
-      @include headerBreak() {
-        margin-left: 0;
+      &.expanded {
       }
     }
-  }
-}
-
-//toggle subnav buttons
-.expand-sub {
-  background: none;
-  border: none;
-  padding: 0;
-  svg {
-    fill: var(--as-black);
-  }
-  @include headerBreak() {
-    svg {
-      fill: none;
+    button {
+      opacity: 0;
     }
-    &:focus {
-      svg {
-        fill: var(--as-black);
-      }
-    }
-  }
-}
-
-.main-nav-toggle {
-  background: none;
-  border: none;
-}
-
-//animations
-// mainNavDrop
-@keyframes navDrop {
-  0% {
-    max-height: 0%;
-  }
-  100% {
-    max-height: 100%;
   }
 }

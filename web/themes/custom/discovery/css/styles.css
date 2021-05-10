@@ -284,8 +284,10 @@ ICON/SVG buttons
 .iconButton {
   line-height: 1; }
 
-.icon--button svg {
-  width: 1.5rem; }
+.icon--button {
+  max-width: 50px; }
+  .icon--button svg {
+    width: 1.5rem; }
 
 /* -------------------------
 
@@ -407,245 +409,194 @@ form {
 /* -------------------------
 
 Title: main navigation
-Descr: mainNav small and large, hovers and toggles for subNav
+Descr: nav--main small and large, hovers and toggles for subNav
        
 Still needs: expand toggle for showing main nav on mobile
 
 --------------------------- */
-.mainNav {
+.nav,
+.nav-1,
+.nav-2,
+.nav-3 {
   list-style-type: none;
+  padding: 0;
   margin: 0;
-  padding: 0;
   overflow: hidden;
-  width: 100%;
   font-size: var(--base-20);
-  background: var(--as-black);
-  padding: 0 1rem;
-  margin-top: 1rem;
-  padding: 0;
-  border-radius: var(--border-radius);
   position: absolute;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  background: var(--as-white);
+  border-radius: var(--border-radius);
+  width: 100%;
+  margin-top: 1rem;
   z-index: 11;
   transform: scale(1, 0);
   transform-origin: top;
   transition: transform 150ms ease-out; }
-  .mainNav.shown {
+  .nav.shown,
+  .nav-1.shown,
+  .nav-2.shown,
+  .nav-3.shown {
     transform: scale(1, 1);
     transform-origin: top;
     transition: transform 250ms ease-in-out 250ms; }
-    .mainNav.shown .mainNav__link {
+    .nav.shown .mainNav__link,
+    .nav-1.shown .mainNav__link,
+    .nav-2.shown .mainNav__link,
+    .nav-3.shown .mainNav__link {
       opacity: 1;
       transition: opacity 250ms ease-in-out 250ms; }
-  .mainNav .mainNav__item {
-    margin-bottom: 0;
-    max-width: 100%;
-    background: var(--as-teal-600); }
-  .mainNav .mainNav__link {
-    color: var(--as-gray-300);
-    font-weight: var(--light);
-    display: inline-block;
-    width: calc(100% - 2.1rem);
-    padding: 0.5rem 0 0.5rem 0.5rem;
-    border-right: 1px solid var(--as-white);
-    background: var(--as-black);
-    text-decoration: underline;
-    opacity: 0;
-    transition: opacity 150ms ease-in-out; }
-  .mainNav .mainNav__subNavToggle {
+  .nav button,
+  .nav-1 button,
+  .nav-2 button,
+  .nav-3 button {
     width: 1rem;
-    left: 2px;
-    top: -2px;
+    right: 0px;
+    top: 5px;
     padding: 0;
     background: none;
     border: none;
-    position: relative;
+    position: absolute;
     z-index: 10; }
-    .mainNav .mainNav__subNavToggle svg {
-      fill: var(--as-white); }
+    .nav button svg,
+    .nav-1 button svg,
+    .nav-2 button svg,
+    .nav-3 button svg {
+      fill: red; }
       @media (min-width: 900px) {
-        .mainNav .mainNav__subNavToggle svg {
+        .nav button svg,
+        .nav-1 button svg,
+        .nav-2 button svg,
+        .nav-3 button svg {
           fill: var(--as-black); } }
-    .mainNav .mainNav__subNavToggle:focus {
+    .nav button:focus,
+    .nav-1 button:focus,
+    .nav-2 button:focus,
+    .nav-3 button:focus {
       opacity: 1; }
-    .mainNav .mainNav__subNavToggle.rotated {
+    .nav button.rotated,
+    .nav-1 button.rotated,
+    .nav-2 button.rotated,
+    .nav-3 button.rotated {
       transform: rotate(180deg);
       transform-origin: 50% 50%; }
-    @media (min-width: 900px) {
-      .mainNav .mainNav__subNavToggle {
-        width: 0.75rem;
-        left: -7px;
+  .nav > .nav__item,
+  .nav-1 > .nav__item,
+  .nav-2 > .nav__item,
+  .nav-3 > .nav__item {
+    background: var(--as-teal-400);
+    margin-bottom: 0;
+    position: relative; }
+  .nav .nav__link,
+  .nav-1 .nav__link,
+  .nav-2 .nav__link,
+  .nav-3 .nav__link {
+    display: inline-block;
+    position: relative;
+    color: var(--as-gray-300);
+    font-weight: var(--light);
+    background: var(--as-black);
+    padding: 0.5rem;
+    border-right: 1px solid var(--as-white);
+    width: calc(100% - 2.1rem);
+    transition: opacity 150ms ease-in-out; }
+
+.nav-1 {
+  background: var(--as-teal-300);
+  font-weight: var(--regular);
+  width: 100%;
+  padding-left: 0;
+  transform: scaleY(0);
+  transition: transform 150ms ease-in-out;
+  transform-origin: top; }
+  .nav-1.expanded {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: all 250ms ease-in-out 150ms; }
+  .nav-1 a {
+    padding: 0.5rem 0 0.5rem 1rem;
+    color: var(--as-black);
+    text-decoration: underline;
+    display: block; }
+    .nav-1 a:hover, .nav-1 a:focus {
+      background-color: var(--as-white); }
+
+/*
+.nav--main
+*/
+@media (min-width: 782px) {
+  .nav--main {
+    -ms-flex-direction: row;
+        flex-direction: row;
+    transform: none;
+    width: 100%;
+    color: var(--as-black);
+    background: transparent;
+    overflow: visible; }
+    .nav--main .nav__item {
+      background: transparent; }
+      .nav--main .nav__item:after {
+        position: absolute;
+        content: "";
+        width: calc(100% - 27px);
+        height: 3px;
+        background: var(--as-red-400);
         top: 0;
-        opacity: 0;
-        -ms-flex-align: center;
-            align-items: center; } }
-  @media (min-width: 782px) {
-    .mainNav {
-      overflow: visible;
-      box-shadow: none;
-      background: transparent;
-      color: var(--as-black);
-      padding: 0;
-      display: -ms-flexbox;
-      display: flex;
-      margin-top: 0;
-      transform: none;
-      width: 100%;
-      position: relative; }
-      .mainNav .mainNav__item {
-        position: relative;
-        background: none; }
-        .mainNav .mainNav__item:after {
-          position: absolute;
-          content: "";
-          width: calc(100% - 27px);
-          height: 3px;
-          background: var(--as-red-400);
-          top: 0;
-          left: 0;
-          transform: scaleX(0);
-          transition: all 0.15s ease-in;
-          visibility: hidden;
-          border-radius: 2px; }
-        .mainNav .mainNav__item .mainNav__link {
-          background: none;
-          opacity: 1; }
-        .mainNav .mainNav__item:hover {
-          -webkit-text-decoration-color: var(--as-gray-500);
-                  text-decoration-color: var(--as-gray-500);
-          overflow: visible; }
-          .mainNav .mainNav__item:hover:after {
-            visibility: visible;
-            transform: scaleX(1);
-            transition: all 0.25s ease-out; }
-          .mainNav .mainNav__item:hover > .mainNav__link {
-            background: var(--as-gray-300);
-            box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1); }
-        .mainNav .mainNav__item.mainNav__item--active {
-          -webkit-text-decoration-color: var(--as-gray-500);
-                  text-decoration-color: var(--as-gray-500); }
-          .mainNav .mainNav__item.mainNav__item--active:after {
-            visibility: visible;
-            transform: scaleX(1);
-            transition: all 0.25s ease-out;
-            background: var(--as-teal-600); }
-      .mainNav .mainNav__link {
-        color: var(--dark-text);
-        -webkit-text-decoration-color: var(--as-gray-300);
-                text-decoration-color: var(--as-gray-300);
-        padding: 0.5rem;
+        left: 0;
+        transform: scaleX(0);
+        transition: all 0.15s ease-in;
+        visibility: hidden;
+        border-radius: 2px; }
+      .nav--main .nav__item .nav__link {
+        background: none;
+        opacity: 1;
+        color: var(--as-black);
         width: auto;
         font-weight: var(--semi); }
-      .mainNav li {
-        position: relative;
-        overflow: hidden;
-        display: inline-block;
-        z-index: 1; } }
-    @media (min-width: 782px) and (min-width: 900px) {
-      .mainNav li {
-        overflow: visible; } }
-  @media (min-width: 782px) {
-        .mainNav li[class$="with-sub"] {
-          margin-right: 0;
-          overflow: hidden; }
-        .mainNav li:last-of-type {
-          margin-right: 0;
-          padding-right: 0; }
-        .mainNav li:hover, .mainNav li:focus, .mainNav li.withSubNav--expanded {
-          overflow: visible; }
-          .mainNav li:hover .subNav, .mainNav li:focus .subNav, .mainNav li.withSubNav--expanded .subNav {
-            max-height: 1000px;
-            opacity: 1;
-            transition: opacity 250ms ease-in-out;
-            top: 100%;
-            z-index: 10; }
-        .mainNav li:last-of-type:hover .subNav {
-          right: 21px; } }
-  @media (min-width: 1224px) {
-    .mainNav {
-      -ms-flex-pack: end;
-          justify-content: flex-end; } }
-  .mainNav .subNav {
-    text-align: left;
-    max-height: 0;
-    margin-bottom: 0;
-    list-style-type: none;
-    background: var(--as-gray-300);
-    font-weight: var(--regular);
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-flow: column;
-        flex-flow: column;
-    width: 100%;
-    padding-left: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: opacity 150ms ease-in-out; }
-    .mainNav .subNav.subNav--expanded {
-      max-height: 100%;
-      opacity: 1;
-      transition: opacity 250ms ease-in-out 150ms; }
-    @media (min-width: 900px) {
-      .mainNav .subNav {
-        width: 260px;
-        position: absolute;
-        font-size: var(--base-18);
-        box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 0 var(--border-radius) var(--border-radius) var(--border-radius);
-        overflow: visible; } }
-    .mainNav .subNav li {
-      margin: 0;
-      padding: 0;
-      max-width: 100%; }
-    .mainNav .subNav a {
-      padding: 0.5rem 0 0.5rem 1rem;
-      display: block;
-      position: relative;
-      color: var(--as-black);
-      border-top: none;
-      text-decoration: underline; }
-      .mainNav .subNav a:hover, .mainNav .subNav a:focus {
-        background-color: var(--as-white); }
-        @media (min-width: 900px) {
-          .mainNav .subNav a:hover, .mainNav .subNav a:focus {
-            color: var(--as-white);
-            background: var(--as-red-400); }
-            .mainNav .subNav a:hover:after, .mainNav .subNav a:hover:before, .mainNav .subNav a:focus:after, .mainNav .subNav a:focus:before {
-              position: absolute;
-              content: "";
-              width: 0.25rem;
-              height: 100%;
-              top: 0;
-              background: var(--as-red-400);
-              border-radius: 4px; }
-            .mainNav .subNav a:hover:after, .mainNav .subNav a:focus:after {
-              right: -0.125rem; }
-            .mainNav .subNav a:hover:before, .mainNav .subNav a:focus:before {
-              left: -0.125rem; } }
-      @media (min-width: 900px) {
-        .mainNav .subNav a {
-          margin-left: 0; } }
-
-.expand-sub {
-  background: none;
-  border: none;
-  padding: 0; }
-  .expand-sub svg {
-    fill: var(--as-black); }
-  @media (min-width: 900px) {
-    .expand-sub svg {
-      fill: none; }
-    .expand-sub:focus svg {
-      fill: var(--as-black); } }
-
-.main-nav-toggle {
-  background: none;
-  border: none; }
-
-@keyframes navDrop {
-  0% {
-    max-height: 0%; }
-  100% {
-    max-height: 100%; } }
+      .nav--main .nav__item:hover, .nav--main .nav__item.expanded {
+        -webkit-text-decoration-color: var(--as-gray-500);
+                text-decoration-color: var(--as-gray-500);
+        overflow: visible; }
+        .nav--main .nav__item:hover:after, .nav--main .nav__item.expanded:after {
+          visibility: visible;
+          transform: scaleX(1);
+          transition: all 0.25s ease-out; }
+        .nav--main .nav__item:hover > .nav__link, .nav--main .nav__item.expanded > .nav__link {
+          box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1); }
+        .nav--main .nav__item:hover .nav-1, .nav--main .nav__item.expanded .nav-1 {
+          transform: scaleY(1); }
+    .nav--main .nav-1 {
+      margin-top: 0;
+      width: 260px;
+      background: var(--as-white);
+      position: absolute;
+      font-size: var(--base-18);
+      box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 0 var(--border-radius) var(--border-radius) var(--border-radius);
+      overflow: visible;
+      margin-left: 0; }
+      .nav--main .nav-1 .nav-1__link {
+        position: relative; }
+        .nav--main .nav-1 .nav-1__link:hover {
+          color: var(--as-white);
+          background: var(--as-red-400); }
+          .nav--main .nav-1 .nav-1__link:hover:after, .nav--main .nav-1 .nav-1__link:hover:before {
+            position: absolute;
+            content: "";
+            width: 0.25rem;
+            height: 100%;
+            top: 0;
+            background: var(--as-red-400);
+            border-radius: 4px; }
+          .nav--main .nav-1 .nav-1__link:hover:after {
+            right: -0.125rem; }
+          .nav--main .nav-1 .nav-1__link:hover:before {
+            left: -0.125rem; }
+    .nav--main button {
+      opacity: 0; } }
 
 /* -------------------------
 
