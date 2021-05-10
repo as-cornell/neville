@@ -1,0 +1,53 @@
+// Fonts
+@mixin baseFont(
+  $size: var(--base-font-size),
+  $color: var(--dark-text),
+  $weight: var(--light),
+  $line-height: var(--line-height),
+  $family: var(--font-sans)
+) {
+  font-family: $family;
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+  line-height: $line-height;
+}
+
+/*
+----
+font size mixins
+----
+*/
+
+.base-24 {
+  font-size: var(--base-24);
+  line-height: var(--line-height);
+}
+.base-28 {
+  font-size: var(--base-28);
+  line-height: 1.4;
+}
+.base-36 {
+  font-size: var(--base-36);
+  margin-bottom: 0;
+  margin-top: 1em;
+}
+.base-48 {
+  font-size: var(--base-48);
+  margin-bottom: 0.5em;
+  line-height: 1em;
+}
+.base-56 {
+  font-size: var(--base-56);
+  margin-bottom: 0.44em;
+  line-height: 1.2em;
+}
+.base-64 {
+  font-size: var(--base-64);
+  line-height: 1em;
+}
+.base-84 {
+  font-size: var(--base-84);
+  line-height: 0.9em;
+  margin-bottom: 1em;
+}

@@ -5,11 +5,9 @@ Base .scss aggregator for departmetn and program sites
 */
 
 // import scss partials
-
+@import "node_modules/breakpoint-sass/stylesheets/_breakpoint.scss";
 @import "vars_mixins/*.scss";
 @import "base/*.scss";
 @import "components/**/*.scss";
-@import "pages/**/*.scss";
-// body {
-//   color: pink;
-// }
+@import "pages/*.scss";
+/*# sourceMappingURL=styles.css.map */

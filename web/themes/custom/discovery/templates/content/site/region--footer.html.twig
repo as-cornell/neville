@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region div.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+
+{# 
+  - going to have to come up with way to show persistent items like a11y message etc in template and include menus and logos in block to make updatateable on /admin
+ #}
+
+{% include "@site/_site-footer.twig" with {
+content: content
+
+} %}

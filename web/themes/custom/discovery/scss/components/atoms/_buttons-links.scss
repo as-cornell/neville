@@ -1,0 +1,27 @@
+/* -------------------------
+
+Title: Buttons and links that look like buttons
+Descr: 
+   - iconButton
+    -- a button that has an svg icon in the middle
+
+--------------------------- */
+
+/*
+----
+ICON/SVG buttons
+----
+*/
+.icon {
+  background: none;
+  border: none;
+}
+.iconButton {
+  line-height: 1;
+}
+.icon--button {
+  max-width: 50px;
+  svg {
+    width: 1.5rem;
+  }
+}

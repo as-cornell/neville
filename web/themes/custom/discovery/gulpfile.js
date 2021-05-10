@@ -2,16 +2,20 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
 const autoprefixer = require("gulp-autoprefixer");
-const cssmin = require("gulp-cssmin");
+// const cssmin = require("gulp-cssmin");
 const sassGlob = require('gulp-sass-glob');
-
+const terser = require('gulp-terser');
+const cssnano = require('gulp-cssnano');
 
 const sourcemaps = require('gulp-sourcemaps');
 
 const config = {
   scss: './scss/**/*.scss',
   cssDir: './css',
-  cssFiles: './css/*.css'
+  cssFiles: './css/*.css',
+  jsDir: './js',
+  jsMinDir: './js_min',
+  jsFiles: './js/*.js'
 };
 
 
@@ -28,15 +32,22 @@ const config = {
 function sassProcessor() {
   return gulp.src(config.scss)
     .pipe(sourcemaps.init())
+    .pipe(sourcemaps.identityMap())
     .pipe(sassGlob())
     .pipe(sass()).on('error', sass.logError)
     .pipe(autoprefixer({ browsers: ["last 2 version"] }))
     .pipe(sourcemaps.write('.'))
-    .pipe(cssmin())
-    .pipe(gulp.dest(config.cssDir))
+    .pipe(gulp.dest('./css'))
   .pipe(browserSync.stream());
 }
 
+async function jsProcessor() {
+  return gulp.src('./js/*.js')
+    .pipe(terser())
+  .pipe(gulp.dest('./js_min'));
+}
+
+// Still need to work cssmin or cssnano into the mix.
 
 function watch() {
   browserSync.init({
@@ -50,9 +61,11 @@ function watch() {
     logConnections: true,
   });
   gulp.watch(config.scss, sassProcessor);
+  gulp.watch(config.jsDir, jsProcessor);
   gulp.watch('./**/*.twig').on('change', browserSync.reload);
 }
 
 
 exports.sassProcessor = sassProcessor;
+exports.jsProcessor = jsProcessor;
 exports.watch = watch;

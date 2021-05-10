@@ -1,0 +1,33 @@
+{#
+/**
+name = _link.twig
+
+just going to show as link with no li wrappers. Showing as a list or not will be handled by whether or not the field wrapper template includes _ul.twig.
+
+ * Available variables:
+ * - link_content - the content of the link (typically text)
+ * - link_url - the url this link should poing to
+ * - link_attributes - array of attribute,value pairs
+ * - link_base_class - the base class name
+ * - link_modifiers - array of modifiers to add to the base classname
+ * - link_blockname - blockname prepended to the base classname
+ *
+ * Available blocks:
+ * - link_content - used to replace the content of the link
+ *     Example: to insert the image component
+ */
+#}
+{# {{kint(_context)}} #}
+
+{% set link_base_class = link_base_class | default('link') %}
+{# {% if link_list %}
+    <li>_link.twig
+    {% endif %} #}
+    <a {{ bem(link_base_class, (link_modifiers), link_blockname) }} {% for attribute,value in link_attributes %} {{ attribute }}="{{ value }}" {% endfor %} href="{{ link_url }}">
+        {# {% block link_content %} #}
+            {{ link_content }}
+        {# {% endblock %} #}
+    </a>
+    {# {% if link_list %}
+    </li> #}
+{# {% endif %} #}

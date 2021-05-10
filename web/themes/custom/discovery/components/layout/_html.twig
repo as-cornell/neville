@@ -1,5 +1,4 @@
 {#
-/**
  * @file
  * Theme override for the basic structure of a single Drupal page.
  *
@@ -31,15 +30,13 @@
 				{{ head_title|safe_join(' | ') }}
 			</title>
 			<css-placeholder token="{{ placeholder_token|raw }}">
-				<js-placeholder token="{{ placeholder_token|raw }}"></head>
+				<js-placeholder token="{{ placeholder_token|raw }}">
+      <link rel="stylesheet" href="https://use.typekit.net/dsj5vco.css"/>
+    </head>
 				<body{{attributes}}>
-					{#
-																																																																																  Keyboard navigation/accessibility link to main content section in
-																																																																																  page.html.twig.
-																																																																																#}
-					<a href="#main-content" class="visually-hidden focusable">
-						{{ 'Skip to main content'|t }}
-					</a>
+					<span class="offscreen" aria-hidden="true">
+						{% include "@images/sprite.svg" %}
+					</span>
 
 					{{ page_top }}
 					{{ page }}

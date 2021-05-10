@@ -7,6 +7,7 @@ base theme: stable
 # Libraries
 libraries:
   - discovery/global
+  - discovery/global-scripts
 
 # Regions
 regions:
@@ -14,11 +15,14 @@ regions:
   content: Content
   sidebar: Sidebar
   footer: Footer
+
 # Component libraries - it's a module thing
+# content-site is for header, footer and anything that is on EVERY page.
+
 component-libraries:
-  base:
+  layout:
     paths:
-      - components/base
+      - components/layout
   site:
     paths:
       - components/site

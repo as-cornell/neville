@@ -1,0 +1,190 @@
+/* -------------------------
+
+Title: Site header styles
+Descr: Set 
+        - #skip
+        - header
+        - .cu-logo
+        - .as-logo
+all search form design in _forms.scss
+
+--------------------------- */
+#skip {
+  position: absolute;
+  top: -20px;
+  z-index: 3;
+  a {
+    z-index: 0;
+    position: absolute;
+    left: -5000px;
+    width: 300px;
+    font-weight: 600;
+    &:focus {
+      left: 200px;
+    }
+  }
+}
+
+header {
+  // background: yellow;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 75px auto auto auto;
+  margin: 0 auto;
+  max-width: var(--xl);
+  position: relative;
+
+  @include medium() {
+    grid-template-columns: 1fr 1fr auto;
+    margin: 1rem auto 2rem auto;
+  }
+
+  @include headerBreak() {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto;
+    align-items: center;
+    margin: 1rem auto 2rem auto;
+  }
+
+  @include xl {
+    // margin: 3rem auto;
+    // grid-template-columns: auto 1fr auto;
+  }
+
+  .header__searchForm {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    display: flex;
+    justify-content: center;
+    @include medium() {
+      grid-row: 4;
+    }
+    @include large() {
+      grid-row: 3;
+    }
+  }
+
+  .cu-logo {
+    text-indent: -9999px;
+
+    flex: 0 0 100%;
+    width: 200px;
+    height: 45px;
+    // background: url(/themes/custom/curiosity/images/CU-insignia.svg);
+    grid-column: 1 / 1;
+    align-self: center;
+    background: url(/themes/custom/discovery/images/cornell-reduced-black.svg);
+    background-repeat: no-repeat;
+    background-size: 200px 45px;
+  }
+
+  .department-logo {
+    text-indent: -9999px;
+    flex: 0 0 100%;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 1rem 0;
+    background: url(/themes/custom/discovery/images/TEST-NES-oneline.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    @include large() {
+      background: url(/themes/custom/discovery/images/TEST-NES.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 300px;
+      height: 70px;
+    }
+  }
+
+  .as-logo {
+    display: flex;
+    justify-content: flex-end;
+    grid-column: 2;
+    grid-row: 1;
+    background: url(/themes/custom/discovery/images/AS.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    text-indent: -5000px;
+    @include medium() {
+      background: url(/themes/custom/discovery/images/Arts-and-sciences.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 150px;
+      justify-self: flex-end;
+      align-self: center;
+    }
+    @include headerBreak() {
+      background: url(/themes/custom/discovery/images/the-college-one-line.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 300px;
+      justify-self: flex-end;
+      align-self: center;
+    }
+  }
+
+  .header__mainNav {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    display: flex;
+    justify-content: center;
+
+    @include medium() {
+      grid-column: 1/-1;
+      grid-row: 3;
+    }
+    @include large() {
+      grid-row: 2;
+      grid-column: 2 / -1;
+    }
+    @include xl {
+      // grid-column: 2/-1;
+      // grid-row: 1;
+    }
+  }
+  .header__buttons {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-self: center;
+    @include medium() {
+      grid-column: 3;
+    }
+    button {
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+    .iconButton--showNav {
+      @include medium() {
+        display: none;
+      }
+    }
+    @include large() {
+      grid-column: 3;
+      grid-row: 1;
+    }
+    @include xl() {
+      // grid-column: 4;
+      grid-row: 1;
+    }
+  }
+  .main-nav-toggle {
+    grid-area: navIcon;
+  }
+}
+
+//page type specific header styles
+body.landing_page {
+  header {
+    //large screen
+    @include xl() {
+      padding: 6rem 1rem 5rem 1rem;
+    }
+  }
+}
+
+// show nav and search buttons
