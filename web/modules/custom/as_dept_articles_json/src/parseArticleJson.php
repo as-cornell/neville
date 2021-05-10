@@ -140,7 +140,8 @@ class parseArticleJson extends \Twig_Extension
         if (!empty($article_data['relationships']['field_related_people'])) {
             foreach ($article_data['relationships']['field_related_people']['data'] as $key => $related_people_data) {
               $person_uuid = $related_people_data['id'];
-              //dump($article_id);
+              dump($person_uuid);
+              if (!empty($person_uuid)) {
               $related_people_json = as_dept_articles_json_get_person_json($person_uuid);
               //dump($related_people_json);
                 foreach ($related_people_json['data'] as $related_person_json) {
@@ -158,6 +159,7 @@ class parseArticleJson extends \Twig_Extension
                     $related_people[$key]['image']['#alt'] = $related_person_image_json['relationships']['field_media_image']['data']['meta']['alt'];
                     }
                   }
+                }
                 }
             }
 
