@@ -70,7 +70,7 @@
  *   in different view modes.
  */
 #}
-{%
+{# {%
   set classes = [
     'node',
     'node--type-' ~ node.bundle|clean_class,
@@ -80,42 +80,47 @@
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   ]
 %}
-{{ attach_library('classy/node') }}
-<article{{ attributes.addClass(classes) }}>
+{{ attach_library('classy/node') }} #}
+{# <article{{ attributes.addClass(classes) }}> #}
 
-  {{ title_prefix }}
+  {# {{ title_prefix }}
   {% if label and not page %}
     <h2{{ title_attributes }}>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h2>
   {% endif %}
-  {{ title_suffix }}
+  {{ title_suffix }} #}
 
-  <div{{ content_attributes.addClass('node__content') }}>
+  {# <div{{ content_attributes.addClass('node__content') }}>
     {# content #}
 
-  </div>
-  <div>
+  {# </div>
+  <div> #} 
 
   {% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
   {% set article = parse_article_json(remote_uuid) %}
+{{vardumper(article)}}
 
-node--article--card.html.twig
 {# main image #}
-<img src='{{article.imagepath}}' alt='{{article.imagealt}}'>
+{# <img src='{{article.imagepath}}' alt='{{article.imagealt}}'> #}
+
+{% if article.imagepath %}
+	{% set image %}
+		<img src="{{article.imagepath}}" alt="{{article.alt}}">
+	{% endset %}
+{% endif %}
+
 
 {# card label #}
 {% if article.card_label %}
   {% set show_card_label = true %}
   {% set card_label = article.card_label %}
-  <h3>{{card_label}}</h3>
 {% endif %}
 
 {# dateline #}
 {% if article.dateline %}
   {% set show_dateline = true %}
   {% set dateline = article.dateline|date("m/d/Y") %}
-  <div>{{dateline}}</div>
 {% endif %}
 
 
@@ -123,7 +128,6 @@ node--article--card.html.twig
 {% if article.bylines %}
   {% set show_bylines = true %}
   {% set bylines = article.bylines %}
-  <div>{{bylines}}</div>
 {% endif %}
 
 
@@ -131,7 +135,6 @@ node--article--card.html.twig
 {% if article.media_sources %}
   {% set media_sources = true %}
   {% set media_sources = article.media_sources %}
-  <div>{{media_sources}}</div>
 {% endif %}
 
 
@@ -139,8 +142,13 @@ node--article--card.html.twig
 {% set main_element_base_class = main_element_base_class | default('article') %}
 {% set main_element_modifiers = [''] %}
 
-
-
-  </div>
-
-</article>
+{% embed "@content/article/_article--card.twig" with {
+    card_title: article.title,
+    card_label: card_label,
+    card_link_url: url,
+    card_image : image,
+    card_byline: bylines,
+    card_dateline: dateline,
+    card_nodeId : node.id
+} %}
+{% endembed %}
