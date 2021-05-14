@@ -44,4 +44,41 @@
  */ #}
 
 
-{% include "@layout/_page.twig" %}
+{# {% include "@layout/_page.twig" %} #}
+{% set main_content_modifiers = main_content_modifiers | default(['']) %}
+{% set sidebar = sidebar | default(false) %}
+{% if page.sidebar | render %}
+	{# this may or may not correctly filter sidebar #}
+	{% set sidebar = TRUE %}
+{% endif %}
+{% block page_header %}
+	{% if page.header %}
+		{{ page.header }}
+		{# {% include "@organisms/site/site-header/site-header.twig" %} #}
+	{% endif %}
+{% endblock %}
+
+{% block page_system %}
+	{{ page.breadcrumb }}
+	{{ page.highlighted }}
+	{{ page.help }}
+	{{ messages }}
+{% endblock %}
+
+{# {% block page_sidebar %}
+    {{ page.sidebar }}
+{% endblock %} #}
+{# {% block page_sidebar %}
+	{{ page.sidebar }}
+{% endblock %} #}
+{% block page_content %}
+	{{ page.content }}
+{% endblock %}
+
+
+{% block page_footer %}
+	{% if page.footer %}
+		{{ page.footer }}
+	{% endif %}
+{% endblock %}
+

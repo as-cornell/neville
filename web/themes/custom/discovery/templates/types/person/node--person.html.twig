@@ -1,0 +1,163 @@
+{# 
+
+/* -------------------------
+
+Title: node--person.html.twig
+Descr: defines "person" and outputs fields for full person view
+
+--------------------------- */ 
+
+#}
+
+
+{# set wrapper bem calsses #}
+{% set card_base_class = 'page' %}
+{% set card_modifiers =  ["person"]%}
+
+
+
+{# set var person #}
+{% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
+{% set person = parse_people_json(remote_uuid) %}
+{# {{dump(person)}} #}
+
+
+{# job title #}
+{% if person.jobtitle %}
+	{% set show_jobtitle = true %}
+{% endif %}
+
+{# departments #}
+{% if person.departments %}
+	{% set show_departments = true %}
+{% endif %}
+
+{# link #}
+{% set link = content.field_link.0['#title'] %}
+
+
+{# responsibilities #}
+{% if person.responsibilities %}
+  {% set show_responsibilities = true %}
+{% endif %}
+
+{# education #}
+{% if person.education %}
+  {% set show_education = true %}
+{% endif %}
+
+{# summary #}
+{% if person.summary %}
+  {% set show_summary = true %}
+{% endif %}
+
+{# researchfocus #}
+{% if person.researchfocus %}
+  {% set show_researchfocus = true %}
+{% endif %}
+
+{# related_articles #}
+{% if person.related_articles %}
+  {% set show_related_articles = true %}
+{% endif %}
+
+{# person type #}
+{% set personType = content.field_person_type.0["#plain_text"] %}
+{# set link #}
+{% set card_link_url = '/people'~person.path %}
+
+{# set image #}
+{% if person.imagepath %}
+	{% set image %}
+		<img src="{{person.imagepath}}" alt="{{person.alt}}">
+  {% endset %}
+  {% else %}
+  {% set image %}
+		<img src="https://people.as.cornell.edu/sites/people/files/Klarmanarticle_4784_2.jpg" alt="Klarman Hall"/>
+  {% endset %}
+{% endif %}
+
+<main {{ bem(main_element_base_class, (main_element_modifiers), main_blockname, main_element_extra_classes) }}>
+	{{title_suffix}}
+	<div class="title">
+		{% include "@content/atoms/_heading.twig" with {
+    "heading_level" : 1,
+    "heading" : name,
+    "heading_base_class" : "title"
+  } %}
+		{% include "@content/atoms/_heading.twig" with {
+    "heading_level" : 3,
+    "heading" : title,
+    "heading_modifiers" : ["person"],
+    "heading_base_class" : "title"
+  } %}
+	</div>
+
+	<div class="content">
+
+		{% if show_summary %}
+			<h2>
+				Summary
+			</h2>
+			{{person.summary|raw}}
+		{% endif %}
+		{% if show_researchfocus %}
+			<h2>
+				Research Focus
+			</h2>
+			{{person.researchfocus|raw}}
+		{% endif %}
+		{% if show_publications %}
+			<h2>
+				Publications
+			</h2>
+			{{person.publications|raw}}
+		{% endif %}
+		{% if show_related_articles %}
+			<h2>
+				In the news
+			</h2>
+			{{related_articles}}
+		{% endif %}
+
+	</div>
+	<div class="sidebar">
+		{{image}}
+		<div class="person__contact">
+			{{contact}}
+		</div>
+		{% if show_education %}
+			<h3>
+				Education
+			</h3>
+			{{person.education|raw}}
+		{% endif %}
+		{% if show_departments %}
+			<h3>
+				Departments and programs
+			</h3>
+			{{person.departments|raw}}
+		{% endif %}
+		{% if show_links %}
+			<h3>
+				Links
+			</h3>
+			<ul>
+				{% for link in links %}
+					<li>
+						<a href='{{ link.uri }}'>
+							{{ link.title }}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+		{% if show_node_links %}
+			<h3>
+				Links
+			</h3>
+			{{links}}
+			</ul>
+		{% endif %}
+	</div>
+</main>

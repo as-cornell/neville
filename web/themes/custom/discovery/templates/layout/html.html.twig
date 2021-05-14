@@ -23,4 +23,27 @@
  * @see template_preprocess_html()
  */
 #}
-{% include "@layout/_html.twig" %}
+{# {% include "@layout/_html.twig" %} #}
+
+<!DOCTYPE html>
+<html{{html_attributes}}>
+	<head>
+		<head-placeholder token="{{ placeholder_token|raw }}">
+			<title>
+				{{ head_title|safe_join(' | ') }}
+			</title>
+			<css-placeholder token="{{ placeholder_token|raw }}">
+				<js-placeholder token="{{ placeholder_token|raw }}">
+					<link rel="stylesheet" href="https://use.typekit.net/dsj5vco.css"/>
+				</head>
+				<body{{attributes}}>
+					<span class="offscreen" aria-hidden="true">
+						{% include "@images/sprite.svg" %}
+					</span>
+
+					{{ page_top }}
+					{{ page }}
+					{{ page_bottom }}
+					<js-bottom-placeholder token="{{ placeholder_token|raw }}"></body>
+				</html>
+
