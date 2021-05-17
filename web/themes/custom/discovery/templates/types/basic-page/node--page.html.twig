@@ -1,0 +1,193 @@
+{#
+
+/* -------------------------
+
+Title: node--page.html.twig
+Descr: This is the framework for a basic page contnet type. Sets up variables and content for _basic-page.twig
+
+--------------------------- */
+
+#}
+
+{# {{vardumper()}} #}
+
+{# Set up main
+    - extra class main
+    - base class page
+    - modifier basic
+    - turn on sidebarNav
+ #}
+{% set main_element_extra_classes = ['main'] %}
+{% set main_element_base_class = 'basicSidebar' %}
+{% set main_element_modifiers = [''] %}
+{# set defaults #}
+{% set sidebarNav = true %}
+{% set aside = false %}
+{% set sidebarContent = false %}
+
+{# Create classes array. The 'node' class is required for contextual edit links. #}
+{% set classes = [
+  'node'
+] %}
+
+
+{% set aside = true %}
+{% set heading_class = "bob" %}
+
+
+
+{% set sidebar_wrapper_extra_classes = sidebar_wrapper_extra_classes | default(['']) %}
+{{vardumper()}}
+
+<main {{ bem(main_element_base_class, (main_element_modifiers), main_element_blockname, main_element_extra_classes) }} id="mainContent">
+
+
+	<div class="title">
+		{% include "@content/atoms/_heading.twig" with {
+        "heading_level" : 1,
+        "heading" : title,
+        "heading_modifiers" : heading_modifiers,
+        "heading_base_class" : heading_base_class,
+        "heading_class" : heading_class
+      } %}
+	</div>
+	<div class="content">
+		{{content}}
+	</div>
+	{% if sidebarNav != false %}
+		<nav class="nav--site">
+			<p class="siteNavOpener">
+				<span>
+					Expand site nav
+				</span>
+				<button class="subNav-toggle icon icon--button " aria-haspopup="true" aria-label="secondary menu closed" aria-expanded="false">
+					<svg viewbox="0 0 20 20" class="icon--arrow">
+						<use xlink:href="#chevron-down"></use>
+					</svg>
+				</button>
+			</p>
+			{# fake sidebar nav start #}
+			<nav class="nav--site">
+				<p class="siteNavOpener">
+					<span>
+						Related content
+					</span>
+					<button class="subNav-toggle icon icon--button " aria-haspopup="true" aria-label="secondary menu closed" aria-expanded="false">
+						<svg viewbox="0 0 20 20" class="icon--arrow">
+							<use xlink:href="#chevron-down"></use>
+						</svg>
+					</button>
+				</p>
+				<ul class="nav nav--site">
+					<li class="nav__item nav__item--with-sub">
+						<a href="#" class="nav__link">
+							Admissions
+						</a>
+						<button class="subNavToggle">
+							<svg class='icon icon--arrow' viewbox='0 0 52 32'>
+								<use xlink:href='#chevron-down'></use>
+							</svg>
+							<span class="sr-only">
+								open subnavigation
+							</span>
+						</button>
+						<ul class="nav-1">
+							<li class="nav-1__item">
+								<a href="#" class="nav-1__link">
+									Requirements
+								</a>
+							</li>
+							<li class="nav-1__item">
+								<a href="#" class="nav-1__link">
+									How to apply
+								</a>
+							</li>
+							<li class="nav-1__item">
+								<a href="#" class="nav-1__link">
+									This is another link
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="nav__item nav__item--with-sub">
+						<a href="#" class="nav__link">
+							Educatioin
+						</a>
+						<button class="subNavToggle">
+							<svg class='icon icon--arrow' viewbox='0 0 52 32'>
+								<use xlink:href='#chevron-down'></use>
+							</svg>
+							<span class="sr-only">
+								open subnavigation
+							</span>
+						</button>
+						<ul class="nav-1">
+							<li class="nav-1__item">
+								<a href="#" class="nav-1__link">
+									Requirements
+								</a>
+							</li>
+							<li class="nav-1__item">
+								<a href="#" class="nav-1__link">
+									How to apply
+								</a>
+							</li>
+							<li class="nav-1__item">
+								<a href="#" class="nav-1__link">
+									This is another link
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="nav__item nav__item--with-sub">
+						<a href="#" class="nav__link">
+							Research and Scholarship
+						</a>
+						<button class="subNavToggle">
+							<svg class='icon icon--arrow' viewbox='0 0 52 32'>
+								<use xlink:href='#chevron-down'></use>
+							</svg>
+							<span class="sr-only">
+								open subnavigation
+							</span>
+						</button>
+						<ul class="nav-1">
+							<li class="nav-1__item">
+								<a href="#" class="nav-1__link">
+									Requirements
+								</a>
+							</li>
+							<li class="nav-1__item">
+								<a href="#" class="nav-1__link">
+									How to apply
+								</a>
+							</li>
+							<li class="nav-1__item">
+								<a href="#" class="nav-1__link">
+									This is another link
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			{# fakes sidebar nav end #}
+			{# {{ sidebar_nav }} #}
+		</nav>
+	{% endif %}
+	{% if sidebarContent %}
+		<div class="sidebar">
+			{{sidebar_content}}
+		</div>
+	{% endif %}
+	{% if aside %}
+		<aside role="complimentary">
+			<h2>
+				test aside here?
+			</h2>
+			{{ otp_nav }}
+			{{ aside_content }}
+		</aside>
+	{% endif %}
+</main>
+

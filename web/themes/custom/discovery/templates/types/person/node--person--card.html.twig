@@ -1,0 +1,126 @@
+{# 
+
+/* -------------------------
+
+Title: node--person--card.html.twig
+Descr: defines "person" and outputs fields for person card
+
+--------------------------- */ 
+
+#}
+{# set wrapper bem calsses #}
+{% set card_base_class = 'card' %}
+{% set card_modifiers =  ["person"]%}
+
+
+
+{# set var person #}
+{% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
+{% set person = parse_people_json(remote_uuid) %}
+{# {{dump(person)}} #}
+
+
+{# job title #}
+{% if person.jobtitle %}
+	{% set show_jobtitle = true %}
+{# {% set jobtitle = person.jobtitle %} #}
+{% endif %}
+
+{# departments #}
+{% if person.departments %}
+	{% set show_departments = true %}
+{# {% set departments = person.departments %} #}
+{% endif %}
+
+{# link #}
+{% set link = content.field_link.0['#title'] %}
+
+
+{# responsibilities #}
+{% if person.responsibilities %}
+  {% set show_responsibilities = true %}
+{% endif %}
+
+{# departments #}
+{% if person.departments %}
+  {% set show_departments = true %}
+{% endif %}
+
+{# person type #}
+{% set personType = content.field_person_type.0["#plain_text"] %}
+{# set link #}
+{% set card_link_url = '/people'~person.path %}
+
+{# set image #}
+{% if person.imagepath %}
+	{% set image %}
+		<img src="{{person.imagepath}}" alt="{{person.alt}}">
+  {% endset %}
+  {% else %}
+  {% set image %}
+		<img src="https://people.as.cornell.edu/sites/people/files/Klarmanarticle_4784_2.jpg" alt="Klarman Hall"/>
+  {% endset %}
+{% endif %}
+
+
+{% embed "@content/articles/_person--card.twig" with {
+
+    title: person.title,
+    jobtitle: person.jobtitle,
+    responsibilities: person.responsibilities,
+    contact: 'contacts coming',
+    departments: person.departments,
+    image: image
+} %}{% endembed %}
+
+
+{# OUTPUT CARD #}
+
+{# <div {{ bem(card_base_class, (card_modifiers), card_blockname) }} {% if card_nodeId %} aria-labelledby="item--{{card_nodeId}}" {% endif %}>
+	{{title_suffix}}
+	<figure class='card--person__image'>
+		{{image}}
+	</figure>
+	<div class="card--person__name-title">
+		{% include "@content/atoms/_heading.twig" with {
+      "heading_level": 2,
+      "heading": person.title,
+      "heading_url": card_title_link|default(card_link_url),
+      "heading_blockname": card_title_blockname|default(card_base_class),
+      "heading_modifiers": card_title_modifiers,
+      "heading_link_base_class": card_title_link_base_class|default('title-link'),
+      "heading_link_blockname": card_base_class,
+      "heading_base_class": card_title_base_class|default('title'),
+      "heading_class" : ['card--person__name'],
+      "isAriaLabel" : node.id
+    } %}
+
+		{% if show_jobtitle %}
+			<p class="card--person__title">
+				{{ person.jobtitle }}
+			</p>
+		{% endif %}
+	</div>
+
+	{% if show_responsibilities %}
+		<div class="card--person__responsibilities">
+			{{person.responsibilities|raw}}
+		</div>
+	{% endif %}
+
+	{% if personType != "Faculty" %}
+		<div class="card--person__contacts">
+			<p>
+				waiting for new LDAP
+			</p>
+			{{contact}}
+		</div>
+	{% endif %}
+
+	{% if show_departments %}
+		<div class="card--person__departments">
+			{{person.departments}}
+		</div>
+	{% endif %}
+</div> #}
+ 
