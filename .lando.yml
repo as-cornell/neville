@@ -12,7 +12,8 @@ services:
       - npm install
     globals:
       gulp-cli: latest
-    ssl: true
+    port: 3000
+    ssl: 4444
 tooling:
   npm:
     service: node

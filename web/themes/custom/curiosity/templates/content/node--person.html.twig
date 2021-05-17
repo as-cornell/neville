@@ -14,7 +14,7 @@ Passes:
 
 {% set netid = content.field_person_netid.0['#context']['value'] %}
 {% set contact = drupal_block('ldap_block', {netid: content.field_person_netid.0['#context']['value']}) %}
-{# edcuation #}
+{# education #}
 {% if content.field_person_education|render|striptags|trim %}
   {% set show_education = true %}
   {% set education = content.field_person_education %}

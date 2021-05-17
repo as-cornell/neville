@@ -1,11 +1,11 @@
-{# 
+{#
 
 /* -------------------------
 
 Title: node--person.html.twig
 Descr: defines "person" and outputs fields for full person view
 
---------------------------- */ 
+--------------------------- */
 
 #}
 
@@ -20,8 +20,7 @@ Descr: defines "person" and outputs fields for full person view
 {% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
 {% set person = parse_people_json(remote_uuid) %}
 {# {{dump(person)}} #}
-
-
+{% set contact = drupal_block('ldap_block', {netid: person.netid}) %}
 {# job title #}
 {% if person.jobtitle %}
 	{% set show_jobtitle = true %}
@@ -117,7 +116,7 @@ Descr: defines "person" and outputs fields for full person view
 			<h2>
 				In the news
 			</h2>
-			{{related_articles}}
+			<ul>{{person.related_articles|raw}}</ul>
 		{% endif %}
 
 	</div>

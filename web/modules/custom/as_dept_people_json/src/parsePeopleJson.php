@@ -42,6 +42,7 @@ class parsePeopleJson extends \Twig_Extension
   {
     $person_record = [];
     $departments = '';
+    $articles = '';
     $summary = '';
     $researchfocus = '';
     $people_json = as_dept_people_json_get_person_json($pathtoken);
@@ -81,6 +82,20 @@ class parsePeopleJson extends \Twig_Extension
           $departments = $departments . $dept_json['data']['attributes']['name'] . ', ';
         }
         $person_record['departments'] = rtrim($departments, ', ');
+        // get list of articles from as.cornell.edu
+          $articles_json = as_dept_people_json_get_people_articles_json($pathtoken);
+          //dump($articles_json);
+          //$articles = $articles . $articles_json['data']['attributes']['name'] . ', ';
+          foreach ($articles_json as $article) {
+            $articles = $articles . '<li><a href="'.$article['link'].'">'.$article['title'].'</a> - ('.$article['dateline'].')</li>';
+
+          }
+        //print '<ul>'.$articles.'</ul>';
+        $person_record['related_articles'] = $articles;
+
+
+
+
         // get summary from json
         if (!empty($person_data['relationships']['field_summary']['data'])) {
           foreach ($person_data['relationships']['field_summary']['data'] as $summary_data) {
