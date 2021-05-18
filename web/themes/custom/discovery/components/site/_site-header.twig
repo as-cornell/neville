@@ -15,19 +15,24 @@
 	<a href="https://cornell.edu" title="Cornell University" class="cu-logo">
 		Cornell University
 	</a>
-	<a class="department-logo" href="/" title="Test Department">
+	{#<a class="department-logo" href="/" title="Test Department">
 		Department
-	</a>
+	</a> #}
+{# ADDED SITE BRANDING BLOCK FOR DIFFERENT IMAGES PER DOMAIN #}
+	{{ drupal_entity('block', 'discovery_site_branding') }}
 	<a href="https://as.cornell.edu" class="as-logo" title="College of Arts and Sciences">
 		The College of Arts & Sciences
 	</a>
 
 	<div
 		class="header__mainNav">
+
+{# ADDED MAIN MENU FOR DIFFERENT LINKS PER DOMAIN #}
+
 		{{ drupal_menu('main', 2, 3) }}
 
 
-		{# START FAKE MENU #}
+		 {# START FAKE MENU #}
 		{# <ul class="nav nav--main">
 			<li class="nav__item nav__item--with-sub">
 				<a href="#" class="nav__link">
