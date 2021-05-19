@@ -1,7 +1,9 @@
 {# {{vardumper()}} #}
 <footer>
 	{% block footer_content %}
-		{# {{vardumper()}} #}
+
+		{{ drupal_entity('block', 'yoohoo', check_access=false) }}
+		{{ drupal_config('system.site', 'name') }}
 		<div class="footer">
 			{# {{content}} #}
 			{# {{ drupal_form('exposedformsearchpage_2') }} #}
