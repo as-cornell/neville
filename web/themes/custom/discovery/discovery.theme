@@ -24,6 +24,7 @@ function discovery_preprocess_block(&$variables) {
       $variables['department_instagram'] = theme_get_setting('department_instagram');
       $variables['department_twitter'] = theme_get_setting('department_twitter');
       $variables['department_linkedin'] = theme_get_setting('department_linkedin');
+      $variables['department_college_logos'] = theme_get_setting('department_college_logos');
       }
     //dump($variables);
 }
@@ -80,5 +81,16 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
     '#title'         => t('Department LinkedIn'),
     '#default_value' => theme_get_setting('department_linkedin'),
     '#description'   => t("URL to LinkedIn page."),
+  );
+  $form['department_variables']['department_college_logos'] = array(
+    '#type' => 'checkboxes',
+    '#title' => t('College logos to display'),
+    '#options' => array(
+     'AS' => t('Arts & Sciences'),
+     'CALS' => t('CALS'),
+     'ILR' => t('ILR'),
+     'HUMEC' => t('Human Ecology'),
+   ),
+   '#default_value' => theme_get_setting('department_college_logos')
   );
 }

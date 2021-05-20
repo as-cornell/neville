@@ -31,14 +31,49 @@
 {% block content %}
 
 
+        {% if department_college_logos.AS %}
+        <div class="footer__logo">
+          <a href="http://cornell.edu" title="Cornell University" class="cu-logo">
+            Cornell University
+          </a>
+          <a class="as-logo" href="https://as.cornell.edu" title="College of Arts & Sciences">
+            The College of Arts & Sciences
+          </a>
+        </div>
+        {% endif %}
+        {% if department_college_logos.CALS %}
+        <div>
+          <a href="https://cals.cornell.edu" title="College of Agriculture and Life Sciences">
+            CALS
+          </a>
+          </div>
+        {% endif %}
+        {% if department_college_logos.ILR  %}
+        <div>
+          <a href="https://cals.cornell.edu" title="College of Indistrial and Labor Relations">
+            ILR
+          </a>
+          </div>
+        {% endif %}
+        {% if department_college_logos.HUMEC %}
+        <div>
+          <a href="https://cals.cornell.edu" title="College of Human Ecology">
+            Human Ecology
+          </a>
+          </div>
+        {% endif %}
+
+
       <div class="footer__address">
         {{department_address}}
         <br/>
         Ithaca, NY 14853
         <br/>
         United States
+        {% if department_phone %}
         <br/>
         {{department_phone}}
+        {% endif %}
       </div>
       <div class="footer__contacts">
 

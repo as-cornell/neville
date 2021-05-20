@@ -1,33 +1,20 @@
 <footer>
 	{% block footer_content %}
-
-
-		{# drupal_config('system.site', 'name') #}
 		<div class="footer">
 			{# {{content}} #}
 			{# {{ drupal_form('exposedformsearchpage_2') }} #}
 
-			{# <div class="footer__currentStudents"> <h2>
-																																						For current students
-																																					</h2>
-																																					{{ drupal_menu('for-current-students', 1, 2, true)	}}
-																																				</div> #}
+				{# <div class="footer__currentStudents">
+				<h2>For current students</h2>
+				{{ drupal_menu('for-current-students', 1, 2, true)	}}
+				</div> #}
+
 				<div class="footer__importantLinks"> FOOTER MENU
 				{# {{ drupal_menu('footer', 1, 2, true) }} #}
 			</div>
-			{# {{drupal_block('block_content:textblock_2')}} #}
 
 
-			<div class="footer__logo">
-				<a href="http://cornell.edu" title="Cornell University" class="cu-logo">
-					Cornell University
-				</a>
-				<a class="as-logo" href="/" title="College of Arts & Sciences">
-					The College of Arts & Sciences
-				</a>
-
-			</div>
-			{# contact information from department theme variables #}
+			{# college logos and contact information from department theme variables #}
 			{{ drupal_block('site_variables_block') }}
 
 
