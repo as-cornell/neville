@@ -1,9 +1,8 @@
-{# {{vardumper()}} #}
 <footer>
 	{% block footer_content %}
 
-		{{ drupal_entity('block', 'yoohoo', check_access=false) }}
-		{{ drupal_config('system.site', 'name') }}
+
+		{# drupal_config('system.site', 'name') #}
 		<div class="footer">
 			{# {{content}} #}
 			{# {{ drupal_form('exposedformsearchpage_2') }} #}
@@ -18,13 +17,7 @@
 			</div>
 			{# {{drupal_block('block_content:textblock_2')}} #}
 
-			<div class="footer__socialLinks">
-				<ul>
-					<li><a href="https://twitter.com/CornellCAS" class="socialLink socialLink--twitter">Twitter</a></li>
-					<li><a href="https://instagram.com/cornellcas" class="socialLink socialLink--instagram">Instagram</a></li>
-					<li><a href="https://www.facebook.com/CornellCAS" class="socialLink socialLink--facebook">Facebook</a></li>
-				</ul>
-			</div>
+
 			<div class="footer__logo">
 				<a href="http://cornell.edu" title="Cornell University" class="cu-logo">
 					Cornell University
@@ -34,20 +27,10 @@
 				</a>
 
 			</div>
-			{# contact information will need to come from /admin #}
-			<div class="footer__address">
-				KG17 Klarman Hall
-				<br/>
-				Ithaca, NY 14853
-				<br/>
-				United states
-			</div>
-			<div class="footer__contacts">
+			{# contact information from department theme variables #}
+			{{ drupal_block('site_variables_block') }}
 
-				<a href="/college-contacts">
-					Contact Arts & Sciences
-				</a>
-			</div>
+
 			{# Below here will be consistent #}
 			<div class="footer__otherInformation">
 				<ul class="extraLinks">
