@@ -17,13 +17,14 @@ function discovery_preprocess_block(&$variables) {
       // You can get nid and anything else you need from the node object.
       $variables["nid"] = $node->id();
       $variables["node_title"] = $node->getTitle();
-        $variables['department_email'] = theme_get_setting('department_email');
-  $variables['department_address'] = theme_get_setting('department_address');
-  $variables['department_facebook'] = theme_get_setting('department_facebook');
-  $variables['department_instagram'] = theme_get_setting('department_instagram');
-  $variables['department_twitter'] = theme_get_setting('department_twitter');
-  $variables['department_linkedin'] = theme_get_setting('department_linkedin');
-    }
+      $variables['department_email'] = theme_get_setting('department_email');
+      $variables['department_phone'] = theme_get_setting('department_phone');
+      $variables['department_address'] = theme_get_setting('department_address');
+      $variables['department_facebook'] = theme_get_setting('department_facebook');
+      $variables['department_instagram'] = theme_get_setting('department_instagram');
+      $variables['department_twitter'] = theme_get_setting('department_twitter');
+      $variables['department_linkedin'] = theme_get_setting('department_linkedin');
+      }
     //dump($variables);
 }
 
@@ -42,13 +43,19 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
     '#type'          => 'textfield',
     '#title'         => t('Department Email'),
     '#default_value' => theme_get_setting('department_email'),
-    '#description'   => t("Contact email used for general purposes."),
+    '#description'   => t("Main department email."),
+  );
+  $form['department_variables']['department_phone'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Department Phone'),
+    '#default_value' => theme_get_setting('department_phone'),
+    '#description'   => t("Main department phone number."),
   );
   $form['department_variables']['department_address'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Department Address'),
     '#default_value' => theme_get_setting('department_address'),
-    '#description'   => t("Physical mailing address used for general purposes."),
+    '#description'   => t("Physical/mailing address."),
   );
   $form['department_variables']['department_facebook'] = array(
     '#type'          => 'textfield',
