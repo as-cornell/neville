@@ -1,0 +1,56 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+{{ title_prefix }}
+
+{% block content %}
+
+    {% if department_college_logos.AS %}
+      <a href="https://as.cornell.edu" class="as-logo" title="College of Arts and Sciences">
+        The College of Arts & Sciences
+      </a>
+    {% endif %}
+    {% if department_college_logos.CALS %}
+      <a href="https://cals.cornell.edu" class="cals-logo" title="College of Agriculture and Life Sciences">
+        CALS
+      </a>
+    {% endif %}
+    {% if department_college_logos.ILR  %}
+      <a href="https://ilr.cornell.edu" class="ilr-logo" title="College of Indistrial and Labor Relations">
+        ILR
+      </a>
+    {% endif %}
+    {% if department_college_logos.HUMEC %}
+      <a href="https://www.human.cornell.edu" class="humec-logo" title="College of Human Ecology">
+        HUMEC
+      </a>
+    {% endif %}
+
+	{# content #}
+
+{% endblock %}

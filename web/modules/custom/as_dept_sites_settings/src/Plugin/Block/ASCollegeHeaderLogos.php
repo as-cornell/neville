@@ -9,12 +9,12 @@ use Drupal\Core\Block\BlockPluginInterface;
  * Provides a Current Events Block.
  *
  * @Block(
- *   id = "site_variables_block",
- *   admin_label = @Translation("Department Footer Site Settings Block"),
+ *   id = "college_header_logos_block",
+ *   admin_label = @Translation("College Header Logos Block"),
  *   category = @Translation("Site Layout"),
  * )
  */
-class ASsiteVariables extends BlockBase implements BlockPluginInterface {
+class ASCollegeHeaderLogos extends BlockBase implements BlockPluginInterface {
 
 
   /**
@@ -27,7 +27,7 @@ class ASsiteVariables extends BlockBase implements BlockPluginInterface {
     $build = [];
     $markup = '';
     //$config = $this->getConfiguration();
-    $build['site_variables_block']['#markup'] = $markup;
+    $build['college_header_logos_block']['#markup'] = $markup;
 
 
     return $build;

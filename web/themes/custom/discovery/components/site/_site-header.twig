@@ -18,11 +18,10 @@
 	{#<a class="department-logo" href="/" title="Test Department">
 		Department
 	</a> #}
-{# ADDED SITE BRANDING BLOCK FOR DIFFERENT IMAGES PER DOMAIN #}
+{# ADDED SITE BRANDING BLOCK FOR DIFFERENT DEPARTMENT LOGO PER DOMAIN #}
 	{{ drupal_entity('block', 'discovery_site_branding') }}
-	<a href="https://as.cornell.edu" class="as-logo" title="College of Arts and Sciences">
-		The College of Arts & Sciences
-	</a>
+{# ADDED COLLEGE LOGO BLOCK FOR DIFFERENT COLLEGE LOGO PER DOMAIN #}
+	{{ drupal_block('college_header_logos_block') }}
 
 	<div
 		class="header__mainNav">
