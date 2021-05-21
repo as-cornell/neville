@@ -1,0 +1,114 @@
+<?php
+
+/**
+ * @file
+ * Contains as_menu_plug.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Generates markup around link title().
+ */
+function as_menu_plug_generate_link_markup($link_title,$alias,$link_class) {
+    $markup = NULL;
+    $link_name = preg_replace('/\W+/','-',strtolower(strip_tags($link_title)));;
+    // Create the markup
+    $markup = $markup . "<li class='" . $link_class . "' id='" . $link_name . "'><a href='" . $alias . "#" . $link_name . "'>" . $link_title . "</a></li>";
+
+    return $markup;
+  }
+
+    /**
+ * Generates markup around link title().
+ */
+function as_menu_plug_generate_list_class($menu_level) {
+    $list_class = NULL;
+
+    // build link class one level down from current link
+    $menu_level = (int)$menu_level + 1;
+    $list_class = "nav-" . $menu_level;
+
+    return $list_class;
+  }
+
+  /**
+ * Generates markup around link title().
+ */
+function as_menu_plug_generate_link_class($menu_level) {
+    $link_class = NULL;
+    $child = NULL;
+
+    // build link class one level down from current link
+    $menu_level = 1;
+    $link_class = "nav-" .$menu_level. "__item";
+
+    return $link_class;
+  }
+
+
+/**
+* Strips menu URI or node id string and converts to menu_link_id or nid.
+*/
+function as_menu_plug_strip_id($string) {
+
+    if (!empty($string)) {
+      $string = strstr($string, '/');
+      $string = str_replace('/', '', $string);
+      return $string;
+    }
+  }
+
+/**
+* Gets parent node id from menu link id.
+*/
+function as_menu_plug_menulinkid_nid($menu_link_id) {
+
+    $database =  \Drupal::database();
+    $sql = "SELECT link__uri FROM menu_link_content_data WHERE id = :menulinkid";
+    $query = $database->query($sql, [':menulinkid' => $menu_link_id]);
+    $result = $query->fetchObject();
+    if ($result !== false) {
+      return $result->link__uri;
+    }
+
+  }
+
+/**
+ * Implements hook_theme().
+ */
+function as_menu_plug_theme() {
+  return [
+    'card_menu_block' => [
+      'render element' => 'children',
+      'template' => 'card-menu-block'
+    ],
+    'menu_plug_block' => [
+      'render element' => 'children',
+      'template' => 'menu-plug-block'
+    ],
+    'page_menu_block' => [
+      'render element' => 'children',
+      'template' => 'page-menu-block'
+    ],
+
+  ];
+}
+
+
+
+/**
+ * Implements hook_help().
+ */
+function as_menu_plug_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the as_menu_plug module.
+    case 'help.page.as_menu_plug':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Configurations, functions and templates to add in-page anchor links as links under that page&#039;s main navigation menu item.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

@@ -1,0 +1,5 @@
+name: 'A&S Menu Plug'
+description: 'Configurations, functions and templates to add in-page anchor links as link fields under that page''s menu item.'
+core_version_requirement: ^8.7.7 || ^9
+package: 'AS'
+type: module
