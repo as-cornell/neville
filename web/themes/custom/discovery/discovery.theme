@@ -1,4 +1,7 @@
 <?php
+
+use Drupal\block\Entity\Block;
+
 function discovery_preprocess_node(&$variables) {
   $variables['department_email'] = theme_get_setting('department_email');
   $variables['department_address'] = theme_get_setting('department_address');
@@ -25,7 +28,12 @@ function discovery_preprocess_block(&$variables) {
       $variables['department_twitter'] = theme_get_setting('department_twitter');
       $variables['department_linkedin'] = theme_get_setting('department_linkedin');
       $variables['department_college_logos'] = theme_get_setting('department_college_logos');
+        if (isset($variables['elements']['#id'])) {
+    $region = Block::load($variables['elements']['#id'])->getRegion();
+    $variables['content']['#attributes']['region'] = $region;
+  }
       }
+
     //dump($variables);
 }
 
@@ -93,4 +101,15 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
    ),
    '#default_value' => theme_get_setting('department_college_logos')
   );
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Provide region based menu suggestions.
+ */
+function discovery_theme_suggestions_menu_alter(&$suggestions, array $variables) {
+  if (isset($variables['attributes']['region'])) {
+    $suggestions[] = 'menu__' . $variables['menu_name'] . '__' . $variables['attributes']['region'];
+  }
 }

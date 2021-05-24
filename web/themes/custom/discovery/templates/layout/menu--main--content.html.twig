@@ -26,13 +26,13 @@
 #}
 
 {{ menus.menu_links(items, attributes, 0) }}
-menu--main.html.twig
+menu--main--content.html.twig
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
-
+<nav class="nav--site">
   {% if items %}
     {% if menu_level == 0 %}
-      <ul class="nav nav--main">
+      <ul class="nav nav--site">
     {% endif %}
     {% if menu_level == 1 %}
       <ul class="nav nav-1">
@@ -55,5 +55,6 @@ menu--main.html.twig
       </li>
     {% endfor %}
     </ul>
+    </nav>
   {% endif %}
 {% endmacro %}
