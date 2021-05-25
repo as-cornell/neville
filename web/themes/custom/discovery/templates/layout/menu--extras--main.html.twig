@@ -26,26 +26,16 @@
 #}
 
 {{ menus.menu_links(items, attributes, 0) }}
-menu--main.html.twig
+menu--extras--main.html.twig
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
+  {% set listClass = 'nav-' ~ menu_level %}
 
   {% if items %}
-    {% if menu_level == 0 %}
-      <ul class="nav nav-0--main">
-    {% endif %}
-    {% if menu_level == 1 %}
-      <ul class="nav nav-1">
-    {% endif %}
+    <ul class="nav {{listClass}}">
     {% for item in items %}
-      {% if menu_level == 0 %}
-        <li class="nav-0__item nav__item--with-sub">
-          <a href="{{item.url}}" class="nav__link">
-      {% endif %}
-      {% if menu_level == 1 %}
-        <li class="nav-1__item">
-          <a href="{{item.url}}" class="nav-1__link">
-      {% endif %}
+        <li class="{{listClass}}__item">
+          <a href="{{item.url}}" class="{{listClass}}__link">
           {{item.title}}
         </a>
         {# link(item.title, item.url) #}
