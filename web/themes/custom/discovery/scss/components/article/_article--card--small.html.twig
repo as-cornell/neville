@@ -10,7 +10,7 @@ Descr: defines "article" and outputs fields for article card
 #}
 {# set wrapper bem calsses #}
 {% set card_base_class = 'card' %}
-{% set card_modifiers =  ["article"]%}
+{% set card_modifiers =  ["article", "small"]%}
 
 {% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
 {% set article = parse_article_json(remote_uuid) %}
@@ -22,37 +22,12 @@ Descr: defines "article" and outputs fields for article card
 	{% endset %}
 {% endif %}
 
-
-{# card label #}
-{% if article.card_label %}
-  {% set show_card_label = true %}
-{% endif %}
-
-{# dateline #}
-{% if article.dateline %}
-  {% set show_dateline = true %}
-  {% set dateline = article.dateline %}
-  {% set dateline = dateline|date("m/d/Y") %}
-{% endif %}
-
-{# bylines #}
-{% if article.bylines %}
-  {% set show_bylines = true %}
-{% endif %}
-
-{# media sources #}
-{% if article.media_sources %}
-  {% set media_sources = true %}
-{% endif %}
-
 <div {{ bem(card_base_class, (card_modifiers), card_blockname) }} {% if nodeId %} aria-labelledby="item--{{nodeId}}" {% endif %}> 
 
 {{image}}
-{{title_suffix}}
 
 	<div {{ bem(card_copy_base_class|default('card__copy'), (card_copy_modifiers), card_copy_blockname) }}>
 
-		
 			{% include "@content/atoms/_heading.twig" with {
         "heading_level": 2,
         "heading": article.title,
@@ -64,26 +39,6 @@ Descr: defines "article" and outputs fields for article card
         "heading_base_class": card_title_base_class|default('title'),
         "isAriaLabel" : nodeId
     } %}
-
-
-		{% if show_card_label %}
-			<span class="card__label">
-				{{ article.card_label }}
-			</span>
-		{% endif %}
-
-		{% if show_dateline %}
-			<span class="card__date">
-				{{ dateline }}
-			</span>
-		{% endif %}
-
-		{% if show_bylines %}
-			<span class="card__byline">
-				By |
-				{{ article.bylines }}
-			</span>
-		{% endif %}
 
 	</div>
 </div>
