@@ -25,59 +25,37 @@
   @see https://twig.symfony.com/doc/1.x/tags/macro.html
 #}
 
-
-
-
-{% import _self as menus %}
-
-{#
-  We call a macro which calls itself to render the full tree.
-  @see https://twig.symfony.com/doc/1.x/tags/macro.html
-#}
-
 {{ menus.menu_links(items, attributes, 0) }}
-menu--main.html.twig
+menu--main--content.html.twig
 {% macro menu_links(items, attributes, menu_level) %}
-  {% import _self as menus %}
-  {% set listClass = 'nav nav-' ~ menu_level %}
-  {% if items %}
-    {% if menu_level == 0 %}
-      <ul class="nav--site">
-    {% else %}
-      <ul class="{{ listClass }}">
-    {% endif %}
-      {% for key, item in items if key|first != '#' %}
-      {% set menu_item_classes = [
-      item.in_active_trail ? listClass ~ '__item nav__item--with-sub',
-      item.content.children ? listClass ~ '-1__item',
-    ] %}
-      {# display only active trail starting from top level link #}
-      {# if item.in_active_trail #}
-
-
-        <li class="{{ listClass }}__item">
-          <a href="{{item.url}}" class="{{ listClass }}__link">
-
-          {{item.title}}
-        </a>
-        {# link(item.title, item.url) #}
-        {% if item.in_active_trail %}
-            {# implements as_menu_plug #}
-            {% set menuLinkID = item.content['#menu_link_content'].id.value %}
-            {% set menuLevel = item.menu_level %}
-            {% if menuLinkID %}
-              {{vardumper(menuLinkID)}}
-              {{vardumper(menuLevel)}}
-              {{vardumper(menu_item_classes)}}
-              {#drupal_block('menu_plug_block', {menu_link_id:menuLinkID, menu_level:menuLevel}) #}
-            {% endif %}
-          {% endif %}
-        {% if item.below %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-        {% endif %}
-      </li>
-      {# endif #}
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endmacro %}
+	{% import _self as menus %}
+	{# <nav class="nav--site"> #}
+	{% if items %}
+		{% if menu_level == 0 %}
+			<ul class="nav">
+			{% endif %}
+			{% if menu_level == 1 %}
+				<ul class="nav nav-1">
+				{% endif %}
+				{% for item in items %}
+					{% if menu_level == 0 %}
+						<li class="nav__item nav__item--with-sub">
+							<a href="{{item.url}}" class="nav__link">
+							{% endif %}
+							{% if menu_level == 1 %}
+								<li class="nav__item">
+									<a href="{{item.url}}" class="nav-1__link">
+									{% endif %}
+									{{item.title}}
+								</li>
+							</a>
+							{# link(item.title, item.url) #}
+							{% if item.below %}
+								{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+							{% endif %}
+						</li>
+					{% endfor %}
+				</ul>
+				{# </nav> #}
+			{% endif %}
+		{% endmacro %}
