@@ -56,7 +56,7 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 	</div>
 	{% if sidebarNav != false %}
 		<nav class="nav--site">
-			<p class="siteNavOpener">
+			{#<p class="siteNavOpener">
 				<span>
 					Expand site nav
 				</span>
@@ -66,7 +66,7 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 					</svg>
 				</button>
 			</p>
-			{# fake sidebar nav start #}
+			 fake sidebar nav start
 			<nav class="nav--site">
 				<p class="siteNavOpener">
 					<span>
@@ -78,6 +78,11 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 						</svg>
 					</button>
 				</p>
+				#}
+				{# drupal_menu('main', 2) #}
+				{# drupal_block('mainnavigation_2') #}
+				{{ drupal_entity('block', 'mainnavigation', check_access=false) }}
+						{#
 				<ul class="nav nav--site">
 					<li class="nav__item nav__item--with-sub">
 						<a href="#" class="nav__link">
@@ -169,7 +174,7 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 							</li>
 						</ul>
 					</li>
-				</ul>
+				</ul>#}
 			</nav>
 			{# fakes sidebar nav end #}
 			{# {{ sidebar_nav }} #}
