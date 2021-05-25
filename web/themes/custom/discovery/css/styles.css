@@ -414,7 +414,7 @@ Descr: nav--main small and large, hovers and toggles for subNav
 Still needs: expand toggle for showing main nav on mobile
 
 --------------------------- */
-.nav,
+.nav-0,
 .nav-1,
 .nav-2,
 .nav-3 {
@@ -436,20 +436,20 @@ Still needs: expand toggle for showing main nav on mobile
   transform: scale(1, 0);
   transform-origin: top;
   transition: transform 150ms ease-out; }
-  .nav.shown,
+  .nav-0.shown,
   .nav-1.shown,
   .nav-2.shown,
   .nav-3.shown {
     transform: scale(1, 1);
     transform-origin: top;
     transition: transform 250ms ease-in-out 250ms; }
-    .nav.shown .mainNav__link,
+    .nav-0.shown .mainNav__link,
     .nav-1.shown .mainNav__link,
     .nav-2.shown .mainNav__link,
     .nav-3.shown .mainNav__link {
       opacity: 1;
       transition: opacity 250ms ease-in-out 250ms; }
-  .nav button,
+  .nav-0 button,
   .nav-1 button,
   .nav-2 button,
   .nav-3 button {
@@ -461,36 +461,36 @@ Still needs: expand toggle for showing main nav on mobile
     border: none;
     position: absolute;
     z-index: 10; }
-    .nav button svg,
+    .nav-0 button svg,
     .nav-1 button svg,
     .nav-2 button svg,
     .nav-3 button svg {
       fill: var(--as-white); }
       @media (min-width: 900px) {
-        .nav button svg,
+        .nav-0 button svg,
         .nav-1 button svg,
         .nav-2 button svg,
         .nav-3 button svg {
           fill: var(--as-black); } }
-    .nav button:focus,
+    .nav-0 button:focus,
     .nav-1 button:focus,
     .nav-2 button:focus,
     .nav-3 button:focus {
       opacity: 1; }
-    .nav button.rotated,
+    .nav-0 button.rotated,
     .nav-1 button.rotated,
     .nav-2 button.rotated,
     .nav-3 button.rotated {
       transform: rotate(180deg);
       transform-origin: 50% 50%; }
-  .nav > .nav__item,
+  .nav-0 > .nav__item,
   .nav-1 > .nav__item,
   .nav-2 > .nav__item,
   .nav-3 > .nav__item {
     background: var(--as-teal-400);
     margin-bottom: 0;
     position: relative; }
-  .nav .nav__link,
+  .nav-0 .nav__link,
   .nav-1 .nav__link,
   .nav-2 .nav__link,
   .nav-3 .nav__link {
