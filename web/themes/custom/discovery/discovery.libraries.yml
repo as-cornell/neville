@@ -6,6 +6,7 @@ global:
 global-scripts:
   js:
     js_min/main-menu.js: {}
+    js_min/sidebar-menu.js: {}
     js_min/forms.js: {}
   dependencies:
     - core/jquery

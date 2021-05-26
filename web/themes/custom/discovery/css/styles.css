@@ -209,6 +209,16 @@ h1.h1--title, h1.title {
 
 /* -------------------------
 
+Title: _images.scss
+Descr: sets basic image styles
+
+--------------------------- */
+img {
+  max-width: 100%;
+  height: auto; }
+
+/* -------------------------
+
 Title: <main> layouts.
 Descr: 
     main content is the <main> tag. It is where the main components are. It is a child of the .container.
@@ -284,10 +294,8 @@ ICON/SVG buttons
 .iconButton {
   line-height: 1; }
 
-.icon--button {
-  max-width: 50px; }
-  .icon--button svg {
-    width: 1.5rem; }
+.icon--button svg {
+  width: 1.5rem; }
 
 /* -------------------------
 
@@ -414,207 +422,106 @@ Descr: nav--main small and large, hovers and toggles for subNav
 Still needs: expand toggle for showing main nav on mobile
 
 --------------------------- */
-.nav-0,
-.nav-1,
-.nav-2,
-.nav-3 {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-  font-size: var(--base-20);
-  position: absolute;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  background: var(--as-white);
-  border-radius: var(--border-radius);
-  width: 100%;
-  margin-top: 1rem;
-  z-index: 11;
-  transform: scale(1, 0);
-  transform-origin: top;
-  transition: transform 150ms ease-out; }
-  .nav-0.shown,
-  .nav-1.shown,
-  .nav-2.shown,
-  .nav-3.shown {
-    transform: scale(1, 1);
-    transform-origin: top;
-    transition: transform 250ms ease-in-out 250ms; }
-    .nav-0.shown .mainNav__link,
-    .nav-1.shown .mainNav__link,
-    .nav-2.shown .mainNav__link,
-    .nav-3.shown .mainNav__link {
-      opacity: 1;
-      transition: opacity 250ms ease-in-out 250ms; }
-  .nav-0 button,
-  .nav-1 button,
-  .nav-2 button,
-  .nav-3 button {
-    width: 1rem;
-    right: 0px;
-    top: 5px;
-    padding: 0;
-    background: none;
-    border: none;
-    position: absolute;
-    z-index: 10; }
-    .nav-0 button svg,
-    .nav-1 button svg,
-    .nav-2 button svg,
-    .nav-3 button svg {
-      fill: var(--as-white); }
-      @media (min-width: 900px) {
-        .nav-0 button svg,
-        .nav-1 button svg,
-        .nav-2 button svg,
-        .nav-3 button svg {
-          fill: var(--as-black); } }
-    .nav-0 button:focus,
-    .nav-1 button:focus,
-    .nav-2 button:focus,
-    .nav-3 button:focus {
-      opacity: 1; }
-    .nav-0 button.rotated,
-    .nav-1 button.rotated,
-    .nav-2 button.rotated,
-    .nav-3 button.rotated {
-      transform: rotate(180deg);
-      transform-origin: 50% 50%; }
-  .nav-0 > .nav__item,
-  .nav-1 > .nav__item,
-  .nav-2 > .nav__item,
-  .nav-3 > .nav__item {
-    background: var(--as-teal-400);
-    margin-bottom: 0;
-    position: relative; }
-  .nav-0 .nav__link,
-  .nav-1 .nav__link,
-  .nav-2 .nav__link,
-  .nav-3 .nav__link {
-    display: inline-block;
-    position: relative;
-    color: var(--as-gray-300);
-    font-weight: var(--light);
-    background: var(--as-black);
-    padding: 0.5rem;
-    border-right: 1px solid var(--as-white);
-    width: calc(100% - 2.1rem);
-    transition: opacity 150ms ease-in-out; }
-
-.nav-1 {
-  font-weight: var(--regular);
-  border-radius: 0;
-  width: 100%;
-  padding-left: 0;
-  margin-top: 0;
-  transform: scaleY(0);
-  transform-origin: top; }
-  .nav-1.expanded {
-    opacity: 1;
-    transform: scaleY(1);
-    position: relative; }
-  .nav-1 a {
-    padding: 0.5rem 0 0.5rem 1rem;
-    color: var(--as-black);
-    text-decoration: underline;
-    display: block; }
-    .nav-1 a:hover, .nav-1 a:focus {
-      background-color: var(--as-white); }
-
 /*
 .nav--main
 */
-@media (min-width: 782px) {
-  .nav--main {
-    -ms-flex-direction: row;
-        flex-direction: row;
-    transform: none;
-    width: 100%;
-    color: var(--as-black);
-    background: transparent;
-    overflow: visible;
-    position: relative;
-    -ms-flex-pack: start;
-        justify-content: flex-start; }
-    .nav--main .nav__item {
-      background: transparent; }
-      .nav--main .nav__item:after {
-        position: absolute;
-        content: "";
-        width: calc(100% - 27px);
-        height: 3px;
-        background: var(--as-red-400);
-        top: 0;
-        left: 0;
-        transform: scaleX(0);
-        transition: all 0.15s ease-in;
-        visibility: hidden;
-        border-radius: 2px; }
-      .nav--main .nav__item .nav__link {
-        background: none;
-        opacity: 1;
-        color: var(--as-black);
-        width: auto;
-        font-weight: var(--semi); }
-      .nav--main .nav__item:hover, .nav--main .nav__item.expanded {
-        -webkit-text-decoration-color: var(--as-gray-500);
-                text-decoration-color: var(--as-gray-500);
-        overflow: visible; }
-        .nav--main .nav__item:hover:after, .nav--main .nav__item.expanded:after {
-          visibility: visible;
-          transform: scaleX(1);
-          transition: all 0.25s ease-out; }
-        .nav--main .nav__item:hover > .nav__link, .nav--main .nav__item.expanded > .nav__link {
-          box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1); }
-        .nav--main .nav__item:hover .nav-1, .nav--main .nav__item.expanded .nav-1 {
-          transform: scaleY(1); }
-    .nav--main .nav-1 {
-      margin-top: 0;
-      width: 260px;
-      background: var(--as-white);
+.nav--site {
+  position: relative; }
+  .nav--site .nav-toggle {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    -ms-flex-align: center;
+        align-items: center;
+    background: red;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    margin-bottom: 0;
+    padding: 0.5rem; }
+    .nav--site .nav-toggle.active button {
+      transform: rotate(180deg); }
+  .nav--site .nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    position: absolute; }
+    .nav--site .nav.shown {
+      transform: scale(1, 1);
+      transform-origin: top;
+      transition: transform 250ms ease-in-out 250ms;
+      position: relative; }
+    .nav--site .nav button {
+      right: 5px;
+      top: 5px;
+      padding: 0;
+      background: none;
+      border: none;
       position: absolute;
-      font-size: var(--base-18);
-      box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 0 var(--border-radius) var(--border-radius) var(--border-radius);
-      overflow: visible;
-      margin-left: 0; }
-      .nav--main .nav-1 .nav-1__link {
-        position: relative; }
-        .nav--main .nav-1 .nav-1__link:hover {
-          color: var(--as-white);
-          background: var(--as-red-400); }
-          .nav--main .nav-1 .nav-1__link:hover:after, .nav--main .nav-1 .nav-1__link:hover:before {
-            position: absolute;
-            content: "";
-            width: 0.25rem;
-            height: 100%;
-            top: 0;
-            background: var(--as-red-400);
-            border-radius: 4px; }
-          .nav--main .nav-1 .nav-1__link:hover:after {
-            right: -0.125rem; }
-          .nav--main .nav-1 .nav-1__link:hover:before {
-            left: -0.125rem; }
-    .nav--main button {
-      opacity: 0; } }
-
-@media (min-width: 1224px) {
-  .nav--main {
-    -ms-flex-pack: end;
-        justify-content: flex-end; } }
-
-@media (min-width: 782px) {
-  .nav--site {
-    background: pink;
-    position: relative;
-    transform: none;
-    overflow: visible; }
-    .nav--site .nav-1 {
+      z-index: 10; }
+      .nav--site .nav button svg {
+        fill: var(--as-white); }
+        @media (min-width: 900px) {
+          .nav--site .nav button svg {
+            fill: var(--as-black); } }
+      .nav--site .nav button:focus {
+        opacity: 1; }
+      .nav--site .nav button.active {
+        transform: rotate(180deg);
+        transform-origin: 50% 50%; }
+  .nav--site .nav-0 {
+    background: var(--as-gray-300);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    z-index: 11;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 150ms ease-out; }
+    .nav--site .nav-0 > .nav-0__item {
+      background: var(--as-teal-400);
+      margin-bottom: 0;
+      position: relative; }
+    .nav--site .nav-0 .nav-0__link {
+      display: inline-block;
       position: relative;
-      transform: none; } }
+      color: var(--as-gray-300);
+      font-weight: var(--light);
+      background: var(--as-black);
+      padding: 0.5rem;
+      border-right: 1px solid var(--as-white);
+      width: calc(100% - 3rem);
+      transition: opacity 150ms ease-in-out; }
+  .nav--site .nav-1 {
+    font-weight: var(--regular);
+    border-radius: 0;
+    width: 100%;
+    padding-left: 0;
+    margin-top: 0;
+    transform: scaleY(0);
+    transform-origin: top; }
+    .nav--site .nav-1.expanded {
+      opacity: 1;
+      transform: scaleY(1);
+      position: relative; }
+    .nav--site .nav-1 a {
+      padding: 0.5rem 0 0.5rem 1rem;
+      color: var(--as-black);
+      text-decoration: underline;
+      display: block; }
+      .nav--site .nav-1 a:hover, .nav--site .nav-1 a:focus {
+        background-color: var(--as-white); }
+  @media (min-width: 782px) {
+    .nav--site {
+      background: pink;
+      position: relative;
+      transform: none;
+      overflow: visible; }
+      .nav--site .nav-1 {
+        position: relative;
+        transform: none; } }
 
 /* -------------------------
 
