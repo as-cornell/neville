@@ -2,17 +2,16 @@
 
 /* -------------------------
 
-Title: node--article--card.html.twig
-Descr: defines "article" and outputs fields for article card
+Title: node--article--article--small.html.twig
+Descr: defines "article" and outputs fields for article article
 
 --------------------------- */ 
 
 #}
 {# set wrapper bem calsses #}
 {% set article_base_class = 'article' %}
-{% set article_modifiers =  ["card"]%}
+{% set article_modifiers =  ["small-card"]%}
 {% set article_classes = ['article'] %}
-
 
 {% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
 {% set article = parse_article_json(remote_uuid) %}
@@ -25,36 +24,24 @@ Descr: defines "article" and outputs fields for article card
 {% endif %}
 
 
-{# card label #}
+{# article label #}
 {% if article.card_label %}
   {% set show_article_label = true %}
 {% endif %}
 
-{# dateline #}
-{% if article.dateline %}
-  {% set show_dateline = true %}
-  {% set dateline = article.dateline %}
-  {% set dateline = dateline|date("m/d/Y") %}
-{% endif %}
-
-{# bylines #}
-{% if article.bylines %}
-  {% set show_bylines = true %}
-{% endif %}
-
-{# media sources #}
-{% if article.media_sources %}
-  {% set media_sources = true %}
-{% endif %}
-
-<div {{ bem(article_base_class, (article_modifiers), article_blockname) }} {% if nodeId %} aria-labelledby="item--{{nodeId}}" {% endif %}> 
+<div {{ bem(article_base_class, (article_modifiers), article_blockname, article_classes) }} {% if nodeId %} aria-labelledby="item--{{nodeId}}" {% endif %}> 
 
 {{image}}
 {{title_suffix}}
 
 	<div {{ bem(article_copy_base_class|default('article__copy'), (article_copy_modifiers), article_copy_blockname) }}>
 
-		
+		 {% if show_article_label %}
+			<span class="article__label">
+				{{ article.card_label }}
+			</span>
+      
+		{% endif %}
 			{% include "@content/atoms/_heading.twig" with {
         "heading_level": 2,
         "heading": article.title,
@@ -68,24 +55,7 @@ Descr: defines "article" and outputs fields for article card
     } %}
 
 
-		{% if show_article_label %}
-			<span class="article__label">
-				{{ article.card_label }}
-			</span>
-		{% endif %}
 
-		{% if show_dateline %}
-			<span class="article__date">
-				{{ dateline }}
-			</span>
-		{% endif %}
-
-		{% if show_bylines %}
-			<span class="article__byline">
-				By |
-				{{ article.bylines }}
-			</span>
-		{% endif %}
 
 	</div>
 </div>

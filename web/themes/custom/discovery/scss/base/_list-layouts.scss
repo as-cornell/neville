@@ -1,0 +1,23 @@
+/* -------------------------
+
+Title: _list-layouts.scss
+Descr: 
+    Sets styles for all list layouts. Primarily is a list a flex or grid etc.
+
+--------------------------- */
+
+// flex lists
+.flex {
+  display: flex;
+  gap: 1rem;
+  &.flex--2 {
+    div {
+      flex: 50%;
+    }
+  }
+}
+
+// grid lists
+.grid {
+  display: grid;
+}

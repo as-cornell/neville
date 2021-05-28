@@ -43,14 +43,25 @@
     'paragraph',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    not paragraph.isPublished() ? 'paragraph--unpublished'
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'flex',
+    'flex--2'
   ]
 %}
+{# {{vardumper()}} #}
+
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
-    {% block content %}
-    paragraph--related-articles.html.twig
-      {{ content }}
-    {% endblock %}
-  </div>
+	<h3>
+		{{content.field_section_label}}
+	</h3>
+	<div{{attributes.addClass(classes)}}>
+		{% block content %}
+			{{ content.field_articles }}
+		{% endblock %}
+	</div>
+	<p>
+		<a href="#">
+			view all department news
+		</a>
+	</p>
 {% endblock paragraph %}

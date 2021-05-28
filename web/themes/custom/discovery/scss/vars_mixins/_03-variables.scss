@@ -75,6 +75,7 @@ WIDTHS
   used mostly for max widh settings page elements
 ----
 */
+
   --xs: 320px;
   --small: 480px;
   --medium: 782px; // 782
@@ -106,4 +107,6 @@ MARGINS
   @include medium() {
     --margin-6: 6rem;
   }
+
+  --space: 2rem;
 }

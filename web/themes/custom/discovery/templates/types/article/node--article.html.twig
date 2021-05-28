@@ -138,12 +138,12 @@ if item set show as true and create related_articles and loop over array to buil
 		{{image}}
 	</div>
 	<aside role="complimentary">
-		{% if show_related_articles %}
+		{# {% if show_related_articles %}
 			<h3>
 				Related articles
 			</h3>
 			{{article.related_articles}}
-		{% endif %}
+		{% endif %} #}
 
 		{% if show_relatedArticleList %}
 			<h3>
@@ -152,19 +152,18 @@ if item set show as true and create related_articles and loop over array to buil
 			{{article.related_articles}}
 		{% endif %}
 		
-    {% if show_departments_programs %}
+    {# {% if show_departments_programs %}
 			<h3>
 				Related department or program
 			</h3>
 			{{article.departments}}
-		{% endif %}
+		{% endif %} #}
 		
-    {% if show_related_people %}
+    {# {% if show_related_people %}
 			<h3>
 				Related people
 			</h3>
-			{# {{vardumper()}} #}
 			{{related_people}}
-		{% endif %}
+		{% endif %} #}
 	</aside>
 </main>

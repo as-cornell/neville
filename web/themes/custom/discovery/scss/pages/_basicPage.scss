@@ -59,27 +59,26 @@ Descr:
     "aside"
     "content"
     "sidebar";
+  // @include medium {
+  //   grid-template-areas:
+  //     ". title title title title title title title title title title ."
+  //     "nav nav nav content content content content content content content content content"
+  //     "sidebar sidebar sidebar content content content content content content content content content";
+  // }
   @include medium {
+    grid-template-columns: repeat(12, 1fr);
     grid-template-areas:
-      ". title title title title title title title title title title ."
-      "nav nav nav content content content content content content content content content"
-      "sidebar sidebar sidebar content content content content content content content content content";
-  }
-  @include large {
-    grid-template-columns: repeat(24, 1fr);
-    grid-template-areas:
-      ". . . . . title title title title title title title title title title title title title title title . . . ."
-      "nav nav nav nav nav content content content content content content content content content content content content content content content aside aside aside aside"
-      "sidebar sidebar sidebar sidebar sidebar content content content content content content content content content content content content content content content aside aside aside aside";
+      ". title title title title title title title title title . ."
+      ".nav nav nav content content content content content content content ."
+      ".sidebar sidebar sidebar content content content content content content content .";
   }
   &--has-aside {
     @include medium {
       grid-template-columns: repeat(12, 1fr);
       grid-template-areas:
-        ". title title title title title title title title title title ."
-        "nav nav nav aside aside aside aside aside aside aside aside aside"
-        "nav nav nav content content content content content content content content content"
-        "sidebar sidebar sidebar content content content content content content content content content";
+        "title title title title title title title title title title . ."
+        "nav nav nav content content content content content content content aside aside"
+        "sidebar sidebar sidebar content content content content content content content aside aside";
     }
     @include large {
       grid-template-columns: repeat(24, 1fr);

@@ -19,6 +19,7 @@
  */
 #}
 
+
 <p class="nav-toggle nav-toggle--sidebar">
 	<span>
 		Show section navigation
@@ -36,7 +37,7 @@
 	#}
 
 {{ menus.menu_links(items, attributes, 0) }}
-menu--extras--main.html.twig
+
 {% macro menu_links(items, attributes, menu_level) %}
 	{% import _self as menus %}
 	{% set listClass = 'nav-' ~ menu_level %}
@@ -45,8 +46,10 @@ menu--extras--main.html.twig
 		<ul class=" nav {{listClass}} ">
 			{% for item in items %}
 				<li class="{{listClass}}__item{% if item.below %} has-sub{% endif %}">
-					<a href="{{item.url}}" class="{{listClass}}__link">
+
+					<a href="{{item.url}}" class="{{listClass}}__link {% if item.in_active_trail %} active{% endif %}">
 						{{item.title}}
+
 					</a>
 					{# link(item.title, item.url) #}
 					{% if item.below %}
@@ -55,7 +58,6 @@ menu--extras--main.html.twig
                 shape : "chevron-down"
             } %}
 						{% endembed %}
-
 						{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
 					{% endif %}
 				</li>

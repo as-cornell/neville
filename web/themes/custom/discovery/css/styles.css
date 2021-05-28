@@ -93,7 +93,8 @@ MARGINS
   --margin-2: 2rem;
   --margin-3: 2rem;
   --margin-4: 2rem;
-  --margin-6: 2rem; }
+  --margin-6: 2rem;
+  --space: 2rem; }
   @media (min-width: 782px) {
     :root {
       --base-font-size: 24px; } }
@@ -219,6 +220,24 @@ img {
 
 /* -------------------------
 
+Title: _list-layouts.scss
+Descr: 
+    Sets styles for all list layouts. Primarily is a list a flex or grid etc.
+
+--------------------------- */
+.flex {
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem; }
+  .flex.flex--2 div {
+    -ms-flex: 50%;
+        flex: 50%; }
+
+.grid {
+  display: grid; }
+
+/* -------------------------
+
 Title: <main> layouts.
 Descr: 
     main content is the <main> tag. It is where the main components are. It is a child of the .container.
@@ -276,6 +295,97 @@ Descr: any hiding or showin
 
 /* -------------------------
 
+Title: Article cards and teasers
+Descr: 
+   - article--card
+   - article--card-small
+   - article--teaser
+
+--------------------------- */
+.article--card .article__copy {
+  padding: 1rem;
+  display: grid;
+  gap: 0px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "label label label" "title title title" "date byline byline"; }
+
+.article--card .article__title {
+  grid-area: title;
+  margin: 0.75em 0 2em 0;
+  font-weight: var(--regular);
+  font-size: var(--base-20);
+  line-height: 1.4; }
+
+.article--card .article__label {
+  grid-area: label;
+  color: var(--as-black);
+  font-size: var(--base-18);
+  font-weight: var(--semi);
+  margin-bottom: 0.5em; }
+
+.article--card .article__date {
+  grid-area: date;
+  text-align: left;
+  font-size: var(--base-16);
+  margin-top: 2px; }
+
+.article--card .article__byline {
+  grid-area: byline;
+  font-size: var(--base-16);
+  text-align: right; }
+
+.article--card a.card__title-link {
+  display: block;
+  padding-bottom: 1em;
+  text-decoration: underline;
+  -webkit-text-decoration-color: var(--as-teal-300);
+          text-decoration-color: var(--as-teal-300);
+  position: relative; }
+  .article--card a.card__title-link:before {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 1px;
+    bottom: 0;
+    left: 25%;
+    transition: all 0.2s;
+    background-image: red; }
+  .article--card a.card__title-link:hover:before {
+    left: 0;
+    width: 100%; }
+
+.article--small-card {
+  border: none;
+  margin-bottom: 1rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: start;
+      align-items: flex-start;
+  background: none;
+  box-shadow: none; }
+  .article--small-card :before {
+    display: none; }
+  .article--small-card figure,
+  .article--small-card img {
+    -ms-flex: 0 0 30%;
+        flex: 0 0 30%;
+    margin-right: 1rem;
+    border-radius: var(--border-radius); }
+  .article--small-card .article__copy {
+    -ms-flex: 1 0 60%;
+        flex: 1 0 60%;
+    padding: 0; }
+  .article--small-card .article__title {
+    grid-area: title;
+    margin: 0;
+    font-size: var(--base-20); }
+  .article--small-card .article__label {
+    font-size: var(--base-16); }
+
+/* -------------------------
+
 Title: Buttons and links that look like buttons
 Descr: 
    - iconButton
@@ -296,6 +406,31 @@ ICON/SVG buttons
 
 .icon--button svg {
   width: 1.5rem; }
+
+/* -------------------------
+
+Title: Cards
+Descr: Sets shape and border of cards
+  
+--------------------------- */
+[class$="-card"] {
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+  border: 1px solid pink;
+  -ms-flex-align: start;
+      align-items: flex-start; }
+  [class$="-card"] figure {
+    margin: 0;
+    box-shadow: none; }
+    [class$="-card"] figure img {
+      border-radius: 2px 2px 0 0; }
+  [class$="-card"] > * {
+    position: relative; }
+  [class$="-card"] a {
+    color: var(--as-red-500);
+    display: block; }
+    [class$="-card"] a:hover {
+      color: var(--as-red-500); }
 
 /* -------------------------
 
@@ -440,6 +575,9 @@ Still needs: expand toggle for showing main nav on mobile
     padding: 0.5rem; }
     .nav--site .nav-toggle.active button {
       transform: rotate(180deg); }
+    @media (min-width: 782px) {
+      .nav--site .nav-toggle {
+        display: none; } }
   .nav--site .nav {
     list-style-type: none;
     padding: 0;
@@ -455,6 +593,10 @@ Still needs: expand toggle for showing main nav on mobile
       transform-origin: top;
       transition: transform 250ms ease-in-out 250ms;
       position: relative; }
+    @media (min-width: 782px) {
+      .nav--site .nav {
+        transform: none;
+        position: relative; } }
     .nav--site .nav button {
       right: 5px;
       top: 5px;
@@ -473,6 +615,10 @@ Still needs: expand toggle for showing main nav on mobile
       .nav--site .nav button.active {
         transform: rotate(180deg);
         transform-origin: 50% 50%; }
+    .nav--site .nav a {
+      font-weight: var(--light); }
+      .nav--site .nav a.active {
+        font-weight: var(--regular); }
   .nav--site .nav-0 {
     background: var(--as-gray-300);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
@@ -480,6 +626,9 @@ Still needs: expand toggle for showing main nav on mobile
     transform: scale(1, 0);
     transform-origin: top;
     transition: transform 150ms ease-out; }
+    @media (min-width: 782px) {
+      .nav--site .nav-0 {
+        transform: none; } }
     .nav--site .nav-0 > .nav-0__item {
       background: var(--as-teal-400);
       margin-bottom: 0;
@@ -488,14 +637,15 @@ Still needs: expand toggle for showing main nav on mobile
       display: inline-block;
       position: relative;
       color: var(--as-gray-300);
-      font-weight: var(--light);
       background: var(--as-black);
       padding: 0.5rem;
-      border-right: 1px solid var(--as-white);
-      width: calc(100% - 3rem);
+      width: 100%;
       transition: opacity 150ms ease-in-out; }
+      .nav--site .nav-0 .nav-0__link.has-sub {
+        background: red;
+        width: calc(100% - 3rem);
+        border-right: 1px solid var(--as-white); }
   .nav--site .nav-1 {
-    font-weight: var(--regular);
     border-radius: 0;
     width: 100%;
     padding-left: 0;
@@ -965,15 +1115,12 @@ Descr:
           display: block; } }
   @media (min-width: 782px) {
     .basicSidebar {
-      grid-template-areas: ". title title title title title title title title title title ." "nav nav nav content content content content content content content content content" "sidebar sidebar sidebar content content content content content content content content content"; } }
-  @media (min-width: 1224px) {
-    .basicSidebar {
-      grid-template-columns: repeat(24, 1fr);
-      grid-template-areas: ". . . . . title title title title title title title title title title title title title title title . . . ." "nav nav nav nav nav content content content content content content content content content content content content content content content aside aside aside aside" "sidebar sidebar sidebar sidebar sidebar content content content content content content content content content content content content content content content aside aside aside aside"; } }
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-areas: ". title title title title title title title title title . ." ".nav nav nav content content content content content content content ." ".sidebar sidebar sidebar content content content content content content content ."; } }
   @media (min-width: 782px) {
     .basicSidebar--has-aside {
       grid-template-columns: repeat(12, 1fr);
-      grid-template-areas: ". title title title title title title title title title title ." "nav nav nav aside aside aside aside aside aside aside aside aside" "nav nav nav content content content content content content content content content" "sidebar sidebar sidebar content content content content content content content content content"; } }
+      grid-template-areas: "title title title title title title title title title title . ." "nav nav nav content content content content content content content aside aside" "sidebar sidebar sidebar content content content content content content content aside aside"; } }
   @media (min-width: 1224px) {
     .basicSidebar--has-aside {
       grid-template-columns: repeat(24, 1fr);

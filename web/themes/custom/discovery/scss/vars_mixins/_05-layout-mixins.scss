@@ -1,0 +1,4 @@
+@mixin baseGrid($g-gap: var(--space), $g-row-gap: var(--space)) {
+  display: grid;
+  gap: $g-gap;
+}

@@ -62,7 +62,8 @@ Descr: defines content and blocks for _default.twig for content type 'basic page
 					</button>
 
 				</p>
-{{ drupal_menu('main', 2, 2) }}ppppppppp
+				{{ drupal_menu('main', 2, 2) }}
+				ppppppppp
 
 				<ul class="nav nav--site">
 					<li class="nav__item nav__item--with-sub">
@@ -171,13 +172,13 @@ Descr: defines content and blocks for _default.twig for content type 'basic page
 			{{sidebar_content}}
 		</div>
 	{% endif %}
-	{% if aside %}
-		<aside role="complimentary">
-			<h2>
-				test aside here?
-			</h2>
-			{{ otp_nav }}
-			{{ aside_content }}
-		</aside>
-	{% endif %}
+	{# {% if aside %}
+				<aside role="complimentary">
+					<h2>
+						test aside here?
+					</h2>
+					{{ otp_nav }}
+					{{ aside_content }}
+				</aside>
+			{% endif %} #}
 </main>
