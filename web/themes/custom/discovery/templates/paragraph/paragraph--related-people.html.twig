@@ -39,6 +39,8 @@
  */
 #}
 
+{# set columns  #}
+
 {%
   set classes = [
     'paragraph',
@@ -46,16 +48,20 @@
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished',
     'flex',
-    'flex--2'
+'flex--' ~ content.field_number_of_columns[0]["#markup"]
+
   ]
 %}
+
 {{vardumper()}}
+
 {% block paragraph %}
 	<h3>
 		{{content.field_section_label}}
 	</h3>
 	<div{{attributes.addClass(classes)}}>
 		{% block content %}
+    {# reder as some view mode #}
 			{{ content.field_people }}
 		{% endblock %}
 	</div>

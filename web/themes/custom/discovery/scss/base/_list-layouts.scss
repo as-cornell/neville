@@ -9,10 +9,21 @@ Descr:
 // flex lists
 .flex {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   &.flex--2 {
     div {
       flex: 50%;
+    }
+  }
+  &.flex--4 {
+    div {
+      flex: 25%;
+    }
+  }
+  &.flex--3 {
+    div {
+      flex: 31%;
     }
   }
 }

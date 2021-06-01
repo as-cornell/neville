@@ -19,7 +19,9 @@ Descr: defines "article" and outputs fields for article article
 {# {{vardumper(article)}} #}
 {% if article.imagepath %}
 	{% set image %}
+  <figure>
 		<img src="{{article.imagepath}}" alt="{{article.alt}}">
+  </figure>
 	{% endset %}
 {% endif %}
 
