@@ -10,7 +10,7 @@ Descr: defines "person" and outputs fields for person card
 #}
 {# set wrapper bem calsses #}
 {% set person_base_class = 'person' %}
-{% set person_modifiers =  ["card"]%}
+{% set person_modifiers =  ["card--small"]%}
 {% set person_classes = ['person', 'card'] %}
 
 
@@ -36,9 +36,9 @@ Descr: defines "person" and outputs fields for person card
 
 
 {# responsibilities #}
-{% if person.responsibilities %}
+{# {% if person.responsibilities %}
   {% set show_responsibilities = true %}
-{% endif %}
+{% endif %} #}
 
 {# departments #}
 {% if person.departments %}
@@ -71,7 +71,7 @@ Descr: defines "person" and outputs fields for person card
     image: image
 } %}{% endembed %} #}
 
-
+<h1>person card small</h1>
 <div {{ bem(person_base_class, (person_modifiers), person_blockname, person_classes) }} {% if person_nodeId %} aria-labelledby="item--{{person_nodeId}}" {% endif %}>
 	{{title_suffix}}
 	<figure class='person__image'>
