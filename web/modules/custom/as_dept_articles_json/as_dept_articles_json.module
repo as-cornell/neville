@@ -68,6 +68,7 @@ function as_dept_articles_json_get_person_json($person_uuid)
 {
 
   $person_data = [];
+  if (!empty($person_uuid) && $person_uuid <> 'missing') {
     //using people stub uuid get full person record uuid from as.cornell.edu
     $url = 'https://as.cornell.edu/jsonapi/page_component_entity/person/'. $person_uuid;
     //fetch data
@@ -103,6 +104,7 @@ function as_dept_articles_json_get_person_json($person_uuid)
       }
 
   return $person_data;
+ }
 }
 
 
