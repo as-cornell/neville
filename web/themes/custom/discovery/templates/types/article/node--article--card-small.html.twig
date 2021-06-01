@@ -10,8 +10,8 @@ Descr: defines "article" and outputs fields for article article
 #}
 {# set wrapper bem calsses #}
 {% set article_base_class = 'article' %}
-{% set article_modifiers =  ["small-card"]%}
-{% set article_classes = ['article'] %}
+{% set article_modifiers =  ["card-small"]%}
+{% set article_classes = ['article', 'card'] %}
 
 {% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
 {% set article = parse_article_json(remote_uuid) %}

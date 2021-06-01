@@ -7,7 +7,7 @@ Descr: Sets shape and border of cards
 
 // default card styles
 
-[class$="-card"] {
+.card {
   // @include boxShadow;
   // @include baseBorder();
   border-radius: var(--border-radius);

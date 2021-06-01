@@ -216,7 +216,8 @@ Descr: sets basic image styles
 --------------------------- */
 img {
   max-width: 100%;
-  height: auto; }
+  height: auto;
+  }
 
 /* -------------------------
 
@@ -354,7 +355,7 @@ Descr:
     left: 0;
     width: 100%; }
 
-.article--small-card {
+.article--card-small {
   border: none;
   margin-bottom: 1rem;
   display: -ms-flexbox;
@@ -365,23 +366,24 @@ Descr:
       align-items: flex-start;
   background: none;
   box-shadow: none; }
-  .article--small-card :before {
+  .article--card-small :before {
     display: none; }
-  .article--small-card figure,
-  .article--small-card img {
+  .article--card-small figure,
+  .article--card-small img {
     -ms-flex: 0 0 30%;
-        flex: 0 0 30%;
+    flex: 0 0 30%;
     margin-right: 1rem;
-    border-radius: var(--border-radius); }
-  .article--small-card .article__copy {
+    border-radius: var(--border-radius);
+    }
+  .article--card-small .article__copy {
     -ms-flex: 1 0 60%;
         flex: 1 0 60%;
     padding: 0; }
-  .article--small-card .article__title {
+  .article--card-small .article__title {
     grid-area: title;
     margin: 0;
     font-size: var(--base-20); }
-  .article--small-card .article__label {
+  .article--card-small .article__label {
     font-size: var(--base-16); }
 
 /* -------------------------
@@ -413,23 +415,23 @@ Title: Cards
 Descr: Sets shape and border of cards
   
 --------------------------- */
-[class$="-card"] {
+.card {
   border-radius: var(--border-radius);
   margin-bottom: 2rem;
   border: 1px solid pink;
   -ms-flex-align: start;
       align-items: flex-start; }
-  [class$="-card"] figure {
+  .card figure {
     margin: 0;
     box-shadow: none; }
-    [class$="-card"] figure img {
+    .card figure img {
       border-radius: 2px 2px 0 0; }
-  [class$="-card"] > * {
+  .card > * {
     position: relative; }
-  [class$="-card"] a {
+  .card a {
     color: var(--as-red-500);
     display: block; }
-    [class$="-card"] a:hover {
+    .card a:hover {
       color: var(--as-red-500); }
 
 /* -------------------------
@@ -672,6 +674,90 @@ Still needs: expand toggle for showing main nav on mobile
       .nav--site .nav-1 {
         position: relative;
         transform: none; } }
+
+/* -------------------------
+
+Title: _card--person.scss
+Descr: Sets all specific styles for an person card
+  sets css for card--feature as they are person
+
+--------------------------- */
+.person--card {
+  display: grid;
+  -ms-flex-line-pack: start;
+      align-content: flex-start; }
+  .person--card figure {
+    background: none; }
+  .person--card .person__name-title {
+    font-size: var(--base-28);
+    font-weight: var(--semi);
+    margin: 0 1rem; }
+  .person--card .person__name {
+    font-size: var(--base-28);
+    font-weight: var(--semi); }
+  .person--card .person__title {
+    font-size: var(--base-20);
+    margin-top: 0; }
+  .person--card .person__contacts {
+    font-size: var(--base-18);
+    padding: 1rem;
+    display: none; }
+  .person--card .person__copy {
+    margin: 0 1rem; }
+  .person--card .person__departments,
+  .person--card .person__responsibilities {
+    margin-top: 1em;
+    padding-top: 1em;
+    font-size: var(--base-16);
+    border-top: 1px solid var(--as-teal);
+    padding-bottom: 1rem;
+    margin: 1rem; }
+    .person--card .person__departments ul,
+    .person--card .person__responsibilities ul {
+      padding-left: 1rem;
+      margin-left: 0;
+      margin-top: 0; }
+
+.card--small {
+  border: none;
+  margin-bottom: 2rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: start;
+      align-items: flex-start;
+  background: none;
+  box-shadow: none; }
+  .card--small :before {
+    display: none; }
+  .card--small .card--person__name-title {
+    margin: 0;
+    -ms-flex: 1 0 60%;
+        flex: 1 0 60%; }
+  .card--small .card--person__name,
+  .card--small .card--person__title {
+    padding-top: 0;
+    margin-top: 0; }
+  .card--small .card--person__name {
+    font-weight: var(--semi);
+    font-size: var(--base-20); }
+  .card--small .card--person__title {
+    font-size: var(--base-20);
+    font-weight: var(--regular); }
+  .card--small figure {
+    -ms-flex: 0 0 30%;
+        flex: 0 0 30%;
+    margin-right: 1rem; }
+  .card--small img {
+    border-radius: var(--border-radius); }
+  .card--small .card__copy {
+    -ms-flex: 0 0 60%;
+        flex: 0 0 60%;
+    padding: 0;
+    font-size: var(--base-18); }
+  .card--small .card--person__contacts {
+    display: none; }
 
 /* -------------------------
 
