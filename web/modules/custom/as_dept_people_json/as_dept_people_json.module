@@ -174,6 +174,7 @@ function as_dept_people_json_get_people_articles_json($uuid)
 {
   //set cache id (verify parameters are safe values to use as cache id)
   $cid = "as_people_articles_json:" . $uuid;
+  $data = '';
   $articles_data = [];
   //check cache
   if ($cache = \Drupal::cache('data')->get($cid)) {
@@ -186,10 +187,12 @@ function as_dept_people_json_get_people_articles_json($uuid)
     $url = 'https://as.cornell.edu/personarticles/' . $uuid;
     //fetch data and set cache
     $data = file_get_contents($url);
+    if (!empty ($data)) {
     $json = json_decode($data, true);
     $articles_data['data'] = $json['data'];
     \Drupal::cache('data')
       ->set($cid, $json, time() + 360);
+    }
   }
   //return data
   return $articles_data;
