@@ -9,7 +9,6 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 
 #}
 
-{# {{vardumper()}} #}
 
 {# Set up main
     - extra class main
@@ -37,7 +36,7 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 
 
 {% set sidebar_wrapper_extra_classes = sidebar_wrapper_extra_classes | default(['']) %}
-{# {{vardumper()}} #}
+
 
 <main {{ bem(main_element_base_class, (main_element_modifiers), main_element_blockname, main_element_extra_classes) }} id="mainContent">
 
@@ -53,6 +52,8 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 	</div>
 	<div class="content">
 		{{content}}
+
+
 	</div>
 	{% if sidebarNav != false %}
 		<nav class="nav--site">
@@ -73,7 +74,44 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 			</h2>
 			{{ otp_nav }}
 			{{ aside_content }}
+					{#
+			  Page Section links
+			  - set up aside in-page nav
+			  - link values for the nav items
+			  - set aside_nav to the menu block
+			#}
+
+			{% set linkValues = [] %}
+				{% for item in content.field_page_components|field_target_entity %}
+					{% set type =  item.type.value.0.target_id%}
+					{% if type == 'page_section' %}
+						{% set label =  item.field_section_label.value%}
+						{% set linkValues = linkValues|merge([label]) %}
+					{% endif %}
+				{% endfor %}
+
+			{# if page section values set aside_nav to the page menu block #}
+				{% if linkValues %}
+				{# set otp_nav #}
+					<div class="otpNavWrapper otpNav--basic_page"> <h4 class="otpToggle">
+						On this page:
+					</h4>
+					{{ drupal_block('page_menu_block', {link_values:linkValues}) }}
+				</div>
+				{# endset #}
+			{% endif %}
+
+		{# end page section links #}
+
+
+
+
 		</aside>
+
+
+
 	{% endif %}
+
+
 </main>
 

@@ -41,6 +41,8 @@ class MenuPlugBlock extends BlockBase
     $link_class = as_menu_plug_generate_link_class($menu_level);
     // get link class
     $list_class = as_menu_plug_generate_list_class($menu_level);
+    // RTM 8/17 hiding the list with inpage navs from big view added otpNav as they can both be the same just visually hidden in sidebar.
+    $build['menu_plug_block']['#markup'] = $build['menu_plug_block']['#markup'] . '<ul class="' . $list_class . ' otpNav">';
     // get $nid from $menu_link_id uri
     $entity_id = as_menu_plug_menulinkid_nid($menu_link_id);
     // strip $nid
@@ -58,33 +60,20 @@ class MenuPlugBlock extends BlockBase
       if (!empty($node->field_page_components)) {
         $fpce = $node->field_page_components;
       }
-
       // get page components
       if (!empty($fpce)) {
         $index = 0;
-        // make sure we need a wrapper
-
-        // RTM 8/17 hiding the list with inpage navs from big view added otpNav as they can both be the same just visually hidden in sidebar.
-
-        //if (!empty($node->field_page_components[0]->entity->field_page_section_title[0])) {
-        $build['menu_plug_block']['#markup'] = $build['menu_plug_block']['#markup'] . '<ul class="' . $list_class . ' otpNav">';
         foreach ($fpce as $pce) {
-          // this uses the component entity label as the link text
-          //$link_title = $node->field_page_components_entity[$index]->entity->label();
           // this uses only field_page_section_title from a page section entity
-          if (!empty($node->field_page_components[$index]->entity->field_page_section_title[0])) {
-            $link_title = $node->field_page_components[$index]->entity->field_page_section_title[0]->value;
+          if (!empty($node->field_page_components[$index]->entity->field_section_label[0])) {
+            $link_title = $node->field_page_components[$index]->entity->field_section_label[0]->value;
             $build['menu_plug_block']['#markup'] = $build['menu_plug_block']['#markup'] .  as_menu_plug_generate_link_markup($link_title, $alias, $link_class);
           }
           $index++;
         }
-        //if (empty($menu_children)){
         $build['menu_plug_block']['#markup'] = $build['menu_plug_block']['#markup'] . '</ul>';
       }
-      //}
     }
-
-
     return $build;
   }
 }

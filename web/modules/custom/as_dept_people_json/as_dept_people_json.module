@@ -189,7 +189,9 @@ function as_dept_people_json_get_people_articles_json($uuid)
     $data = file_get_contents($url);
     if (!empty ($data)) {
     $json = json_decode($data, true);
+    if (!empty ($json)) {
     $articles_data['data'] = $json['data'];
+    }
     \Drupal::cache('data')
       ->set($cid, $json, time() + 360);
     }
