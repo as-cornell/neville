@@ -47,13 +47,13 @@
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished',
-    'flex',
-'flex--' ~ content.field_number_of_columns[0]["#markup"]
+    'grid',
+'grid--' ~ content.field_number_of_columns[0]["#markup"]
 
   ]
 %}
 
-{{vardumper()}}
+{# {{vardumper()}} #}
 
 {% block paragraph %}
 	<h3>

@@ -19,29 +19,38 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
  #}
 {% set main_element_extra_classes = ['main'] %}
 {% set main_element_base_class = 'basicSidebar' %}
-{% set main_element_modifiers = ['has-aside'] %}
+{# {% set main_element_modifiers = ['has-aside'] %} #}
 {# set defaults #}
-{% set sidebarNav = true %}
-{% set aside = false %}
-{% set sidebarContent = false %}
+{% set show_sidebarNav = true %}
+{% set show_aside = false %}
+{% set show_sidebar = false %}
 
 {# Create classes array. The 'node' class is required for contextual edit links. #}
 {% set classes = [
   'node'
 ] %}
 
+{# set main content #}
+{% set mainContent = content.field_page_components %}
 
-{% set aside = true %}
-{% set heading_class = "bob" %}
+{# set sidebar #}
+{% if content.field_sidebar_components %}
+  {% set show_sidebar = true %}
+  {% set sidebarContent = content.field_sidebar_components %}
+{% endif %}
+
+{# 
+  set aside 
+  ***Mark*** 
+  if there are page section components, set show_aside = true
+#}
 
 
 
 {% set sidebar_wrapper_extra_classes = sidebar_wrapper_extra_classes | default(['']) %}
-{# {{vardumper()}} #}
+{{vardumper()}}
 
 <main {{ bem(main_element_base_class, (main_element_modifiers), main_element_blockname, main_element_extra_classes) }} id="mainContent">
-
-
 	<div class="title">
 		{% include "@content/atoms/_heading.twig" with {
         "heading_level" : 1,
@@ -52,27 +61,21 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
       } %}
 	</div>
 	<div class="content">
-		{{content}}
+		{{mainContent}}
 	</div>
-	{% if sidebarNav != false %}
+	{% if show_sidebarNav != false %}
 		<nav class="nav--site">
 			{{ drupal_menu('main', 2) }}
-			{# drupal_block('mainnavigation_2') #}
-			{# drupal_entity('block', 'mainnavigation', check_access=false) #}
 		</nav>
 	{% endif %}
-	{% if sidebarContent %}
+	{% if show_sidebar %}
 		<div class="sidebar">
-			{{sidebar_content}}
+			{{sidebarContent}}
 		</div>
 	{% endif %}
-	{% if aside %}
+	{% if show_aside %}
 		<aside role="complimentary">
-			<h2>
-				test aside here?
-			</h2>
 			{{ otp_nav }}
-			{{ aside_content }}
 		</aside>
 	{% endif %}
 </main>

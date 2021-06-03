@@ -16,6 +16,7 @@
     ],
     "require": {
         "composer/installers": "^1.9",
+        "drupal/adminimal_theme": "^1.6",
         "drupal/browsersync": "^2.0",
         "drupal/components": "^2.2",
         "drupal/core-composer-scaffold": "^9",
@@ -24,6 +25,7 @@
         "drupal/devel": "^4.1",
         "drupal/domain": "^1.0@beta",
         "drupal/entity_usage": "^2.0@beta",
+        "drupal/field_group": "^3.1",
         "drupal/menu_item_extras": "^2.15",
         "drupal/migrate_tools": "^5.0",
         "drupal/paragraph_view_mode": "^2.0",
