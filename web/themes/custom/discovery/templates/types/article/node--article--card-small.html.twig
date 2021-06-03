@@ -30,11 +30,11 @@ Descr: defines "article" and outputs fields for article article
 {% if article.card_label %}
   {% set show_article_label = true %}
 {% endif %}
-
+{{title_suffix}}
 <div {{ bem(article_base_class, (article_modifiers), article_blockname, article_classes) }} {% if nodeId %} aria-labelledby="item--{{nodeId}}" {% endif %}> 
 
 {{image}}
-{{title_suffix}}
+
 
 	<div {{ bem(article_copy_base_class|default('article__copy'), (article_copy_modifiers), article_copy_blockname) }}>
 
