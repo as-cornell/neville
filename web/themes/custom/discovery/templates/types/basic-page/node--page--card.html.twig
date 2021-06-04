@@ -1,0 +1,87 @@
+
+{#
+
+/* -------------------------
+
+Title: node--page.html.twig
+Descr: This is the framework for a basic page contnet type. Sets up variables and content for _basic-page.twig
+
+--------------------------- */
+
+#}
+
+
+{# Set up main
+    - extra class main
+    - base class page
+    - modifier basic
+    - turn on sidebarNav
+ #}
+{% set main_element_extra_classes = ['main'] %}
+{% set main_element_base_class = 'basicSidebar' %}
+{% set main_element_modifiers = [''] %}
+{# set defaults #}
+{% set sidebarNav = true %}
+{% set aside = false %}
+{% set sidebarContent = false %}
+
+
+{#
+    - set sidebar type
+    - if sidebar = none make base class 'basic'
+    - set up sidebar_nav
+    - add has-sideber to main_element_modifiers
+    - set location of sidebar
+    - set sidebar content to field_sidebar_components
+    - add sidebar base class and modifier basic-page
+#}
+
+
+
+
+
+{#
+    - set aside to false
+    - if aside_components set to true, and add has-aside to main
+#}
+
+{#
+  Page Section links
+  - set up aside in-page nav
+  - link values for the nav items
+  - set aside_nav to the menu block
+#}
+
+{% set linkValues = [] %}
+{% for item in content.field_page_components|field_target_entity %}
+  {% set type =  item.type.value.0.target_id%}
+  {% if type == 'page_section' %}
+    {% set label =  item.field_section_label.value%}
+    {% set linkValues = linkValues|merge([label]) %}
+  {% endif %}
+{% endfor %}
+
+{# if page section values set aside_nav to the page menu block #}
+
+  {% set card_body %}
+
+    {{ drupal_block('card_menu_block', {link_values:linkValues,node_id:node.id}) }}
+
+  {% endset %}
+
+
+
+
+{% embed "@content/molecules/card.twig" with {
+    card_modifiers : ["pageToc"],
+    card_title: label,
+    card_link_url: url,
+
+    card_body : card_body,
+
+    card_image : content.field_image,
+
+
+} %}
+
+{% endembed %}
