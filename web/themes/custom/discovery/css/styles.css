@@ -1545,6 +1545,34 @@ header {
 
 /* -------------------------
 
+Title: System block styles
+Descr: Set 
+        - tabs
+
+--------------------------- */
+.system-block {
+  background: red; }
+
+.local-tasks ul {
+  background: var(--as-teal-300);
+  font-size: var(--base-16);
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  list-style: none;
+  padding-left: 0;
+  border-radius: var(--border-radius); }
+  .local-tasks ul li {
+    margin: 0.25rem; }
+  .local-tasks ul a {
+    display: block;
+    padding: 0.25rem 0.5rem;
+    background: var(--as-teal-200);
+    border-radius: var(--border-radius);
+    color: var(--as-teal-600);
+    font-weight: var(--semi); }
+
+/* -------------------------
+
 Title: <main> .basicSidebar
 Descr: 
    basicSidebar specific 
