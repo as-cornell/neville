@@ -123,7 +123,6 @@ Still needs: expand toggle for showing main nav on mobile
         }
         &:hover,
         &.expanded {
-          // border-top: 4px solid var(--as-red-400);
           text-decoration-color: var(--as-gray-500);
           box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
           &:after {
@@ -135,17 +134,15 @@ Still needs: expand toggle for showing main nav on mobile
           .nav-1 {
             transform: scaleY(1);
             transform-origin: top;
-            transition: all 0.25s ease-out;
+            transition: all 250ms ease-out;
           }
           overflow: visible;
         }
       }
-
       button {
         opacity: 0;
       }
     }
-
     @include large() {
       justify-content: flex-end;
     }
@@ -187,7 +184,9 @@ Still needs: expand toggle for showing main nav on mobile
         }
       }
     }
-    &.expanded {
+    &.shown {
+      transform: scaleY(1);
+      transform-origin: top;
     }
     @include medium() {
       width: 260px;

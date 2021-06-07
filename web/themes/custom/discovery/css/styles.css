@@ -696,7 +696,7 @@ Still needs: expand toggle for showing main nav on mobile
             .nav--main .nav-0 .nav-0__item:hover .nav-1, .nav--main .nav-0 .nav-0__item.expanded .nav-1 {
               transform: scaleY(1);
               transform-origin: top;
-              transition: all 0.25s ease-out; }
+              transition: all 250ms ease-out; }
         .nav--main .nav-0 button {
           opacity: 0; } }
     @media (min-width: 1224px) {
@@ -731,6 +731,9 @@ Still needs: expand toggle for showing main nav on mobile
           right: -0.125rem; }
         .nav--main .nav-1 .nav-1__link:hover:before {
           left: -0.125rem; }
+    .nav--main .nav-1.shown {
+      transform: scaleY(1);
+      transform-origin: top; }
     @media (min-width: 782px) {
       .nav--main .nav-1 {
         width: 260px; } }
@@ -1586,7 +1589,7 @@ Descr:
   @media (min-width: 782px) {
     .basicSidebar--has-aside {
       grid-template-columns: repeat(12, 1fr);
-      grid-template-areas: "title title title title title title title title title title . ." "nav nav nav content content content content content content content aside aside" "sidebar sidebar sidebar content content content content content content content aside aside"; } }
+      grid-template-areas: "title title title title title title title title title title . ." "nav nav nav aside aside aside aside aside aside aside aside aside" "nav nav nav content content content content content content content content content" "sidebar sidebar sidebar content content content content content content content content content"; } }
   @media (min-width: 1224px) {
     .basicSidebar--has-aside {
       grid-template-columns: repeat(24, 1fr);

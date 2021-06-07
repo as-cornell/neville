@@ -19,7 +19,7 @@
 {% set heading_base_class = heading_base_class|default('h' ~ heading_level) %}
 
 <h{{heading_level}}
-	{{ bem(heading_base_class, (heading_modifiers), heading_blockname, heading_class) }} id="item--{{isAriaLabel}}">
+	{{ bem(heading_base_class, (heading_modifiers), heading_blockname, heading_class) }} {% if isAriaLabel %} id="item--{{isAriaLabel}}{% endif %}">
 	{# <h{{heading_level}} {% if isTitle %} id="article-title-{{heading}}" itemprop="name" {% endif %}> #}
 
 	{% if heading_url %}

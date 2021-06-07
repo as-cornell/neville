@@ -8,5 +8,7 @@ global-scripts:
     js_min/main-menu.js: {}
     js_min/sidebar-menu.js: {}
     js_min/forms.js: {}
-  dependencies:
-    - core/jquery
+    js_min/on-this-page-nav.js: {}
+
+    dependencies:
+      - core/jquery
