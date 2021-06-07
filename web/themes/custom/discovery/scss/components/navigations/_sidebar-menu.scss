@@ -82,7 +82,7 @@
     z-index: 11;
     transform: scale(1, 0);
     transform-origin: top;
-    transition: transform 150ms ease-out;
+    // transition: transform 150ms ease-out;
     @include medium() {
       transform: none;
     }

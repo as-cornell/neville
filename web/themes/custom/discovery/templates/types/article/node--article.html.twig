@@ -15,7 +15,7 @@ Descr: defines "article" and outputs fields for article card
 {% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
 {% set article = parse_article_json(remote_uuid) %}
 
-{{vardumper(article)}}
+{# {{vardumper(article)}} #}
 {% if article.imagepath %}
 	{% set image %}
 		<img src="{{article.imagepath}}" alt="{{article.alt}}">
