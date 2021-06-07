@@ -6,6 +6,195 @@ Descr: nav--main small and large, hovers and toggles for subNav
 Still needs: expand toggle for showing main nav on mobile
 
 --------------------------- */
+.nav--main {
+  position: relative;
+  .nav-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: red;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    margin-bottom: 0;
+    padding: 0.5rem;
+    &.active {
+      button {
+        transform: rotate(180deg);
+      }
+    }
+    @include medium() {
+      display: none;
+    }
+  }
+
+  .nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    &.shown {
+      transform: scale(1, 1);
+      transform-origin: top;
+      transition: transform 250ms ease-in-out 250ms;
+      position: relative;
+    }
+    @include medium() {
+      // transform: none;
+      position: relative;
+    }
+    button {
+      right: 5px;
+      top: 5px;
+      padding: 0;
+      background: none;
+      border: none;
+      position: absolute;
+      z-index: 10;
+      svg {
+        fill: var(--as-white);
+        @include headerBreak() {
+          fill: var(--as-black);
+        }
+      }
+      &:focus {
+        opacity: 1;
+      }
+      &.active {
+        transform: rotate(180deg);
+        transform-origin: 50% 50%;
+      }
+    }
+    a {
+      font-weight: var(--light);
+      display: block;
+      &.active {
+        font-weight: var(--regular);
+      }
+    }
+  }
+  .nav-0 {
+    transform: scale(1, 0);
+    .nav-0__item {
+      background: var(--as-teal-200);
+      .nav-0__link {
+        padding: 0.5rem;
+      }
+    }
+    @include medium() {
+      display: flex;
+      flex-direction: row;
+      transform: none;
+      width: 100%;
+      color: var(--as-black);
+      background: transparent;
+      overflow: visible;
+      position: relative;
+      justify-content: flex-start;
+      font-size: var(--base-20);
+      .nav-1 {
+        transform: scale(0, 0);
+      }
+      .nav-0__item {
+        background: transparent;
+        position: relative;
+        // padding: 0.5rem;
+        &:after {
+          position: absolute;
+          content: "";
+          width: calc(100% - 27px);
+          height: 3px;
+          background: var(--as-red-400);
+          top: 0;
+          left: 0;
+          transform: scaleX(0);
+          transition: all 0.15s ease-in;
+          visibility: hidden;
+          border-radius: 2px;
+        }
+        .nav-0__link {
+          background: none;
+          opacity: 1;
+          color: var(--as-black);
+          width: auto;
+          font-weight: var(--semi);
+          padding: 0.5rem;
+        }
+        &:hover,
+        &.expanded {
+          // border-top: 4px solid var(--as-red-400);
+          text-decoration-color: var(--as-gray-500);
+          box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+          &:after {
+            visibility: visible;
+            transform: scaleX(1);
+            transform-origin: top;
+            transition: all 0.25s ease-out;
+          }
+          .nav-1 {
+            transform: scaleY(1);
+            transform-origin: top;
+            transition: all 0.25s ease-out;
+          }
+          overflow: visible;
+        }
+      }
+
+      button {
+        opacity: 0;
+      }
+    }
+
+    @include large() {
+      justify-content: flex-end;
+    }
+  }
+  .nav-1 {
+    margin-top: 0;
+    // width: 260px;
+    background: var(--as-white);
+    position: absolute;
+    font-size: var(--base-18);
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0 var(--border-radius) var(--border-radius)
+      var(--border-radius);
+    overflow: visible;
+    margin-left: 0;
+    transform: scaleY(0);
+    .nav-1__link {
+      position: relative;
+      // display: block;
+      padding: 0.5rem 0 0.5rem 0.5rem;
+      &:hover {
+        color: var(--as-white);
+        background: var(--as-red-400);
+        &:after,
+        &:before {
+          position: absolute;
+          content: "";
+          width: 0.25rem;
+          height: 100%;
+          top: 0;
+          background: var(--as-red-400);
+          border-radius: 4px;
+        }
+        &:after {
+          right: -0.125rem;
+        }
+        &:before {
+          left: -0.125rem;
+        }
+      }
+    }
+    &.expanded {
+    }
+    @include medium() {
+      width: 260px;
+    }
+  }
+}
+
 // .nav-0,
 // .nav-1,
 // .nav-2,
@@ -63,7 +252,7 @@ Still needs: expand toggle for showing main nav on mobile
 //   > .nav__item {
 //     background: var(--as-teal-400);
 //     margin-bottom: 0;
-//     // max-width: 100%;
+//     max-width: 100%;
 //     position: relative;
 //   }
 //   .nav__link {
@@ -79,24 +268,22 @@ Still needs: expand toggle for showing main nav on mobile
 //   }
 // }
 
-// // universal .nav-1
-
 // .nav-1 {
-//   // background: var(--as-teal-300);
+//   background: var(--as-teal-300);
 //   font-weight: var(--regular);
 //   border-radius: 0;
-//   // display: flex;
-//   // flex-flow: column;
+//   display: flex;
+//   flex-flow: column;
 //   width: 100%;
 //   padding-left: 0;
 //   margin-top: 0;
 //   transform: scaleY(0);
-//   // transition: transform 150ms ease-in-out;
+//   transition: transform 150ms ease-in-out;
 //   transform-origin: top;
 //   &.expanded {
 //     opacity: 1;
 //     transform: scaleY(1);
-//     // transition: all 250ms ease-in-out 150ms;
+//     transition: all 250ms ease-in-out 150ms;
 //     position: relative;
 //   }
 //   a {
@@ -115,9 +302,9 @@ Still needs: expand toggle for showing main nav on mobile
 .nav--main
 */
 
-// .nav--main {
+// .nav-0 {
 //   @include medium() {
-//     // display: flex;
+//     display: flex;
 //     flex-direction: row;
 //     transform: none;
 //     width: 100%;
@@ -126,11 +313,10 @@ Still needs: expand toggle for showing main nav on mobile
 //     overflow: visible;
 //     position: relative;
 //     justify-content: flex-start;
-//     .nav__item {
+//     .nav-0__item {
 //       background: transparent;
-//       // position: relative;
-//       // top bar thing
-//       &:after {
+//       position: relative;
+//       top bar thing &:after {
 //         position: absolute;
 //         content: "";
 //         width: calc(100% - 27px);
@@ -143,17 +329,16 @@ Still needs: expand toggle for showing main nav on mobile
 //         visibility: hidden;
 //         border-radius: 2px;
 //       }
-//       .nav__link {
+//       .nav-0__link {
 //         background: none;
 //         opacity: 1;
 //         color: var(--as-black);
 //         width: auto;
 //         font-weight: var(--semi);
 //       }
-//       // hover over main nav items
 //       &:hover,
 //       &.expanded {
-//         // border-top: 4px solid var(--as-red-400);
+//         border-top: 4px solid var(--as-red-400);
 //         text-decoration-color: var(--as-gray-500);
 //         &:after {
 //           visibility: visible;
@@ -162,7 +347,7 @@ Still needs: expand toggle for showing main nav on mobile
 //         }
 //         overflow: visible;
 
-//         > .nav__link {
+//         > .nav-0__link {
 //           box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
 //         }
 //         .nav-1 {

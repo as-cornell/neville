@@ -127,8 +127,8 @@ header {
   .header__mainNav {
     grid-column: 1 / -1;
     grid-row: 3;
-    display: flex;
-    justify-content: center;
+    // display: flex;
+    // justify-content: center;
 
     @include medium() {
       grid-column: 1/-1;
