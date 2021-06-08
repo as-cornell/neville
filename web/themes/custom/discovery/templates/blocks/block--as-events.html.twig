@@ -11,15 +11,4 @@ Descr: sets up event list
 --------------------------- */
 
 #}
-{% set group_base_class = 'pcWrapper' %}
-{% set group_modifiers = ['events'] %}
-
-{% set list_base_class = 'eventList' %}
-
-{% include "@content/molecules/_grouping.twig" with {
-    groupItems : content,
-    group_base_class : group_base_class,
-    group_modifiers : group_modifiers,
-    group_label : label
-}
-%}
+{{content}}
