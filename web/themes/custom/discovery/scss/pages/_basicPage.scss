@@ -77,8 +77,9 @@ Descr:
       grid-template-columns: repeat(12, 1fr);
       grid-template-areas:
         "title title title title title title title title title title . ."
-        "nav nav nav content content content content content content content aside aside"
-        "sidebar sidebar sidebar content content content content content content content aside aside";
+        "nav nav nav aside aside aside aside aside aside aside aside aside"
+        "nav nav nav content content content content content content content content content"
+        "sidebar sidebar sidebar content content content content content content content content content";
     }
     @include large {
       grid-template-columns: repeat(24, 1fr);
