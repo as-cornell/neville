@@ -1,0 +1,11 @@
+{#
+    Sets content for block--as-events.html.twig which pulls in event-list.twig.
+    twig tweak
+ #}
+ {% set coursesLabelValue = content.field_component_label %}
+ {% set coursesShownValue = content.field_courses_shown|field_value|safe_join(', ')%}
+ {% set coursesKeywordsValue = content.field_keyword_params|field_value|safe_join(', ') %}
+ {% set coursesSemesterValue = content.field_semester|field_value|safe_join(', ') %}
+ {#TODOTODO: get semester name separately from key value#}
+ {% set coursesSemesterNameValue = content.field_semester|field_value|safe_join(', ') %}
+    {{ drupal_block('courses_block', {label: coursesLabelValue, courses_shown: coursesShownValue , keyword_params: coursesKeywordsValue, semester: coursesSemesterValue, semestername: coursesSemesterNameValue}) }}

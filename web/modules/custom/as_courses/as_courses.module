@@ -1,0 +1,132 @@
+<?php
+
+/**
+ * @file
+ * Contains as_courses.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+function as_courses_nameize($str,$a_char = array("'","-"," ")){
+    // adapted from http://php.net/manual/en/function.ucfirst.php
+    //$str contains the complete raw name string
+    //$a_char is an array containing the characters we use as separators for capitalization. If you don't pass anything, there are three in there as default.
+    $string = strtolower($str);
+    foreach ($a_char as $temp){
+        $pos = strpos($string,$temp);
+        if ($pos){
+            //we are in the loop because we found one of the special characters in the array, so lets split it up into chunks and capitalize each one.
+            $mend = '';
+            $a_split = explode($temp,$string);
+            foreach ($a_split as $temp2){
+                //capitalize each portion of the string which was separated at a special character
+                $mend .= ucfirst($temp2).$temp;
+                }
+            $string = substr($mend,0,-1);
+            }
+        }
+    return ucfirst($string);
+    }
+
+function as_courses_get_courses_json($semester,$keyword_params) {
+    //set cache id (verify parameters are safe values to use as cache id)
+    $cid = "as_courses:" . $semester . ":" . $keyword_params;
+    $course_json = NULL;
+    //check cache
+    if ($cache = \Drupal::cache('data')->get($cid)) {
+        //fetch cache data
+      $course_json = $cache->data;
+        //check cache expiration
+    }
+       // if no data check url
+    else {
+    $url = "https://classes.cornell.edu/api/2.0/search/classes.json?roster={$semester}&subject={$keyword_params}";
+    $data = file_get_contents($url);
+    $json = json_decode($data, true);
+    $course_json = $json['data']['classes'];
+    \Drupal::cache('data')
+        ->set($cid, $course_json, time()+360);
+    }
+    //return data
+    return $course_json;
+  }
+
+function as_courses_generate_course_item_markup($course_data,$semester) {
+    // Deal with classes.cornell.edu's funky json structure
+    //$markup = kint($course_data['enrollGroups'][0]['classSections'][0]['meetings'][0]['instructors'][0]['netid']);
+    //$course = $course_data['classes'];
+    $markup = "";
+    $instructor_markup = "";
+    $course_subject = $course_data['subject'];
+    $course_number = $course_data['catalogNbr'];
+    $course_title = $course_data['titleLong'];
+    $course_description = strip_tags($course_data['description']);
+    $course_offered = $course_data['catalogWhenOffered'];
+    $course_acadGroup = $course_data['acadGroup'];
+    $course_acadCareer = $course_data['acadCareer'];
+    //$course_instructors = $course_data['enrollGroups'];
+        //foreach ($course_instructors as $instructors) {
+            //$instructor_markup = $instructor_markup . $instructors['classSections'][0]['meetings'][0]['instructors'][0]['firstName'];
+            //$instructor_markup = $instructor_markup . " " .$instructors['classSections'][0]['meetings'][0]['instructors'][0]['lastName'];
+            //$instructor_markup = $instructor_markup . " (" . $instructors['classSections'][0]['meetings'][0]['instructors'][0]['netid'] . ") <br /> ";
+            //}
+    //dump($instructor_markup);
+    $markup = $markup . "
+                <div class='courseList__course course card card--course'>
+
+                  <h3 class='course__title'>
+                    <a href='https://classes.cornell.edu/browse/roster/{$semester}/class/{$course_subject}/{$course_number}'>
+                      <span class='course__number'>{$course_subject} {$course_number}</span>{$course_title}
+                      </a>
+                    </h3>
+
+                  <span class='course__details'>";
+                    //if ($course_description){
+                    //$markup = $markup . "<p>" . $course_description . "</p>";
+                    //    }
+                    if ($course_offered){
+                    $markup = $markup . "<span class='course__semester'> Course offered in " . $course_offered . "</span>";
+                        }
+                    // if ($course_acadGroup){
+                    // $markup = $markup . "<span class='course__group'> Academic Group: " . $course_acadGroup . "</span>";
+                    //     }
+                    // if ($course_acadCareer){
+                    // $markup = $markup . "<span class='course__career'> Academic Career: " . $course_acadCareer . "</span>";
+                    //     }
+                    //if ($instructor_markup){
+                    //$markup = $markup . "<span class='course__instructor'> Instructor: " . $instructor_markup . "</span>
+                    //</span>";
+                        //}
+                    $markup = $markup ."
+            </div>
+            \n";
+
+    return $markup;
+  }
+
+/**
+ * Implements hook_help().
+ */
+function as_courses_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the as_courses module.
+    case 'help.page.as_courses':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Turns json from classes.cornell.edu and xml from courses.cornell.edu into blocks that can be implemented in a page component entity.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function as_courses_theme() {
+  return [
+    'as_courses' => [
+      'render element' => 'children',
+    ],
+  ];
+}

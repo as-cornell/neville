@@ -2,7 +2,7 @@
     Sets content for block--as-events.html.twig which pulls in event-list.twig.
     twig tweak
  #}
- {% set eventsLabelValue = content.name %}
+ {% set eventsLabelValue = content.field_component_label %}
  {% set eventsShownValue = content.field_events_shown|field_value|safe_join(', ')%}
  {% set eventsKeywordsValue = content.field_keyword_params|field_value|safe_join(', ') %}
     {{ drupal_block('events_block', {label: eventsLabelValue, events_shown: eventsShownValue , keyword_params: eventsKeywordsValue}) }}

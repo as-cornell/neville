@@ -1,0 +1,7 @@
+as_courses.courses_controller_display:
+  path: '/as_courses/display'
+  defaults:
+    _controller: '\Drupal\as_courses\Controller\CoursesController::display'
+    _title: 'Course'
+  requirements:
+    _permission: 'access content'
