@@ -1,0 +1,81 @@
+{#
+
+/* -------------------------
+
+Title: node--landing-page.html.twig
+Descr: This is the framework for a landing page contnet type.
+
+--------------------------- */
+
+#}
+
+
+{# Set up main
+    - extra class main
+    - base class page
+    - modifier basic
+    - turn on sidebarNav
+ #}
+{% set main_element_extra_classes = ['main'] %}
+{% set main_element_base_class = 'landingPage' %}
+{% set main_element_modifiers = [''] %}
+{# set defaults #}
+{# {% set show_sidebarNav = true %} #}
+{% set show_aside = false %}
+
+{# {{vardumper()}} #}
+{# Create classes array. The 'node' class is required for contextual edit links. #}
+{% set classes = [
+  'node'
+] %}
+
+{# Set main content #}
+{% set mainContent = content.field_page_components %}
+
+
+
+{# Set linkValues and show aside #}
+{% set linkValues = [] %}
+{% for item in content.field_page_components|field_target_entity %}
+	{% set type =  item.type.value.0.target_id%}
+	{% if type == 'page_section' %}
+		{% set label =  item.field_section_label.value%}
+		{% set linkValues = linkValues|merge([label]) %}
+	{% endif %}
+{% endfor %}
+{% if linkValues != [] %}
+  {% set show_aside = true %}
+{% endif %}
+
+{# need to add pano #}
+
+{% set sidebar_wrapper_extra_classes = sidebar_wrapper_extra_classes | default(['']) %}
+
+<main {{ bem(main_element_base_class, (main_element_modifiers), main_element_blockname, main_element_extra_classes) }} id="mainContent">
+	<div class="title">
+		{% include "@content/atoms/_heading.twig" with {
+        "heading_level" : 1,
+        "heading" : label,
+        "heading_modifiers" : heading_modifiers,
+        "heading_base_class" : heading_base_class,
+        "heading_class" : heading_class
+      } %}
+	</div>
+	<div class="content">
+		{{mainContent}}
+	</div>
+ 
+	{% if show_aside %}
+		<aside role="complimentary">
+    {% if linkValues %}
+      <div class="otpNavWrapper otpNav--basic_page"> 
+      <h4 class="otpToggle">
+        On this page:
+      </h4>
+      {{ drupal_block('page_menu_block', {link_values:linkValues}) }}
+      </div>
+    {% endif %}
+		</aside>
+	{% endif %}
+</main>
+

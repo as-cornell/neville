@@ -149,7 +149,7 @@ font size mixins
   font-size: var(--base-64);
   line-height: 1em; }
 
-.base-84 {
+.base-84, .landingPage--pano .title figcaption {
   font-size: var(--base-84);
   line-height: 0.9em;
   margin-bottom: 1em; }
@@ -302,7 +302,7 @@ Descr: any hiding or showin
   position: absolute;
   z-index: -1; }
 
-.sr-only {
+.sr-only, .landingPage .group__title--sr-only {
   display: block;
   height: 1px;
   width: 1px;
@@ -313,97 +313,6 @@ Descr: any hiding or showin
           clip-path: inset(1px);
   white-space: nowrap;
   position: absolute; }
-
-/* -------------------------
-
-Title: Article cards and teasers
-Descr: 
-   - article--card
-   - article--card-small
-   - article--teaser
-
---------------------------- */
-.article--card .article__copy {
-  padding: 1rem;
-  display: grid;
-  gap: 0px;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "label label label" "title title title" "date byline byline"; }
-
-.article--card .article__title {
-  grid-area: title;
-  margin: 0.75em 0 2em 0;
-  font-weight: var(--regular);
-  font-size: var(--base-20);
-  line-height: 1.4; }
-
-.article--card .article__label {
-  grid-area: label;
-  color: var(--as-black);
-  font-size: var(--base-18);
-  font-weight: var(--semi);
-  margin-bottom: 0.5em; }
-
-.article--card .article__date {
-  grid-area: date;
-  text-align: left;
-  font-size: var(--base-16);
-  margin-top: 2px; }
-
-.article--card .article__byline {
-  grid-area: byline;
-  font-size: var(--base-16);
-  text-align: right; }
-
-.article--card a.card__title-link {
-  display: block;
-  padding-bottom: 1em;
-  text-decoration: underline;
-  -webkit-text-decoration-color: var(--as-teal-300);
-          text-decoration-color: var(--as-teal-300);
-  position: relative; }
-  .article--card a.card__title-link:before {
-    position: absolute;
-    content: "";
-    width: 50%;
-    height: 1px;
-    bottom: 0;
-    left: 25%;
-    transition: all 0.2s;
-    background-image: red; }
-  .article--card a.card__title-link:hover:before {
-    left: 0;
-    width: 100%; }
-
-.article--card-small {
-  border: none;
-  margin-bottom: 1rem;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
-  -ms-flex-align: start;
-      align-items: flex-start;
-  background: none;
-  box-shadow: none; }
-  .article--card-small :before {
-    display: none; }
-  .article--card-small figure,
-  .article--card-small img {
-    -ms-flex: 0 0 30%;
-        flex: 0 0 30%;
-    margin-right: 1rem;
-    border-radius: var(--border-radius); }
-  .article--card-small .article__copy {
-    -ms-flex: 1 0 60%;
-        flex: 1 0 60%;
-    padding: 0; }
-  .article--card-small .article__title {
-    grid-area: title;
-    margin: 0;
-    font-size: var(--base-20); }
-  .article--card-small .article__label {
-    font-size: var(--base-16); }
 
 /* -------------------------
 
@@ -1064,90 +973,6 @@ Descr: otpN small and large, hovers and toggles for subNav
 
 /* -------------------------
 
-Title: _card--person.scss
-Descr: Sets all specific styles for an person card
-  sets css for card--feature as they are person
-
---------------------------- */
-.person--card {
-  display: grid;
-  -ms-flex-line-pack: start;
-      align-content: flex-start; }
-  .person--card figure {
-    background: none; }
-  .person--card .person__name-title {
-    font-size: var(--base-28);
-    font-weight: var(--semi);
-    margin: 0 1rem; }
-  .person--card .person__name {
-    font-size: var(--base-28);
-    font-weight: var(--semi); }
-  .person--card .person__title {
-    font-size: var(--base-20);
-    margin-top: 0; }
-  .person--card .person__contacts {
-    font-size: var(--base-18);
-    padding: 1rem;
-    display: none; }
-  .person--card .person__copy {
-    margin: 0 1rem; }
-  .person--card .person__departments,
-  .person--card .person__responsibilities {
-    margin-top: 1em;
-    padding-top: 1em;
-    font-size: var(--base-16);
-    border-top: 1px solid var(--as-teal);
-    padding-bottom: 1rem;
-    margin: 1rem; }
-    .person--card .person__departments ul,
-    .person--card .person__responsibilities ul {
-      padding-left: 1rem;
-      margin-left: 0;
-      margin-top: 0; }
-
-.card--small {
-  border: none;
-  margin-bottom: 2rem;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
-  -ms-flex-align: start;
-      align-items: flex-start;
-  background: none;
-  box-shadow: none; }
-  .card--small :before {
-    display: none; }
-  .card--small .card--person__name-title {
-    margin: 0;
-    -ms-flex: 1 0 60%;
-        flex: 1 0 60%; }
-  .card--small .card--person__name,
-  .card--small .card--person__title {
-    padding-top: 0;
-    margin-top: 0; }
-  .card--small .card--person__name {
-    font-weight: var(--semi);
-    font-size: var(--base-20); }
-  .card--small .card--person__title {
-    font-size: var(--base-20);
-    font-weight: var(--regular); }
-  .card--small figure {
-    -ms-flex: 0 0 30%;
-        flex: 0 0 30%;
-    margin-right: 1rem; }
-  .card--small img {
-    border-radius: var(--border-radius); }
-  .card--small .card__copy {
-    -ms-flex: 0 0 60%;
-        flex: 0 0 60%;
-    padding: 0;
-    font-size: var(--base-18); }
-  .card--small .card--person__contacts {
-    display: none; }
-
-/* -------------------------
-
 Title: Site footer styles
 Descr: Set
         - footer
@@ -1573,6 +1398,97 @@ Descr: Set
 
 /* -------------------------
 
+Title: Article cards and teasers
+Descr: 
+   - article--card
+   - article--card-small
+   - article--teaser
+
+--------------------------- */
+.article--card .article__copy {
+  padding: 1rem;
+  display: grid;
+  gap: 0px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "label label label" "title title title" "date byline byline"; }
+
+.article--card .article__title {
+  grid-area: title;
+  margin: 0.75em 0 2em 0;
+  font-weight: var(--regular);
+  font-size: var(--base-20);
+  line-height: 1.4; }
+
+.article--card .article__label {
+  grid-area: label;
+  color: var(--as-black);
+  font-size: var(--base-18);
+  font-weight: var(--semi);
+  margin-bottom: 0.5em; }
+
+.article--card .article__date {
+  grid-area: date;
+  text-align: left;
+  font-size: var(--base-16);
+  margin-top: 2px; }
+
+.article--card .article__byline {
+  grid-area: byline;
+  font-size: var(--base-16);
+  text-align: right; }
+
+.article--card a.card__title-link {
+  display: block;
+  padding-bottom: 1em;
+  text-decoration: underline;
+  -webkit-text-decoration-color: var(--as-teal-300);
+          text-decoration-color: var(--as-teal-300);
+  position: relative; }
+  .article--card a.card__title-link:before {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 1px;
+    bottom: 0;
+    left: 25%;
+    transition: all 0.2s;
+    background-image: red; }
+  .article--card a.card__title-link:hover:before {
+    left: 0;
+    width: 100%; }
+
+.article--card-small {
+  border: none;
+  margin-bottom: 1rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: start;
+      align-items: flex-start;
+  background: none;
+  box-shadow: none; }
+  .article--card-small :before {
+    display: none; }
+  .article--card-small figure,
+  .article--card-small img {
+    -ms-flex: 0 0 30%;
+        flex: 0 0 30%;
+    margin-right: 1rem;
+    border-radius: var(--border-radius); }
+  .article--card-small .article__copy {
+    -ms-flex: 1 0 60%;
+        flex: 1 0 60%;
+    padding: 0; }
+  .article--card-small .article__title {
+    grid-area: title;
+    margin: 0;
+    font-size: var(--base-20); }
+  .article--card-small .article__label {
+    font-size: var(--base-16); }
+
+/* -------------------------
+
 Title: <main> .basicSidebar
 Descr: 
    basicSidebar specific 
@@ -1626,6 +1542,288 @@ Descr:
     margin-top: 0; }
   .basicSidebar .pcWrapper {
     margin-bottom: 3rem; }
+
+/* -------------------------
+
+Title: main layouts for node--landing-page.html.twig
+
+Descr: 
+   landingPage specific 
+
+--------------------------- */
+.landingPage {
+  grid-template-areas: "title" "aside" "content"; }
+  .landingPage .title {
+    grid-area: title; }
+    .landingPage .title h1 {
+      font-family: var(--font-serif);
+      text-align: center;
+      font-size: var(--base-84);
+      max-width: 25ch;
+      line-height: 1em;
+      font-weight: var(--heavy);
+      margin: 0 0.5em 0.5em; }
+  .landingPage aside {
+    grid-area: aside;
+    position: sticky;
+    top: 0;
+    margin: 1rem 0 2rem 0; }
+  .landingPage .content {
+    grid-area: content; }
+  .landingPage > div {
+    grid-column: 1 / -1; }
+  .landingPage .content > .pcWrapper {
+    margin-bottom: var(--bottom-margin); }
+  .landingPage .content > .pcWrapper--ftb,
+  .landingPage .pageSection > .pcWrapper--ftb {
+    margin-left: auto;
+    margin-right: auto; }
+    @media (min-width: 782px) {
+      .landingPage .content > .pcWrapper--ftb p,
+      .landingPage .content > .pcWrapper--ftb ul,
+      .landingPage .content > .pcWrapper--ftb ol,
+      .landingPage .pageSection > .pcWrapper--ftb p,
+      .landingPage .pageSection > .pcWrapper--ftb ul,
+      .landingPage .pageSection > .pcWrapper--ftb ol {
+        margin-left: auto;
+        margin-right: auto; } }
+  .landingPage .content > .pcWrapper--ftb:first-of-type .spotlight {
+    margin-top: 0; }
+  .landingPage--no-pano .title {
+    position: relative;
+    margin: 0 auto; }
+  .landingPage--pano .title {
+    text-align: center; }
+    @media (min-width: 782px) {
+      .landingPage--pano .title {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+            flex-direction: column;
+        font-weight: var(--heavy);
+        grid-template-columns: 1fr;
+        -ms-flex-align: end;
+            align-items: flex-end;
+        max-width: 100%; } }
+    .landingPage--pano .title figure,
+    .landingPage--pano .title h1 {
+      margin: 0.5em auto; }
+    .landingPage--pano .title figure {
+      background: none;
+      margin-bottom: 2rem; }
+      @media (min-width: 782px) {
+        .landingPage--pano .title figure {
+          display: grid; } }
+    .landingPage--pano .title figcaption,
+    .landingPage--pano .title img {
+      grid-column: 1;
+      grid-row: 1; }
+    .landingPage--pano .title figcaption {
+      color: var(--storm-radial);
+      font-weight: var(--regular);
+      margin: 0 auto 1em auto;
+      font-family: var(--font-serif);
+      text-align: center;
+      font-size: var(--base-84);
+      max-width: 25ch;
+      line-height: 1em;
+      margin-bottom: 0.5em;
+      -ms-flex-item-align: end;
+          align-self: flex-end; }
+      @media (min-width: 782px) {
+        .landingPage--pano .title figcaption {
+          color: var(--as-white);
+          max-width: 80%;
+          animation: 2s captionFadeIn 1 forwards ease-in;
+          font-weight: var(--heavy); } }
+      .landingPage--pano .title figcaption .credit {
+        display: none; }
+  .landingPage--homepage aside {
+    display: none; }
+
+@keyframes captionFadeIn {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+/* -------------------------
+
+Title: _card--person.scss
+Descr: Sets all specific styles for an person card
+  sets css for card--feature as they are person
+
+--------------------------- */
+.person--card {
+  display: grid;
+  -ms-flex-line-pack: start;
+      align-content: flex-start; }
+  .person--card figure {
+    background: none; }
+  .person--card .person__name-title {
+    font-size: var(--base-28);
+    font-weight: var(--semi);
+    margin: 0 1rem; }
+  .person--card .person__name {
+    font-size: var(--base-28);
+    font-weight: var(--semi); }
+  .person--card .person__title {
+    font-size: var(--base-20);
+    margin-top: 0; }
+  .person--card .person__contacts {
+    font-size: var(--base-18);
+    padding: 1rem;
+    display: none; }
+  .person--card .person__copy {
+    margin: 0 1rem; }
+  .person--card .person__departments,
+  .person--card .person__responsibilities {
+    margin-top: 1em;
+    padding-top: 1em;
+    font-size: var(--base-16);
+    border-top: 1px solid var(--as-teal);
+    padding-bottom: 1rem;
+    margin: 1rem; }
+    .person--card .person__departments ul,
+    .person--card .person__responsibilities ul {
+      padding-left: 1rem;
+      margin-left: 0;
+      margin-top: 0; }
+
+.card--small {
+  border: none;
+  margin-bottom: 2rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: start;
+      align-items: flex-start;
+  background: none;
+  box-shadow: none; }
+  .card--small :before {
+    display: none; }
+  .card--small .card--person__name-title {
+    margin: 0;
+    -ms-flex: 1 0 60%;
+        flex: 1 0 60%; }
+  .card--small .card--person__name,
+  .card--small .card--person__title {
+    padding-top: 0;
+    margin-top: 0; }
+  .card--small .card--person__name {
+    font-weight: var(--semi);
+    font-size: var(--base-20); }
+  .card--small .card--person__title {
+    font-size: var(--base-20);
+    font-weight: var(--regular); }
+  .card--small figure {
+    -ms-flex: 0 0 30%;
+        flex: 0 0 30%;
+    margin-right: 1rem; }
+  .card--small img {
+    border-radius: var(--border-radius); }
+  .card--small .card__copy {
+    -ms-flex: 0 0 60%;
+        flex: 0 0 60%;
+    padding: 0;
+    font-size: var(--base-18); }
+  .card--small .card--person__contacts {
+    display: none; }
+
+/* -------------------------
+
+Title: _stat-wrapper
+Descr: sets up all uniquie styles for Stats wrapper 
+  
+
+  .stat-wrapper
+
+--------------------------- */
+.stat-wrapper {
+  margin-top: 2rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  background: var(--as-gray-300); }
+
+/* -------------------------
+
+Title: _stat
+Descr: sets up all uniquie styles for Stats wrapper and cards
+  
+  .stat
+
+--------------------------- */
+.stat {
+  text-align: center; }
+  .stat .stat__copy {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    font-size: var(--base-20); }
+    .stat .stat__copy p {
+      line-height: 1.2;
+      margin-top: 0; }
+  .stat .stat__title {
+    display: none; }
+  .stat a {
+    text-decoration: none; }
+  .stat a,
+  .stat .stat__label {
+    font-family: var(--font-sans);
+    font-size: 2rem;
+    color: var(--dark-text);
+    font-weight: var(--semi);
+    line-height: var(--line-height);
+    position: relative;
+    padding-bottom: 0.25em;
+    margin-bottom: 0.5em; }
+    .stat a::after,
+    .stat .stat__label::after {
+      position: absolute;
+      content: "";
+      height: 2px;
+      background: var(--blurple-linear);
+      width: 100%;
+      right: 0;
+      bottom: 0;
+      border-radius: var(--border-radius);
+      transform: scale(0.3, 1);
+      transition: transform 150ms ease-out; }
+  .stat a:hover:after {
+    transform: scale(0.8, 1);
+    transition: transform 150ms ease-in-out 250ms; }
+
+.pcWrapper--layoutGroup .card--stat {
+  -ms-flex-preferred-size: calc(50% - 1rem);
+      flex-basis: calc(50% - 1rem); }
+
+.pageSection > .stat-wrapper .card--stat {
+  -ms-flex: 0 1 23%;
+      flex: 0 1 23%; }
+
+@media (min-width: 782px) {
+  .basicSidebar .stat-wrapper {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap; } }
+
+.basicSidebar .stat-wrapper .stat {
+  -ms-flex: 0 1 48%;
+      flex: 0 1 48%; }
+  @media (min-width: 782px) {
+    .basicSidebar .stat-wrapper .stat {
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%;
+      margin-right: 1rem; }
+      .basicSidebar .stat-wrapper .stat:last-of-type {
+        margin-right: 0; } }
 
 /*# sourceMappingURL=styles.css.map */
 

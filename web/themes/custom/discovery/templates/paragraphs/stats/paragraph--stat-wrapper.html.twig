@@ -41,7 +41,7 @@
 {%
   set classes = [
     'paragraph',
-    'pageSection',
+    'stat-wrapper',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished'
@@ -49,17 +49,16 @@
 %}
 {# {{vardumper()}} #}
 
-{% set divid = content.field_section_label|field_value|safe_join(', ')|lower|replace({" ": "-","/": "-", ",": "", "&#039;": "-"}) %}
 
-
+<h2>
+	statwrapper
+</h2>
 {% block paragraph %}
 
-	<div{{attributes.addClass(classes)}} id="{{divid}}">
-		<h2>
-			{{content.field_section_label}}
-		</h2>
+	<div{{attributes.addClass(classes)}}>
+
 		{% block content %}
-			{{ content.field_section_components }}
+			{{ content }}
 		{% endblock %}
 	</div>
 {% endblock paragraph %}

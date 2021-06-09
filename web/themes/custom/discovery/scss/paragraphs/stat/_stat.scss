@@ -1,0 +1,89 @@
+/* -------------------------
+
+Title: _stat
+Descr: sets up all uniquie styles for Stats wrapper and cards
+  
+  .stat
+
+--------------------------- */
+
+.stat {
+  text-align: center;
+  // grid-row: span 1;
+  .stat__copy {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--base-20);
+    p {
+      line-height: 1.2;
+      margin-top: 0;
+    }
+  }
+  .stat__title {
+    display: none; // really never want this to show up even for a11y
+  }
+  a {
+    text-decoration: none;
+  }
+  a,
+  .stat__label {
+    @include baseFont($size: 2rem, $weight: var(--semi));
+    position: relative;
+    padding-bottom: 0.25em;
+    margin-bottom: 0.5em;
+    &::after {
+      position: absolute;
+      content: "";
+      height: 2px;
+      background: var(--blurple-linear);
+      width: 100%;
+      right: 0;
+      bottom: 0;
+      border-radius: var(--border-radius);
+
+      transform: scale(0.3, 1);
+      transition: transform 150ms ease-out;
+    }
+  }
+  a {
+    &:hover {
+      &:after {
+        transform: scale(0.8, 1);
+        transition: transform 150ms ease-in-out 250ms;
+      }
+    }
+  }
+}
+
+// card stats in 2x layout group
+.pcWrapper--layoutGroup {
+  .card--stat {
+    flex-basis: calc(50% - 1rem);
+  }
+}
+
+// card stats directly in a page section will be 1/4 width
+.pageSection > .stat-wrapper {
+  .card--stat {
+    flex: 0 1 23%;
+  }
+}
+
+.basicSidebar {
+  .stat-wrapper {
+    @include medium() {
+      flex-wrap: nowrap;
+    }
+
+    .stat {
+      flex: 0 1 48%;
+      @include medium() {
+        flex-basis: 100%;
+        margin-right: 1rem;
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

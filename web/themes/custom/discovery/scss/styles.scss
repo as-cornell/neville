@@ -9,5 +9,7 @@ Base .scss aggregator for departmetn and program sites
 @import "vars_mixins/*.scss";
 @import "base/*.scss";
 @import "components/**/*.scss";
+@import "content-types/**/*.scss";
+@import "paragraphs/**/*.scss";
 @import "pages/*.scss";
 /*# sourceMappingURL=styles.css.map */
