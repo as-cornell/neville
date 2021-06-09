@@ -1,0 +1,143 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+function as_events_nameize($str, $a_char = array("'", "-", " "))
+{
+  // adapted from http://php.net/manual/en/function.ucfirst.php
+  //$str contains the complete raw name string
+  //$a_char is an array containing the characters we use as separators for capitalization. If you don't pass anything, there are three in there as default.
+  $string = strtolower($str);
+  foreach ($a_char as $temp) {
+    $pos = strpos($string, $temp);
+    if ($pos) {
+      //we are in the loop because we found one of the special characters in the array, so lets split it up into chunks and capitalize each one.
+      $mend = '';
+      $a_split = explode($temp, $string);
+      foreach ($a_split as $temp2) {
+        //capitalize each portion of the string which was separated at a special character
+        $mend .= ucfirst($temp2) . $temp;
+      }
+      $string = substr($mend, 0, -1);
+    }
+  }
+  return ucfirst($string);
+}
+
+function as_events_get_events_json($events_shown, $keyword_params)
+{
+  //set cache id (verify parameters are safe values to use as cache id)
+  $cid = "as_events:" . $events_shown . ":" . $keyword_params;
+  $event_json = NULL;
+  //check cache
+  if ($cache = \Drupal::cache('data')->get($cid)) {
+    //fetch cache data
+    $event_json = $cache->data;
+    //check cache expiration
+  }
+  // if no data check url
+  else {
+    $url = "http://cornell.localist.com/api/2/events?days=364&pp=" . $events_shown . "&keyword=" . $keyword_params;
+    //fetch data and set cache
+    $data = file_get_contents($url);
+    $json = json_decode($data, true);
+    $event_json = $json['events'];
+    \Drupal::cache('data')
+      ->set($cid, $event_json, time() + 360);
+  }
+  //return data
+  return $event_json;
+}
+
+function as_events_format_event_dates($startdate, $enddate)
+{
+  $event_formatted_date['start_month'] = date_format($startdate, "M");
+  $event_formatted_date['start_date'] = date_format($startdate, "d");
+  $event_formatted_date['start_time'] = date_format($startdate, "g:i");
+  if ($enddate) {
+    $event_formatted_date['end_month'] = date_format($enddate, "M");
+    $event_formatted_date['end_date'] = date_format($enddate, "d");
+    $event_formatted_date['end_time'] = date_format($enddate, "g:i");
+  }
+  //check to see if there's an end date
+  //     if ($enddate){
+  // //don't repeat date if start and end is on same day
+  //       if (date_format($startdate,"M d") == date_format($enddate,"M d")){
+  //           $event_end_date = date_format($enddate,"g:i a");
+  //       }else{
+  //           $event_end_date = date_format($enddate,"M d g:i a");
+  //           }
+  //   $event_formatted_date = $event_start_date ." to ". $event_end_date;
+  // }else{
+  //   $event_formatted_date = $event_start_date;
+  //     }
+  return $event_formatted_date;
+}
+
+function as_events_generate_event_item_markup($event_data)
+{
+  // Deal with localist's funky json structure
+  $event = $event_data['event'];
+  $event_title = $event['title'];
+  $event_url = $event['localist_url'];
+  $event_location = $event['location_name'];
+  $event_room = $event['room_number'];
+  //dates and times
+  $event_start_date = date_create($event['event_instances'][0]['event_instance']['start']);
+  if ($event['event_instances'][0]['event_instance']['end']) {
+    $event_end_date = date_create($event['event_instances'][0]['event_instance']['end']);
+  } else {
+    $event_end_date = NULL;
+  }
+  $event_formatted_date = as_events_format_event_dates($event_start_date, $event_end_date);
+  //$event_description = strtok(strip_tags($event['description']),'.');
+  $event_description = strip_tags($event['description']);
+  $event_image = $event['photo_url'];
+  // Create the markup
+
+
+  // $markup = kint($event_formatted_date);
+  // $markup = $markup . $event_formatted_date['start_month'];
+  $markup = "<span class='eventList__event event'  itemscope itemtype='http://schema.org/Event'>
+                <span class='event__dateTime'  itemprop='startDate'>
+                  <span class='event__date'><span class='event__month'>" . $event_formatted_date['start_month'] . "</span> <span class='event__day'> " . $event_formatted_date['start_date'] . "</span></span>
+                  <span class='event__time'>" . $event_formatted_date['start_time'] . "</span>
+                </span>
+                <span class='event__content'>
+                <span class='event__title'>
+                  <a href='" . $event_url . "' itemprop='url'>" . $event_title . "</a>
+                </span>";
+  if ($event_location) {
+    $markup = $markup . "<span class='event__location'  itemprop='location'>" . $event_location . ": " . $event_room . "</span>
+                  \n";
+  }
+  $markup = $markup . "</span></span>";
+  // if ($event_description){
+  // $markup = $markup . "<p class='event__description'>" . $event_description . "</p>";
+  //     }
+  // $markup = $markup ."
+
+  //         // <span>
+  //         //     <img src= '${event_image}' alt= '${event_title}' />
+  //         // </span>
+  //         </div>
+  //         \n";
+
+  return $markup;
+}
+
+
+/**
+ * Implements hook_help().
+ */
+function as_events_help($route_name, RouteMatchInterface $route_match)
+{
+  switch ($route_name) {
+    case 'help.page.as_events':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The A&S Events module provides various blocks of upcoming events from Localist.') . '</p>';
+
+      return $output;
+  }
+}
