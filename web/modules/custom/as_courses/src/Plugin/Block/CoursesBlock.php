@@ -20,7 +20,7 @@ class CoursesBlock extends BlockBase {
   public function build() {
 
     $config = $this->getConfiguration();
-    //kint($config);
+    //dump($config);
     if (!empty($config['semester'])) {
       $semester = $config['semester'];
     }
@@ -35,7 +35,7 @@ class CoursesBlock extends BlockBase {
     }
     if (!empty($config['courses_shown'])) {
       //1 shows 2, 2 shows 3 etc. so subtract 1
-      $courses_shown = $config['courses_shown'] - 1;
+      $courses_shown = $config['courses_shown'];
     }
     else {
       $courses_shown = 0;
@@ -46,12 +46,7 @@ class CoursesBlock extends BlockBase {
     else {
       $keyword_params = "PSYCH";
     }
-    if (!empty($config['major_name'])) {
-      $major_name = $config['major_name'];
-    }
-    else {
-      $major_name = "Major Name";
-    }
+
     $build = [];
     $build['courses_block']['#markup'] = "";
     $course_count = 0;
@@ -64,7 +59,7 @@ class CoursesBlock extends BlockBase {
         }
 
       }
-      $build['courses_block']['#markup'] = $build['courses_block']['#markup'] . "<div><a href='https://classes.cornell.edu/browse/roster/" . $semester . "/subject/" . $keyword_params . "'>Full Listing of " . $major_name . " courses for " . $semestername . " Semester</a></div>";
+      $build['courses_block']['#markup'] = $build['courses_block']['#markup'] . "<div><a href='https://classes.cornell.edu/browse/roster/" . $semester . "/subject/" . $keyword_params . "'>Full Listing of " . $keyword_params. " courses for " . $semestername . " Semester</a></div>";
     } // There were no courses
     else {
       $build['courses_block']['#markup'] = "<main>

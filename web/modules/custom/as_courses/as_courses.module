@@ -31,11 +31,11 @@ function as_courses_nameize($str,$a_char = array("'","-"," ")){
 function as_courses_get_courses_json($semester,$keyword_params) {
     //set cache id (verify parameters are safe values to use as cache id)
     $cid = "as_courses:" . $semester . ":" . $keyword_params;
-    $course_json = NULL;
+    $courses_json = NULL;
     //check cache
     if ($cache = \Drupal::cache('data')->get($cid)) {
         //fetch cache data
-      $course_json = $cache->data;
+      $courses_json = $cache->data;
         //check cache expiration
     }
        // if no data check url
@@ -43,12 +43,12 @@ function as_courses_get_courses_json($semester,$keyword_params) {
     $url = "https://classes.cornell.edu/api/2.0/search/classes.json?roster={$semester}&subject={$keyword_params}";
     $data = file_get_contents($url);
     $json = json_decode($data, true);
-    $course_json = $json['data']['classes'];
+    $courses_json = $json['data']['classes'];
     \Drupal::cache('data')
-        ->set($cid, $course_json, time()+360);
+        ->set($cid, $courses_json, time()+360);
     }
     //return data
-    return $course_json;
+    return $courses_json;
   }
 
 function as_courses_generate_course_item_markup($course_data,$semester) {
@@ -76,7 +76,7 @@ function as_courses_generate_course_item_markup($course_data,$semester) {
 
                   <h3 class='course__title'>
                     <a href='https://classes.cornell.edu/browse/roster/{$semester}/class/{$course_subject}/{$course_number}'>
-                      <span class='course__number'>{$course_subject} {$course_number}</span>{$course_title}
+                      <span class='course__number'>{$course_subject} {$course_number}</span>:  {$course_title}
                       </a>
                     </h3>
 

@@ -1,0 +1,5 @@
+services:
+  as_courses.parseCoursesJson:
+    class: Drupal\as_courses\parseCoursesJson
+    tags:
+      - { name: twig.extension }

@@ -37,6 +37,7 @@ function as_events_get_events_json($events_shown, $keyword_params)
   }
   // if no data check url
   else {
+    $events_shown = $events_shown + 1;
     $url = "http://cornell.localist.com/api/2/events?days=364&pp=" . $events_shown . "&keyword=" . $keyword_params;
     //fetch data and set cache
     $data = file_get_contents($url);
