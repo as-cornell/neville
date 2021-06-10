@@ -1,0 +1,5 @@
+services:
+  as_events.parseEventsJson:
+    class: Drupal\as_events\parseEventsJson
+    tags:
+      - { name: twig.extension }
