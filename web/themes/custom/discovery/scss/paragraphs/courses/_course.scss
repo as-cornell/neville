@@ -1,0 +1,28 @@
+/* -------------------------
+
+Title: course List and cards with accordians
+Descr: Sets grid default ( full width ) and stacked (in columns) course lists
+        Sets all default individual course listings
+
+--------------------------- */
+
+// Default course list
+
+.course-list {
+  display: grid;
+  grid-gap: 1rem;
+  padding-left: 0;
+  @include medium() {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+  margin: 0 0 var(--component-bottom-margin) 0;
+}
+
+.course {
+  display: flex;
+  flex-direction: column;
+  button {
+    width: 60px;
+    align-self: end;
+  }
+}

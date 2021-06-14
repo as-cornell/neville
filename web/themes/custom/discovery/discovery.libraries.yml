@@ -10,5 +10,14 @@ global-scripts:
     js_min/forms.js: {}
     js_min/on-this-page-nav.js: {}
 
-    dependencies:
-      - core/jquery
+  dependencies:
+    - core/jquery
+fancybox:
+  js:
+    js_min/jquery.fancybox.js: {}
+  dependencies:
+    - core/jquery
+
+  css:
+    theme:
+      css/plugins/jquery.fancybox.css: {}
