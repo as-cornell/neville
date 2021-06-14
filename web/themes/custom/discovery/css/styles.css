@@ -1735,6 +1735,100 @@ Descr: Sets all specific styles for an person card
 
 /* -------------------------
 
+Title: course List and cards with accordians
+Descr: Sets grid default ( full width ) and stacked (in columns) course lists
+        Sets all default individual course listings
+
+--------------------------- */
+.course-list {
+  display: grid;
+  grid-gap: 1rem;
+  padding-left: 0;
+  margin: 0 0 var(--component-bottom-margin) 0; }
+  @media (min-width: 782px) {
+    .course-list {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); } }
+
+.course {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+  .course button {
+    width: 60px;
+    -ms-flex-item-align: end;
+        align-self: end; }
+
+/* -------------------------
+
+Title: Event List
+Descr: Sets grid default ( full width ) and stacked (in columns) event lists
+        Sets all default individual event listings
+
+--------------------------- */
+.event-list {
+  display: grid;
+  grid-gap: 1rem;
+  padding-left: 0;
+  margin: 0 0 var(--component-bottom-margin) 0; }
+  @media (min-width: 782px) {
+    .event-list {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); } }
+
+.columns .eventList {
+  grid-template-columns: auto; }
+
+.event {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: start;
+      align-items: flex-start; }
+  .event__dateTime {
+    -ms-flex: 0 0 24%;
+        flex: 0 0 24%;
+    grid-area: date;
+    text-align: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-align: center;
+        align-items: center;
+    border: 1px solid var(--as-red-300);
+    padding: 0.25rem;
+    border-radius: var(--border-radius); }
+  .event__date {
+    font-weight: var(--semi);
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin-bottom: 0.25rem;
+    padding-bottom: 0.25rem;
+    position: relative;
+    width: 69px; }
+    .event__date:after {
+      position: absolute;
+      content: "";
+      left: 10%;
+      top: 40%;
+      width: 3rem;
+      height: 2px;
+      background: var(--as-gray-300);
+      transform: rotate(-30deg); }
+    .event__date .event__month {
+      text-align: left; }
+    .event__date .event__day {
+      text-align: right; }
+  .event__time {
+    font-size: var(--base-18);
+    font-weight: var(--semi); }
+  .event__content {
+    -ms-flex: 0 0 65%;
+        flex: 0 0 65%; }
+
+/* -------------------------
+
 Title: _stat-wrapper
 Descr: sets up all uniquie styles for Stats wrapper 
   

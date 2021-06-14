@@ -1,0 +1,59 @@
+{#
+    Sets content for block--as-events.html.twig which pulls in event-list.twig.
+    twig tweak
+ #}
+{% set label = content.field_component_label %}
+{% set events_shown = content.field_events_shown|field_value|safe_join(', ')%}
+{% set keyword_params = content.field_keyword_params|field_value|safe_join(', ') %}
+<h3>
+	{{content.field_component_label}}
+</h3>
+{# added as block #}
+{# drupal_block('events_block', {label: label, events_shown: events_shown , keyword_params: keyword_params}) #}
+{# added as twig function #}
+{% set events = parse_events_json(events_shown,keyword_params) %}
+{# {{vardumper(events)}} #}
+{# outputting just first record for testing #}
+	{# 
+	{{events.0.title}}
+	
+	{{events.0.url}}
+	
+	{{events.0.location}}
+	
+	{{events.0.room}}
+	
+	{{events.0.description}}
+	
+	{{events.0.month}}
+	
+	{{events.0.date}}
+	
+	{{events.0.image}} #} <div class="event-list">{% for event in events %}
+		<div class="event">
+			<div class="event__dateTime">
+				<div class="event__date">
+					<div class="event__month">
+						{{event.month}}
+					</div>
+					<div class="event__day">
+						{{event.date}}
+					</div>
+				</div>
+				<div class="event__time">
+					{{event.time}}
+				</div>
+			</div>
+			<div class="event__content">
+				<div class="event__title">
+					<a href="{{event.url}}">
+						{{event.title}}
+					</a>
+				</div>
+				<div class="event__location">
+					{{event.location}}
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>
