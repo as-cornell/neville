@@ -8,7 +8,7 @@ Descr: Sets grid default ( full width ) and stacked (in columns) course lists
 
 // Default course list
 
-.course-list {
+.courses--cards {
   display: grid;
   grid-gap: 1rem;
   padding-left: 0;
@@ -16,13 +16,28 @@ Descr: Sets grid default ( full width ) and stacked (in columns) course lists
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
   margin: 0 0 var(--component-bottom-margin) 0;
+  .course {
+    display: flex;
+    flex-direction: column;
+    button {
+      width: 60px;
+      align-self: end;
+    }
+  }
 }
-
-.course {
-  display: flex;
-  flex-direction: column;
-  button {
-    width: 60px;
-    align-self: end;
+.courses--table {
+  .course__content {
+    display: flex;
+    // flex-direction: column;
+  }
+  .course__description {
+    background: pink;
+    display: block;
+    transform: scaleY(0);
+    position: absolute;
+    &.shown {
+      transform: scaleY(1);
+      position: relative;
+    }
   }
 }

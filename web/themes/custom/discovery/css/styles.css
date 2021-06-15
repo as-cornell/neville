@@ -284,6 +284,48 @@ Descr:
   .main .sidebar h3 {
     margin-bottom: 1em; }
 
+/* -------------------------
+
+Title: tables
+Descr:
+   - style tables
+
+--------------------------- */
+table,
+.as-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 3rem;
+  margin-top: 1.5rem;
+  font-size: var(--base-20); }
+  table th,
+  .as-table th {
+    position: sticky;
+    top: 0;
+    background: var(--as-teal-500);
+    font-weight: var(--semi);
+    padding: 0.5em;
+    text-align: left;
+    color: var(--as-white); }
+  table tr:nth-of-type(even),
+  .as-table tr:nth-of-type(even) {
+    background: var(--as-gray-300); }
+  table td,
+  .as-table td {
+    padding: 0.5em; }
+    @media (min-width: 782px) {
+      table td,
+      .as-table td {
+        border-bottom: none;
+        border-top: none; } }
+
+.scrolly {
+  overflow: auto;
+  max-height: 1000px; }
+
+tbody {
+  border-top: none; }
+
 /*
 
 Basic text styles
@@ -302,7 +344,8 @@ Descr: any hiding or showin
   position: absolute;
   z-index: -1; }
 
-.sr-only, .landingPage .group__title--sr-only {
+.sr-only, table caption,
+.as-table caption, .landingPage .group__title--sr-only {
   display: block;
   height: 1px;
   width: 1px;
@@ -1740,24 +1783,36 @@ Descr: Sets grid default ( full width ) and stacked (in columns) course lists
         Sets all default individual course listings
 
 --------------------------- */
-.course-list {
+.courses--cards {
   display: grid;
   grid-gap: 1rem;
   padding-left: 0;
   margin: 0 0 var(--component-bottom-margin) 0; }
   @media (min-width: 782px) {
-    .course-list {
+    .courses--cards {
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); } }
+  .courses--cards .course {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column; }
+    .courses--cards .course button {
+      width: 60px;
+      -ms-flex-item-align: end;
+          align-self: end; }
 
-.course {
+.courses--table .course__content {
   display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column; }
-  .course button {
-    width: 60px;
-    -ms-flex-item-align: end;
-        align-self: end; }
+  display: flex; }
+
+.courses--table .course__description {
+  background: pink;
+  display: block;
+  transform: scaleY(0);
+  position: absolute; }
+  .courses--table .course__description.shown {
+    transform: scaleY(1);
+    position: relative; }
 
 /* -------------------------
 

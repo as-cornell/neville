@@ -19,7 +19,7 @@
 {% set courses = parse_courses_json(semester,keyword_params,courses_shown) %}
 {# {{vardumper(courses)}} #}
 
-	</div> #} <div class="course-list fancybox-triggers">{% for course in courses %}
+<div class="courses--cards fancybox-triggers">{% for course in courses %}
 		<div class="course">
 			<div class="course__number-title">
 				<div class="course__number">
@@ -33,9 +33,10 @@
 			<div class="course__offered">
 				{{course.offered}}
 			</div>
-      <button data-fancybox="gallery" data-src="#{{course.subject}}-{{course.number}}" href="javascript:;">
-        Trigger the fancybox
-      </button>
+      <a data-fancybox="gallery" href="javascript:;" data-src="#{{course.subject}}-{{course.number}}">
+        show more
+      </a>
+
 		</div>
 	{% endfor %}
 </div>

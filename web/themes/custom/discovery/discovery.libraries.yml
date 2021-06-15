@@ -12,6 +12,7 @@ global-scripts:
 
   dependencies:
     - core/jquery
+
 fancybox:
   js:
     js_min/jquery.fancybox.js: {}
@@ -21,3 +22,14 @@ fancybox:
   css:
     theme:
       css/plugins/jquery.fancybox.css: {}
+
+courses:
+  js:
+    js_min/datatables.min.js: {}
+    js_min/courses.js: {}
+  dependencies:
+    - core/jquery
+
+  css:
+    theme:
+      css/plugins/datatables.css: {}
