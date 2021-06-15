@@ -36,7 +36,7 @@ class parseCoursesJson extends \Twig_Extension
    * @return array $course_record
    *   data in array for theming
    */
-  public function parse_courses_json($semester,$keyword_params,$courses_shown)
+  public function parse_courses_json($semester,$keyword_params,$courses_shown,$block_type)
   {
     $course_record = [];
     $instructors = [];
@@ -45,9 +45,15 @@ class parseCoursesJson extends \Twig_Extension
     $courses_shown = $courses_shown - 1;
     $courses_json = as_courses_get_courses_json($semester,$keyword_params);
     //dump($courses_json);
+    //multiple random courses with shuffle()
+    //https://www.w3schools.com/php/func_array_shuffle.asp
+    if ($block_type == 'random'){
+      shuffle($course_json);
+      }
     if (!empty($courses_json)) {
       foreach ($courses_json as $course_data) {
-        if ($course_count <= $courses_shown) {
+        if ($course_count <= $courses_shown && $block_type <> 'all') {
+          // get a certain number of courses
           // get instructors as array
           $course_instructors = $course_data['enrollGroups'];
           foreach ($course_instructors as $tempinstructors) {
@@ -56,6 +62,20 @@ class parseCoursesJson extends \Twig_Extension
           // course record data
           $course_record[] = array('subject' => $course_data['subject'], 'number' => $course_data['catalogNbr'], 'title' => $course_data['titleLong'], 'description' => strip_tags($course_data['description']), 'offered' => $course_data['catalogWhenOffered'], 'acadGroup' => $course_data['acadGroup'], 'acadCareer' => $course_data['acadCareer'], 'instructors' => $instructors);
           $course_count++;
+        }else{
+           // get all courses
+           // get instructors as array
+          //if (!empty($course_data['enrollGroups'][0])) {
+          //$course_instructors = $course_data['enrollGroups'];
+         //foreach ($course_instructors as $tempinstructors) {
+            //if (!empty($tempinstructors)) {
+              //$instructors[] = array('firstname' => $tempinstructors['classSections'][0]['meetings'][0]['instructors'][0]['firstName'], 'lastname' => $tempinstructors['classSections'][0]['meetings'][0]['instructors'][0]['lastName'], 'netid' => $tempinstructors['classSections'][0]['meetings'][0]['instructors'][0]['netid']);
+                //}
+              //}
+            //}
+          // course record data
+          $course_record[] = array('subject' => $course_data['subject'], 'number' => $course_data['catalogNbr'], 'title' => $course_data['titleLong'], 'description' => strip_tags($course_data['description']), 'offered' => $course_data['catalogWhenOffered'], 'acadGroup' => $course_data['acadGroup'], 'acadCareer' => $course_data['acadCareer'], 'instructors' => $instructors);
+          $instructors = [];
         }
       }
     }
