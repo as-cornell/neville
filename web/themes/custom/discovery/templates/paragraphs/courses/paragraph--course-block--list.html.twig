@@ -1,0 +1,50 @@
+{#
+    Sets content for paragraph--course-block.twig
+ #}
+
+{# add data tables #}
+{{attach_library('discovery/courses')}}
+
+{% set label = content.field_component_label %}
+{% set courses_shown = content.field_courses_shown|field_value|safe_join('')%}
+{% set keyword_params = content.field_keyword_params|field_value|safe_join('') %}
+{% set semester = content.field_semester|field_raw|safe_join('') %}
+{% set semestername = content.field_semester|field_value|safe_join(', ') %}
+
+<h3>
+	{{content.field_component_label}}
+</h3>
+
+{# added as twig function #}
+{% set courses = parse_courses_json(semester,keyword_params,courses_shown) %}
+{# {{vardumper(courses)}} #}
+
+<table id="courses--table" class="courses--table">
+  <thead>
+    <tr>
+      <th>Course ID</th>
+      <th>Title</th>
+      <th>Offered</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for course in courses %}
+    <tr>
+      <td>
+        {{course.subject}}{{course.number}}
+      </td>
+      <td>
+      <span class="course__content">{{course.title}}
+      {% if course.description %}{% if course.description %} - <span class="toggle toggle--course-detail">Show more</span>{% endif %}</span>
+      <span class="course__description">
+        {{course.description}}
+      </span>
+      {% endif %}
+      </td>
+      <td >
+        {{course.offered}}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

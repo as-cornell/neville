@@ -5,7 +5,6 @@
     click: function () {
       $(".mainNav").removeClass("shown");
       $(".header__searchForm > form").toggleClass("shown");
-      
       $(".main").toggleClass("fade");
     },
   });

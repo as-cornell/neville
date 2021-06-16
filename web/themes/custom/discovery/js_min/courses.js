@@ -1,0 +1,1 @@
+!function(e){console.log("tablesbaby"),e("#courses--table").DataTable({order:[[2,"desc"]]}),e(".toggle--course-detail").on({click:function(){console.log("clickarusky"),e(this).parent().next().toggleClass("shown")}})}(jQuery);
