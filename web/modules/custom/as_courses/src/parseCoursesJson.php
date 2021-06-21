@@ -52,7 +52,7 @@ class parseCoursesJson extends \Twig_Extension
       }
     if (!empty($courses_json)) {
       foreach ($courses_json as $course_data) {
-        if ($course_count <= $courses_shown && $block_type <> 'all') {
+        if ($course_count <= $courses_shown && $block_type == 'random') {
           // get a certain number of courses
           // get instructors as array
           $course_instructors = $course_data['enrollGroups'];
@@ -75,7 +75,7 @@ class parseCoursesJson extends \Twig_Extension
             //}
           // course record data
           $course_record[] = array('subject' => $course_data['subject'], 'number' => $course_data['catalogNbr'], 'title' => $course_data['titleLong'], 'description' => strip_tags($course_data['description']), 'offered' => $course_data['catalogWhenOffered'], 'acadGroup' => $course_data['acadGroup'], 'acadCareer' => $course_data['acadCareer'], 'instructors' => $instructors);
-          $instructors = [];
+
         }
       }
     }
