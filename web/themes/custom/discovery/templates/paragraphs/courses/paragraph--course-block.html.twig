@@ -1,0 +1,70 @@
+{#
+    Sets content for paragraph--course-block.twig
+ #}
+
+{# add fancybox #}
+{{attach_library('discovery/fancybox')}}
+
+{% set label = content.field_component_label %}
+{% set courses_shown = content.field_courses_shown|field_value|safe_join('')%}
+{% set keyword_params = content.field_keyword_params|field_value|safe_join('') %}
+{% set semester = content.field_semester|field_raw|safe_join('') %}
+{% set semestername = content.field_semester|field_value|safe_join(', ') %}
+{% set block_type = content.field_semester|field_raw|safe_join(', ') %}
+<h3>
+	{{content.field_component_label}}
+</h3>
+
+{# added as twig function #}
+{% set courses = parse_courses_json(semester,keyword_params,courses_shown,block_type) %}
+{# {{vardumper(courses)}} #}
+
+	 <div class="course-list fancybox-triggers">{% for course in courses %}
+		<div class="course">
+			<div class="course__number-title">
+				<div class="course__number">
+					{{course.subject}}
+					{{course.number}}
+				</div>
+				<div class="course__title">
+					{{course.title}}
+				</div>
+			</div>
+			<div class="course__offered">
+				{{course.offered}}
+			</div>
+      <button data-fancybox="gallery" data-src="#{{course.subject}}-{{course.number}}" href="javascript:;">
+        Trigger the fancybox
+      </button>
+		</div>
+	{% endfor %}
+</div>
+
+<div class="fancybox-content sr-only">
+{% for course in courses %}
+<div class="course" id="{{course.subject}}-{{course.number}}">
+	<div class="course__number-title">
+		<div class="course__number">
+			{{course.subject}}
+			{{course.number}}
+		</div>
+		<div class="course__title">
+			{{course.title}}
+		</div>
+	</div>
+	<div class="course__offered">
+		{{course.offered}}
+	</div>
+	<div class="course__details">
+		{{course.description}}
+		<a href="https://classes.cornell.edu/browse/roster/SP21/class/{{course.subject}}/{{course.number}}">
+			Full details for
+			{{course.subject}}
+			{{course.number}}
+			-
+			{{course.title}}
+		</a>
+	</div>
+</div>
+{% endfor %}
+</div>
