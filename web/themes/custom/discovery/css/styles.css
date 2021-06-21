@@ -929,7 +929,8 @@ Descr: otpN small and large, hovers and toggles for subNav
     display: flex;
     -ms-flex-direction: column;
         flex-direction: column;
-    position: absolute; }
+    position: absolute;
+    font-weight: var(--regular); }
     .nav--site .nav.shown {
       transform: scale(1, 1);
       transform-origin: top;
@@ -938,7 +939,8 @@ Descr: otpN small and large, hovers and toggles for subNav
     @media (min-width: 782px) {
       .nav--site .nav {
         transform: none;
-        position: relative; } }
+        position: relative;
+        overflow: visible; } }
     .nav--site .nav button {
       right: 5px;
       top: 5px;
@@ -958,11 +960,23 @@ Descr: otpN small and large, hovers and toggles for subNav
         transform: rotate(180deg);
         transform-origin: 50% 50%; }
     .nav--site .nav a {
-      font-weight: var(--light); }
+      font-weight: var(--regular);
+      -webkit-text-decoration-color: var(--as-gray-300);
+              text-decoration-color: var(--as-gray-300);
+      position: relative; }
+      .nav--site .nav a:before {
+        position: absolute;
+        content: "";
+        height: calc(100% - 2px);
+        width: 2px;
+        transform: translateX(-18px);
+        background: var(--as-red-500);
+        border-radius: 2px;
+        transition: width 250ms; }
       .nav--site .nav a.active {
-        font-weight: var(--regular); }
+        -webkit-text-decoration-color: var(--as-red-400);
+                text-decoration-color: var(--as-red-400); }
   .nav--site .nav-0 {
-    background: var(--as-gray-300);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     z-index: 11;
     transform: scale(1, 0);
@@ -974,6 +988,9 @@ Descr: otpN small and large, hovers and toggles for subNav
       background: var(--as-teal-400);
       margin-bottom: 0;
       position: relative; }
+      @media (min-width: 782px) {
+        .nav--site .nav-0 > .nav-0__item {
+          background: none; } }
     .nav--site .nav-0 .nav-0__link {
       display: inline-block;
       position: relative;
@@ -986,6 +1003,11 @@ Descr: otpN small and large, hovers and toggles for subNav
         background: red;
         width: calc(100% - 3rem);
         border-right: 1px solid var(--as-white); }
+      @media (min-width: 782px) {
+        .nav--site .nav-0 .nav-0__link {
+          background: none;
+          color: var(--as-black);
+          padding: 0; } }
   .nav--site .nav-1 {
     border-radius: 0;
     width: 100%;
@@ -1006,10 +1028,14 @@ Descr: otpN small and large, hovers and toggles for subNav
         background-color: var(--as-white); }
   @media (min-width: 782px) {
     .nav--site {
-      background: pink;
+      background: transparent;
       position: relative;
       transform: none;
-      overflow: visible; }
+      overflow: visible;
+      font-size: var(--base-18); }
+      .nav--site .nav-0,
+      .nav--site .nav-1 {
+        background: transparent; }
       .nav--site .nav-1 {
         position: relative;
         transform: none; } }

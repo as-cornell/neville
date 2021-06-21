@@ -16,7 +16,7 @@
 </h3>
 
 {# added as twig function #}
-{% set courses = parse_courses_json(semester,keyword_params,courses_shown) %}
+{% set courses = parse_courses_json(semester,keyword_params,courses_shown,block_type) %}
 {# {{vardumper(courses)}} #}
 
 <div class="courses--cards fancybox-triggers">{% for course in courses %}
