@@ -27,6 +27,7 @@ runtime:
 relationships:
     database: 'db:mysql'
     redis: 'cache:redis'
+    saml: "db:mysql"
 
 # The size of the persistent disk of the application (in MB).
 disk: 2048
@@ -124,6 +125,13 @@ web:
                 '^/sites/[^/]+/settings.*?\.php$':
                     scripts: false
 
+        # simplesmalphp integration
+        '/simplesaml':
+          allow: true
+          scripts: true
+          passthru: '/index.php'
+          root: 'vendor/simplesamlphp/simplesamlphp/www'
+
         # The files directory has its own special configuration rules.
         '/sites/default/files':
             # Allow access to all files in the public files directory.
@@ -145,3 +153,7 @@ crons:
     drupal:
         spec: '*/19 * * * *'
         cmd: 'cd web ; drush core-cron'
+# Added for simplesaml
+variables:
+  env:
+    SIMPLESAMLPHP_CONFIG_DIR: /app/simplesamlphp/config
