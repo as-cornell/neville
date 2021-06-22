@@ -123,6 +123,12 @@ web:
                     scripts: false
                 '^/sites/[^/]+/settings.*?\.php$':
                     scripts: false
+        '/simplesaml':
+          root: "vendor/simplesamlphp/simplesamlphp/www"
+          allow: true
+          scripts: true
+          index:
+            - index.php
 
         # The files directory has its own special configuration rules.
         '/sites/default/files':
