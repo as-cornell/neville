@@ -125,12 +125,13 @@ web:
                 '^/sites/[^/]+/settings.*?\.php$':
                     scripts: false
 
-        # simplesmalphp integration
+        # simplesamlphp integration
         '/simplesaml':
+          root: "vendor/simplesamlphp/simplesamlphp/www"
           allow: true
           scripts: true
-          passthru: '/index.php'
-          root: 'vendor/simplesamlphp/simplesamlphp/www'
+          index:
+            - index.php
 
         # The files directory has its own special configuration rules.
         '/sites/default/files':
