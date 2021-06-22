@@ -117,7 +117,7 @@
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://english.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
