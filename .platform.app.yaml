@@ -123,6 +123,8 @@ web:
                     scripts: false
                 '^/sites/[^/]+/settings.*?\.php$':
                     scripts: false
+
+
         '/simplesaml':
           root: "vendor/simplesamlphp/simplesamlphp/www"
           allow: true
