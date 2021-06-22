@@ -10,13 +10,14 @@
 {% set keyword_params = content.field_keyword_params|field_value|safe_join('') %}
 {% set semester = content.field_semester|field_raw|safe_join('') %}
 {% set semestername = content.field_semester|field_value|safe_join(', ') %}
+{% set block_type = content.field_block_type|field_raw|safe_join(', ') %}
 
 <h3>
 	{{content.field_component_label}}
 </h3>
 
 {# added as twig function #}
-{% set courses = parse_courses_json(semester,keyword_params,courses_shown) %}
+{% set courses = parse_courses_json(semester,keyword_params,courses_shown,block_type) %}
 {# {{vardumper(courses)}} #}
 
 <table id="courses--table" class="courses--table">

@@ -291,15 +291,13 @@ Descr:
    - style tables
 
 --------------------------- */
-table,
-.as-table {
+table {
   border-collapse: collapse;
   width: 100%;
   margin-bottom: 3rem;
   margin-top: 1.5rem;
   font-size: var(--base-20); }
-  table th,
-  .as-table th {
+  table th {
     position: sticky;
     top: 0;
     background: var(--as-teal-500);
@@ -307,15 +305,12 @@ table,
     padding: 0.5em;
     text-align: left;
     color: var(--as-white); }
-  table tr:nth-of-type(even),
-  .as-table tr:nth-of-type(even) {
+  table tr:nth-of-type(even) {
     background: var(--as-gray-300); }
-  table td,
-  .as-table td {
+  table td {
     padding: 0.5em; }
     @media (min-width: 782px) {
-      table td,
-      .as-table td {
+      table td {
         border-bottom: none;
         border-top: none; } }
 
@@ -344,8 +339,7 @@ Descr: any hiding or showin
   position: absolute;
   z-index: -1; }
 
-.sr-only, table caption,
-.as-table caption, .landingPage .group__title--sr-only {
+.sr-only, table caption, .landingPage .group__title--sr-only {
   display: block;
   height: 1px;
   width: 1px;
@@ -911,12 +905,16 @@ Descr: otpN small and large, hovers and toggles for subNav
         justify-content: space-between;
     -ms-flex-align: center;
         align-items: center;
-    background: red;
-    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    color: var(--as-white);
+    background: var(--as-black);
+    font-weight: var(--regular);
+    border-radius: var(--border-radius);
     margin-bottom: 0;
     padding: 0.5rem; }
     .nav--site .nav-toggle.active button {
       transform: rotate(180deg); }
+    .nav--site .nav-toggle .icon--button svg {
+      fill: var(--as-white); }
     @media (min-width: 782px) {
       .nav--site .nav-toggle {
         display: none; } }
@@ -934,7 +932,7 @@ Descr: otpN small and large, hovers and toggles for subNav
     .nav--site .nav.shown {
       transform: scale(1, 1);
       transform-origin: top;
-      transition: transform 250ms ease-in-out 250ms;
+      transition: transform 100ms ease-in-out 100ms;
       position: relative; }
     @media (min-width: 782px) {
       .nav--site .nav {
@@ -942,7 +940,7 @@ Descr: otpN small and large, hovers and toggles for subNav
         position: relative;
         overflow: visible; } }
     .nav--site .nav button {
-      right: 5px;
+      right: 14px;
       top: 5px;
       padding: 0;
       background: none;
@@ -968,36 +966,34 @@ Descr: otpN small and large, hovers and toggles for subNav
         position: absolute;
         content: "";
         height: calc(100% - 2px);
-        width: 2px;
-        transform: translateX(-18px);
-        background: var(--as-red-500);
+        width: 4px;
+        transform: translateX(-16px);
         border-radius: 2px;
         transition: width 250ms; }
-      .nav--site .nav a.active {
-        -webkit-text-decoration-color: var(--as-red-400);
-                text-decoration-color: var(--as-red-400); }
   .nav--site .nav-0 {
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     z-index: 11;
     transform: scale(1, 0);
-    transform-origin: top; }
+    transform-origin: top;
+    margin-top: -2px; }
     @media (min-width: 782px) {
       .nav--site .nav-0 {
         transform: none; } }
-    .nav--site .nav-0 > .nav-0__item {
-      background: var(--as-teal-400);
+    .nav--site .nav-0 .nav-0__item {
       margin-bottom: 0;
       position: relative; }
       @media (min-width: 782px) {
-        .nav--site .nav-0 > .nav-0__item {
-          background: none; } }
+        .nav--site .nav-0 .nav-0__item {
+          background: none;
+          margin-bottom: 0.5rem; }
+          .nav--site .nav-0 .nav-0__item.has-sub {
+            margin-bottom: 0; } }
     .nav--site .nav-0 .nav-0__link {
       display: inline-block;
-      position: relative;
       color: var(--as-gray-300);
-      background: var(--as-black);
+      background: var(--as-teal-600);
       padding: 0.5rem;
-      width: 100%;
+      width: calc(100% - 1rem);
       transition: opacity 150ms ease-in-out; }
       .nav--site .nav-0 .nav-0__link.has-sub {
         background: red;
@@ -1007,7 +1003,11 @@ Descr: otpN small and large, hovers and toggles for subNav
         .nav--site .nav-0 .nav-0__link {
           background: none;
           color: var(--as-black);
-          padding: 0; } }
+          padding: 0; }
+          .nav--site .nav-0 .nav-0__link:before {
+            background: var(--as-teal-300); }
+          .nav--site .nav-0 .nav-0__link:hover:before, .nav--site .nav-0 .nav-0__link.active:before {
+            background: var(--as-teal-600); } }
   .nav--site .nav-1 {
     border-radius: 0;
     width: 100%;
@@ -1019,13 +1019,27 @@ Descr: otpN small and large, hovers and toggles for subNav
       opacity: 1;
       transform: scaleY(1);
       position: relative; }
-    .nav--site .nav-1 a {
+    @media (min-width: 782px) {
+      .nav--site .nav-1 {
+        margin-top: 0.25rem; } }
+    @media (min-width: 782px) {
+      .nav--site .nav-1 .nav-1__item {
+        margin-bottom: 0.5rem; } }
+    .nav--site .nav-1 .nav-1__link {
       padding: 0.5rem 0 0.5rem 1rem;
       color: var(--as-black);
+      background: var(--as-teal-300);
       text-decoration: underline;
       display: block; }
-      .nav--site .nav-1 a:hover, .nav--site .nav-1 a:focus {
-        background-color: var(--as-white); }
+      .nav--site .nav-1 .nav-1__link:hover, .nav--site .nav-1 .nav-1__link:focus {
+        background-color: var(--as-teal-200); }
+      @media (min-width: 782px) {
+        .nav--site .nav-1 .nav-1__link {
+          padding: 0 0 0 0.5rem; }
+          .nav--site .nav-1 .nav-1__link:before {
+            background: var(--as-teal-400); }
+          .nav--site .nav-1 .nav-1__link.active:before {
+            width: 6px; } }
   @media (min-width: 782px) {
     .nav--site {
       background: transparent;
