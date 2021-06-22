@@ -34,7 +34,6 @@
   }
 
   .nav {
-    list-style-type: none;
     padding: 0;
     margin: 0;
     overflow: hidden;
@@ -74,6 +73,9 @@
       &.active {
         transform: rotate(180deg);
         transform-origin: 50% 50%;
+      }
+      @include medium() {
+        display: none;
       }
     }
     a {
@@ -135,6 +137,7 @@
         border-right: 1px solid var(--as-white);
       }
       @include medium() {
+        background: none;
         &:before {
           background: var(--as-teal-300);
         }
@@ -189,6 +192,7 @@
       }
       @include medium() {
         padding: 0 0 0 0.5rem;
+        background: none;
         &:before {
           background: var(--as-teal-400);
         }

@@ -19,6 +19,7 @@ Descr:
       text-align: center;
       font-family: var(--font-serif);
       font-weight: var(--semi);
+      font-size: var(--base-56);
       @include large() {
         text-align: left;
         margin-top: 0;
@@ -35,7 +36,7 @@ Descr:
     // display: none;
     position: sticky;
     top: 0;
-    margin-bottom: 2rem;
+    // margin-bottom: 2rem;
     z-index: 1;
     @include medium() {
       grid-area: aside;

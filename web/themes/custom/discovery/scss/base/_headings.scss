@@ -14,11 +14,14 @@ h4 {
   font-weight: var(--semi);
   color: var(--as-gray-700);
   clear: both;
+  margin: 0;
+  line-height: 1;
 }
-// * + h2 {
-//   background: red;
-//   margin-top: 0;
-// }
+* + h2,
+* + h3 {
+  // background: red;
+  margin-top: 1em;
+}
 
 h1 {
   @extend .base-64;
@@ -28,7 +31,7 @@ h1 {
 
   &.h1--title,
   &.title {
-    margin-top: 0;
+    // margin-top: 0;
     font-family: var(--font-serif);
     font-weight: var(--heavy);
     // @include text-gradient(var(--storm-radial));
@@ -36,7 +39,7 @@ h1 {
 }
 
 h2 {
-  @extend .base-48;
+  font-size: 1.75rem;
 }
 
 // h2 after an eyebrow gets less margin top
@@ -45,11 +48,11 @@ h2 {
 }
 
 h3 {
-  @extend .base-36;
+  font-size: 1.5rem;
 }
 
 h4 {
-  @extend .base-28;
+  font-size: 1.25rem;
   // margin: 0 0 1em 0;
 }
 

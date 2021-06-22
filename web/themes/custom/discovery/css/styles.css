@@ -60,7 +60,7 @@ FONTS
 LINE WIDTH AND HEIGHT
 ----
 */
-  --line-height: 1.4;
+  --line-height: 1.5;
   --line-width: 60ch;
   /*
 ----
@@ -126,18 +126,17 @@ font size mixins
   font-size: var(--base-24);
   line-height: var(--line-height); }
 
-.base-28, h4, .basicSidebar .content > .pageComponent--ftb > p:first-of-type {
+.base-28, .basicSidebar .content > .pageComponent--ftb > p:first-of-type {
   font-size: var(--base-28);
   line-height: 1.4; }
 
-.base-36, h3 {
+.base-36 {
   font-size: var(--base-36);
   margin-bottom: 0;
   margin-top: 1em; }
 
-.base-48, h2 {
+.base-48 {
   font-size: var(--base-48);
-  margin-bottom: 0.5em;
   line-height: 1em; }
 
 .base-56 {
@@ -191,19 +190,33 @@ h4 {
   font-family: var(--font-sans);
   font-weight: var(--semi);
   color: var(--as-gray-700);
-  clear: both; }
+  clear: both;
+  margin: 0;
+  line-height: 1; }
+
+* + h2,
+* + h3 {
+  margin-top: 1em; }
 
 @media (min-width: 1432px) {
   h1 {
     font-size: var(--base-84); } }
 
 h1.h1--title, h1.title {
-  margin-top: 0;
   font-family: var(--font-serif);
   font-weight: var(--heavy); }
 
+h2 {
+  font-size: 1.75rem; }
+
 .eyebrow + h2 {
   margin-top: 0.35em !important; }
+
+h3 {
+  font-size: 1.5rem; }
+
+h4 {
+  font-size: 1.25rem; }
 
 .sidebar h2 {
   font-size: calc(1.5 * var(--base-font-size)); }
@@ -256,6 +269,34 @@ Descr:
 
 .grid--4 {
   grid-template-columns: repeat(4, 1fr); }
+
+/* -------------------------
+
+Title: lists.
+Descr: 
+    Sets basic styles for 
+    ul
+    ol
+      li
+    primarily in content page section
+
+--------------------------- */
+ul {
+  padding: 0 1em;
+  margin: 0;
+  list-style: none; }
+  ul li {
+    padding: 0;
+    margin: 0; }
+
+.content ul {
+  list-style-type: disc; }
+
+.content * + ul {
+  margin-top: 1em; }
+
+.content li + li {
+  margin-top: 0.5em; }
 
 /* -------------------------
 
@@ -326,6 +367,12 @@ tbody {
 Basic text styles
 
 */
+p {
+  margin: 0; }
+
+* + p {
+  margin-top: 1em; }
+
 /* -------------------------
 
 Title: Visibilities 
@@ -919,7 +966,6 @@ Descr: otpN small and large, hovers and toggles for subNav
       .nav--site .nav-toggle {
         display: none; } }
   .nav--site .nav {
-    list-style-type: none;
     padding: 0;
     margin: 0;
     overflow: hidden;
@@ -957,6 +1003,9 @@ Descr: otpN small and large, hovers and toggles for subNav
       .nav--site .nav button.active {
         transform: rotate(180deg);
         transform-origin: 50% 50%; }
+      @media (min-width: 782px) {
+        .nav--site .nav button {
+          display: none; } }
     .nav--site .nav a {
       font-weight: var(--regular);
       -webkit-text-decoration-color: var(--as-gray-300);
@@ -1002,6 +1051,7 @@ Descr: otpN small and large, hovers and toggles for subNav
       @media (min-width: 782px) {
         .nav--site .nav-0 .nav-0__link {
           background: none;
+          background: none;
           color: var(--as-black);
           padding: 0; }
           .nav--site .nav-0 .nav-0__link:before {
@@ -1035,7 +1085,8 @@ Descr: otpN small and large, hovers and toggles for subNav
         background-color: var(--as-teal-200); }
       @media (min-width: 782px) {
         .nav--site .nav-1 .nav-1__link {
-          padding: 0 0 0 0.5rem; }
+          padding: 0 0 0 0.5rem;
+          background: none; }
           .nav--site .nav-1 .nav-1__link:before {
             background: var(--as-teal-400); }
           .nav--site .nav-1 .nav-1__link.active:before {
@@ -1359,18 +1410,15 @@ header {
     background-repeat: no-repeat;
     background-size: 200px 45px; }
   header .department-logo {
-    text-indent: -9999px;
     -ms-flex: 0 0 100%;
         flex: 0 0 100%;
     grid-column: 1 / -1;
     grid-row: 2;
-    margin: 1rem 0;
-    background: url(/themes/custom/discovery/images/TEST-NES-oneline.svg);
     background-size: contain;
     background-repeat: no-repeat; }
     @media (min-width: 1224px) {
       header .department-logo {
-        background: url(/themes/custom/discovery/images/TEST-NES.svg);
+        margin: 2rem 0;
         background-size: contain;
         background-repeat: no-repeat;
         width: 300px;
@@ -1401,7 +1449,8 @@ header {
         background: url(/themes/custom/discovery/images/the-college-one-line.svg);
         background-repeat: no-repeat;
         background-size: contain;
-        width: 300px;
+        background-position-y: center;
+        width: 240px;
         justify-self: flex-end;
         -ms-flex-item-align: center;
             align-self: center; } }
@@ -1587,7 +1636,8 @@ Descr:
     .basicSidebar .title h1 {
       text-align: center;
       font-family: var(--font-serif);
-      font-weight: var(--semi); }
+      font-weight: var(--semi);
+      font-size: var(--base-56); }
       @media (min-width: 1224px) {
         .basicSidebar .title h1 {
           text-align: left;
@@ -1599,7 +1649,6 @@ Descr:
   .basicSidebar aside {
     position: sticky;
     top: 0;
-    margin-bottom: 2rem;
     z-index: 1; }
     @media (min-width: 782px) {
       .basicSidebar aside {
@@ -1921,6 +1970,25 @@ Descr: Sets grid default ( full width ) and stacked (in columns) event lists
   .event__content {
     -ms-flex: 0 0 65%;
         flex: 0 0 65%; }
+
+/* -------------------------
+
+Title: _formatted-text block
+Descr: sets up all uniquie styles for formatted text block
+
+--------------------------- */
+.paragraph--type--formatted-text-block {
+  margin-top: 1em; }
+
+/* -------------------------
+
+Title: _page-section
+Descr: sets up all uniquie styles for page-sections and page section labels
+
+--------------------------- */
+.section-label {
+  margin-top: 1em;
+  font-size: 2rem; }
 
 /* -------------------------
 

@@ -19,7 +19,10 @@
 						Department
 					</a> #}
 	{# ADDED SITE BRANDING BLOCK FOR DIFFERENT DEPARTMENT LOGO PER DOMAIN #}
-	{{ drupal_entity('block', 'discovery_site_branding') }}
+  <div class="department-logo">
+  {{ drupal_entity('block', 'discovery_site_branding') }}
+  </div>
+	
 	{# ADDED COLLEGE LOGO BLOCK FOR DIFFERENT COLLEGE LOGO PER DOMAIN #}
 	{{ drupal_block('college_header_logos_block') }}
 

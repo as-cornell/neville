@@ -79,16 +79,17 @@ header {
   }
 
   .department-logo {
-    text-indent: -9999px;
+    // text-indent: -9999px;
     flex: 0 0 100%;
     grid-column: 1 / -1;
     grid-row: 2;
-    margin: 1rem 0;
-    background: url(/themes/custom/discovery/images/TEST-NES-oneline.svg);
+
+    // background: url(/themes/custom/discovery/images/TEST-NES-oneline.svg);
     background-size: contain;
     background-repeat: no-repeat;
     @include large() {
-      background: url(/themes/custom/discovery/images/TEST-NES.svg);
+      // background: url(/themes/custom/discovery/images/TEST-NES.svg);
+      margin: 2rem 0;
       background-size: contain;
       background-repeat: no-repeat;
       width: 300px;
@@ -118,7 +119,9 @@ header {
       background: url(/themes/custom/discovery/images/the-college-one-line.svg);
       background-repeat: no-repeat;
       background-size: contain;
-      width: 300px;
+      background-position-y: center;
+      width: 240px;
+
       justify-self: flex-end;
       align-self: center;
     }
