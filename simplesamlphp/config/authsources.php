@@ -17,4 +17,11 @@ $config = array(
         'entityID' => 'https://departments.as.cornell.edu/',
         'idp' => 'https://shibidp-test.cit.cornell.edu/idp/shibboleth',
     ),
+    'history-sp' => array(
+        'saml:SP',
+        'privatekey' => 'saml.pem',
+        'certificate' => 'saml.crt',
+        'entityID' => 'https://history.as.cornell.edu/',
+        'idp' => 'https://shibidp-test.cit.cornell.edu/idp/shibboleth',
+    ),
 );
