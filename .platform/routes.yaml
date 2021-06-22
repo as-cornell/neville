@@ -15,103 +15,103 @@
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://americanstudies.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://anthropology.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://archaeology.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://arthistory.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://asianamericanstudies.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://asianstudies.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://astronomy.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://research.astronomy.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://caps.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://cderdev.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://chemistry.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://cinema.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://classics.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://cogsci.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://complit.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://ecologyandevolution.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://economics.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
@@ -123,31 +123,31 @@
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://fgss.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://frenchstudies.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://germanstudies.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://government.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://history.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
@@ -159,178 +159,178 @@
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://igcs.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://inequality.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://jewishstudies.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://knightdev.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://linguistics.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://latino.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://lgbt.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://lrc.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://math.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://mbg.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://mediastudiesdev.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://medieval.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://milstein.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://music.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://nbb.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://neareasternstudies.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://organ.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://philosophy.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://physics.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://pma.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://psychology.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://religiousstudies.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://romancestudies.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://ruraldev.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://sagan.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://sct.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://sochum.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://sociology.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
 "https://sts.as.cornell.edu/":
     type: upstream
     upstream: "app:http"
     cache:
       enabled: true
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/', 'SimpleSAMLSessionID', 'SimpleSAMLAuthToken']
