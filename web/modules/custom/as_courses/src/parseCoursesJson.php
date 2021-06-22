@@ -36,46 +36,33 @@ class parseCoursesJson extends \Twig_Extension
    * @return array $course_record
    *   data in array for theming
    */
-  public function parse_courses_json($semester,$keyword_params,$courses_shown,$block_type)
+  public function parse_courses_json($semester,$keyword_params,$courses_shown,$list_order)
   {
     $course_record = [];
-    $instructors = [];
-    $course_count = 0;
-    //conver from real number to 0 base
+
+    //convert from real number to 0 base
+    if (!empty($courses_shown)) {
     $courses_shown = $courses_shown - 1;
+    $course_count = 0;
+    }
+
     $courses_json = as_courses_get_courses_json($semester,$keyword_params);
     //dump($courses_json);
     //multiple random courses with shuffle()
     //https://www.w3schools.com/php/func_array_shuffle.asp
-    if ($block_type == 'random'){
-      shuffle($course_json);
+    if ($list_order == 'random'){
+      shuffle($courses_json);
       }
     if (!empty($courses_json)) {
       foreach ($courses_json as $course_data) {
-        if ($course_count <= $courses_shown && $block_type <> 'all') {
+        if (!empty($courses_shown) &&  $course_count <= $courses_shown) {
           // get a certain number of courses
-          // get instructors as array
-          $course_instructors = $course_data['enrollGroups'];
-          foreach ($course_instructors as $tempinstructors) {
-              $instructors[] = array('firstname' => $tempinstructors['classSections'][0]['meetings'][0]['instructors'][0]['firstName'], 'lastname' => $tempinstructors['classSections'][0]['meetings'][0]['instructors'][0]['lastName'], 'netid' => $tempinstructors['classSections'][0]['meetings'][0]['instructors'][0]['netid']);
-              }
-          // course record data
-          $course_record[] = array('subject' => $course_data['subject'], 'number' => $course_data['catalogNbr'], 'title' => $course_data['titleLong'], 'description' => strip_tags($course_data['description']), 'offered' => $course_data['catalogWhenOffered'], 'acadGroup' => $course_data['acadGroup'], 'acadCareer' => $course_data['acadCareer'], 'instructors' => $instructors);
+          $course_record[] = array('subject' => $course_data['subject'], 'number' => $course_data['catalogNbr'], 'title' => $course_data['titleLong'], 'description' => strip_tags($course_data['description']), 'offered' => $course_data['catalogWhenOffered'], 'acadGroup' => $course_data['acadGroup'], 'acadCareer' => $course_data['acadCareer']);
           $course_count++;
-        }else{
-           // get all courses
-           // get instructors as array
-          //if (!empty($course_data['enrollGroups'][0])) {
-          //$course_instructors = $course_data['enrollGroups'];
-         //foreach ($course_instructors as $tempinstructors) {
-            //if (!empty($tempinstructors)) {
-              //$instructors[] = array('firstname' => $tempinstructors['classSections'][0]['meetings'][0]['instructors'][0]['firstName'], 'lastname' => $tempinstructors['classSections'][0]['meetings'][0]['instructors'][0]['lastName'], 'netid' => $tempinstructors['classSections'][0]['meetings'][0]['instructors'][0]['netid']);
-                //}
-              //}
-            //}
-          // course record data
-          $course_record[] = array('subject' => $course_data['subject'], 'number' => $course_data['catalogNbr'], 'title' => $course_data['titleLong'], 'description' => strip_tags($course_data['description']), 'offered' => $course_data['catalogWhenOffered'], 'acadGroup' => $course_data['acadGroup'], 'acadCareer' => $course_data['acadCareer'], 'instructors' => $instructors);
-          $instructors = [];
+        }
+        if (empty($courses_shown)) {
+          // get all courses
+          $course_record[] = array('subject' => $course_data['subject'], 'number' => $course_data['catalogNbr'], 'title' => $course_data['titleLong'], 'description' => strip_tags($course_data['description']), 'offered' => $course_data['catalogWhenOffered'], 'acadGroup' => $course_data['acadGroup'], 'acadCareer' => $course_data['acadCareer']);
         }
       }
     }
