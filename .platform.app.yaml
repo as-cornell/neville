@@ -27,6 +27,7 @@ runtime:
 relationships:
     database: 'db:mysql'
     redis: 'cache:redis'
+    saml: "db:saml"
 
 # The size of the persistent disk of the application (in MB).
 disk: 2048
@@ -124,13 +125,12 @@ web:
                 '^/sites/[^/]+/settings.*?\.php$':
                     scripts: false
 
-
+        # simplesmalphp integration
         '/simplesaml':
-          root: "vendor/simplesamlphp/simplesamlphp/www"
           allow: true
           scripts: true
-          index:
-            - index.php
+          passthru: '/index.php'
+          root: 'vendor/simplesamlphp/simplesamlphp/www'
 
         # The files directory has its own special configuration rules.
         '/sites/default/files':
