@@ -1081,8 +1081,6 @@ Descr: otpN small and large, hovers and toggles for subNav
       background: var(--as-teal-300);
       text-decoration: underline;
       display: block; }
-      .nav--site .nav-1 .nav-1__link:hover, .nav--site .nav-1 .nav-1__link:focus {
-        background-color: var(--as-teal-200); }
       @media (min-width: 782px) {
         .nav--site .nav-1 .nav-1__link {
           padding: 0 0 0 0.5rem;

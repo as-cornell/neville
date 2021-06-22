@@ -188,7 +188,7 @@
       display: block;
       &:hover,
       &:focus {
-        background-color: var(--as-teal-200);
+        // background-color: var(--as-teal-200);
       }
       @include medium() {
         padding: 0 0 0 0.5rem;
