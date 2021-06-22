@@ -145,3 +145,7 @@ crons:
     drupal:
         spec: '*/19 * * * *'
         cmd: 'cd web ; drush core-cron'
+# Added for simplesaml
+variables:
+  env:
+    SIMPLESAMLPHP_CONFIG_DIR: /app/simplesamlphp/config
