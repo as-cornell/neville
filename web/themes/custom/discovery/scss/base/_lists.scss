@@ -1,0 +1,35 @@
+/* -------------------------
+
+Title: lists.
+Descr: 
+    Sets basic styles for 
+    ul
+    ol
+      li
+    primarily in content page section
+
+--------------------------- */
+
+ul {
+  padding: 0 1em;
+  margin: 0;
+  list-style: none;
+  li {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+// main content lists
+.content {
+  ul {
+    list-style-type: disc;
+    // margin-top: 1em;
+  }
+  * + ul {
+    margin-top: 1em;
+  }
+  li + li {
+    margin-top: 0.5em;
+  }
+}

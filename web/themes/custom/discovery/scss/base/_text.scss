@@ -4,4 +4,9 @@ Basic text styles
 
 */
 
-
+p {
+  margin: 0;
+}
+* + p {
+  margin-top: 1em;
+}
