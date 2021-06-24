@@ -12,29 +12,96 @@ Descr: Sets grid default ( full width ) and stacked (in columns) course lists
   display: grid;
   grid-gap: 1rem;
   padding-left: 0;
+  margin-top: 1rem;
   @include medium() {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
-  margin: 0 0 var(--component-bottom-margin) 0;
-  .course {
-    display: flex;
-    flex-direction: column;
-    button {
-      width: 60px;
-      align-self: end;
+}
+// card and teaser view
+.course--card,
+.course--teaser {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
+  .course__number-title {
+    // border-bottom: 1px solid var(--as-gray-300);
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    flex: 1 0 100%;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      background: var(--as-gray-300);
+      width: 50%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
     }
   }
+  .course__number {
+    font-weight: var(--semi);
+    font-size: var(--base-28);
+  }
+  .course__title {
+    font-size: var(--base-20);
+    font-weight: var(--regular);
+    margin-top: 0.75em;
+  }
+  .course__offered {
+    font-size: var(--base-20);
+    flex: 0 1 50%;
+    // margin-top: 1em;
+  }
+  .course__details {
+    margin-top: 1em;
+  }
+  button {
+    align-self: end;
+  }
+  &.fancybox-content {
+    width: 800px;
+  }
 }
+
 .courses--table {
   .course__content {
     display: flex;
     // flex-direction: column;
   }
+}
+
+.course--table-row {
+  .course__content {
+    padding: 1em;
+    flex-direction: column;
+  }
+  .course__number {
+    font-weight: var(--semi);
+    padding-top: 1em;
+  }
+  .course__title {
+    font-size: var(--base-20);
+    vertical-align: top;
+  }
+  .course__show-more {
+    margin-left: 1em;
+  }
+  .course__offered {
+    vertical-align: top;
+  }
   .course__description {
-    background: pink;
+    // background: pink;
     display: block;
     transform: scaleY(0);
     position: absolute;
+    margin-top: 1em;
+    border-left: 4px solid var(--as-teal-300);
+    padding-left: 1em;
     &.shown {
       transform: scaleY(1);
       position: relative;

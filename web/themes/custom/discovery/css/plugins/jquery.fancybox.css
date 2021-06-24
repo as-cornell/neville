@@ -446,15 +446,15 @@ body.compensate-for-scrollbar {
 }
 
 .fancybox-navigation .fancybox-button--arrow_left {
-  left: 0;
-  left: env(safe-area-inset-left);
+  left: calc(50% - 500px);
+  /* left: env(safe-area-inset-left); */
   padding: 31px 26px 31px 6px;
 }
 
 .fancybox-navigation .fancybox-button--arrow_right {
   padding: 31px 6px 31px 26px;
-  right: 0;
-  right: env(safe-area-inset-right);
+  right: calc(50% - 500px);
+  /* right: env(safe-area-inset-right); */
 }
 
 /* Caption */

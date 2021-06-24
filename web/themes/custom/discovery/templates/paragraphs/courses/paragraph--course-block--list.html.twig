@@ -29,19 +29,25 @@
   </thead>
   <tbody>
   {% for course in courses %}
-    <tr>
-      <td>
+    <tr class="course course--table-row">
+      <td class="course__number" valign="top">
         {{course.subject}}{{course.number}}
       </td>
-      <td>
-      <span class="course__content">{{course.title}}
-      {% if course.description %}{% if course.description %} - <span class="toggle toggle--course-detail">Show more</span>{% endif %}</span>
+      <td class="course__content">
+      <span class="course__title">{{course.title}}<button class="toggle toggle--course-detail course__show-more">Show more</button></span>
+      
       <span class="course__description">
         {{course.description}}
+        <p><a href="https://classes.cornell.edu/browse/roster/{{semester}}/class/{{course.subject}}/{{course.number}}">
+			Full details for
+			{{course.subject}}
+			{{course.number}}
+			-
+			{{course.title}}</a></p>
       </span>
-      {% endif %}
+      
       </td>
-      <td >
+      <td class="course__offered">
         {{course.offered}}
       </td>
     </tr>

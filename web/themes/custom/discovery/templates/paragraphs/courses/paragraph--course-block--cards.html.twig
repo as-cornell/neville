@@ -17,10 +17,11 @@
 
 {# added as twig function #}
 {% set courses = parse_courses_json(semester,keyword_params,courses_shown,list_order) %}
-{# {{vardumper(courses)}} #}
-
+{# {{vardumper(courses)}}
+{{semester}}
+{{semestername}} #}
 <div class="courses--cards fancybox-triggers">{% for course in courses %}
-		<div class="course">
+		<div class="course course--card">
 			<div class="course__number-title">
 				<div class="course__number">
 					{{course.subject}}
@@ -33,9 +34,9 @@
 			<div class="course__offered">
 				{{course.offered}}
 			</div>
-      <a data-fancybox="gallery" href="javascript:;" data-src="#{{course.subject}}-{{course.number}}">
+      <button data-fancybox="gallery" href="javascript:;" data-src="#{{course.subject}}-{{course.number}}" class="course__show-more">
         show more
-      </a>
+      </button>
 
 		</div>
 	{% endfor %}
@@ -43,7 +44,7 @@
 
 <div class="fancybox-content sr-only">
 {% for course in courses %}
-<div class="course" id="{{course.subject}}-{{course.number}}">
+<div class="course course--teaser" id="{{course.subject}}-{{course.number}}">
 	<div class="course__number-title">
 		<div class="course__number">
 			{{course.subject}}
@@ -57,14 +58,13 @@
 		{{course.offered}}
 	</div>
 	<div class="course__details">
-		{{course.description}}
-		<a href="https://classes.cornell.edu/browse/roster/SP21/class/{{course.subject}}/{{course.number}}">
+		<p>{{course.description}}</p>
+    <p><a href="https://classes.cornell.edu/browse/roster/{{semester}}/class/{{course.subject}}/{{course.number}}">
 			Full details for
 			{{course.subject}}
 			{{course.number}}
 			-
-			{{course.title}}
-		</a>
+			{{course.title}}</a></p>
 	</div>
 </div>
 {% endfor %}

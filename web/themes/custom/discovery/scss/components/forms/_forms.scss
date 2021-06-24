@@ -88,6 +88,14 @@ form {
   }
 }
 
+// <button> reset
+button {
+  border-radius: 20px;
+  border: 1px solid var(--as-gray-600);
+  padding: 0.5em;
+}
+
+// views-exposed-form
 .views-exposed-form {
   padding: 1rem;
   margin-bottom: 2rem;

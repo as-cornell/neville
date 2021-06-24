@@ -1,1 +1,1 @@
-!function(e){console.log("tablesbaby"),e("#courses--table").DataTable({order:[[2,"desc"]]}),e(".toggle--course-detail").on({click:function(){console.log("clickarusky"),e(this).parent().next().toggleClass("shown")}})}(jQuery);
+!function(o){console.log("tablesbaby"),o("#courses--table").DataTable({order:[[0,"asc"]],paging:!1}),o(".toggle--course-detail").on({click:function(){console.log("clickarusky"),o(this).parent().next().toggleClass("shown")}})}(jQuery);

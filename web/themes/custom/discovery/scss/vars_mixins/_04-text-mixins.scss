@@ -29,7 +29,7 @@ font size mixins
 }
 .base-36 {
   font-size: var(--base-36);
-  margin-bottom: 0;
+  // margin-bottom: 0;
   margin-top: 1em;
 }
 .base-48 {
@@ -39,7 +39,7 @@ font size mixins
 }
 .base-56 {
   font-size: var(--base-56);
-  margin-bottom: 0.44em;
+  // margin-bottom: 0.44em;
   line-height: 1.2em;
 }
 .base-64 {
@@ -49,5 +49,5 @@ font size mixins
 .base-84 {
   font-size: var(--base-84);
   line-height: 0.9em;
-  margin-bottom: 1em;
+  // margin-bottom: 1em;
 }
