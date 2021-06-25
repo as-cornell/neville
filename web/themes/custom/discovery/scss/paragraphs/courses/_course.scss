@@ -13,7 +13,7 @@ Descr: Sets grid default ( full width ) and stacked (in columns) course lists
   grid-gap: 1rem;
   padding-left: 0;
   margin-top: 1rem;
-  @include medium() {
+  @include mq(medium) {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
 }

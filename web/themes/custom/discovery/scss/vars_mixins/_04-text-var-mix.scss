@@ -1,0 +1,122 @@
+/*
+  FONTS variables and mixins and aux classes
+*/
+
+// maps
+$type-scale: (
+  small: (
+    16: 0.666rem,
+    // 16px at full
+    18: 0.75rem,
+    20: 0.8333rem,
+    24: 1rem,
+    28: 1.2rem,
+    36: 1.5rem,
+    48: 2rem,
+    56: 2rem,
+    64: 2rem,
+    84: 2rem,
+  ),
+  medium: (
+    48: 2rem,
+    56: 2.33rem,
+    64: 2.66rem,
+    84: 3.5rem,
+  ),
+);
+
+$font-weights: (
+  light: 200,
+  regular: 400,
+  semi: 600,
+  heavy: 800,
+);
+
+// SETTING VARIABLES
+
+:root {
+  /*
+  FONT SIZES
+  */
+  --base-font-size: 24px;
+  @each $screen-size, $font-size in $type-scale {
+    @if $screen-size == small {
+      @each $size, $value in $font-size {
+        --base-#{$size}: #{$value};
+      }
+    } @else {
+      @include mq(medium) {
+        @each $size, $value in $font-size {
+          --base-#{$size}: #{$value};
+        }
+      }
+    }
+  }
+
+  @each $name, $font-weight in $font-weights {
+    --#{$name}: #{$font-weight};
+  }
+
+  /*
+  FONT FAMILIES
+  */
+
+  --font-sans: "canada-type-gibson", sans-serif;
+  --font-serif: "freight-macro-pro", serif;
+
+  /*
+  LINE WIDTH AND HEIGHT
+  */
+
+  --line-height: 1.5;
+  --line-width: 60ch;
+}
+
+@mixin baseFont(
+  $size: var(--base-24),
+  $color: var(--as-gray-700),
+  $weight: var(--light),
+  $line-height: var(--line-height),
+  $family: var(--font-sans)
+) {
+  font-family: $family;
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+  line-height: $line-height;
+}
+
+/*
+----
+font size bases to be used as extends
+----
+*/
+
+.base-24 {
+  font-size: var(--base-24);
+  line-height: var(--line-height);
+}
+.base-28 {
+  font-size: var(--base-28);
+  line-height: 1.4;
+}
+.base-36 {
+  font-size: var(--base-36);
+  line-height: 1em;
+}
+.base-48 {
+  font-size: var(--base-48);
+  line-height: 1em;
+}
+.base-56 {
+  font-size: var(--base-56);
+  line-height: 1.2em;
+}
+.base-64 {
+  font-size: var(--base-64);
+  line-height: 1em;
+}
+.base-84 {
+  font-size: var(--base-84);
+  line-height: 0.9em;
+}

@@ -71,13 +71,13 @@ Descr: sets up all uniquie styles for Stats wrapper and cards
 
 .basicSidebar {
   .stat-wrapper {
-    @include medium() {
+    @include mq(medium) {
       flex-wrap: nowrap;
     }
 
     .stat {
       flex: 0 1 48%;
-      @include medium() {
+      @include mq(medium) {
         flex-basis: 100%;
         margin-right: 1rem;
         &:last-of-type {

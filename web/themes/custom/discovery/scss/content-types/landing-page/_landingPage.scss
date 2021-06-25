@@ -45,7 +45,7 @@ Descr:
     margin-left: auto;
     margin-right: auto;
     // background: red;
-    @include medium() {
+    @include mq(medium) {
       p,
       ul,
       ol {
@@ -80,7 +80,7 @@ Descr:
   &--pano {
     .title {
       text-align: center;
-      @include medium() {
+      @include mq(medium) {
         display: flex;
         flex-direction: column;
         font-weight: var(--heavy);
@@ -102,7 +102,7 @@ Descr:
       }
       figure {
         background: none;
-        @include medium() {
+        @include mq(medium) {
           display: grid;
         }
         // grid-row: 1;
@@ -117,7 +117,7 @@ Descr:
         color: var(--storm-radial);
         font-weight: var(--regular);
         margin: 0 auto 1em auto;
-        @include medium() {
+        @include mq(medium) {
           color: var(--as-white);
           max-width: 80%;
           // @include dropShadow();

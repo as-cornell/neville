@@ -14,7 +14,7 @@ Descr:
 
 .main {
   // base page main conent grids
-  max-width: $xl;
+  max-width: var(--xl);
   margin: 0 auto var(--margin-2) auto;
   display: grid;
   grid-gap: 2rem;

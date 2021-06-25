@@ -12,10 +12,10 @@ Descr: Sets grid default ( full width ) and stacked (in columns) event lists
   display: grid;
   grid-gap: 1rem;
   padding-left: 0;
-  @include medium() {
+  @include mq(medium) {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
-  margin: 0 0 var(--component-bottom-margin) 0;
+  margin-top: 1em;
 }
 
 // Event list in columns
@@ -39,7 +39,7 @@ Descr: Sets grid default ( full width ) and stacked (in columns) event lists
     flex-direction: column;
     align-items: center;
     // @include boxShadow();
-    border: 1px solid var(--as-red-300);
+    box-shadow: var(--box-shadow);
     padding: 0.25rem;
     border-radius: var(--border-radius);
   }
@@ -50,8 +50,8 @@ Descr: Sets grid default ( full width ) and stacked (in columns) event lists
     font-weight: var(--semi);
     display: grid;
     grid-template-rows: 1fr 1fr;
-    margin-bottom: 0.25rem;
-    padding-bottom: 0.25rem;
+    // margin-bottom: 0.25rem;
+    // padding-bottom: 0.25rem;
     position: relative;
     width: 69px;
     &:after {

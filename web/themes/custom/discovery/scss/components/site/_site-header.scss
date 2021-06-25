@@ -34,21 +34,16 @@ header {
   max-width: var(--xl);
   position: relative;
 
-  @include medium() {
+  @include mq(medium) {
     grid-template-columns: 1fr 1fr auto;
     margin: 1rem auto 2rem auto;
   }
 
-  @include headerBreak() {
+  @include mq(header) {
     grid-template-columns: auto 1fr auto;
     grid-template-rows: auto;
     align-items: center;
     margin: 1rem auto 2rem auto;
-  }
-
-  @include xl {
-    // margin: 3rem auto;
-    // grid-template-columns: auto 1fr auto;
   }
 
   .header__searchForm {
@@ -56,10 +51,10 @@ header {
     grid-row: 3;
     display: flex;
     justify-content: center;
-    @include medium() {
+    @include mq(medium) {
       grid-row: 4;
     }
-    @include large() {
+    @include mq(large) {
       grid-row: 3;
     }
   }
@@ -87,7 +82,7 @@ header {
     // background: url(/themes/custom/discovery/images/TEST-NES-oneline.svg);
     background-size: contain;
     background-repeat: no-repeat;
-    @include large() {
+    @include mq(large) {
       // background: url(/themes/custom/discovery/images/TEST-NES.svg);
       margin: 2rem 0;
       background-size: contain;
@@ -107,7 +102,7 @@ header {
     background-repeat: no-repeat;
     background-position-x: right;
     text-indent: -5000px;
-    @include medium() {
+    @include mq(medium) {
       background: url(/themes/custom/discovery/images/Arts-and-sciences.svg);
       background-repeat: no-repeat;
       background-size: contain;
@@ -115,7 +110,7 @@ header {
       justify-self: flex-end;
       align-self: center;
     }
-    @include headerBreak() {
+    @include mq(header) {
       background: url(/themes/custom/discovery/images/the-college-one-line.svg);
       background-repeat: no-repeat;
       background-size: contain;
@@ -133,17 +128,13 @@ header {
     // display: flex;
     // justify-content: center;
 
-    @include medium() {
+    @include mq(medium) {
       grid-column: 1/-1;
       grid-row: 3;
     }
-    @include large() {
+    @include mq(large) {
       grid-row: 2;
       grid-column: 2 / -1;
-    }
-    @include xl {
-      // grid-column: 2/-1;
-      // grid-row: 1;
     }
   }
   .header__buttons {
@@ -153,7 +144,7 @@ header {
     justify-content: flex-end;
     align-items: center;
     align-self: center;
-    @include medium() {
+    @include mq(medium) {
       grid-column: 3;
     }
     button {
@@ -162,15 +153,15 @@ header {
       cursor: pointer;
     }
     .iconButton--showNav {
-      @include medium() {
+      @include mq(medium) {
         display: none;
       }
     }
-    @include large() {
+    @include mq(large) {
       grid-column: 3;
       grid-row: 1;
     }
-    @include xl() {
+    @include mq(xl) {
       // grid-column: 4;
       grid-row: 1;
     }
@@ -184,7 +175,7 @@ header {
 body.landing_page {
   header {
     //large screen
-    @include xl() {
+    @include mq(xl) {
       padding: 6rem 1rem 5rem 1rem;
     }
   }

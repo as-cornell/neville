@@ -25,7 +25,7 @@ h4 {
 
 h1 {
   @extend .base-64;
-  @include xl() {
+  @include mq(xl) {
     font-size: var(--base-84);
   }
 

@@ -3,44 +3,83 @@
 Base .scss aggregator for departmetn and program sites
 
 */
+:root {
+  --xsmall: 320px;
+  --small: 480px;
+  --medium: 782px;
+  --header: 900px;
+  --large: 1224px;
+  --xl: 1432px;
+  --xxl: 1640; }
+
 /*
   -solid colors
   -gradients
 */
 :root {
+  --as-gray-200: whitesmoke;
+  --as-gray-300: #e6e6e6;
+  --as-gray-400: #cccccc;
+  --as-gray-500: #999999;
+  --as-gray-600: #4d4d4d;
+  --as-gray-700: #0a0a0a;
+  --as-red-200: #f8d3d3;
+  --as-red-300: #e44e4e;
+  --as-red-400: #b11b1b;
+  --as-red-500: #851414;
+  --as-red-600: #390909;
+  --as-teal-200: #dceeef;
+  --as-teal-300: #aad6da;
+  --as-teal-400: #4698a0;
+  --as-teal-500: #36767c;
+  --as-teal-600: #224a4e;
   --as-white: #fff;
-  --as-black: #000;
-  --as-gray-200: hsl(0, 0%, 96%);
-  --as-gray-300: hsl(0, 0%, 90%);
-  --as-gray-400: hsl(0, 0%, 80%);
-  --as-gray-500: hsl(0, 0%, 60%);
-  --as-gray-600: hsl(0, 0%, 30%);
-  --as-gray-700: hsl(0, 0%, 4%);
-  --as-red-200: hsl(0, 74%, 90%);
-  --as-red-300: hsl(0, 74%, 60%);
-  --as-red-400: hsl(0, 74%, 40%);
-  --as-red-500: hsl(0, 74%, 30%);
-  --as-red-600: hsl(0, 72%, 13%);
-  --as-teal-200: hsl(185, 39%, 90%);
-  --as-teal-300: hsl(185, 39%, 76%);
-  --as-teal-400: hsl(185, 39%, 45%);
-  --as-teal-500: hsl(185, 39%, 35%);
-  --as-teal-600: hsl(185, 39%, 22%); }
+  --as-black: #000; }
 
 /*
 
-  - all non color variables
+  - BUNCH O' THNGS THAT DONT'GET OWN ACTION AT THIS POINT
 
 */
 :root {
   /*
 ----
-FONTS
+BORDERS
 ----
 */
-  --font-sans: "canada-type-gibson", sans-serif;
-  --font-serif: "freight-macro-pro", serif;
-  --base-font-size: 20px;
+  --border-width: 1px;
+  --border-color: var(--as-gray-400);
+  --border-radius: 4px;
+  /*
+----
+MARGINS
+  - margins set to control horizontal spacing for page components
+  - collapse at smaller sizes
+----
+*/
+  --margin-2: 2rem;
+  --margin-3: 2rem;
+  --margin-4: 2rem;
+  --margin-6: 2rem;
+  --space: 2rem; }
+  @media only screen and (min-width: 782px) {
+    :root {
+      --margin-3: 3rem; } }
+  @media only screen and (min-width: 782px) {
+    :root {
+      --margin-4: 4rem; } }
+  @media only screen and (min-width: 782px) {
+    :root {
+      --margin-6: 6rem; } }
+
+/*
+  FONTS variables and mixins and aux classes
+*/
+:root {
+  /*
+  FONT SIZES
+  */
+  --base-font-size: 24px;
   --base-16: 0.666rem;
   --base-18: 0.75rem;
   --base-20: 0.8333rem;
@@ -56,70 +95,25 @@ FONTS
   --semi: 600;
   --heavy: 800;
   /*
-----
-LINE WIDTH AND HEIGHT
-----
-*/
+  FONT FAMILIES
+  */
+  --font-sans: "canada-type-gibson", sans-serif;
+  --font-serif: "freight-macro-pro", serif;
+  /*
+  LINE WIDTH AND HEIGHT
+  */
   --line-height: 1.5;
-  --line-width: 60ch;
-  /*
-----
-BORDERS
-----
-*/
-  --border-width: 1px;
-  --border-color: var(--as-gray-400);
-  --border-radius: 4px;
-  /*
-----
-WIDTHS
-  match variables from /breakpoints
-  used mostly for max widh settings page elements
-----
-*/
-  --xs: 320px;
-  --small: 480px;
-  --medium: 782px;
-  --large: 1224px;
-  --xl: 1432px;
-  --xxl: 1640px;
-  /*
-----
-MARGINS
-  - margins set to control horizontal spacing for page components
-  - collapse at smaller sizes
-----
-*/
-  --margin-2: 2rem;
-  --margin-3: 2rem;
-  --margin-4: 2rem;
-  --margin-6: 2rem;
-  --space: 2rem; }
-  @media (min-width: 782px) {
+  --line-width: 60ch; }
+  @media only screen and (min-width: 782px) {
     :root {
-      --base-font-size: 24px; } }
-  @media (min-width: 782px) {
-    :root {
-      --base-56: 2.33rem; } }
-  @media (min-width: 782px) {
-    :root {
-      --base-64: 2.66rem; } }
-  @media (min-width: 1224px) {
-    :root {
+      --base-48: 2rem;
+      --base-56: 2.33rem;
+      --base-64: 2.66rem;
       --base-84: 3.5rem; } }
-  @media (min-width: 782px) {
-    :root {
-      --margin-3: 3rem; } }
-  @media (min-width: 782px) {
-    :root {
-      --margin-4: 4rem; } }
-  @media (min-width: 782px) {
-    :root {
-      --margin-6: 6rem; } }
 
 /*
 ----
-font size mixins
+font size bases to be used as extends
 ----
 */
 .base-24, .sidebar h4 {
@@ -132,7 +126,7 @@ font size mixins
 
 .base-36 {
   font-size: var(--base-36);
-  margin-top: 1em; }
+  line-height: 1em; }
 
 .base-48 {
   font-size: var(--base-48);
@@ -169,14 +163,14 @@ html {
 
 body {
   font-family: var(--font-sans);
-  font-size: var(--base-font-size);
-  color: var(--dark-text);
+  font-size: var(--base-24);
+  color: var(--as-gray-700);
   font-weight: var(--light);
   line-height: var(--line-height);
   overflow-x: hidden;
   padding: 0 1rem;
   margin: 0; }
-  @media (min-width: 782px) {
+  @media only screen and (min-width: 782px) {
     body {
       padding: 0 2rem; } }
 
@@ -202,7 +196,7 @@ h4 {
 * + h3 {
   margin-top: 1em; }
 
-@media (min-width: 1432px) {
+@media only screen and (min-width: 1432px) {
   h1 {
     font-size: var(--base-84); } }
 
@@ -316,7 +310,7 @@ Descr:
 
 --------------------------- */
 .main {
-  max-width: 1432px;
+  max-width: var(--xl);
   margin: 0 auto var(--margin-2) auto;
   display: grid;
   grid-gap: 2rem;
@@ -354,7 +348,7 @@ table {
     background: var(--as-gray-300); }
   table td {
     padding: 0.5em; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       table td {
         border-bottom: none;
         border-top: none; } }
@@ -479,7 +473,7 @@ form {
   border-radius: var(--border-radius); }
   form * {
     font-size: var(--base-16); }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       form * {
         font-size: var(--base-20); } }
     form *:focus {
@@ -567,7 +561,7 @@ button {
   transform: scale(1, 0);
   transform-origin: top;
   transition: transform 150ms ease-out; }
-  @media (min-width: 782px) {
+  @media only screen and (min-width: 782px) {
     .form--overlaySearch {
       width: calc(100% - 3rem); } }
   .form--overlaySearch.shown {
@@ -599,7 +593,7 @@ Still needs: expand toggle for showing main nav on mobile
     padding: 0.5rem; }
     .nav--main .nav-toggle.active button {
       transform: rotate(180deg); }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       .nav--main .nav-toggle {
         display: none; } }
   .nav--main .nav {
@@ -617,7 +611,7 @@ Still needs: expand toggle for showing main nav on mobile
       transform-origin: top;
       transition: transform 250ms ease-in-out 250ms;
       position: relative; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       .nav--main .nav {
         position: relative; } }
     .nav--main .nav button {
@@ -630,7 +624,7 @@ Still needs: expand toggle for showing main nav on mobile
       z-index: 10; }
       .nav--main .nav button svg {
         fill: var(--as-white); }
-        @media (min-width: 900px) {
+        @media only screen and (min-width: 900px) {
           .nav--main .nav button svg {
             fill: var(--as-black); } }
       .nav--main .nav button:focus {
@@ -649,7 +643,7 @@ Still needs: expand toggle for showing main nav on mobile
       background: var(--as-teal-200); }
       .nav--main .nav-0 .nav-0__item .nav-0__link {
         padding: 0.5rem; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       .nav--main .nav-0 {
         display: -ms-flexbox;
         display: flex;
@@ -704,7 +698,7 @@ Still needs: expand toggle for showing main nav on mobile
               transition: all 250ms ease-out; }
         .nav--main .nav-0 button {
           opacity: 0; } }
-    @media (min-width: 1224px) {
+    @media only screen and (min-width: 1224px) {
       .nav--main .nav-0 {
         -ms-flex-pack: end;
             justify-content: flex-end; } }
@@ -739,24 +733,21 @@ Still needs: expand toggle for showing main nav on mobile
     .nav--main .nav-1.shown {
       transform: scaleY(1);
       transform-origin: top; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       .nav--main .nav-1 {
         width: 260px; } }
 
-/*
-.nav--main
-*/
 /* -------------------------
 
 Title: otp navigation
 Descr: otpN small and large, hovers and toggles for subNav
 
 --------------------------- */
-@media (min-width: 782px) {
+@media only screen and (min-width: 782px) {
   .main.otpStuck .otpNavWrapper {
     border-radius: var(--border-radius); } }
 
-@media (min-width: 1224px) {
+@media only screen and (min-width: 1224px) {
   .main.otpStuck .otpNav--basic_page {
     margin-left: 0;
     padding-left: 0;
@@ -768,7 +759,7 @@ Descr: otpN small and large, hovers and toggles for subNav
     top: 0;
     z-index: 1; } }
 
-@media (min-width: 1432px) {
+@media only screen and (min-width: 1432px) {
   .main.otpStuck .otpNavWrapper {
     width: 100%; } }
 
@@ -793,7 +784,7 @@ Descr: otpN small and large, hovers and toggles for subNav
   position: relative;
   z-index: 1;
   font-size: var(--base-18); }
-  @media (min-width: 782px) {
+  @media only screen and (min-width: 782px) {
     .otpNavWrapper {
       background: var(--as-white);
       display: -ms-flexbox;
@@ -814,7 +805,7 @@ Descr: otpN small and large, hovers and toggles for subNav
     border-radius: var(--border-radius);
     cursor: pointer;
     text-decoration: underline; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       .otpNavWrapper h4 {
         cursor: default;
         margin: 0 0.5rem 4px 0;
@@ -852,7 +843,7 @@ Descr: otpN small and large, hovers and toggles for subNav
       padding: 0.5em 1em;
       display: block;
       color: var(--as-white); }
-      @media (min-width: 782px) {
+      @media only screen and (min-width: 782px) {
         .otpNavWrapper .otpNav a {
           padding: 0rem 1rem 0 0rem;
           color: var(--as-dark-blue);
@@ -874,7 +865,7 @@ Descr: otpN small and large, hovers and toggles for subNav
       transform: scale(1, 1);
       transform-origin: top;
       transition: transform 250ms ease-in-out 250ms; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       .otpNavWrapper .otpNav {
         -ms-flex-direction: row;
             flex-direction: row;
@@ -885,13 +876,13 @@ Descr: otpN small and large, hovers and toggles for subNav
         -ms-flex-align: center;
             align-items: center; } }
 
-@media (min-width: 1224px) {
+@media only screen and (min-width: 1224px) {
   .otpNav--landing_page {
     padding: 0;
     -ms-flex-direction: row;
         flex-direction: row; } }
 
-@media (min-width: 782px) {
+@media only screen and (min-width: 782px) {
   .otpNav--basic_page {
     display: -ms-flexbox;
     display: flex;
@@ -901,7 +892,7 @@ Descr: otpN small and large, hovers and toggles for subNav
         justify-content: flex-start;
     width: auto; } }
 
-@media (min-width: 1224px) {
+@media only screen and (min-width: 1224px) {
   .otpNav--basic_page {
     -ms-flex-direction: column;
         flex-direction: column;
@@ -913,7 +904,7 @@ Descr: otpN small and large, hovers and toggles for subNav
     .otpNav--basic_page:before {
       display: none; } }
 
-@media (min-width: 1224px) {
+@media only screen and (min-width: 1224px) {
   .otpNav--basic_page .otpNav {
     -ms-flex-direction: column;
         flex-direction: column;
@@ -974,7 +965,7 @@ Descr: otpN small and large, hovers and toggles for subNav
       transform: rotate(180deg); }
     .nav--site .nav-toggle .icon--button svg {
       fill: var(--as-white); }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       .nav--site .nav-toggle {
         display: none; } }
   .nav--site .nav {
@@ -992,7 +983,7 @@ Descr: otpN small and large, hovers and toggles for subNav
       transform-origin: top;
       transition: transform 100ms ease-in-out 100ms;
       position: relative; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       .nav--site .nav {
         transform: none;
         position: relative;
@@ -1007,7 +998,7 @@ Descr: otpN small and large, hovers and toggles for subNav
       z-index: 10; }
       .nav--site .nav button svg {
         fill: var(--as-white); }
-        @media (min-width: 900px) {
+        @media only screen and (min-width: 900px) {
           .nav--site .nav button svg {
             fill: var(--as-black); } }
       .nav--site .nav button:focus {
@@ -1015,7 +1006,7 @@ Descr: otpN small and large, hovers and toggles for subNav
       .nav--site .nav button.active {
         transform: rotate(180deg);
         transform-origin: 50% 50%; }
-      @media (min-width: 782px) {
+      @media only screen and (min-width: 782px) {
         .nav--site .nav button {
           display: none; } }
     .nav--site .nav a {
@@ -1037,13 +1028,13 @@ Descr: otpN small and large, hovers and toggles for subNav
     transform: scale(1, 0);
     transform-origin: top;
     margin-top: -2px; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       .nav--site .nav-0 {
         transform: none; } }
     .nav--site .nav-0 .nav-0__item {
       margin-bottom: 0;
       position: relative; }
-      @media (min-width: 782px) {
+      @media only screen and (min-width: 782px) {
         .nav--site .nav-0 .nav-0__item {
           background: none;
           margin-bottom: 0.5rem; }
@@ -1060,7 +1051,7 @@ Descr: otpN small and large, hovers and toggles for subNav
         background: red;
         width: calc(100% - 3rem);
         border-right: 1px solid var(--as-white); }
-      @media (min-width: 782px) {
+      @media only screen and (min-width: 782px) {
         .nav--site .nav-0 .nav-0__link {
           background: none;
           background: none;
@@ -1081,10 +1072,10 @@ Descr: otpN small and large, hovers and toggles for subNav
       opacity: 1;
       transform: scaleY(1);
       position: relative; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       .nav--site .nav-1 {
         margin-top: 0.25rem; } }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       .nav--site .nav-1 .nav-1__item {
         margin-bottom: 0.5rem; } }
     .nav--site .nav-1 .nav-1__link {
@@ -1093,7 +1084,7 @@ Descr: otpN small and large, hovers and toggles for subNav
       background: var(--as-teal-300);
       text-decoration: underline;
       display: block; }
-      @media (min-width: 782px) {
+      @media only screen and (min-width: 782px) {
         .nav--site .nav-1 .nav-1__link {
           padding: 0 0 0 0.5rem;
           background: none; }
@@ -1101,7 +1092,7 @@ Descr: otpN small and large, hovers and toggles for subNav
             background: var(--as-teal-400); }
           .nav--site .nav-1 .nav-1__link.active:before {
             width: 6px; } }
-  @media (min-width: 782px) {
+  @media only screen and (min-width: 782px) {
     .nav--site {
       background: transparent;
       position: relative;
@@ -1134,29 +1125,6 @@ footer {
   width: 100%;
   padding: 3rem 2rem;
   margin-left: -2rem; }
-  footer:before {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 300px;
-    height: 300px;
-    margin: 0 -0.5rem -0.5rem 0;
-    content: "";
-    background-image: var(--ampresand);
-    background-size: 600%;
-    animation: bg-animation 10s infinite alternate;
-    z-index: -1;
-    -webkit-clip-path: url(#bigamp);
-            clip-path: url(#bigamp);
-    z-index: 1; }
-    @media (min-width: 1224px) {
-      footer:before {
-        top: 0;
-        bottom: 0;
-        right: 0;
-        width: 702px;
-        height: 105%;
-        margin: -0.5rem -2rem; } }
   footer h2 {
     font-size: var(--base-28);
     color: var(--as-white); }
@@ -1173,13 +1141,13 @@ footer {
     -ms-flex-direction: column;
         flex-direction: column;
     z-index: 2; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       footer .footer {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto auto;
         gap: 1rem; } }
-    @media (min-width: 1224px) {
+    @media only screen and (min-width: 1224px) {
       footer .footer {
         grid-template-columns: repeat(12, 1fr); } }
     footer .footer__currentStudents {
@@ -1187,14 +1155,14 @@ footer {
       grid-row: 1 / 1;
       margin-bottom: 2rem;
       font-size: 1.2em; }
-      @media (min-width: 1224px) {
+      @media only screen and (min-width: 1224px) {
         footer .footer__currentStudents {
           grid-column: 1 / 4;
           grid-row: 1 / 1; } }
     footer .footer__importantLinks {
       grid-column: 2 / -1;
       grid-row: 1; }
-      @media (min-width: 1224px) {
+      @media only screen and (min-width: 1224px) {
         footer .footer__importantLinks {
           grid-column: 4 / -1;
           grid-row: 1 / 1; } }
@@ -1209,7 +1177,7 @@ footer {
           -ms-flex: 0 0 45%;
               flex: 0 0 45%;
           font-weight: var(--regular); }
-          @media (min-width: 1224px) {
+          @media only screen and (min-width: 1224px) {
             footer .footer__importantLinks > ul > li {
               -ms-flex: 0 1 23%;
                   flex: 0 1 23%; } }
@@ -1226,7 +1194,7 @@ footer {
       display: flex;
       -ms-flex-align: center;
           align-items: center; }
-      @media (min-width: 1224px) {
+      @media only screen and (min-width: 1224px) {
         footer .footer__logo {
           grid-column: 1 / 5;
           grid-row: 2; } }
@@ -1234,7 +1202,7 @@ footer {
       grid-column: 2;
       grid-row: 3;
       font-size: var(--base-16); }
-      @media (min-width: 1224px) {
+      @media only screen and (min-width: 1224px) {
         footer .footer__address {
           grid-column: 6 / 8;
           grid-row: 2; } }
@@ -1242,7 +1210,7 @@ footer {
       grid-column: 1;
       grid-row: 3;
       font-size: var(--base-16); }
-      @media (min-width: 1224px) {
+      @media only screen and (min-width: 1224px) {
         footer .footer__contacts {
           grid-column: 8 / 10;
           grid-row: 2; } }
@@ -1250,7 +1218,7 @@ footer {
       grid-column: 3;
       grid-row: 3;
       font-size: var(--base-16); }
-      @media (min-width: 1224px) {
+      @media only screen and (min-width: 1224px) {
         footer .footer__socialLinks {
           grid-column: 11 / -1;
           grid-row: 2; } }
@@ -1261,7 +1229,7 @@ footer {
       grid-row: 4; }
   footer .cu-logo {
     display: none; }
-    @media (min-width: 480px) {
+    @media only screen and (min-width: 480px) {
       footer .cu-logo {
         display: block;
         text-indent: -9999px;
@@ -1285,7 +1253,7 @@ footer {
     background-size: 238px 71px;
     background-repeat: no-repeat;
     position: relative; }
-    @media (min-width: 480px) {
+    @media only screen and (min-width: 480px) {
       footer .as-logo {
         margin-left: 38px; }
         footer .as-logo:before {
@@ -1297,7 +1265,7 @@ footer {
           left: -19px;
           content: ""; } }
 
-@media (min-width: 480px) {
+@media only screen and (min-width: 480px) {
   .extraLinks {
     display: -ms-flexbox;
     display: flex;
@@ -1383,11 +1351,11 @@ header {
   margin: 0 auto;
   max-width: var(--xl);
   position: relative; }
-  @media (min-width: 782px) {
+  @media only screen and (min-width: 782px) {
     header {
       grid-template-columns: 1fr 1fr auto;
       margin: 1rem auto 2rem auto; } }
-  @media (min-width: 900px) {
+  @media only screen and (min-width: 900px) {
     header {
       grid-template-columns: auto 1fr auto;
       grid-template-rows: auto;
@@ -1401,10 +1369,10 @@ header {
     display: flex;
     -ms-flex-pack: center;
         justify-content: center; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       header .header__searchForm {
         grid-row: 4; } }
-    @media (min-width: 1224px) {
+    @media only screen and (min-width: 1224px) {
       header .header__searchForm {
         grid-row: 3; } }
   header .cu-logo {
@@ -1426,7 +1394,7 @@ header {
     grid-row: 2;
     background-size: contain;
     background-repeat: no-repeat; }
-    @media (min-width: 1224px) {
+    @media only screen and (min-width: 1224px) {
       header .department-logo {
         margin: 2rem 0;
         background-size: contain;
@@ -1445,7 +1413,7 @@ header {
     background-repeat: no-repeat;
     background-position-x: right;
     text-indent: -5000px; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       header .as-logo {
         background: url(/themes/custom/discovery/images/Arts-and-sciences.svg);
         background-repeat: no-repeat;
@@ -1454,7 +1422,7 @@ header {
         justify-self: flex-end;
         -ms-flex-item-align: center;
             align-self: center; } }
-    @media (min-width: 900px) {
+    @media only screen and (min-width: 900px) {
       header .as-logo {
         background: url(/themes/custom/discovery/images/the-college-one-line.svg);
         background-repeat: no-repeat;
@@ -1467,11 +1435,11 @@ header {
   header .header__mainNav {
     grid-column: 1 / -1;
     grid-row: 3; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       header .header__mainNav {
         grid-column: 1/-1;
         grid-row: 3; } }
-    @media (min-width: 1224px) {
+    @media only screen and (min-width: 1224px) {
       header .header__mainNav {
         grid-row: 2;
         grid-column: 2 / -1; } }
@@ -1486,27 +1454,27 @@ header {
         align-items: center;
     -ms-flex-item-align: center;
         align-self: center; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       header .header__buttons {
         grid-column: 3; } }
     header .header__buttons button {
       border: none;
       background: none;
       cursor: pointer; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       header .header__buttons .iconButton--showNav {
         display: none; } }
-    @media (min-width: 1224px) {
+    @media only screen and (min-width: 1224px) {
       header .header__buttons {
         grid-column: 3;
         grid-row: 1; } }
-    @media (min-width: 1432px) {
+    @media only screen and (min-width: 1432px) {
       header .header__buttons {
         grid-row: 1; } }
   header .main-nav-toggle {
     grid-area: navIcon; }
 
-@media (min-width: 1432px) {
+@media only screen and (min-width: 1432px) {
   body.landing_page header {
     padding: 6rem 1rem 5rem 1rem; } }
 
@@ -1648,7 +1616,7 @@ Descr:
       font-family: var(--font-serif);
       font-weight: var(--semi);
       font-size: var(--base-56); }
-      @media (min-width: 1224px) {
+      @media only screen and (min-width: 1224px) {
         .basicSidebar .title h1 {
           text-align: left;
           margin-top: 0; } }
@@ -1660,23 +1628,23 @@ Descr:
     position: sticky;
     top: 0;
     z-index: 1; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       .basicSidebar aside {
         grid-area: aside; } }
     .basicSidebar aside .page_component_entity {
       display: none; }
-      @media (min-width: 1224px) {
+      @media only screen and (min-width: 1224px) {
         .basicSidebar aside .page_component_entity {
           display: block; } }
-  @media (min-width: 782px) {
+  @media only screen and (min-width: 782px) {
     .basicSidebar {
       grid-template-columns: repeat(12, 1fr);
       grid-template-areas: ". title title title title title title title title title . ." ".nav nav nav content content content content content content content ." ".sidebar sidebar sidebar content content content content content content content ."; } }
-  @media (min-width: 782px) {
+  @media only screen and (min-width: 782px) {
     .basicSidebar--has-aside {
       grid-template-columns: repeat(12, 1fr);
       grid-template-areas: "title title title title title title title title title title . ." "nav nav nav aside aside aside aside aside aside aside aside aside" "nav nav nav content content content content content content content content content" "sidebar sidebar sidebar content content content content content content content content content"; } }
-  @media (min-width: 1224px) {
+  @media only screen and (min-width: 1224px) {
     .basicSidebar--has-aside {
       grid-template-columns: repeat(24, 1fr);
       grid-template-areas: ". . . . . title title title title title title title title title title title title title title title . . . ." "nav nav nav nav nav content content content content content content content content content content content content content content content aside aside aside aside" "sidebar sidebar sidebar sidebar sidebar content content content content content content content content content content content content content content content aside aside aside aside"; } }
@@ -1720,7 +1688,7 @@ Descr:
   .landingPage .pageSection > .pcWrapper--ftb {
     margin-left: auto;
     margin-right: auto; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       .landingPage .content > .pcWrapper--ftb p,
       .landingPage .content > .pcWrapper--ftb ul,
       .landingPage .content > .pcWrapper--ftb ol,
@@ -1736,7 +1704,7 @@ Descr:
     margin: 0 auto; }
   .landingPage--pano .title {
     text-align: center; }
-    @media (min-width: 782px) {
+    @media only screen and (min-width: 782px) {
       .landingPage--pano .title {
         display: -ms-flexbox;
         display: flex;
@@ -1753,7 +1721,7 @@ Descr:
     .landingPage--pano .title figure {
       background: none;
       margin-bottom: 2rem; }
-      @media (min-width: 782px) {
+      @media only screen and (min-width: 782px) {
         .landingPage--pano .title figure {
           display: grid; } }
     .landingPage--pano .title figcaption,
@@ -1772,7 +1740,7 @@ Descr:
       margin-bottom: 0.5em;
       -ms-flex-item-align: end;
           align-self: flex-end; }
-      @media (min-width: 782px) {
+      @media only screen and (min-width: 782px) {
         .landingPage--pano .title figcaption {
           color: var(--as-white);
           max-width: 80%;
@@ -1887,7 +1855,7 @@ Descr: Sets grid default ( full width ) and stacked (in columns) course lists
   grid-gap: 1rem;
   padding-left: 0;
   margin-top: 1rem; }
-  @media (min-width: 782px) {
+  @media only screen and (min-width: 782px) {
     .courses--cards {
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); } }
 
@@ -1990,8 +1958,8 @@ Descr: Sets grid default ( full width ) and stacked (in columns) event lists
   display: grid;
   grid-gap: 1rem;
   padding-left: 0;
-  margin: 0 0 var(--component-bottom-margin) 0; }
-  @media (min-width: 782px) {
+  margin-top: 1em; }
+  @media only screen and (min-width: 782px) {
     .event-list {
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); } }
 
@@ -2016,15 +1984,13 @@ Descr: Sets grid default ( full width ) and stacked (in columns) event lists
         flex-direction: column;
     -ms-flex-align: center;
         align-items: center;
-    border: 1px solid var(--as-red-300);
+    box-shadow: var(--box-shadow);
     padding: 0.25rem;
     border-radius: var(--border-radius); }
   .event__date {
     font-weight: var(--semi);
     display: grid;
     grid-template-rows: 1fr 1fr;
-    margin-bottom: 0.25rem;
-    padding-bottom: 0.25rem;
     position: relative;
     width: 69px; }
     .event__date:after {
@@ -2112,7 +2078,7 @@ Descr: sets up all uniquie styles for Stats wrapper and cards
   .stat .stat__label {
     font-family: var(--font-sans);
     font-size: 2rem;
-    color: var(--dark-text);
+    color: var(--as-gray-700);
     font-weight: var(--semi);
     line-height: var(--line-height);
     position: relative;
@@ -2142,7 +2108,7 @@ Descr: sets up all uniquie styles for Stats wrapper and cards
   -ms-flex: 0 1 23%;
       flex: 0 1 23%; }
 
-@media (min-width: 782px) {
+@media only screen and (min-width: 782px) {
   .basicSidebar .stat-wrapper {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap; } }
@@ -2150,7 +2116,7 @@ Descr: sets up all uniquie styles for Stats wrapper and cards
 .basicSidebar .stat-wrapper .stat {
   -ms-flex: 0 1 48%;
       flex: 0 1 48%; }
-  @media (min-width: 782px) {
+  @media only screen and (min-width: 782px) {
     .basicSidebar .stat-wrapper .stat {
       -ms-flex-preferred-size: 100%;
           flex-basis: 100%;

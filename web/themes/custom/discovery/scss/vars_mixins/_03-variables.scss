@@ -1,64 +1,9 @@
 /*
 
-  - all non color variables
+  - BUNCH O' THNGS THAT DONT'GET OWN ACTION AT THIS POINT
 
 */
 :root {
-  /*
-----
-FONTS
-----
-*/
-
-  // Font families
-
-  --font-sans: "canada-type-gibson", sans-serif;
-  --font-serif: "freight-macro-pro", serif;
-
-  // Font size
-
-  --base-font-size: 20px;
-  @include medium {
-    --base-font-size: 24px;
-  }
-
-  // Adjusting sizes
-
-  --base-16: 0.666rem; // 16px at full
-  --base-18: 0.75rem;
-  --base-20: 0.8333rem;
-  --base-24: 1rem;
-  --base-28: 1.2rem;
-  --base-36: 1.5rem;
-  --base-48: 2rem;
-  --base-56: 2rem;
-  @include medium() {
-    --base-56: 2.33rem;
-  }
-  --base-64: 2rem;
-  @include medium() {
-    --base-64: 2.66rem;
-  }
-  --base-84: 2rem;
-  @include large() {
-    --base-84: 3.5rem;
-  }
-
-  // Font weights
-
-  --light: 200;
-  --regular: 400;
-  --semi: 600;
-  --heavy: 800;
-
-  /*
-----
-LINE WIDTH AND HEIGHT
-----
-*/
-  --line-height: 1.5;
-  --line-width: 60ch;
-
   /*
 ----
 BORDERS
@@ -67,21 +12,6 @@ BORDERS
   --border-width: 1px;
   --border-color: var(--as-gray-400);
   --border-radius: 4px;
-
-  /*
-----
-WIDTHS
-  match variables from /breakpoints
-  used mostly for max widh settings page elements
-----
-*/
-
-  --xs: 320px;
-  --small: 480px;
-  --medium: 782px; // 782
-  --large: 1224px; // 1,224
-  --xl: 1432px; // 1,432
-  --xxl: 1640px; // 1640
 
   /*
 ----
@@ -94,17 +24,17 @@ MARGINS
   --margin-2: 2rem;
 
   --margin-3: 2rem;
-  @include medium() {
+  @include mq(medium) {
     --margin-3: 3rem;
   }
 
   --margin-4: 2rem;
-  @include medium() {
+  @include mq(medium) {
     --margin-4: 4rem;
   }
 
   --margin-6: 2rem;
-  @include medium() {
+  @include mq(medium) {
     --margin-6: 6rem;
   }
 

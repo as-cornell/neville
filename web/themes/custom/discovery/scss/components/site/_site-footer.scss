@@ -21,32 +21,6 @@ footer {
   padding: 3rem 2rem;
   margin-left: -2rem;
 
-  &:before {
-    position: absolute;
-    // top: 0;
-    bottom: 0;
-    right: 0;
-    width: 300px;
-    height: 300px;
-    margin: 0 -0.5rem -0.5rem 0;
-    @include large() {
-      top: 0;
-      bottom: 0;
-      right: 0;
-      width: 702px;
-      height: 105%;
-      margin: -0.5rem -2rem;
-    }
-
-    content: "";
-    background-image: var(--ampresand);
-    background-size: 600%;
-    animation: bg-animation 10s infinite alternate;
-    z-index: -1;
-
-    clip-path: url(#bigamp);
-    z-index: 1;
-  }
   h2 {
     font-size: var(--base-28);
     color: var(--as-white);
@@ -66,14 +40,14 @@ footer {
     display: flex;
     flex-direction: column;
 
-    @include medium() {
+    @include mq(medium) {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: auto auto;
       gap: 1rem;
     }
 
-    @include large() {
+    @include mq(large) {
       grid-template-columns: repeat(12, 1fr);
     }
 
@@ -82,7 +56,7 @@ footer {
       grid-column: 1 / 2;
       grid-row: 1 / 1;
 
-      @include large() {
+      @include mq(large) {
         grid-column: 1 / 4;
         grid-row: 1 / 1;
       }
@@ -92,7 +66,7 @@ footer {
     &__importantLinks {
       grid-column: 2 / -1;
       grid-row: 1;
-      @include large() {
+      @include mq(large) {
         grid-column: 4 / -1;
         grid-row: 1 / 1;
       }
@@ -102,7 +76,7 @@ footer {
         justify-content: space-between;
         > li {
           flex: 0 0 45%;
-          @include large() {
+          @include mq(large) {
             flex: 0 1 23%;
           }
           font-weight: var(--regular);
@@ -121,7 +95,7 @@ footer {
       grid-column: 1 / -1;
       grid-row: 2;
       margin-bottom: 2rem;
-      @include large() {
+      @include mq(large) {
         grid-column: 1 / 5;
         grid-row: 2;
       }
@@ -136,7 +110,7 @@ footer {
     &__address {
       grid-column: 2;
       grid-row: 3;
-      @include large() {
+      @include mq(large) {
         grid-column: 6 / 8;
         grid-row: 2;
       }
@@ -145,7 +119,7 @@ footer {
     &__contacts {
       grid-column: 1;
       grid-row: 3;
-      @include large() {
+      @include mq(large) {
         grid-column: 8 / 10;
         grid-row: 2;
       }
@@ -157,7 +131,7 @@ footer {
       ul {
         // @extend .inline;
       }
-      @include large() {
+      @include mq(large) {
         grid-column: 11 / -1;
         grid-row: 2;
       }
@@ -176,7 +150,7 @@ footer {
 
   .cu-logo {
     display: none;
-    @include small() {
+    @include mq(small) {
       display: block;
       text-indent: -9999px;
       width: 73px;
@@ -204,7 +178,7 @@ footer {
     background-size: 238px 71px;
     background-repeat: no-repeat;
     position: relative;
-    @include small() {
+    @include mq(small) {
       margin-left: 38px;
       &:before {
         position: absolute;
@@ -220,7 +194,7 @@ footer {
 }
 
 .extraLinks {
-  @include small() {
+  @include mq(small) {
     display: flex;
     // flex-direction: column;=
     flex-wrap: wrap;

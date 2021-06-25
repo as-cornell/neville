@@ -20,7 +20,7 @@ Descr:
       font-family: var(--font-serif);
       font-weight: var(--semi);
       font-size: var(--base-56);
-      @include large() {
+      @include mq(large) {
         text-align: left;
         margin-top: 0;
       }
@@ -38,18 +38,18 @@ Descr:
     top: 0;
     // margin-bottom: 2rem;
     z-index: 1;
-    @include medium() {
+    @include mq(medium) {
       grid-area: aside;
 
       // display: block;
     }
-    // @include large() {
+    // @include mq(large) {
     //   grid-area: aside;
     // }
 
     .page_component_entity {
       display: none;
-      @include large() {
+      @include mq(large) {
         display: block;
       }
     }
@@ -60,13 +60,13 @@ Descr:
     "aside"
     "content"
     "sidebar";
-  // @include medium {
+  // @include mq(medium) {
   //   grid-template-areas:
   //     ". title title title title title title title title title title ."
   //     "nav nav nav content content content content content content content content content"
   //     "sidebar sidebar sidebar content content content content content content content content content";
   // }
-  @include medium {
+  @include mq(medium) {
     grid-template-columns: repeat(12, 1fr);
     grid-template-areas:
       ". title title title title title title title title title . ."
@@ -74,7 +74,7 @@ Descr:
       ".sidebar sidebar sidebar content content content content content content content .";
   }
   &--has-aside {
-    @include medium {
+    @include mq(medium) {
       grid-template-columns: repeat(12, 1fr);
       grid-template-areas:
         "title title title title title title title title title title . ."
@@ -82,7 +82,7 @@ Descr:
         "nav nav nav content content content content content content content content content"
         "sidebar sidebar sidebar content content content content content content content content content";
     }
-    @include large {
+    @include mq(large) {
       grid-template-columns: repeat(24, 1fr);
       grid-template-areas:
         ". . . . . title title title title title title title title title title title title title title title . . . ."

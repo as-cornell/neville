@@ -13,7 +13,7 @@ Descr:
 form {
   * {
     font-size: var(--base-16);
-    @include medium() {
+    @include mq(medium) {
       font-size: var(--base-20);
     }
     &:focus {
@@ -112,7 +112,7 @@ button {
     display: grid;
     grid-template-columns: 1fr;
   }
-  // @include medium() {
+  // @include mq(medium) {
   display: grid;
   grid-template-columns: 3fr 3fr 1fr;
   grid-template-rows: auto;
@@ -147,7 +147,7 @@ button {
   transform-origin: top;
   transition: transform 150ms ease-out;
 
-  @include medium() {
+  @include mq(medium) {
     width: calc(100% - 3rem);
   }
 

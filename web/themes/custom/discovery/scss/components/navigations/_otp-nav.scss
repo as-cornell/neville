@@ -7,13 +7,13 @@ Descr: otpN small and large, hovers and toggles for subNav
 
 // for stuck otpnav
 .main.otpStuck {
-  @include medium() {
+  @include mq(medium) {
     .otpNavWrapper {
       // @include boxShadow($spread: 12px);
       border-radius: var(--border-radius);
     }
   }
-  @include large() {
+  @include mq(large) {
     .otpNav--basic_page {
       margin-left: 0;
       padding-left: 0;
@@ -28,7 +28,7 @@ Descr: otpN small and large, hovers and toggles for subNav
       z-index: 1;
     }
   }
-  @include xl() {
+  @include mq(xl) {
     .otpNavWrapper {
       width: 100%;
     }
@@ -62,14 +62,14 @@ Descr: otpN small and large, hovers and toggles for subNav
   position: relative;
   z-index: 1;
   font-size: var(--base-18);
-  @include medium() {
+  @include mq(medium) {
     background: var(--as-white);
     display: flex;
     justify-content: center;
     // padding: 0 1rem 0.5rem;
     flex-direction: column;
   }
-  @include large() {
+  @include mq(large) {
     // font-size: var(--base-20);
   }
 
@@ -87,7 +87,7 @@ Descr: otpN small and large, hovers and toggles for subNav
     border-radius: var(--border-radius);
     cursor: pointer;
     text-decoration: underline;
-    @include medium() {
+    @include mq(medium) {
       cursor: default;
       margin: 0 0.5rem 4px 0;
       padding-left: 0;
@@ -99,7 +99,7 @@ Descr: otpN small and large, hovers and toggles for subNav
       cursor: default;
       text-decoration: none;
     }
-    @include large() {
+    @include mq(large) {
       // font-size: var(--base-20);
       // text-align: center;
     }
@@ -133,7 +133,7 @@ Descr: otpN small and large, hovers and toggles for subNav
       padding: 0.5em 1em;
       display: block;
       color: var(--as-white);
-      @include medium() {
+      @include mq(medium) {
         padding: 0rem 1rem 0 0rem;
         color: var(--as-dark-blue);
         position: relative;
@@ -166,7 +166,7 @@ Descr: otpN small and large, hovers and toggles for subNav
       transform-origin: top;
       transition: transform 250ms ease-in-out 250ms;
     }
-    @include medium() {
+    @include mq(medium) {
       flex-direction: row;
       transform: none;
       position: relative;
@@ -178,7 +178,7 @@ Descr: otpN small and large, hovers and toggles for subNav
 }
 // landing page styles
 .otpNav--landing_page {
-  @include large() {
+  @include mq(large) {
     padding: 0;
     flex-direction: row;
   }
@@ -187,14 +187,14 @@ Descr: otpN small and large, hovers and toggles for subNav
 .otpNav--basic_page {
   // display: none;
   // box-shadow: none;
-  @include medium() {
+  @include mq(medium) {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     width: auto;
     // padding: 0 1rem 0.5rem;
   }
-  @include large() {
+  @include mq(large) {
     flex-direction: column;
     font-size: var(--base-18);
     padding-top: 0;
@@ -208,7 +208,7 @@ Descr: otpN small and large, hovers and toggles for subNav
   }
   // column view for basic page
   .otpNav {
-    @include large() {
+    @include mq(large) {
       flex-direction: column;
       padding-left: 0;
       background: none;

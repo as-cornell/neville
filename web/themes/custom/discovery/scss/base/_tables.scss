@@ -41,10 +41,6 @@ table {
     &:first-of-type {
       //background: $as-white;
     }
-
-    @include small {
-      // border-top: 1px solid var(--gray-lt);
-    }
   }
 
   td {
@@ -52,7 +48,7 @@ table {
     // border-bottom: 1px solid var(--gray-lt);
     padding: 0.5em;
 
-    @include medium {
+    @include mq(medium) {
       border-bottom: none;
       border-top: none;
       // display: inline-block;

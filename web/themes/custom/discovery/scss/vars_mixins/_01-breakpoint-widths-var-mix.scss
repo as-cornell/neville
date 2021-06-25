@@ -1,0 +1,26 @@
+// Width maps to build breakpoints and CPs
+
+$widths: (
+  xsmall: 320px,
+  small: 480px,
+  medium: 782px,
+  header: 900px,
+  large: 1224px,
+  xl: 1432px,
+  xxl: 1640,
+);
+
+// breakpoint mixin
+
+@mixin mq($key) {
+  $size: map-get($widths, $key);
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+:root {
+  @each $name, $width in $widths {
+    --#{$name}: #{$width};
+  }
+}

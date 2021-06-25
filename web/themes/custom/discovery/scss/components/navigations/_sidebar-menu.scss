@@ -28,7 +28,7 @@
     .icon--button svg {
       fill: var(--as-white);
     }
-    @include medium() {
+    @include mq(medium) {
       display: none;
     }
   }
@@ -48,7 +48,7 @@
       transition: transform 100ms ease-in-out 100ms;
       position: relative;
     }
-    @include medium() {
+    @include mq(medium) {
       transform: none;
       position: relative;
       overflow: visible;
@@ -63,7 +63,7 @@
       z-index: 10;
       svg {
         fill: var(--as-white);
-        @include headerBreak() {
+        @include mq(header) {
           fill: var(--as-black);
         }
       }
@@ -74,7 +74,7 @@
         transform: rotate(180deg);
         transform-origin: 50% 50%;
       }
-      @include medium() {
+      @include mq(medium) {
         display: none;
       }
     }
@@ -107,14 +107,14 @@
     transform-origin: top;
     margin-top: -2px;
     // transition: transform 150ms ease-out;
-    @include medium() {
+    @include mq(medium) {
       transform: none;
     }
     .nav-0__item {
       // background: var(--as-teal-400);
       margin-bottom: 0;
       position: relative;
-      @include medium() {
+      @include mq(medium) {
         background: none;
         margin-bottom: 0.5rem;
         &.has-sub {
@@ -136,7 +136,7 @@
         width: calc(100% - 3rem);
         border-right: 1px solid var(--as-white);
       }
-      @include medium() {
+      @include mq(medium) {
         background: none;
         &:before {
           background: var(--as-teal-300);
@@ -169,13 +169,13 @@
       transform: scaleY(1);
       position: relative;
     }
-    @include medium() {
+    @include mq(medium) {
       margin-top: 0.25rem;
     }
     // nav-1__item
     .nav-1__item {
       // mobile
-      @include medium() {
+      @include mq(medium) {
         margin-bottom: 0.5rem;
       }
     }
@@ -190,7 +190,7 @@
       &:focus {
         // background-color: var(--as-teal-200);
       }
-      @include medium() {
+      @include mq(medium) {
         padding: 0 0 0 0.5rem;
         background: none;
         &:before {
@@ -202,7 +202,7 @@
       }
     }
   }
-  @include medium() {
+  @include mq(medium) {
     background: transparent;
     position: relative;
     transform: none;
