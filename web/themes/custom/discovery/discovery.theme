@@ -1,6 +1,8 @@
 <?php
 
 use Drupal\block\Entity\Block;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\File\FileSystemInterface;
 
 function discovery_preprocess_node(&$variables) {
   $variables['department_email'] = theme_get_setting('department_email');
@@ -42,7 +44,43 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
   if (isset($form_id)) {
     return;
   }
-
+  $form['department_logos'] = [
+    '#type' => 'details',
+    '#title' => t('Department Logos'),
+    '#open' => TRUE,
+  ];
+  $form['department_logos']['dept_logo_1_path'] = [
+  '#type' => 'textfield',
+  '#title' => t('Path to Department Logo 1'),
+  '#default_value' => theme_get_setting('dept_logo_1'),
+  ];
+  $form['department_logos']['dept_logo_1'] = [
+    '#type' => 'managed_file',
+    '#title' => t('Upload Department Logo 1'),
+    '#description' => t("Use this field to upload Department Logo 1."),
+    '#upload_location' => 'public://',
+    '#upload_validators' => [
+      'file_validate_extensions' => [
+        'png gif jpg jpeg apng svg',
+      ],
+    ],
+  ];
+  $form['department_logos']['dept_logo_2_path'] = [
+  '#type' => 'textfield',
+  '#title' => t('Path to Department Logo 2'),
+  '#default_value' => theme_get_setting('dept_logo_2'),
+  ];
+  $form['department_logos']['dept_logo_2'] = [
+    '#type' => 'managed_file',
+    '#title' => t('Upload Department Logo 2'),
+    '#description' => t("Use this field to upload Department Logo 2."),
+    '#upload_location' => 'public://',
+    '#upload_validators' => [
+      'file_validate_extensions' => [
+        'png gif jpg jpeg apng svg',
+      ],
+    ],
+  ];
   $form['department_variables'] = array(
       '#type' => 'details',
       '#title' => t('Department Variables'),
