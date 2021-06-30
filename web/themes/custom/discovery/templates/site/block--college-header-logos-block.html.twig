@@ -28,8 +28,14 @@
 
 {{ title_prefix }}
 
-{% block content %}
 
+{% block content %}
+    {% if dept_logo_1.0 %}
+      {{ drupal_image(dept_logo_1.0) }}
+    {% endif %}
+    {% if dept_logo_1.0 %}
+      {{ drupal_image(dept_logo_2.0) }}
+    {% endif %}
     {% if department_college_logos.AS %}
       <a href="https://as.cornell.edu" class="as-logo" title="College of Arts and Sciences">
         The College of Arts & Sciences
