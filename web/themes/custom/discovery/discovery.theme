@@ -11,6 +11,9 @@ function discovery_preprocess_node(&$variables) {
   $variables['department_instagram'] = theme_get_setting('department_instagram');
   $variables['department_twitter'] = theme_get_setting('department_twitter');
   $variables['department_linkedin'] = theme_get_setting('department_linkedin');
+  $variables['department_college_logos'] = theme_get_setting('department_college_logos');
+  $variables['dept_logo_1'] = theme_get_setting('dept_logo_1');
+  $variables['dept_logo_2'] = theme_get_setting('dept_logo_2');
 }
 
 
