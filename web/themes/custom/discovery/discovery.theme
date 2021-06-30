@@ -49,15 +49,11 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
     '#title' => t('Department Logos'),
     '#open' => TRUE,
   ];
-  $form['department_logos']['dept_logo_1_path'] = [
-  '#type' => 'textfield',
-  '#title' => t('Path to Department Logo 1'),
-  '#default_value' => theme_get_setting('dept_logo_1'),
-  ];
   $form['department_logos']['dept_logo_1'] = [
     '#type' => 'managed_file',
     '#title' => t('Upload Department Logo 1'),
     '#description' => t("Use this field to upload Department Logo 1."),
+    '#default_value' => theme_get_setting('dept_logo_1'),
     '#upload_location' => 'public://',
     '#upload_validators' => [
       'file_validate_extensions' => [
@@ -65,15 +61,12 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
       ],
     ],
   ];
-  $form['department_logos']['dept_logo_2_path'] = [
-  '#type' => 'textfield',
-  '#title' => t('Path to Department Logo 2'),
-  '#default_value' => theme_get_setting('dept_logo_2'),
-  ];
   $form['department_logos']['dept_logo_2'] = [
     '#type' => 'managed_file',
     '#title' => t('Upload Department Logo 2'),
     '#description' => t("Use this field to upload Department Logo 2."),
+    '#default_value' => theme_get_setting('dept_logo_2'),
+    '#preview_image_style' => 'medium',
     '#upload_location' => 'public://',
     '#upload_validators' => [
       'file_validate_extensions' => [
