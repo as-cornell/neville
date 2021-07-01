@@ -3,7 +3,7 @@ status: true
 dependencies: {  }
 id: dept_articles
 label: Department Articles
-description: 'Migrate articles authored by department staff from Drupal 7 to Drupal 8'
+description: 'Migrate articles authored by department staff from Drupal 7 department sites and articles authored by A&S Communications staff from Drupal 8'
 source_type: 'Drupal 7'
 module: null
 shared_configuration: null
