@@ -1,6 +1,8 @@
 <?php
 
 use Drupal\block\Entity\Block;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\File\FileSystemInterface;
 
 function discovery_preprocess_node(&$variables) {
   $variables['department_email'] = theme_get_setting('department_email');
@@ -9,6 +11,9 @@ function discovery_preprocess_node(&$variables) {
   $variables['department_instagram'] = theme_get_setting('department_instagram');
   $variables['department_twitter'] = theme_get_setting('department_twitter');
   $variables['department_linkedin'] = theme_get_setting('department_linkedin');
+  $variables['department_college_logos'] = theme_get_setting('department_college_logos');
+  $variables['dept_logo_1'] = theme_get_setting('dept_logo_1');
+  $variables['dept_logo_2'] = theme_get_setting('dept_logo_2');
 }
 
 
@@ -28,6 +33,8 @@ function discovery_preprocess_block(&$variables) {
       $variables['department_twitter'] = theme_get_setting('department_twitter');
       $variables['department_linkedin'] = theme_get_setting('department_linkedin');
       $variables['department_college_logos'] = theme_get_setting('department_college_logos');
+      $variables['dept_logo_1'] = theme_get_setting('dept_logo_1');
+      $variables['dept_logo_2'] = theme_get_setting('dept_logo_2');
         if (isset($variables['elements']['#id'])) {
     $region = Block::load($variables['elements']['#id'])->getRegion();
     $variables['content']['#attributes']['region'] = $region;
@@ -42,7 +49,38 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
   if (isset($form_id)) {
     return;
   }
-
+  // unset stock site branding logo group
+  $form['logo'] = [];
+  $form['department_logos'] = [
+    '#type' => 'details',
+    '#title' => t('Department Logos'),
+    '#open' => TRUE,
+  ];
+  $form['department_logos']['dept_logo_1'] = [
+    '#type' => 'managed_file',
+    '#title' => t('Upload Department Logo 1'),
+    '#description' => t("Use this field to upload Department Logo 1."),
+    '#default_value' => theme_get_setting('dept_logo_1'),
+    '#upload_location' => 'public://',
+    '#upload_validators' => [
+      'file_validate_extensions' => [
+        'png gif jpg jpeg apng svg',
+      ],
+    ],
+  ];
+  $form['department_logos']['dept_logo_2'] = [
+    '#type' => 'managed_file',
+    '#title' => t('Upload Department Logo 2'),
+    '#description' => t("Use this field to upload Department Logo 2."),
+    '#default_value' => theme_get_setting('dept_logo_2'),
+    '#preview_image_style' => 'medium',
+    '#upload_location' => 'public://',
+    '#upload_validators' => [
+      'file_validate_extensions' => [
+        'png gif jpg jpeg apng svg',
+      ],
+    ],
+  ];
   $form['department_variables'] = array(
       '#type' => 'details',
       '#title' => t('Department Variables'),

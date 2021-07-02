@@ -4,6 +4,6 @@ dependencies: {  }
 id: as_articles
 label: A&S Articles
 description: 'Migrate articles authored by A&S Communications staff from Drupal 8'
-source_type: 'Drupal 7'
+source_type: 'Drupal 8'
 module: null
 shared_configuration: null
