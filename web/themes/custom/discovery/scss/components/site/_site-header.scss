@@ -82,12 +82,9 @@ header {
     // background: url(/themes/custom/discovery/images/TEST-NES-oneline.svg);
     margin: 2rem 0;
     @include mq(large) {
-      // background: url(/themes/custom/discovery/images/TEST-NES.svg);
-
       background-size: contain;
       background-repeat: no-repeat;
       width: 500px;
-      // height: 70px;
     }
     &--two-logos {
       .logo--one {
