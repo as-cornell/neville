@@ -5,6 +5,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\File\FileSystemInterface;
 
 function discovery_preprocess_node(&$variables) {
+  $variables['department_prefix'] = theme_get_setting('department_prefix');
   $variables['department_email'] = theme_get_setting('department_email');
   $variables['department_address'] = theme_get_setting('department_address');
   $variables['department_facebook'] = theme_get_setting('department_facebook');
@@ -25,6 +26,7 @@ function discovery_preprocess_block(&$variables) {
       // You can get nid and anything else you need from the node object.
       $variables["nid"] = $node->id();
       $variables["node_title"] = $node->getTitle();
+      $variables['department_prefix'] = theme_get_setting('department_prefix');
       $variables['department_email'] = theme_get_setting('department_email');
       $variables['department_phone'] = theme_get_setting('department_phone');
       $variables['department_address'] = theme_get_setting('department_address');
@@ -86,6 +88,12 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
       '#title' => t('Department Variables'),
       '#open' => TRUE,
     );
+  $form['department_variables']['department_prefix'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Department Email'),
+    '#default_value' => theme_get_setting('department_prefix'),
+    '#description'   => t("Department prefix for css."),
+  );
   $form['department_variables']['department_email'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Department Email'),
