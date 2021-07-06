@@ -976,11 +976,8 @@ Descr: otpN small and large, hovers and toggles for subNav
     display: flex;
     -ms-flex-direction: column;
         flex-direction: column;
-    max-height: 0;
     font-weight: var(--regular);
     font-size: var(--base-18); }
-    .nav--site .nav.shown {
-      max-height: 100%; }
     @media only screen and (min-width: 782px) {
       .nav--site .nav {
         position: relative;
@@ -1009,7 +1006,10 @@ Descr: otpN small and large, hovers and toggles for subNav
         transform: translateX(-12px);
         border-radius: 2px; }
   .nav--site .nav-0 {
-    border-radius: 0 0 var(--border-radius) var(--border-radius); }
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    max-height: 0; }
+    .nav--site .nav-0.shown {
+      max-height: 100%; }
     @media only screen and (min-width: 782px) {
       .nav--site .nav-0 {
         max-height: 100%; } }
@@ -1019,16 +1019,16 @@ Descr: otpN small and large, hovers and toggles for subNav
       display: flex;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
+      .nav--site .nav-0 .nav-0__item.subnav-open ul {
+        max-height: 100%; }
+      .nav--site .nav-0 .nav-0__item.subnav-open button {
+        transform: rotate(180deg);
+        transform-origin: 50% 50%; }
       @media only screen and (min-width: 782px) {
         .nav--site .nav-0 .nav-0__item {
           margin-bottom: 0.5rem; }
           .nav--site .nav-0 .nav-0__item.has-sub {
-            margin-bottom: 0; }
-          .nav--site .nav-0 .nav-0__item.subnav-open ul {
-            max-height: 100%; }
-          .nav--site .nav-0 .nav-0__item.subnav-open button {
-            transform: rotate(180deg);
-            transform-origin: 50% 50%; } }
+            margin-bottom: 0; } }
     .nav--site .nav-0 .nav-0__link {
       display: inline-block;
       color: var(--as-gray-600);
@@ -1046,11 +1046,8 @@ Descr: otpN small and large, hovers and toggles for subNav
     border-radius: 0;
     width: 100%;
     padding-left: 0;
-    margin-top: 0; }
-    .nav--site .nav-1.expanded {
-      opacity: 1;
-      transform: scaleY(1);
-      position: relative; }
+    margin-top: 0;
+    max-height: 0; }
     @media only screen and (min-width: 782px) {
       .nav--site .nav-1 {
         margin-top: 0.25rem; } }

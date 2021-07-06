@@ -39,13 +39,10 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    max-height: 0;
+    // max-height: 0;
     font-weight: var(--regular);
     font-size: var(--base-18);
 
-    &.shown {
-      max-height: 100%;
-    }
     @include mq(medium) {
       // transform: none;
       position: relative;
@@ -62,10 +59,6 @@
       &:focus {
         opacity: 1;
       }
-      // &.active {
-      //   transform: rotate(180deg);
-      //   transform-origin: 50% 50%;
-      // }
       @include mq(medium) {
       }
     }
@@ -88,6 +81,10 @@
   }
   .nav-0 {
     border-radius: 0 0 var(--border-radius) var(--border-radius);
+    max-height: 0;
+    &.shown {
+      max-height: 100%;
+    }
     @include mq(medium) {
       max-height: 100%;
     }
@@ -95,19 +92,19 @@
       margin-bottom: 0;
       display: flex;
       flex-wrap: wrap;
+      &.subnav-open {
+        ul {
+          max-height: 100%;
+        }
+        button {
+          transform: rotate(180deg);
+          transform-origin: 50% 50%;
+        }
+      }
       @include mq(medium) {
         margin-bottom: 0.5rem;
         &.has-sub {
           margin-bottom: 0;
-        }
-        &.subnav-open {
-          ul {
-            max-height: 100%;
-          }
-          button {
-            transform: rotate(180deg);
-            transform-origin: 50% 50%;
-          }
         }
       }
     }
@@ -137,13 +134,7 @@
     width: 100%;
     padding-left: 0;
     margin-top: 0;
-    // transform: scaleY(0);
-    // transform-origin: top;
-    &.expanded {
-      opacity: 1;
-      transform: scaleY(1);
-      position: relative;
-    }
+    max-height: 0;
     @include mq(medium) {
       margin-top: 0.25rem;
     }
@@ -176,9 +167,6 @@
     }
   }
   @include mq(medium) {
-    // background: transparent;
-    // position: relative;
-    // transform: none;
     overflow: visible;
     .nav-0,
     .nav-1 {
