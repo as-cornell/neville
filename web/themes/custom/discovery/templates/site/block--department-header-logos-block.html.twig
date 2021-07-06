@@ -26,16 +26,28 @@
  */
 #}
 
+
 {{ title_prefix }}
 
 
 {% block content %}
-    {% if dept_logo_1.0 %}
-      {{ drupal_image(dept_logo_1.0) }}
-    {% endif %}
-    {% if dept_logo_1.0 %}
-      {{ drupal_image(dept_logo_2.0) }}
-    {% endif %}
+	<div class="header__logo {% if dept_logo_2 %}header__logo--two-logos{% endif %}">
+		{% if dept_logo_1.0 %}
+			<div class="logo--one">
+				<a href="/">
+					{{ drupal_image(dept_logo_1.0) }}
+				</a>
+			</div>
+		{% endif %}
+		{% if dept_logo_2.0 %}
+			<div class="logo--two">
+				<a href="/">
+					{{ drupal_image(dept_logo_2.0) }}
+				</a>
+			</div>
+		{% endif %}
+	</div>
+
 
 	{# content #}
 

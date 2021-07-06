@@ -1387,20 +1387,27 @@ header {
     background: url(/themes/custom/discovery/images/cornell-reduced-black.svg);
     background-repeat: no-repeat;
     background-size: 200px 45px; }
-  header .department-logo {
+  header .header__logo {
     -ms-flex: 0 0 100%;
         flex: 0 0 100%;
     grid-column: 1 / -1;
     grid-row: 2;
-    background-size: contain;
-    background-repeat: no-repeat; }
+    margin: 2rem 0; }
     @media only screen and (min-width: 1224px) {
-      header .department-logo {
-        margin: 2rem 0;
+      header .header__logo {
         background-size: contain;
         background-repeat: no-repeat;
-        width: 300px;
-        height: 70px; } }
+        width: 500px; } }
+    header .header__logo--two-logos .logo--one {
+      display: block; }
+      @media only screen and (min-width: 1224px) {
+        header .header__logo--two-logos .logo--one {
+          display: none; } }
+    header .header__logo--two-logos .logo--two {
+      display: none; }
+      @media only screen and (min-width: 1224px) {
+        header .header__logo--two-logos .logo--two {
+          display: block; } }
   header .as-logo {
     display: -ms-flexbox;
     display: flex;

@@ -73,22 +73,35 @@ header {
     background-size: 200px 45px;
   }
 
-  .department-logo {
+  .header__logo {
     // text-indent: -9999px;
     flex: 0 0 100%;
     grid-column: 1 / -1;
     grid-row: 2;
 
     // background: url(/themes/custom/discovery/images/TEST-NES-oneline.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
+    margin: 2rem 0;
     @include mq(large) {
       // background: url(/themes/custom/discovery/images/TEST-NES.svg);
-      margin: 2rem 0;
+
       background-size: contain;
       background-repeat: no-repeat;
-      width: 300px;
-      height: 70px;
+      width: 500px;
+      // height: 70px;
+    }
+    &--two-logos {
+      .logo--one {
+        display: block;
+        @include mq(large) {
+          display: none;
+        }
+      }
+      .logo--two {
+        display: none;
+        @include mq(large) {
+          display: block;
+        }
+      }
     }
   }
 
