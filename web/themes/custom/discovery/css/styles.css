@@ -420,7 +420,7 @@ ICON/SVG buttons
   line-height: 1; }
 
 .icon--button svg {
-  width: 1.5rem; }
+  width: 0.75rem; }
 
 /* -------------------------
 
@@ -976,39 +976,25 @@ Descr: otpN small and large, hovers and toggles for subNav
     display: flex;
     -ms-flex-direction: column;
         flex-direction: column;
-    position: absolute;
-    font-weight: var(--regular); }
+    max-height: 0;
+    font-weight: var(--regular);
+    font-size: var(--base-18); }
     .nav--site .nav.shown {
-      transform: scale(1, 1);
-      transform-origin: top;
-      transition: transform 100ms ease-in-out 100ms;
-      position: relative; }
+      max-height: 100%; }
     @media only screen and (min-width: 782px) {
       .nav--site .nav {
-        transform: none;
         position: relative;
         overflow: visible; } }
     .nav--site .nav button {
-      right: 14px;
-      top: 5px;
       padding: 0;
-      background: none;
-      border: none;
-      position: absolute;
-      z-index: 10; }
+      background: var(--as-gray-200);
+      border-radius: 0;
+      -ms-flex: 0 0 1rem;
+          flex: 0 0 1rem; }
       .nav--site .nav button svg {
-        fill: var(--as-white); }
-        @media only screen and (min-width: 900px) {
-          .nav--site .nav button svg {
-            fill: var(--as-black); } }
+        fill: var(--as-black); }
       .nav--site .nav button:focus {
         opacity: 1; }
-      .nav--site .nav button.active {
-        transform: rotate(180deg);
-        transform-origin: 50% 50%; }
-      @media only screen and (min-width: 782px) {
-        .nav--site .nav button {
-          display: none; } }
     .nav--site .nav a {
       font-weight: var(--regular);
       -webkit-text-decoration-color: var(--as-gray-300);
@@ -1017,57 +1003,50 @@ Descr: otpN small and large, hovers and toggles for subNav
       .nav--site .nav a:before {
         position: absolute;
         content: "";
-        height: calc(100% - 2px);
+        height: 1em;
+        top: calc(50% - 0.6em);
         width: 4px;
-        transform: translateX(-16px);
-        border-radius: 2px;
-        transition: width 250ms; }
+        transform: translateX(-12px);
+        border-radius: 2px; }
   .nav--site .nav-0 {
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-    z-index: 11;
-    transform: scale(1, 0);
-    transform-origin: top;
-    margin-top: -2px; }
+    border-radius: 0 0 var(--border-radius) var(--border-radius); }
     @media only screen and (min-width: 782px) {
       .nav--site .nav-0 {
-        transform: none; } }
+        max-height: 100%; } }
     .nav--site .nav-0 .nav-0__item {
       margin-bottom: 0;
-      position: relative; }
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
       @media only screen and (min-width: 782px) {
         .nav--site .nav-0 .nav-0__item {
-          background: none;
           margin-bottom: 0.5rem; }
           .nav--site .nav-0 .nav-0__item.has-sub {
-            margin-bottom: 0; } }
+            margin-bottom: 0; }
+          .nav--site .nav-0 .nav-0__item.subnav-open ul {
+            max-height: 100%; }
+          .nav--site .nav-0 .nav-0__item.subnav-open button {
+            transform: rotate(180deg);
+            transform-origin: 50% 50%; } }
     .nav--site .nav-0 .nav-0__link {
       display: inline-block;
-      color: var(--as-gray-300);
-      background: var(--as-teal-600);
-      padding: 0.5rem;
-      width: calc(100% - 1rem);
-      transition: opacity 150ms ease-in-out; }
-      .nav--site .nav-0 .nav-0__link.has-sub {
-        background: red;
-        width: calc(100% - 3rem);
-        border-right: 1px solid var(--as-white); }
-      @media only screen and (min-width: 782px) {
-        .nav--site .nav-0 .nav-0__link {
-          background: none;
-          background: none;
-          color: var(--as-black);
-          padding: 0; }
-          .nav--site .nav-0 .nav-0__link:before {
-            background: var(--as-teal-300); }
-          .nav--site .nav-0 .nav-0__link:hover:before, .nav--site .nav-0 .nav-0__link.active:before {
-            background: var(--as-teal-600); } }
+      color: var(--as-gray-600);
+      background: var(--as-gray-200);
+      padding: 0.5em 0 0.5em 0.75em;
+      width: 100%;
+      transition: opacity 150ms ease-in-out;
+      -ms-flex: 1 0 calc(100% - 1.75rem);
+          flex: 1 0 calc(100% - 1.75rem); }
+      .nav--site .nav-0 .nav-0__link:before {
+        background: var(--as-teal-300); }
+      .nav--site .nav-0 .nav-0__link:hover:before, .nav--site .nav-0 .nav-0__link.active:before {
+        background: var(--as-teal-600); }
   .nav--site .nav-1 {
     border-radius: 0;
     width: 100%;
     padding-left: 0;
-    margin-top: 0;
-    transform: scaleY(0);
-    transform-origin: top; }
+    margin-top: 0; }
     .nav--site .nav-1.expanded {
       opacity: 1;
       transform: scaleY(1);
@@ -1075,9 +1054,11 @@ Descr: otpN small and large, hovers and toggles for subNav
     @media only screen and (min-width: 782px) {
       .nav--site .nav-1 {
         margin-top: 0.25rem; } }
-    @media only screen and (min-width: 782px) {
-      .nav--site .nav-1 .nav-1__item {
-        margin-bottom: 0.5rem; } }
+    .nav--site .nav-1 .nav-1__item {
+      overflow: hidden; }
+      @media only screen and (min-width: 782px) {
+        .nav--site .nav-1 .nav-1__item {
+          margin-bottom: 0.5rem; } }
     .nav--site .nav-1 .nav-1__link {
       padding: 0.5rem 0 0.5rem 1rem;
       color: var(--as-black);
@@ -1094,17 +1075,10 @@ Descr: otpN small and large, hovers and toggles for subNav
             width: 6px; } }
   @media only screen and (min-width: 782px) {
     .nav--site {
-      background: transparent;
-      position: relative;
-      transform: none;
-      overflow: visible;
-      font-size: var(--base-18); }
+      overflow: visible; }
       .nav--site .nav-0,
       .nav--site .nav-1 {
-        background: transparent; }
-      .nav--site .nav-1 {
-        position: relative;
-        transform: none; } }
+        background: transparent; } }
 
 /* -------------------------
 

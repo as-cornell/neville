@@ -9,11 +9,31 @@
     },
   });
 
+  // $(".subnav-toggle--sidebar").on({
+  //   click: function () {
+  //     var toggle = $(this);
+  //     $(toggle).toggleClass("active");
+  //     // $(toggle).parent().toggleClass("active");
+  //     $(toggle).next().toggleClass("shown");
+  //   },
+  // });
+
+  // $(".subnav-closed > .subnav-toggle--sidebar").on({
+  //   click: function () {
+  //     var toggle = $(this);
+  //     // $(toggle).toggleClass("active");
+  //     // console.log('hello');
+  //     $(toggle).parent().toggleClass("subnav-open");
+  //     // $(toggle).next().toggleClass("shown");
+  //   },
+  // });
   $(".subnav-toggle--sidebar").on({
     click: function () {
       var toggle = $(this);
-      $(toggle).toggleClass("active");
-      $(toggle).next().toggleClass("shown");
+      // $(toggle).toggleClass("active");
+      // console.log('bye bye');
+      $(toggle).parent().toggleClass("subnav-open");
+      // $(toggle).next().toggleClass("shown");
     },
   });
 
