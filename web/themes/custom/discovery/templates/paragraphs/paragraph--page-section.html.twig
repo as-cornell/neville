@@ -38,6 +38,7 @@
  * @ingroup themeable
  */
 #}
+{# {{vardumper()}} #}
 {%
   set classes = [
     'paragraph',
@@ -57,17 +58,13 @@
 
 {# {% block paragraph %} #}
 
-	<div{{attributes.addClass(classes)}} id="{{divid}}">
-
-    {% include "@content/atoms/_heading.twig" with {
+	<div{{attributes.addClass(classes)}} id="{{divid}}"> {% include "@content/atoms/_heading.twig" with {
         "heading_level" : 2,
         "heading" : content.field_section_label,
         "heading_modifiers" : heading_modifiers,
         "heading_base_class" : heading_base_class,
         "heading_class" : heading_class
       } %}
-		{# {% block content %} #}
-			{{ content.field_section_components }}
-		{# {% endblock %} #}
-	</div>
+	{{ content.field_section_components }}
+</div>
 {# {% endblock paragraph %} #}

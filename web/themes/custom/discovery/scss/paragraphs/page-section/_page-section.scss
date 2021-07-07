@@ -5,6 +5,13 @@ Descr: sets up all uniquie styles for page-sections and page section labels
 
 --------------------------- */
 
+.pageSection:first-of-type {
+  h2,
+  .section-label {
+    margin-top: 0;
+  }
+}
+
 .section-label {
   margin-top: 1em;
   font-size: 2rem;

@@ -18,7 +18,7 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
  #}
 {% set main_element_extra_classes = ['main'] %}
 {% set main_element_base_class = 'basicSidebar' %}
-{% set main_element_modifiers = ['has-aside'] %}
+{% set main_element_modifiers = [''] %}
 {# set defaults #}
 {# {% set show_sidebarNav = true %} #}
 {% set show_aside = false %}
@@ -43,15 +43,18 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 {% for item in content.field_page_components|field_target_entity %}
 	{% set type =  item.type.value.0.target_id%}
 	{% if type == 'page_section' %}
-		{% set label =  item.field_section_label.value%}
-		{% set linkValues = linkValues|merge([label]) %}
+		{% set sectionLabel =  item.field_section_label.value%}
+		{% set linkValues = linkValues|merge([sectionLabel]) %}
 	{% endif %}
 {% endfor %}
 {% if linkValues != [] %}
   {% set show_aside = true %}
+{% set main_element_modifiers = main_element_modifiers|merge(['has-aside']) %}
+
 {% endif %}
 
 {% set sidebar_wrapper_extra_classes = sidebar_wrapper_extra_classes | default(['']) %}
+
 
 <main {{ bem(main_element_base_class, (main_element_modifiers), main_element_blockname, main_element_extra_classes) }} id="mainContent">
 	<div class="title">

@@ -1324,7 +1324,7 @@ header {
       grid-template-rows: auto;
       -ms-flex-align: center;
           align-items: center;
-      margin: 1rem auto 2rem auto; } }
+      margin: 2rem auto 2rem auto; } }
   header .header__searchForm {
     grid-column: 1 / -1;
     grid-row: 3;
@@ -1582,14 +1582,20 @@ Descr:
   .basicSidebar .title {
     grid-area: title; }
     .basicSidebar .title h1 {
-      text-align: center;
       font-family: var(--font-serif);
       font-weight: var(--semi);
-      font-size: var(--base-56); }
-      @media only screen and (min-width: 1224px) {
-        .basicSidebar .title h1 {
-          text-align: left;
-          margin-top: 0; } }
+      font-size: var(--base-56);
+      position: relative;
+      margin: 0 0 2em 0;
+      font-weight: var(--heavy); }
+      .basicSidebar .title h1:before {
+        position: absolute;
+        content: "";
+        width: 6em;
+        height: 2px;
+        bottom: -0.75rem;
+        left: 0;
+        background: var(--as-teal-300); }
   .basicSidebar .sidebar {
     grid-area: sidebar; }
   .basicSidebar .content {
@@ -1608,16 +1614,20 @@ Descr:
           display: block; } }
   @media only screen and (min-width: 782px) {
     .basicSidebar {
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-areas: ". title title title title title title title title title . ." ".nav nav nav content content content content content content content ." ".sidebar sidebar sidebar content content content content content content content ."; } }
+      grid-template-columns: 1fr 2fr;
+      grid-template-areas: " title title " "nav content " "sidebar content  "; } }
+  @media only screen and (min-width: 1224px) {
+    .basicSidebar {
+      grid-template-columns: 3rem 1fr 2fr 3rem;
+      grid-template-areas: ". title title ." ". nav content ." ". sidebar content ."; } }
   @media only screen and (min-width: 782px) {
     .basicSidebar--has-aside {
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-areas: "title title title title title title title title title title . ." "nav nav nav aside aside aside aside aside aside aside aside aside" "nav nav nav content content content content content content content content content" "sidebar sidebar sidebar content content content content content content content content content"; } }
+      grid-template-columns: 1fr 2fr;
+      grid-template-areas: "title title" "nav aside" "nav content" "sidebar content"; } }
   @media only screen and (min-width: 1224px) {
     .basicSidebar--has-aside {
-      grid-template-columns: repeat(24, 1fr);
-      grid-template-areas: ". . . . . title title title title title title title title title title title title title title title . . . ." "nav nav nav nav nav content content content content content content content content content content content content content content content aside aside aside aside" "sidebar sidebar sidebar sidebar sidebar content content content content content content content content content content content content content content content aside aside aside aside"; } }
+      grid-template-columns: 1.5fr minmax(20em, 35em) 1fr;
+      grid-template-areas: "title title title" "nav content aside" "sidebar content aside"; } }
   .basicSidebar .content > h2:first-of-type {
     margin-top: 0; }
   .basicSidebar .pcWrapper {
@@ -1998,6 +2008,10 @@ Title: _page-section
 Descr: sets up all uniquie styles for page-sections and page section labels
 
 --------------------------- */
+.pageSection:first-of-type h2,
+.pageSection:first-of-type .section-label {
+  margin-top: 0; }
+
 .section-label {
   margin-top: 1em;
   font-size: 2rem; }
