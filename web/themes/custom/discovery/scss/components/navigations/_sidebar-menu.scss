@@ -8,19 +8,21 @@
 // --------------------------- */
 
 .nav--site {
-  // font-size: var(--base-20);
   position: relative;
+  font-weight: var(--regular);
+  font-size: var(--base-18);
   .nav-toggle {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: var(--as-white);
-    background: var(--as-black);
+    background: var(--as-teal-500);
     font-weight: var(--regular);
     border-radius: var(--border-radius);
     margin-bottom: 0;
     padding: 0.5rem;
     &.active {
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
       button {
         transform: rotate(180deg);
       }
@@ -39,59 +41,54 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    // max-height: 0;
-    font-weight: var(--regular);
-    font-size: var(--base-18);
 
-    @include mq(medium) {
-      // transform: none;
-      position: relative;
-      overflow: visible;
-    }
     button {
       padding: 0;
       background: var(--as-gray-200);
       border-radius: 0;
-      flex: 0 0 1rem;
+      flex: 0 0 2rem;
+      margin-bottom: 1px;
       svg {
         fill: var(--as-black);
       }
       &:focus {
         opacity: 1;
       }
-      @include mq(medium) {
-      }
     }
     a {
       font-weight: var(--regular);
       text-decoration-color: var(--as-gray-300);
       position: relative;
+      display: block;
       &:before {
         position: absolute;
         content: "";
-        height: 1em;
-        top: calc(50% - 0.6em);
+        height: 100%;
+        top: 0;
         width: 4px;
-        transform: translateX(-12px);
+        transform: translateX(-1em);
         border-radius: 2px;
-      }
-      &.active {
       }
     }
   }
   .nav-0 {
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     max-height: 0;
+    background: var(--as-white);
     &.shown {
       max-height: 100%;
     }
     @include mq(medium) {
       max-height: 100%;
+      border-radius: var(--border-radius);
     }
     .nav-0__item {
       margin-bottom: 0;
       display: flex;
       flex-wrap: wrap;
+
+      // probably could get this out of here
+
       &.subnav-open {
         ul {
           max-height: 100%;
@@ -101,22 +98,19 @@
           transform-origin: 50% 50%;
         }
       }
-      @include mq(medium) {
-        margin-bottom: 0.5rem;
-        &.has-sub {
-          margin-bottom: 0;
-        }
-      }
     }
     .nav-0__link {
-      display: inline-block;
-      color: var(--as-gray-600);
+      color: var(--as-black);
       background: var(--as-gray-200);
-      padding: 0.5em 0 0.5em 0.75em;
+      padding: 1em 0 1em 1em;
       width: 100%;
       transition: opacity 150ms ease-in-out;
-      flex: 1 0 calc(100% - 1.75rem);
-
+      flex: 1 1 calc(100% - 3rem);
+      margin-bottom: 1px;
+      @include mq(medium) {
+        padding: 1em;
+        flex: 1 1 calc(100% - 4rem);
+      }
       &:before {
         background: var(--as-teal-300);
       }
@@ -135,46 +129,28 @@
     padding-left: 0;
     margin-top: 0;
     max-height: 0;
-    @include mq(medium) {
-      margin-top: 0.25rem;
-    }
+    background: var(--as-gray-200);
     .nav-1__item {
       overflow: hidden;
-      @include mq(medium) {
-        margin-bottom: 0.5rem;
-      }
     }
     .nav-1__link {
-      padding: 0.5rem 0 0.5rem 1rem;
+      padding: 1em 1em 1em 1.5em;
       color: var(--as-black);
-      background: var(--as-teal-300);
+      background: var(--as-white);
       text-decoration: underline;
       display: block;
+      margin-bottom: 1px;
       &:hover,
       &:focus {
-        // background-color: var(--as-teal-200);
+        background: var(--as-teal-200);
       }
-      @include mq(medium) {
-        padding: 0 0 0 0.5rem;
-        background: none;
-        &:before {
-          background: var(--as-teal-400);
-        }
-        &.active:before {
-          width: 6px;
-        }
+      &:before {
+        background: var(--as-teal-400);
+        transform: translateX(-1.5em);
       }
     }
   }
   @include mq(medium) {
     overflow: visible;
-    .nav-0,
-    .nav-1 {
-      background: transparent;
-    }
-    .nav-1 {
-      // position: relative;
-      // transform: none;
-    }
   }
 }

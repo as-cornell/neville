@@ -30,10 +30,7 @@
   $(".subnav-toggle--sidebar").on({
     click: function () {
       var toggle = $(this);
-      // $(toggle).toggleClass("active");
-      // console.log('bye bye');
       $(toggle).parent().toggleClass("subnav-open");
-      // $(toggle).next().toggleClass("shown");
     },
   });
 
