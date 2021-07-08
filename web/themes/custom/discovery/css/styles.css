@@ -33,6 +33,9 @@ Base .scss aggregator for departmetn and program sites
   --as-teal-400: #4698a0;
   --as-teal-500: #36767c;
   --as-teal-600: #224a4e;
+  --as-gold-200: #fbf9a7;
+  --as-gold-400: #f5ed0f;
+  --as-gold-500: #b5af08;
   --as-white: #fff;
   --as-black: #000; }
 
@@ -107,9 +110,11 @@ MARGINS
   @media only screen and (min-width: 782px) {
     :root {
       --base-48: 2rem;
-      --base-56: 2.33rem;
-      --base-64: 2.66rem;
+      --base-64: 2.33rem;
       --base-84: 3.5rem; } }
+  @media only screen and (min-width: 1224px) {
+    :root {
+      --base-56: 2.33rem; } }
 
 /*
 ----
@@ -228,6 +233,16 @@ Descr: sets basic image styles
 img {
   max-width: 100%;
   height: auto; }
+
+/* -------------------------
+
+Title: links.scss
+Descr: 
+    Sets basic styles text links
+
+--------------------------- */
+a {
+  color: var(--as-red-400); }
 
 /* -------------------------
 
@@ -372,7 +387,7 @@ p {
   margin-top: 1em; }
 
 strong {
-  font-weight: var(--semi); }
+  font-weight: var(--regular); }
 
 /* -------------------------
 
@@ -743,214 +758,14 @@ Title: otp navigation
 Descr: otpN small and large, hovers and toggles for subNav
 
 --------------------------- */
-@media only screen and (min-width: 782px) {
-  .main.otpStuck .otpNavWrapper {
-    border-radius: var(--border-radius); } }
-
-@media only screen and (min-width: 1224px) {
-  .main.otpStuck .otpNav--basic_page {
-    margin-left: 0;
-    padding-left: 0;
-    box-shadow: none; }
-  .main.otpStuck .otpNav--landing_page {
-    padding: 0.5rem 1rem 0.25rem 1rem; }
-  .main.otpStuck .otpNavWrapper {
-    position: sticky;
-    top: 0;
-    z-index: 1; } }
-
-@media only screen and (min-width: 1432px) {
-  .main.otpStuck .otpNavWrapper {
-    width: 100%; } }
-
-@keyframes otpNavFader {
-  0% {
-    opacity: 0; }
-  20% {
-    position: fixed;
-    top: 0; }
-  30% {
-    opacity: 0;
-    position: fixed;
-    top: 0; }
-  100% {
-    opacity: 1;
-    position: fixed;
-    top: 0; } }
-
 .otpNavWrapper {
-  display: grid;
-  background: var(--as-white);
-  position: relative;
-  z-index: 1;
-  font-size: var(--base-18); }
-  @media only screen and (min-width: 782px) {
-    .otpNavWrapper {
-      background: var(--as-white);
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-pack: center;
-          justify-content: center;
-      -ms-flex-direction: column;
-          flex-direction: column; } }
-  .otpNavWrapper h4 {
-    font-size: var(--base-16);
-    margin: 0;
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
-    margin-top: 0.5em;
-    padding: 0.5rem;
-    grid-row: 1;
-    border: 1px solid var(--gray-lt);
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    text-decoration: underline; }
-    @media only screen and (min-width: 782px) {
-      .otpNavWrapper h4 {
-        cursor: default;
-        margin: 0 0.5rem 4px 0;
-        padding-left: 0;
-        color: var(--as-black);
-        font-weight: var(--regular);
-        border: none;
-        cursor: default;
-        text-decoration: none; } }
-  .otpNavWrapper .otpNav {
-    font-weight: var(--regular);
-    list-style-type: none;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -ms-flex-direction: column;
-        flex-direction: column;
-    margin: 0;
-    padding-left: 0;
-    grid-row: 2;
-    width: 100%;
-    position: absolute;
-    top: -3px;
-    background: var(--as-black);
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-    transform: scale(1, 0);
-    transform-origin: top;
-    transition: transform 150ms ease-out; }
-    .otpNavWrapper .otpNav li {
-      max-width: 100%; }
-      .otpNavWrapper .otpNav li:last-of-type {
-        margin-right: 0; }
-    .otpNavWrapper .otpNav a {
-      padding: 0.5em 1em;
-      display: block;
-      color: var(--as-white); }
-      @media only screen and (min-width: 782px) {
-        .otpNavWrapper .otpNav a {
-          padding: 0rem 1rem 0 0rem;
-          color: var(--as-dark-blue);
-          position: relative; }
-          .otpNavWrapper .otpNav a:before {
-            position: absolute;
-            content: "";
-            transform: scaleX(0);
-            height: 1px;
-            bottom: 0;
-            transition: all 0.2s;
-            background-image: var(--teal-purple);
-            width: calc(100% - 1rem); }
-          .otpNavWrapper .otpNav a:hover, .otpNavWrapper .otpNav a.active, .otpNavWrapper .otpNav a:focus {
-            text-decoration: none; }
-            .otpNavWrapper .otpNav a:hover:before, .otpNavWrapper .otpNav a.active:before, .otpNavWrapper .otpNav a:focus:before {
-              transform: scaleX(1); } }
-    .otpNavWrapper .otpNav.expanded {
-      transform: scale(1, 1);
-      transform-origin: top;
-      transition: transform 250ms ease-in-out 250ms; }
-    @media only screen and (min-width: 782px) {
-      .otpNavWrapper .otpNav {
-        -ms-flex-direction: row;
-            flex-direction: row;
-        transform: none;
-        position: relative;
-        width: auto;
-        background: none;
-        -ms-flex-align: center;
-            align-items: center; } }
-
-@media only screen and (min-width: 1224px) {
-  .otpNav--landing_page {
-    padding: 0;
-    -ms-flex-direction: row;
-        flex-direction: row; } }
-
-@media only screen and (min-width: 782px) {
-  .otpNav--basic_page {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-        flex-direction: column;
-    -ms-flex-pack: start;
-        justify-content: flex-start;
-    width: auto; } }
-
-@media only screen and (min-width: 1224px) {
-  .otpNav--basic_page {
-    -ms-flex-direction: column;
-        flex-direction: column;
-    font-size: var(--base-18);
-    padding-top: 0; }
-    .otpNav--basic_page h4 {
-      margin-bottom: 0.75em;
-      padding-top: 0; }
-    .otpNav--basic_page:before {
-      display: none; } }
-
-@media only screen and (min-width: 1224px) {
-  .otpNav--basic_page .otpNav {
-    -ms-flex-direction: column;
-        flex-direction: column;
-    padding-left: 0;
-    background: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none; }
-    .otpNav--basic_page .otpNav li {
-      margin-right: 0;
-      margin-bottom: 0.5rem;
-      width: 100%; }
-    .otpNav--basic_page .otpNav a {
-      padding: 0 1rem 0 0.75rem;
-      margin-right: 0; }
-      .otpNav--basic_page .otpNav a:before, .otpNav--basic_page .otpNav a:after {
-        position: absolute;
-        content: "";
-        transform: scaley(0);
-        height: 100%;
-        top: 0;
-        left: 0;
-        width: 4px;
-        border-radius: var(--border-radius);
-        transition: all 0.2s;
-        background-image: var(--teal-purple-radial); }
-      .otpNav--basic_page .otpNav a:after {
-        background: var(--gray-lightest);
-        z-index: -1;
-        transform: scaleY(1); }
-      .otpNav--basic_page .otpNav a:hover, .otpNav--basic_page .otpNav a.active, .otpNav--basic_page .otpNav a:focus {
-        text-decoration: none; }
-        .otpNav--basic_page .otpNav a:hover:before, .otpNav--basic_page .otpNav a.active:before, .otpNav--basic_page .otpNav a:focus:before {
-          transform: scaley(1); } }
-
-@keyframes slideFromTop {
-  0% {
-    transform: translateY(0); }
-  100% {
-    transform: translateY(1); } }
-
-.nav--site {
-  position: relative;
-  font-weight: var(--regular);
-  font-size: var(--base-18); }
-  .nav--site .nav-toggle {
+  font-size: var(--base-18);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  background: var(--as-white); }
+  .otpNavWrapper .toggle {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: justify;
@@ -963,14 +778,146 @@ Descr: otpN small and large, hovers and toggles for subNav
     border-radius: var(--border-radius);
     margin-bottom: 0;
     padding: 0.5rem; }
-    .nav--site .nav-toggle.active {
+    .otpNavWrapper .toggle.active {
       border-radius: var(--border-radius) var(--border-radius) 0 0; }
-      .nav--site .nav-toggle.active button {
+      .otpNavWrapper .toggle.active button {
         transform: rotate(180deg); }
-    .nav--site .nav-toggle .icon--button svg {
+    .otpNavWrapper .toggle .icon--button svg {
       fill: var(--as-white); }
     @media only screen and (min-width: 782px) {
-      .nav--site .nav-toggle {
+      .otpNavWrapper .toggle {
+        background: none;
+        color: var(--as-black);
+        padding: 0; }
+        .otpNavWrapper .toggle button {
+          display: none; } }
+
+.otpNav {
+  font-weight: var(--regular);
+  list-style-type: none;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  margin: 0;
+  border: 1px solid var(--as-gray-300);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  max-height: 0;
+  overflow: hidden; }
+  @media only screen and (min-width: 782px) {
+    .otpNav {
+      max-height: 100%;
+      border: none;
+      padding: 0;
+      -ms-flex-direction: row;
+          flex-direction: row; } }
+  .otpNav li {
+    margin-top: 0.5em; }
+    @media only screen and (min-width: 782px) {
+      .otpNav li {
+        margin-top: 0; } }
+  .otpNav a {
+    position: relative;
+    display: block;
+    padding: 0.5em;
+    color: var(--as-teal-500);
+    overflow: hidden; }
+    @media only screen and (min-width: 782px) {
+      .otpNav a {
+        padding: 0.25em 0.25em 0 0.25em;
+        margin-right: 1em;
+        text-decoration: none; } }
+    .otpNav a:before, .otpNav a:after {
+      position: absolute;
+      content: "";
+      height: 50%;
+      top: 25%;
+      left: 0;
+      background: var(--as-gold-400);
+      width: 4px;
+      border-radius: var(--border-radius);
+      transition: all 0.2s; }
+    @media only screen and (min-width: 782px) {
+      .otpNav a:before, .otpNav a:after {
+        width: 100%;
+        bottom: 0;
+        top: auto;
+        height: 1px; }
+      .otpNav a:after {
+        background: var(--as-teal-400);
+        transform: translateX(-100%); }
+      .otpNav a:hover:after, .otpNav a.active:after {
+        transform: translatex(0); } }
+  .otpNav.expanded {
+    max-height: 100%; }
+
+@media only screen and (min-width: 782px) {
+  .main.otpStuck .otpNavWrapper {
+    border-radius: var(--border-radius); } }
+
+@media only screen and (min-width: 1224px) {
+  .main.otpStuck .otpNav--basic_page {
+    margin-left: 0;
+    padding-left: 0;
+    box-shadow: none; }
+  .main.otpStuck .otpNav--landing_page {
+    padding: 0.5rem 1rem 1rem 1rem; }
+  .main.otpStuck .otpNavWrapper {
+    position: sticky;
+    top: 0;
+    z-index: 1; } }
+
+@media only screen and (min-width: 1432px) {
+  .main.otpStuck .otpNavWrapper {
+    width: 100%; } }
+
+@media only screen and (min-width: 1224px) {
+  .otpNavWrapper--basic_page .otpNav {
+    -ms-flex-direction: column;
+        flex-direction: column; }
+    .otpNavWrapper--basic_page .otpNav a {
+      margin-top: 1em;
+      padding: 0.25em 0.25em 0 0.75em; }
+      .otpNavWrapper--basic_page .otpNav a:before, .otpNavWrapper--basic_page .otpNav a:after {
+        position: absolute;
+        content: "";
+        height: 75%;
+        top: 12.5%;
+        left: 0;
+        width: 4px;
+        border-radius: var(--border-radius);
+        background-image: var(--as-gold-400); }
+      .otpNavWrapper--basic_page .otpNav a:after {
+        background: var(--as-teal-400);
+        transform: translatey(-115%); }
+      .otpNavWrapper--basic_page .otpNav a:hover:after, .otpNavWrapper--basic_page .otpNav a.active:after {
+        transform: translateY(0); } }
+
+.nav--site {
+  position: relative;
+  font-weight: var(--regular);
+  font-size: var(--base-18); }
+  .nav--site .toggle {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    -ms-flex-align: center;
+        align-items: center;
+    color: var(--as-white);
+    background: var(--as-teal-500);
+    font-weight: var(--regular);
+    border-radius: var(--border-radius);
+    margin-bottom: 0;
+    padding: 0.5rem; }
+    .nav--site .toggle.active {
+      border-radius: var(--border-radius) var(--border-radius) 0 0; }
+      .nav--site .toggle.active button {
+        transform: rotate(180deg); }
+    .nav--site .toggle .icon--button svg {
+      fill: var(--as-white); }
+    @media only screen and (min-width: 782px) {
+      .nav--site .toggle {
         display: none; } }
   .nav--site .nav {
     padding: 0;
@@ -1603,7 +1550,8 @@ Descr:
   .basicSidebar aside {
     position: sticky;
     top: 0;
-    z-index: 1; }
+    z-index: 1;
+    margin-bottom: 2rem; }
     @media only screen and (min-width: 782px) {
       .basicSidebar aside {
         grid-area: aside; } }
@@ -1626,7 +1574,11 @@ Descr:
       grid-template-areas: "title title" "nav aside" "nav content" "sidebar content"; } }
   @media only screen and (min-width: 1224px) {
     .basicSidebar--has-aside {
-      grid-template-columns: 1.5fr minmax(20em, 35em) 1fr;
+      grid-template-columns: 1.5fr minmax(20em, 25em) 0.75fr;
+      grid-template-areas: "title title title" "nav content aside" "sidebar content aside"; } }
+  @media only screen and (min-width: 1432px) {
+    .basicSidebar--has-aside {
+      grid-template-columns: 1.5fr minmax(20em, 33em) 1fr;
       grid-template-areas: "title title title" "nav content aside" "sidebar content aside"; } }
   .basicSidebar .content > h2:first-of-type {
     margin-top: 0; }

@@ -20,15 +20,13 @@
 #}
 
 
-<p class="nav-toggle nav-toggle--sidebar">
-	<span>
-		Show section navigation
-	</span>
-	{% embed "@content/atoms/_chevron.twig" with {
-    shape : "chevron-down"
-  } %}
-	{% endembed %}
-</p>
+{% embed "@content/atoms/_section-toggle.twig" with{
+          section_toggle_base_class : "toggle",
+          section_toggle_modifiers : ["sidebar"],
+          section_toggle_content : "Show section nav"
+        } %}
+{% endembed %}
+
 {% import _self as menus %}
 
 {#

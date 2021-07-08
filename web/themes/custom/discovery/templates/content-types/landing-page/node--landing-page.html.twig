@@ -39,8 +39,8 @@ Descr: This is the framework for a landing page contnet type.
 {% for item in content.field_page_components|field_target_entity %}
 	{% set type =  item.type.value.0.target_id%}
 	{% if type == 'page_section' %}
-		{% set label =  item.field_section_label.value%}
-		{% set linkValues = linkValues|merge([label]) %}
+		{% set sectionLabel =  item.field_section_label.value%}
+		{% set linkValues = linkValues|merge([sectionLabel]) %}
 	{% endif %}
 {% endfor %}
 {% if linkValues != [] %}
@@ -68,10 +68,14 @@ Descr: This is the framework for a landing page contnet type.
 	{% if show_aside %}
 		<aside role="complimentary">
     {% if linkValues %}
-      <div class="otpNavWrapper otpNav--basic_page"> 
-      <h4 class="otpToggle">
-        On this page:
-      </h4>
+      <div class="otpNavWrapper otpNav--landing_page"> 
+{% embed "@content/atoms/_section-toggle.twig" with{
+          section_toggle_base_class : "toggle",
+          section_toggle_modifiers : ["otpNav"],
+          section_toggle_content : "On this page:"
+        } %}
+{% endembed %}
+
       {{ drupal_block('page_menu_block', {link_values:linkValues}) }}
       </div>
     {% endif %}

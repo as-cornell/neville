@@ -1,7 +1,7 @@
 // document is ready to go
 (function ($) {
 
-  $(".nav-toggle--sidebar").on({
+  $(".toggle--sidebar").on({
     click: function () {
       var toggle = $(this);
       $(toggle).toggleClass("active");

@@ -20,9 +20,11 @@ $type-scale: (
   ),
   medium: (
     48: 2rem,
-    56: 2.33rem,
-    64: 2.66rem,
+    64: 2.33rem,
     84: 3.5rem,
+  ),
+  large: (
+    56: 2.33rem,
   ),
 );
 
@@ -45,8 +47,14 @@ $font-weights: (
       @each $size, $value in $font-size {
         --base-#{$size}: #{$value};
       }
-    } @else {
+    } @else if $screen-size == medium {
       @include mq(medium) {
+        @each $size, $value in $font-size {
+          --base-#{$size}: #{$value};
+        }
+      }
+    } @else if $screen-size == large {
+      @include mq(large) {
         @each $size, $value in $font-size {
           --base-#{$size}: #{$value};
         }

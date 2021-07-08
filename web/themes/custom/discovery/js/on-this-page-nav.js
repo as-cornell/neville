@@ -5,10 +5,11 @@
 */
 
 (function ($) {
-  console.log('otpnavbaby');
   $(".otpNav").first().first().addClass("active");
-  $(".otpToggle").on({
+  $(".toggle--otpNav").on({
     click: function () {
+      var toggle = $(this);
+      $(toggle).toggleClass("active");
       $(".otpNav").toggleClass("expanded");
     },
   });
@@ -17,7 +18,7 @@
 const targets = document.querySelectorAll(".pageSection");
 const navOptions = {
   threshold: 0,
-  rootMargin: "-200px",
+  rootMargin: "-100px",
 };
 
 const navObserver = new IntersectionObserver((entries, navObserver) => {
@@ -25,6 +26,7 @@ const navObserver = new IntersectionObserver((entries, navObserver) => {
     console.log(entry);
     if (!entry.isIntersecting) {
       return;
+
     } else {
       document.querySelector(".active").classList.remove("active");
       var id = entry.target.getAttribute("id");

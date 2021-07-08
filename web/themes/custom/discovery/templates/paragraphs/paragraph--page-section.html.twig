@@ -43,6 +43,7 @@
   set classes = [
     'paragraph',
     'pageSection',
+    'bob',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished'
@@ -58,13 +59,8 @@
 
 {# {% block paragraph %} #}
 
-	<div{{attributes.addClass(classes)}} id="{{divid}}"> {% include "@content/atoms/_heading.twig" with {
-        "heading_level" : 2,
-        "heading" : content.field_section_label,
-        "heading_modifiers" : heading_modifiers,
-        "heading_base_class" : heading_base_class,
-        "heading_class" : heading_class
-      } %}
+<div{{attributes.addClass(classes)}} id="{{divid}}">
+  <h2 class="pageSection__heading">{{content.field_section_label}}</h2>
 	{{ content.field_section_components }}
 </div>
 {# {% endblock paragraph %} #}

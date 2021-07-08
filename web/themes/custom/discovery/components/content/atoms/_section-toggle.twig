@@ -1,0 +1,27 @@
+{#
+
+/* -------------------------
+
+Title: _section-toggle
+Descr: ouputs a <p> with class toggle for main styles
+  rounded corner, buttony, with a chevron
+  and a modifier
+    -mainNav
+    -sidebarNav
+    -otpNav
+    ??
+
+--------------------------- */
+
+ #}
+
+
+<p {{ bem(section_toggle_base_class, (section_toggle_modifiers), toggle_blockname)}}>
+	<span>
+		{{section_toggle_content}}
+	</span>
+	{% embed "@content/atoms/_chevron.twig" with {
+            shape : "chevron-down"
+          } %}
+	{% endembed %}
+</p>

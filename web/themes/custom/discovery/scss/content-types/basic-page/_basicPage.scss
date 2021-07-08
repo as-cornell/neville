@@ -49,6 +49,7 @@ Descr:
     position: sticky;
     top: 0;
     z-index: 1;
+    margin-bottom: 2rem;
     @include mq(medium) {
       grid-area: aside;
     }
@@ -91,7 +92,14 @@ Descr:
         "sidebar content";
     }
     @include mq(large) {
-      grid-template-columns: 1.5fr minmax(20em, 35em) 1fr;
+      grid-template-columns: 1.5fr minmax(20em, 25em) 0.75fr;
+      grid-template-areas:
+        "title title title"
+        "nav content aside"
+        "sidebar content aside";
+    }
+    @include mq(xl) {
+      grid-template-columns: 1.5fr minmax(20em, 33em) 1fr;
       grid-template-areas:
         "title title title"
         "nav content aside"
