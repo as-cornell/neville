@@ -62,19 +62,6 @@ source:
       name: field_card_label
       label: 'Field Card Label'
       selector: /node/field_card_label
-
-    -
-      name: field_image_url
-      label: 'Image URL'
-      selector: /node/field_image/src
-    -
-      name: field_image_uri
-      label: 'Image URI'
-      selector: /node/field_image_uri
-    -
-      name: field_image_alt
-      label: 'Image Alt tag'
-      selector: /node/field_image/alt
     -
       name: field_related_people
       label: 'Related People'
