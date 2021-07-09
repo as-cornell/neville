@@ -9,8 +9,9 @@ Descr:
 --------------------------- */
 
 .article--card {
+  box-shadow: var(--box-shadow);
   .article__copy {
-    padding: 1rem;
+    padding: 0 1rem;
     @include baseGrid($g-gap: 0px);
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
@@ -20,17 +21,18 @@ Descr:
   }
   .article__title {
     grid-area: title;
-    margin: 0.75em 0 2em 0;
+    margin: 0.5em 0 1em 0;
     font-weight: var(--regular);
-    font-size: var(--base-20);
+    font-size: var(--base-24);
     line-height: 1.4;
   }
   .article__label {
     grid-area: label;
     color: var(--as-black);
-    font-size: var(--base-18);
+    font-size: var(--base-16);
     font-weight: var(--semi);
-    margin-bottom: 0.5em;
+    font-family: var(--font-serif);
+    margin-top: 0.5em;
   }
   .article__date {
     grid-area: date;
@@ -44,8 +46,10 @@ Descr:
     text-align: right;
   }
   // links for article cards
-  a.card__title-link {
+  a.article__title-link {
     display: block;
+    color: var(--as-teal-500);
+
     padding-bottom: 1em;
     text-decoration: underline;
     text-decoration-color: var(--as-teal-300);
@@ -83,7 +87,7 @@ Descr:
   figure,
   img {
     flex: 0 0 30%;
-    margin-right: 1rem;
+    // margin-right: 1rem;
     border-radius: var(--border-radius);
     // @include boxShadow();
   }
@@ -95,9 +99,13 @@ Descr:
     grid-area: title;
     margin: 0;
     font-size: var(--base-20);
+    line-height: 1.2;
+    font-weight: var(--regular);
   }
 
   .article__label {
-    font-size: var(--base-16);
+    font-size: var(--base-18);
+    font-family: var(--font-serif);
+    font-weight: var(--semi);
   }
 }

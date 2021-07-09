@@ -32,6 +32,7 @@ Descr:
 .grid {
   display: grid;
   gap: 1rem;
+  margin-top: var(--margin-1);
 }
 .grid--2 {
   grid-template-columns: 1fr 1fr;

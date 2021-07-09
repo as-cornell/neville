@@ -60,6 +60,7 @@ MARGINS
   - collapse at smaller sizes
 ----
 */
+  --margin-1: 1rem;
   --margin-2: 2rem;
   --margin-3: 2rem;
   --margin-4: 2rem;
@@ -272,7 +273,8 @@ Descr:
 
 .grid {
   display: grid;
-  gap: 1rem; }
+  gap: 1rem;
+  margin-top: var(--margin-1); }
 
 .grid--2 {
   grid-template-columns: 1fr 1fr; }
@@ -447,7 +449,6 @@ Descr: Sets shape and border of cards
   border-radius: var(--border-radius);
   margin-bottom: 2rem;
   gap: 1rem;
-  border: 1px solid pink;
   -ms-flex-align: start;
       align-items: flex-start; }
   .card figure {
@@ -1432,57 +1433,56 @@ Descr:
    - article--teaser
 
 --------------------------- */
-.article--card .article__copy {
-  padding: 1rem;
-  display: grid;
-  gap: 0px;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "label label label" "title title title" "date byline byline"; }
-
-.article--card .article__title {
-  grid-area: title;
-  margin: 0.75em 0 2em 0;
-  font-weight: var(--regular);
-  font-size: var(--base-20);
-  line-height: 1.4; }
-
-.article--card .article__label {
-  grid-area: label;
-  color: var(--as-black);
-  font-size: var(--base-18);
-  font-weight: var(--semi);
-  margin-bottom: 0.5em; }
-
-.article--card .article__date {
-  grid-area: date;
-  text-align: left;
-  font-size: var(--base-16);
-  margin-top: 2px; }
-
-.article--card .article__byline {
-  grid-area: byline;
-  font-size: var(--base-16);
-  text-align: right; }
-
-.article--card a.card__title-link {
-  display: block;
-  padding-bottom: 1em;
-  text-decoration: underline;
-  -webkit-text-decoration-color: var(--as-teal-300);
-          text-decoration-color: var(--as-teal-300);
-  position: relative; }
-  .article--card a.card__title-link:before {
-    position: absolute;
-    content: "";
-    width: 50%;
-    height: 1px;
-    bottom: 0;
-    left: 25%;
-    transition: all 0.2s;
-    background-image: red; }
-  .article--card a.card__title-link:hover:before {
-    left: 0;
-    width: 100%; }
+.article--card {
+  box-shadow: var(--box-shadow); }
+  .article--card .article__copy {
+    padding: 0 1rem;
+    display: grid;
+    gap: 0px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "label label label" "title title title" "date byline byline"; }
+  .article--card .article__title {
+    grid-area: title;
+    margin: 0.5em 0 1em 0;
+    font-weight: var(--regular);
+    font-size: var(--base-24);
+    line-height: 1.4; }
+  .article--card .article__label {
+    grid-area: label;
+    color: var(--as-black);
+    font-size: var(--base-16);
+    font-weight: var(--semi);
+    font-family: var(--font-serif);
+    margin-top: 0.5em; }
+  .article--card .article__date {
+    grid-area: date;
+    text-align: left;
+    font-size: var(--base-16);
+    margin-top: 2px; }
+  .article--card .article__byline {
+    grid-area: byline;
+    font-size: var(--base-16);
+    text-align: right; }
+  .article--card a.article__title-link {
+    display: block;
+    color: var(--as-teal-500);
+    padding-bottom: 1em;
+    text-decoration: underline;
+    -webkit-text-decoration-color: var(--as-teal-300);
+            text-decoration-color: var(--as-teal-300);
+    position: relative; }
+    .article--card a.article__title-link:before {
+      position: absolute;
+      content: "";
+      width: 50%;
+      height: 1px;
+      bottom: 0;
+      left: 25%;
+      transition: all 0.2s;
+      background-image: red; }
+    .article--card a.article__title-link:hover:before {
+      left: 0;
+      width: 100%; }
 
 .article--card-small {
   border: none;
@@ -1501,7 +1501,6 @@ Descr:
   .article--card-small img {
     -ms-flex: 0 0 30%;
         flex: 0 0 30%;
-    margin-right: 1rem;
     border-radius: var(--border-radius); }
   .article--card-small .article__copy {
     -ms-flex: 1 0 60%;
@@ -1510,9 +1509,13 @@ Descr:
   .article--card-small .article__title {
     grid-area: title;
     margin: 0;
-    font-size: var(--base-20); }
+    font-size: var(--base-20);
+    line-height: 1.2;
+    font-weight: var(--regular); }
   .article--card-small .article__label {
-    font-size: var(--base-16); }
+    font-size: var(--base-18);
+    font-family: var(--font-serif);
+    font-weight: var(--semi); }
 
 /* -------------------------
 

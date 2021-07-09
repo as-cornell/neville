@@ -47,7 +47,6 @@ Descr: otpN small and large, hovers and toggles for subNav
   margin: 0;
   border: 1px solid var(--as-gray-300);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
-  // background: var(--as-white);
   max-height: 0;
   @include mq(medium) {
     max-height: 100%;
@@ -146,18 +145,15 @@ Descr: otpN small and large, hovers and toggles for subNav
       a {
         margin-top: 1em;
         padding: 0.25em 0.25em 0 0.75em;
-        // overflow: hidden;
         &:before,
         &:after {
           position: absolute;
           content: "";
-          // transform: scaley(0);
           height: 75%;
           top: 12.5%;
           left: 0;
           width: 4px;
           border-radius: var(--border-radius);
-          // transition: all 0.2s;
           background-image: var(--as-gold-400);
         }
         &:after {
