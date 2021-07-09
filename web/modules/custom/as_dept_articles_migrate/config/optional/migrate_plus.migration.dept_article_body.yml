@@ -1,0 +1,58 @@
+# Migration configuration for imported images.
+id: article_body
+label: Import dept_article bodies into page component entities
+migration_group: dept_articles
+migration_dependencies: {}
+
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  constants:
+    source_base_path: 'http://as.cornell.edu'
+
+  urls: https://history.cornell.edu/department-articles-export.json
+
+  ids:
+    uuid:
+      type: string
+
+  item_selector: nodes/
+
+  fields:
+    -
+      name: uuid
+      label: 'Uuid'
+      selector: node/uuid
+    -
+      name: description
+      label: 'Description'
+      selector: node/description
+
+process:
+  type:
+    plugin: default_value
+    default_value: formatted_text_block
+  name:
+    plugin: default_value
+    default_value: 'Imported Article Body'
+  'field_formatted_text/value':
+    -
+      plugin: image_inline_to_media
+      images_source: 'https://as.cornell.edu'
+      images_destination: 'public://inline-article-images'
+      source: description
+    -
+      plugin: skip_on_empty
+      method: row
+  'field_formatted_text/format':
+    plugin: default_value
+    default_value: full_html
+  uid:
+    plugin: default_value
+    default_value: 1
+

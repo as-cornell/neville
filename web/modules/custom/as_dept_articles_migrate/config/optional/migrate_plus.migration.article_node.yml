@@ -1,0 +1,136 @@
+# Migration configuration for imported articles.
+id: dept_article_node
+label: Migrate department articles from Drupal 7 to Drupal 8
+migration_group:dept_articles
+destination:
+  plugin: entity:node
+
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: json
+  urls: https://history.cornell.edu/department-articles-export.json
+
+  ids:
+    uuid:
+      type: string
+
+  item_selector: nodes/
+
+  fields:
+    -
+      name: uuid
+      label: 'Uuid'
+      selector: /node/uuid
+    -
+      name: title
+      label: 'Title'
+      selector: /node/title
+    -
+      name: created
+      label: 'Created'
+      selector: /node/created
+    -
+      name: changed
+      label: 'Changed'
+      selector: /node/changed
+    -
+      name: status
+      label: 'Status'
+      selector: /node/status
+    -
+      name: path
+      label: 'Path'
+      selector: /node/path
+    -
+      name: summary
+      label: 'Summary'
+      selector: /node/summary
+    -
+      name: field_byline
+      label: 'Field Byline'
+      selector: /node/field_byline
+    -
+      name: field_media_source
+      label: 'Field Media Source'
+      selector: /node/field_media_source
+    -
+      name: field_dateline
+      label: 'Field dateline'
+      selector: /node/field_dateline
+    -
+      name: field_card_label
+      label: 'Field Card Label'
+      selector: /node/field_card_label
+
+    -
+      name: field_image_url
+      label: 'Image URL'
+      selector: /node/field_image/src
+    -
+      name: field_image_uri
+      label: 'Image URI'
+      selector: /node/field_image_uri
+    -
+      name: field_image_alt
+      label: 'Image Alt tag'
+      selector: /node/field_image/alt
+    -
+      name: field_related_people
+      label: 'Related People'
+      selector: /node/field_related_people
+    -
+      name: field_article_view_tags
+      label: 'Tags'
+      selector: /attributes/field_article_view_tags
+
+
+
+
+process:
+  type:
+    plugin: default_value
+    default_value: article
+  title: title
+  created: created
+  changed: changed
+  path: path
+  field_summary: summary
+  field_article_components_entity:
+    plugin: migration_lookup
+    migration: article_body
+    source: uuid
+  field_dateline: field_dateline
+  field_card_label: field_card_label
+  field_byline: field_byline
+  field_media_source: field_media_source
+  field_related_people:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_related_people
+    -
+      plugin: explode
+      delimiter: '+'
+    -
+      plugin: entity_lookup
+      entity_type: node
+      bundle: person
+      value_key: title
+  field_article_view_tags:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_article_view_tags
+    -
+      plugin: explode
+      delimiter: '+'
+    -
+      plugin: entity_generate
+  'field_image/target_id':
+    plugin: migration
+    migration: article_image_media
+    source: uuid
+  uid:
+    plugin: default_value
+    default_value: 1
