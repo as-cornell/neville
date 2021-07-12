@@ -19,6 +19,7 @@
         "drupal/adminimal_theme": "^1.6",
         "drupal/browsersync": "^2.0",
         "drupal/components": "^2.2",
+        "drupal/config_delete": "^1.17",
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
         "drupal/core-recommended": "^9",

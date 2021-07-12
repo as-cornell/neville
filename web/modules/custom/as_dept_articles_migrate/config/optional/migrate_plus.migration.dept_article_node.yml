@@ -1,7 +1,11 @@
 # Migration configuration for imported articles.
 id: dept_article_node
 label: Migrate department articles from Drupal 7 to Drupal 8
-migration_group:dept_articles
+migration_group: dept_articles
+migration_dependencies:
+  required:
+    - dept_article_body
+  optional: {}
 destination:
   plugin: entity:node
 
@@ -9,6 +13,8 @@ source:
   plugin: url
   data_fetcher_plugin: file
   data_parser_plugin: json
+  constants:
+    domain_id: 'http://history.as.cornell.edu'
   urls: https://history.cornell.edu/department-articles-export.json
 
   ids:
@@ -72,8 +78,6 @@ source:
       selector: /attributes/field_article_view_tags
 
 
-
-
 process:
   type:
     plugin: default_value
@@ -85,7 +89,7 @@ process:
   field_summary: summary
   field_article_components_entity:
     plugin: migration_lookup
-    migration: article_body
+    migration: dept_article_body
     source: uuid
   field_dateline: field_dateline
   field_card_label: field_card_label
@@ -118,6 +122,8 @@ process:
     plugin: migration
     migration: article_image_media
     source: uuid
+  'field_domain_access/target_id':
+    source: field_departments_programs
   uid:
     plugin: default_value
     default_value: 1
