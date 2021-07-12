@@ -13,15 +13,13 @@ source:
   plugin: url
   data_fetcher_plugin: file
   data_parser_plugin: json
-  constants:
-    domain_id: 'http://history.as.cornell.edu'
   urls: https://history.cornell.edu/department-articles-export.json
 
   ids:
     uuid:
       type: string
 
-  item_selector: nodes/
+  item_selector: nodes
 
   fields:
     -
@@ -75,7 +73,7 @@ source:
     -
       name: field_article_view_tags
       label: 'Tags'
-      selector: /attributes/field_article_view_tags
+      selector: /node/field_article_view_tags
 
 
 process:
@@ -118,12 +116,9 @@ process:
       delimiter: '+'
     -
       plugin: entity_generate
-  'field_image/target_id':
-    plugin: migration
-    migration: article_image_media
-    source: uuid
   'field_domain_access/target_id':
-    source: field_departments_programs
+    plugin: default_value
+    default_value: 'history_as_cornell_edu'
   uid:
     plugin: default_value
     default_value: 1
