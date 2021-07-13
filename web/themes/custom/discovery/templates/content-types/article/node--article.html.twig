@@ -26,7 +26,7 @@ LOCAL ARTICLE
 {# if article components then fetch local article fields #}
 {% if content.field_article_components %}
 LOCAL ARTICLE
-{{vardumper(content)}}
+
 	{# image #}
 	{% if content.field_image %}
 		{% set image %}
@@ -37,26 +37,25 @@ LOCAL ARTICLE
 	{# card label #}
 	{% if content.field_card_label %}
 	  {% set show_label = true %}
-	  {% set article.card_label = content.field_card_label %}
+	  {% set article_card_label = content.field_card_label %}
 	{% endif %}
 
 	{# dateline #}
 	{% if content.field_dateline %}
 	  {% set show_dateline = true %}
 	  {% set dateline = content.field_dateline %}
-	  {% set dateline = dateline|date("m/d/Y") %}
 	{% endif %}
 
 	{# bylines #}
 	{% if content.field_bylines %}
 	  {% set show_bylines = true %}
-	  {% set article.bylines = content.field_bylines %}
+	  {% set article_bylines = content.field_bylines %}
 	{% endif %}
 
 	{# media sources #}
 	{% if content.field_media_sources %}
 	  {% set show_media_sources = true %}
-	  {% set article.media_sources = content.field_media_sources %}
+	  {% set article_media_sources = content.field_media_sources %}
 	{% endif %}
 
 	{# Related people #}
@@ -68,7 +67,7 @@ LOCAL ARTICLE
 	{# Related articles #}
 	{% if content.field_related_articles %}
 		{% set show_relatedArticleList = true %}
-	  {% set article.related_articles = field_related_articles %}
+	  {% set article_related_articles = field_related_articles %}
 	{% endif %}
 
 {% endif %}
@@ -106,7 +105,6 @@ REMOTE ARTICLE
 	{% if article.dateline %}
 	  {% set show_dateline = true %}
 	  {% set dateline = article.dateline %}
-	  {% set dateline = dateline|date("m/d/Y") %}
 	{% endif %}
 
 	{# bylines #}
@@ -178,21 +176,21 @@ REMOTE ARTICLE
 					{% if show_bylines or show_media_sources %}
 						{% if show_bylines %}
 							By |
-							{{ article.bylines }}
+							{{ article.bylines }}{{ article_bylines }}
 						{% endif %}
 
 						{% if show_byline and show_media_sources %}
 							,
 						{% endif %}
 						{% if show_media_sources %}
-							{{article.media_sources}}
+							{{article.media_sources}}{{article_media_sources}}
 						{% endif %}
 						<br/>
 					{% endif %}
 				</p>
 			{% endif %}
 			<span class="article__dateline">
-				{{article.dateline}}
+				{{article.dateline}}{{dateline}}
 			</span>
 		</div>
 
