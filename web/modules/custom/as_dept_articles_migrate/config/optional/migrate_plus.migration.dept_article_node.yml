@@ -85,27 +85,20 @@ process:
   changed: changed
   path: path
   field_summary: summary
-  field_article_components_entity:
+  article_components_entity:
     plugin: migration_lookup
     migration: dept_article_body
     source: uuid
+  field_article_components_entity:
+    plugin: iterator
+    source: '@article_components_entity'
+    process:
+      target_id: '0'
+      target_revision_id: '1'
   field_dateline: field_dateline
   field_card_label: field_card_label
-  field_byline: field_byline
+  field_bylines: field_byline
   field_media_source: field_media_source
-  field_related_people:
-    -
-      plugin: skip_on_empty
-      method: process
-      source: field_related_people
-    -
-      plugin: explode
-      delimiter: '+'
-    -
-      plugin: entity_lookup
-      entity_type: node
-      bundle: person
-      value_key: title
   field_article_view_tags:
     -
       plugin: skip_on_empty

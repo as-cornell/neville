@@ -6,7 +6,8 @@ migration_dependencies: {}
 
 
 destination:
-  plugin: entity_reference_revisions:paragraph
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: formatted_text_block
 
 source:
   plugin: url
@@ -19,7 +20,7 @@ source:
     uuid:
       type: string
 
-  item_selector: nodes/
+  item_selector: nodes
 
   fields:
     -
@@ -29,22 +30,14 @@ source:
     -
       name: description
       label: 'Description'
-      selector: node/description
+      selector: /node/description
 
 process:
-  type:
-    plugin: default_value
-    default_value: formatted_text_block
   name:
     plugin: default_value
     default_value: 'Imported Article Body'
-  'field_formatted_text/value':
-    plugin: skip_on_empty
-    method: row
+  'field_formatted_text/value': description
   'field_formatted_text/format':
     plugin: default_value
     default_value: full_html
-  uid:
-    plugin: default_value
-    default_value: 1
 
