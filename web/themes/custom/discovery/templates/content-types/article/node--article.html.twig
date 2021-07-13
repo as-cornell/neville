@@ -26,7 +26,7 @@ LOCAL ARTICLE
 {# if article components then fetch local article fields #}
 {% if content.field_article_components %}
 LOCAL ARTICLE
-
+	{% set title = content.title %}
 	{# image #}
 	{% if content.field_image %}
 		{% set image %}
@@ -37,7 +37,7 @@ LOCAL ARTICLE
 	{# card label #}
 	{% if content.field_card_label %}
 	  {% set show_label = true %}
-	  {% set article_card_label = content.field_card_label %}
+	  {% set card_label = content.field_card_label %}
 	{% endif %}
 
 	{# dateline #}
@@ -49,25 +49,30 @@ LOCAL ARTICLE
 	{# bylines #}
 	{% if content.field_bylines %}
 	  {% set show_bylines = true %}
-	  {% set article_bylines = content.field_bylines %}
+	  {% set bylines = content.field_bylines %}
 	{% endif %}
 
 	{# media sources #}
 	{% if content.field_media_sources %}
 	  {% set show_media_sources = true %}
-	  {% set article_media_sources = content.field_media_sources %}
+	  {% set media_sources = content.field_media_sources %}
 	{% endif %}
 
 	{# Related people #}
 	{% if content.field_related_people %}
 		{% set show_related_people = true %}
-	  {% set related_people = field_related_people %}
+	  {% set related_people = content.field_related_people %}
 	{% endif %}
 
 	{# Related articles #}
 	{% if content.field_related_articles %}
 		{% set show_relatedArticleList = true %}
-	  {% set article_related_articles = field_related_articles %}
+	  {% set related_articles = content.field_related_articles %}
+	{% endif %}
+
+	{# article components #}
+	{% if content.field_article_components %}
+	  {% set article_components = content.field_article_components %}
 	{% endif %}
 
 {% endif %}
@@ -87,6 +92,12 @@ REMOTE ARTICLE
 {% if content.field_remote_uuid %}
 	{% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
 	{% set article = parse_article_json(remote_uuid) %}
+	{% if article.title %}
+		{% set title = article.title %}
+	{% endif %}
+	{% if article.article_components %}
+		{% set article_components = article.article_components %}
+	{% endif %}
 
 	{# {{vardumper(article)}} #}
 	{% if article.imagepath %}
@@ -99,6 +110,7 @@ REMOTE ARTICLE
 	{# card label #}
 	{% if article.card_label %}
 	  {% set show_label = true %}
+	  {% set card_label = article.card_label %}
 	{% endif %}
 
 	{# dateline #}
@@ -110,11 +122,13 @@ REMOTE ARTICLE
 	{# bylines #}
 	{% if article.bylines %}
 	  {% set show_bylines = true %}
+	  {% set bylines = article.bylines %}
 	{% endif %}
 
 	{# media sources #}
 	{% if article.media_sources %}
 	  {% set show_media_sources = true %}
+	  {% set media_sources = article.media_sources %}
 	{% endif %}
 
 	{# departments #}
@@ -164,7 +178,7 @@ REMOTE ARTICLE
 		<div class="article__title">
 			{% include "@content/atoms/_heading.twig" with {
 	      "heading_level" : 1,
-	      "heading" : article.title,
+	      "heading" : title,
 	      "heading_modifiers" : ["margin"],
 	      "heading_base_class" : "title"
 	    } %}
@@ -176,26 +190,26 @@ REMOTE ARTICLE
 					{% if show_bylines or show_media_sources %}
 						{% if show_bylines %}
 							By |
-							{{ article.bylines }}{{ article_bylines }}
+							{{bylines}}
 						{% endif %}
 
 						{% if show_byline and show_media_sources %}
 							,
 						{% endif %}
 						{% if show_media_sources %}
-							{{article.media_sources}}{{article_media_sources}}
+							{{media_sources}}
 						{% endif %}
 						<br/>
 					{% endif %}
 				</p>
 			{% endif %}
 			<span class="article__dateline">
-				{{article.dateline}}{{dateline}}
+				{{dateline}}
 			</span>
 		</div>
 
 	  <div class="article__content">
-	    {{article.article_components}}
+	    {{article_components}}
 	    <h2>
 	      More News from A&S
 	    </h2>
@@ -210,12 +224,6 @@ REMOTE ARTICLE
 			{{image}}
 		</div>
 		<aside role="complimentary">
-			{# {% if show_related_articles %}
-				<h3>
-					Related articles
-				</h3>
-				{{article.related_articles}}
-			{% endif %} #}
 
 			{% if show_relatedArticleList %}
 				<h3>
