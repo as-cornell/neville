@@ -1,0 +1,51 @@
+# Migration configuration for imported images.
+id: dept_article_image_media
+label: Import article image files into media entities with field values
+migration_group: dept_articles
+migration_dependencies:
+  required:
+    - dept_article_image
+  optional: {}
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  constants:
+    source_base_path: 'http://history.cornell.edu'
+
+  urls: https://history.cornell.edu/department-articles-export.json
+
+  ids:
+    uuid:
+      type: string
+
+  item_selector: nodes
+
+  fields:
+    -
+      name: uuid
+      label: 'uuid'
+      selector: /node/uuid
+    -
+      name: alt
+      label: 'alt tag'
+      selector: /node/field_image/alt
+
+
+destination:
+  plugin: entity:media
+
+process:
+  bundle:
+    plugin: default_value
+    default_value: image
+  name: alt
+  uid:
+    plugin: default_value
+    default_value: 1
+  'field_media_image/target_id':
+    plugin: migration_lookup
+    migration: dept_article_image
+    source: uuid
+  'field_media_image/alt': alt

@@ -33,9 +33,6 @@ source:
       selector: /node/description
 
 process:
-  name:
-    plugin: default_value
-    default_value: 'Imported Article Body'
   'field_formatted_text/value': description
   'field_formatted_text/format':
     plugin: default_value

@@ -1,0 +1,49 @@
+# Migration configuration for imported images.
+id: dept_article_image
+label: Import image files from D7 articles to D8
+migration_group: dept_articles
+migration_dependencies: {}
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  constants:
+    source_base_path: 'http://history.cornell.edu'
+
+  urls: https://history.cornell.edu/department-articles-export.json
+
+  ids:
+    uuid:
+      type: string
+
+  item_selector: nodes
+
+  fields:
+    -
+      name: uuid
+      label: 'uuid'
+      selector: /node/uuid
+    -
+      name: uri
+      label: 'Uri'
+      selector: /node/field_image_uri
+    -
+      name: url
+      label: 'Url'
+      selector: /node/field_image/src
+
+
+destination:
+  plugin: entity:file
+
+process:
+
+  uri:
+    plugin: download
+    source:
+      - url
+      - uri
+
+    guzzle_options:
+      base_uri: url

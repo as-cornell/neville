@@ -5,6 +5,7 @@ migration_group: dept_articles
 migration_dependencies:
   required:
     - dept_article_body
+    - dept_article_image_media
   optional: {}
 destination:
   plugin: entity:node
@@ -85,13 +86,14 @@ process:
   changed: changed
   path: path
   field_summary: summary
-  article_components_entity:
+  article_components:
     plugin: migration_lookup
     migration: dept_article_body
     source: uuid
-  field_article_components_entity:
-    plugin: iterator
-    source: '@article_components_entity'
+  field_article_components:
+    plugin: sub_process
+    source:
+      - '@article_components'
     process:
       target_id: '0'
       target_revision_id: '1'
@@ -99,16 +101,21 @@ process:
   field_card_label: field_card_label
   field_bylines: field_byline
   field_media_source: field_media_source
+  field_related_people:
+    plugin: entity_lookup
+    entity_type: node
+    bundle: person
   field_article_view_tags:
-    -
-      plugin: skip_on_empty
-      method: process
-      source: field_article_view_tags
-    -
-      plugin: explode
-      delimiter: '+'
-    -
-      plugin: entity_generate
+    plugin: entity_generate
+    source: field_article_view_tags
+    value_key: name
+    bundle: article_view_tags
+    entity_type: taxonomy_term
+    ignore_case: true
+  'field_image/target_id':
+    plugin: migration_lookup
+    migration: dept_article_image_media
+    source: uuid
   'field_domain_access/target_id':
     plugin: default_value
     default_value: 'history_as_cornell_edu'
