@@ -7,7 +7,7 @@
   });
   $('.toggle--course-detail').on({
     click: function () {
-      console.log('clickarusky');
+      // console.log('clickarusky');
       $(this).parent().next().toggleClass("shown");
     },
   });

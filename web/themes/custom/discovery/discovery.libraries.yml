@@ -33,3 +33,9 @@ courses:
   css:
     theme:
       css/plugins/datatables.css: {}
+
+figures:
+  js:
+    js_min/figures.js: {}
+  dependencies:
+    - core/jquery

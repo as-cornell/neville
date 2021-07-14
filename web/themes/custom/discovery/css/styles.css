@@ -182,6 +182,54 @@ body {
 
 /* -------------------------
 
+Title: _figure-images.scss
+Descr: sets basic image styles
+        sets all <figure> styles
+
+--------------------------- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; }
+
+figure {
+  margin: 0;
+  padding: 0;
+  border-radius: var(--border-radius); }
+  figure figcaption {
+    font-size: var(--base-18);
+    padding: 1em;
+    background: var(--as-gray-200); }
+  figure.active {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr auto auto; }
+    figure.active img {
+      z-index: 1;
+      grid-column: 1 / -1;
+      grid-row: 1 / 3; }
+    figure.active .caption {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      position: relative; }
+      figure.active .caption figcaption {
+        transition: all 250ms ease-in;
+        transform: translateY(-100%);
+        position: absolute; }
+      figure.active .caption.shown figcaption {
+        transform: translateY(0); }
+    figure.active button {
+      width: 4em;
+      cursor: pointer;
+      background: none;
+      z-index: 1;
+      grid-column: 2;
+      grid-row: 2; }
+    figure.active svg {
+      fill: var(--as-white); }
+
+/* -------------------------
+
 Title: headings.
 Descr: 
     Sets basic styles for h1-h4
@@ -224,16 +272,6 @@ h4 {
 
 .sidebar h2 {
   font-size: calc(1.5 * var(--base-font-size)); }
-
-/* -------------------------
-
-Title: _images.scss
-Descr: sets basic image styles
-
---------------------------- */
-img {
-  max-width: 100%;
-  height: auto; }
 
 /* -------------------------
 
@@ -1516,6 +1554,114 @@ Descr:
     font-size: var(--base-18);
     font-family: var(--font-serif);
     font-weight: var(--semi); }
+
+.article {
+  grid-template-rows: auto auto;
+  grid-template-areas: "title title title thumbnail" "social social social social" "content content content content" "aside aside aside aside"; }
+  @media only screen and (min-width: 782px) {
+    .article {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-areas: "title title title title title title title title thumbnail thumbnail thumbnail thumbnail " "social social social social social social social social social social social social" "content content content content content content content content aside aside aside aside"; } }
+  @media only screen and (min-width: 1432px) {
+    .article {
+      grid-template-columns: repeat(24, 1fr);
+      grid-template-areas: ". title title title title title title title title title title title title title title . thumbnail thumbnail thumbnail thumbnail thumbnail thumbnail thumbnail ." "social content content content content content content content content content content content content content content . aside aside aside aside aside aside aside ."; } }
+  .article__title {
+    grid-area: title;
+    -ms-flex-item-align: center;
+        align-self: center;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr; }
+    .article__title h1 {
+      font-family: var(--font-serif);
+      font-weight: var(--heavy);
+      margin-bottom: 1rem;
+      margin-top: 0.5rem; }
+    .article__title .title {
+      grid-column: 1 / -1;
+      grid-row: 2; }
+    .article__title .article__label {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      margin-top: 0;
+      font-weight: var(--semi); }
+    .article__title .article__byline {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      font-size: var(--base-18);
+      font-weight: var(--semi);
+      margin: 0.5em 0; }
+    .article__title .article__dateline {
+      grid-column: 1 / -1;
+      grid-row: 4;
+      font-size: var(--base-16);
+      font-weight: var(--semi);
+      margin-top: 0.5em; }
+  .article__social {
+    grid-area: social;
+    display: -ms-flexbox;
+    display: flex; }
+    .article__social a {
+      margin-right: 0.5rem; }
+    @media only screen and (min-width: 1224px) {
+      .article__social {
+        -ms-flex-direction: column;
+            flex-direction: column; }
+        .article__social a {
+          margin-right: 0;
+          margin-bottom: 0.5rem; } }
+  .article__content {
+    grid-area: content; }
+  .article__thumbnail {
+    grid-area: thumbnail; }
+  .article aside {
+    grid-area: aside;
+    font-size: var(--base-20); }
+    .article aside h3 {
+      font-size: var(--base-20);
+      margin-bottom: 1em;
+      font-weight: var(--semi); }
+    .article aside ul {
+      margin-top: 0.5em; }
+  .article--pano {
+    grid-template-rows: auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "pano pano pano pano" "title title title title " "social social social social " "content content content content" "thumbnail thumbnail thumbnail thumbnail" "aside aside aside aside"; }
+    @media only screen and (min-width: 782px) {
+      .article--pano {
+        grid-template-rows: auto auto auto 1fr;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-areas: "pano pano pano pano pano pano pano pano pano pano pano pano" "title title title title title title title title title title title title" "social content content content content content content content content thumbnail thumbnail thumbnail" "social content content content content content content content content aside aside aside"; } }
+    @media only screen and (min-width: 1224px) {
+      .article--pano {
+        grid-template-columns: repeat(24, 1fr);
+        grid-template-areas: ". . . pano pano pano pano pano pano pano pano pano pano pano pano pano pano pano pano pano pano . . ." ". . . . title title title title title title title title title title title title title title title title . . . ." "social social content content content content content content content content content content content content content content content content thumbnail thumbnail thumbnail thumbnail thumbnail thumbnail" "social social content content content content content content content content content content content content content content content content aside aside aside aside aside aside"; } }
+    .article--pano .article__title {
+      text-align: center;
+      margin-top: 1em; }
+      .article--pano .article__title .title {
+        margin: 1em 0; }
+      .article--pano .article__title .article__label {
+        grid-column: 1;
+        grid-row: 1;
+        margin-top: 0; }
+      .article--pano .article__title .article__byline {
+        margin: 0 auto; }
+      .article--pano .article__title .article__dateline {
+        grid-column: 2;
+        grid-row: 1;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: center;
+            justify-content: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  .article__pano {
+    grid-area: pano;
+    justify-self: center; }
+    .article__pano figure {
+      background: none; }
 
 /* -------------------------
 
