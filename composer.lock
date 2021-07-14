@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "98e0926a3fdb1b515f68db0d99eae0dd",
+    "content-hash": "bb03474b3cfc83107a84abfe96a9ac88",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2728,6 +2728,98 @@
             "homepage": "https://www.drupal.org/project/domain",
             "support": {
                 "source": "https://git.drupalcode.org/project/domain"
+            }
+        },
+        {
+            "name": "drupal/domain_access",
+            "version": "1.0.0-beta6",
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "drupal/domain": "*"
+            },
+            "type": "metapackage",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-beta6",
+                    "datestamp": "1624563597",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "agentrickard",
+                    "homepage": "https://www.drupal.org/user/20975"
+                },
+                {
+                    "name": "nonsie",
+                    "homepage": "https://www.drupal.org/user/29899"
+                }
+            ],
+            "description": "Domain-based access control for content.",
+            "homepage": "https://www.drupal.org/project/domain",
+            "support": {
+                "source": "https://git.drupalcode.org/project/domain"
+            }
+        },
+        {
+            "name": "drupal/domain_entity",
+            "version": "1.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/domain_entity.git",
+                "reference": "8.x-1.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/domain_entity-8.x-1.0-beta1.zip",
+                "reference": "8.x-1.0-beta1",
+                "shasum": "40f0eaa548cbc79f7cdcb83f4b98474976cfbf9c"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "drupal/domain": "*",
+                "drupal/domain_access": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-beta1",
+                    "datestamp": "1593250131",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "andypost",
+                    "homepage": "https://www.drupal.org/user/118908"
+                },
+                {
+                    "name": "delta",
+                    "homepage": "https://www.drupal.org/user/1270276"
+                },
+                {
+                    "name": "rcodina",
+                    "homepage": "https://www.drupal.org/user/2635031"
+                }
+            ],
+            "description": "Defines Domain access for entities",
+            "homepage": "https://www.drupal.org/project/domain_entity",
+            "support": {
+                "source": "https://git.drupalcode.org/project/domain_entity"
             }
         },
         {
@@ -11694,6 +11786,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/domain": 10,
+        "drupal/domain_entity": 10,
         "drupal/entity_usage": 10,
         "drupal/media_entity_browser": 15
     },
