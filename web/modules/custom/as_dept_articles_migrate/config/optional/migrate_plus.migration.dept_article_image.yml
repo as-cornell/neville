@@ -8,8 +8,6 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: json
-  constants:
-    source_base_path: 'http://history.cornell.edu'
 
   urls: https://history.cornell.edu/department-articles-export.json
 

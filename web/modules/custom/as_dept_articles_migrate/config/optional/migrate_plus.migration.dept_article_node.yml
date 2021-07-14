@@ -2,11 +2,8 @@
 id: dept_article_node
 label: Migrate department articles from Drupal 7 to Drupal 8
 migration_group: dept_articles
-migration_dependencies:
-  required:
-    - dept_article_body
-    - dept_article_image_media
-  optional: {}
+migration_dependencies: {}
+
 destination:
   plugin: entity:node
 
@@ -103,6 +100,7 @@ process:
   field_media_source: field_media_source
   field_related_people:
     plugin: entity_lookup
+    source: field_related_people
     entity_type: node
     bundle: person
   field_article_view_tags:

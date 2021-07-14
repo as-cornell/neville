@@ -2,10 +2,7 @@
 id: dept_article_image_media
 label: Import article image files into media entities with field values
 migration_group: dept_articles
-migration_dependencies:
-  required:
-    - dept_article_image
-  optional: {}
+migration_dependencies: {}
 
 source:
   plugin: url
