@@ -72,7 +72,7 @@ class InlineMediaMigrate extends ProcessPluginBase {
                   $html = str_replace($img_tag, '<drupal-entity
                     data-align="left"
                     data-embed-button="media_entity_embed"
-                    data-entity-embed-display="view_mode:media.6_4"
+                    data-entity-embed-display="view_mode:media.portrait"
                     data-entity-type="media"
                     data-entity-uuid="' . $uuid . '"></drupal-entity>', $html);
                 }
