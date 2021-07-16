@@ -46,3 +46,6 @@ process:
     migration: dept_article_image
     source: uuid
   'field_media_image/alt': alt
+  'domain_access/target_id':
+    plugin: default_value
+    default_value: 'history_as_cornell_edu'
