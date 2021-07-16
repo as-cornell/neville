@@ -86,14 +86,14 @@ MARGINS
   --base-font-size: 24px;
   --base-16: 0.666rem;
   --base-18: 0.75rem;
-  --base-20: 0.8333rem;
-  --base-24: 1rem;
-  --base-28: 1.2rem;
-  --base-36: 1.5rem;
-  --base-48: 2rem;
-  --base-56: 2rem;
-  --base-64: 2rem;
-  --base-84: 2rem;
+  --base-20: 0.75rem;
+  --base-24: 0.75rem;
+  --base-28: 1rem;
+  --base-36: 1rem;
+  --base-48: 1.2rem;
+  --base-56: 1.2rem;
+  --base-64: 1.5rem;
+  --base-84: 1.5rem;
   --light: 200;
   --regular: 400;
   --semi: 600;
@@ -108,6 +108,17 @@ MARGINS
   */
   --line-height: 1.5;
   --line-width: 60ch; }
+  @media only screen and (min-width: 480px) {
+    :root {
+      --base-18: 0.75rem;
+      --base-20: 0.8333rem;
+      --base-24: 1rem;
+      --base-28: 1.2rem;
+      --base-36: 1.5rem;
+      --base-48: 2rem;
+      --base-56: 2rem;
+      --base-64: 2rem;
+      --base-84: 2rem; } }
   @media only screen and (min-width: 782px) {
     :root {
       --base-48: 2rem;
@@ -165,7 +176,8 @@ Descr: sets HTML and Body styles
 --------------------------- */
 html {
   font-size: var(--base-font-size);
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+  scroll-padding: 3rem; }
 
 body {
   font-family: var(--font-sans);
@@ -213,6 +225,7 @@ figure {
       grid-row: 3;
       position: relative; }
       figure.active .caption figcaption {
+        width: calc(100% - 2em);
         transition: all 250ms ease-in;
         transform: translateY(-100%);
         position: absolute; }
@@ -442,7 +455,7 @@ Descr: any hiding or showin
   position: absolute;
   z-index: -1; }
 
-.sr-only, table caption, .landingPage .group__title--sr-only {
+.sr-only, table caption, .article--card-small figcaption, .landingPage .group__title--sr-only {
   display: block;
   height: 1px;
   width: 1px;
@@ -1554,25 +1567,25 @@ Descr:
     font-size: var(--base-18);
     font-family: var(--font-serif);
     font-weight: var(--semi); }
+  .article--card-small .toggle--figcaption {
+    display: none; }
 
 .article {
   grid-template-rows: auto auto;
-  grid-template-areas: "title title title thumbnail" "social social social social" "content content content content" "aside aside aside aside"; }
+  grid-template-areas: "title" "social" "content" "thumbnail" "aside" "otherNews"; }
   @media only screen and (min-width: 782px) {
     .article {
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-areas: "title title title title title title title title thumbnail thumbnail thumbnail thumbnail " "social social social social social social social social social social social social" "content content content content content content content content aside aside aside aside"; } }
-  @media only screen and (min-width: 1432px) {
+      grid-template-columns: auto;
+      grid-template-areas: "title title thumbnail " "social social social" "content content content" "aside aside aside" "otherNews otherNews otherNews"; } }
+  @media only screen and (min-width: 1224px) {
     .article {
-      grid-template-columns: repeat(24, 1fr);
-      grid-template-areas: ". title title title title title title title title title title title title title title . thumbnail thumbnail thumbnail thumbnail thumbnail thumbnail thumbnail ." "social content content content content content content content content content content content content content content . aside aside aside aside aside aside aside ."; } }
+      grid-template-areas: " title title title title thumbnail thumbnail" " content content content content aside aside" " otherNews otherNews otherNews otherNews aside aside"; } }
   .article__title {
     grid-area: title;
     -ms-flex-item-align: center;
         align-self: center;
     display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 1fr 1fr; }
+    grid-template-rows: auto; }
     .article__title h1 {
       font-family: var(--font-serif);
       font-weight: var(--heavy);
@@ -1612,14 +1625,19 @@ Descr:
           margin-right: 0;
           margin-bottom: 0.5rem; } }
   .article__content {
-    grid-area: content; }
+    grid-area: content;
+    margin-top: 1rem; }
   .article__thumbnail {
     grid-area: thumbnail; }
+  .article__otherNews {
+    grid-area: otherNews;
+    margin-top: 2rem; }
   .article aside {
     grid-area: aside;
-    font-size: var(--base-20); }
+    font-size: var(--base-20);
+    margin-top: 2rem; }
     .article aside h3 {
-      font-size: var(--base-20);
+      font-size: var(--base-28);
       margin-bottom: 1em;
       font-weight: var(--semi); }
     .article aside ul {
@@ -1883,7 +1901,7 @@ Descr: Sets all specific styles for an person card
       margin-left: 0;
       margin-top: 0; }
 
-.card--small {
+.person--card-small {
   border: none;
   margin-bottom: 2rem;
   display: -ms-flexbox;
@@ -1894,34 +1912,33 @@ Descr: Sets all specific styles for an person card
       align-items: flex-start;
   background: none;
   box-shadow: none; }
-  .card--small :before {
+  .person--card-small :before {
     display: none; }
-  .card--small .card--person__name-title {
-    margin: 0;
-    -ms-flex: 1 0 60%;
-        flex: 1 0 60%; }
-  .card--small .card--person__name,
-  .card--small .card--person__title {
-    padding-top: 0;
-    margin-top: 0; }
-  .card--small .card--person__name {
-    font-weight: var(--semi);
-    font-size: var(--base-20); }
-  .card--small .card--person__title {
-    font-size: var(--base-20);
-    font-weight: var(--regular); }
-  .card--small figure {
+  .person--card-small figure,
+  .person--card-small img {
     -ms-flex: 0 0 30%;
         flex: 0 0 30%;
-    margin-right: 1rem; }
-  .card--small img {
     border-radius: var(--border-radius); }
-  .card--small .card__copy {
-    -ms-flex: 0 0 60%;
-        flex: 0 0 60%;
-    padding: 0;
-    font-size: var(--base-18); }
-  .card--small .card--person__contacts {
+  .person--card-small .person__copy {
+    -ms-flex: 1 0 60%;
+        flex: 1 0 60%;
+    padding: 0; }
+  .person--card-small .person__name {
+    margin: 0;
+    font-size: var(--base-20);
+    line-height: 1.2;
+    font-weight: var(--regular); }
+  .person--card-small .person__name,
+  .person--card-small .person__title {
+    padding-top: 0;
+    margin-top: 0; }
+  .person--card-small .person__name {
+    font-weight: var(--semi);
+    font-size: var(--base-20); }
+  .person--card-small .person__title {
+    font-size: var(--base-20);
+    font-weight: var(--regular); }
+  .person--card-small .person__contacts {
     display: none; }
 
 /* -------------------------
@@ -2073,13 +2090,13 @@ Descr: Sets grid default ( full width ) and stacked (in columns) event lists
     display: grid;
     grid-template-rows: 1fr 1fr;
     position: relative;
-    width: 69px; }
+    width: 56px; }
     .event__date:after {
       position: absolute;
       content: "";
-      left: 10%;
-      top: 40%;
-      width: 3rem;
+      left: 0%;
+      top: 50%;
+      width: 100%;
       height: 2px;
       background: var(--as-gray-300);
       transform: rotate(-30deg); }
@@ -2100,22 +2117,23 @@ Title: _formatted-text block
 Descr: sets up all uniquie styles for formatted text block
 
 --------------------------- */
-.paragraph--type--formatted-text-block {
-  margin-top: 1em; }
-
 /* -------------------------
 
 Title: _page-section
 Descr: sets up all uniquie styles for page-sections and page section labels
 
 --------------------------- */
+* + .pageSection {
+  margin-top: 2rem; }
+
 .pageSection:first-of-type h2,
 .pageSection:first-of-type .section-label {
   margin-top: 0; }
 
-.section-label {
-  margin-top: 1em;
-  font-size: 2rem; }
+.pageSection__heading {
+  font-family: var(--font-serif);
+  font-size: var(--base-56);
+  font-weight: var(--semi); }
 
 /* -------------------------
 

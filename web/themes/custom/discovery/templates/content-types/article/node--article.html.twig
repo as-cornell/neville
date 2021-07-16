@@ -215,16 +215,19 @@ REMOTE ARTICLE
 
 	  <div class="article__content">
 	    {{article_components}}
-	    <h2>
-	      More News from A&S
-	    </h2>
-	    <div class="smallCards pcWrapper pcWrapper--relatedArticles">
-	      {{ drupal_view('news', 'block_2') }}
-	      <a href="/news" class="btn btn--blue">
-	        View all news
-	      </a>
-	    </div>
+	    
 	  </div>
+    <div class="article__otherNews">
+      <h2>
+        More News from A&S
+      </h2>
+      <div class="smallCards pcWrapper pcWrapper--relatedArticles">
+        {{ drupal_view('news', 'block_2') }}
+        <a href="/news" class="btn btn--blue">
+          View all news
+        </a>
+      </div>
+    </div>
 		<div class="article__thumbnail">
 			{{image}}
 		</div>
@@ -234,7 +237,7 @@ REMOTE ARTICLE
 				<h3>
 					Related articles
 				</h3>
-				{{article.related_articles}}
+				{{content.field_related_articles}}
 			{% endif %}
 
 	    {# {% if show_departments_programs %}
@@ -244,11 +247,11 @@ REMOTE ARTICLE
 				{{article.departments}}
 			{% endif %} #}
 
-	    {# {% if show_related_people %}
+	    {% if show_related_people %}
 				<h3>
 					Related people
 				</h3>
 				{{related_people}}
-			{% endif %} #}
+			{% endif %}
 	</aside>
 </main>

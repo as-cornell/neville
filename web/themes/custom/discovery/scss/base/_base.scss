@@ -8,6 +8,7 @@ Descr: sets HTML and Body styles
 html {
   font-size: var(--base-font-size);
   scroll-behavior: smooth;
+  scroll-padding: 3rem;
 }
 
 body {

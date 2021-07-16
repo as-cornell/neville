@@ -5,14 +5,25 @@ Descr: sets up all uniquie styles for page-sections and page section labels
 
 --------------------------- */
 
-.pageSection:first-of-type {
-  h2,
-  .section-label {
-    margin-top: 0;
+* + .pageSection {
+  margin-top: 2rem;
+}
+
+.pageSection {
+  &:first-of-type {
+    h2,
+    .section-label {
+      margin-top: 0;
+    }
+  }
+  &__heading {
+    font-family: var(--font-serif);
+    font-size: var(--base-56);
+    font-weight: var(--semi);
   }
 }
 
-.section-label {
-  margin-top: 1em;
-  font-size: 2rem;
-}
+// .section-label {
+//   margin-top: 1em;
+//   font-size: 2rem;
+// }

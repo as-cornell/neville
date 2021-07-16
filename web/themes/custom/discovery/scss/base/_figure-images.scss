@@ -36,6 +36,7 @@ figure {
       grid-row: 3;
       position: relative;
       figcaption {
+        width: calc(100% - 2em);
         transition: all 250ms ease-in;
         transform: translateY(-100%);
         position: absolute;

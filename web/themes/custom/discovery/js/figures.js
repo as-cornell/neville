@@ -1,7 +1,7 @@
 
 (function ($) {
   console.log('it figures');
-  $("figure").addClass("active").append("<button class='toggle--figcaption'><svg class='icon' viewbox='0 0 52 32'><use xlink:href='#burger'></use></svg></button>");
+  $(".figure--hasCaption").addClass("active").append("<button class='toggle--figcaption'><svg class='icon' viewbox='0 0 52 32'><use xlink:href='#burger'></use></svg></button>");
 
   $(".toggle--figcaption").on({
     click: function () {

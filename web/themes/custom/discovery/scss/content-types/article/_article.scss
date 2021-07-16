@@ -1,23 +1,29 @@
 .article {
   // grid-template-columns: repeat(12,calc(8.333% - 2rem));
   grid-template-rows: auto auto;
+  // grid-template-columns: 2fr 1fr;
   grid-template-areas:
-    "title title title thumbnail"
-    "social social social social"
-    "content content content content"
-    "aside aside aside aside";
+    "title"
+    "social"
+    "content"
+    "thumbnail"
+    "aside"
+    "otherNews";
   @include mq(medium) {
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: auto;
     grid-template-areas:
-      "title title title title title title title title thumbnail thumbnail thumbnail thumbnail "
-      "social social social social social social social social social social social social"
-      "content content content content content content content content aside aside aside aside";
+      "title title thumbnail "
+      "social social social"
+      "content content content"
+      "aside aside aside"
+      "otherNews otherNews otherNews";
   }
-  @include mq(xl) {
-    grid-template-columns: repeat(24, 1fr);
+  @include mq(large) {
+    // grid-template-columns: repeat(24, 1fr);
     grid-template-areas:
-      ". title title title title title title title title title title title title title title . thumbnail thumbnail thumbnail thumbnail thumbnail thumbnail thumbnail ."
-      "social content content content content content content content content content content content content content content . aside aside aside aside aside aside aside .";
+      " title title title title thumbnail thumbnail"
+      " content content content content aside aside"
+      " otherNews otherNews otherNews otherNews aside aside";
   }
   &__title {
     grid-area: title;
@@ -25,7 +31,7 @@
     // margin-bottom: 2rem;
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: 1fr 1fr;
+    // grid-template-columns: 1fr 1fr;
     h1 {
       font-family: var(--font-serif);
       font-weight: var(--heavy);
@@ -77,15 +83,21 @@
   }
   &__content {
     grid-area: content;
+    margin-top: 1rem;
   }
   &__thumbnail {
     grid-area: thumbnail;
   }
+  &__otherNews {
+    grid-area: otherNews;
+    margin-top: 2rem;
+  }
   aside {
     grid-area: aside;
     font-size: var(--base-20);
+    margin-top: 2rem;
     h3 {
-      font-size: var(--base-20);
+      font-size: var(--base-28);
       margin-bottom: 1em;
       font-weight: var(--semi);
     }

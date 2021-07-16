@@ -13,23 +13,34 @@ Descr: defines "article" and outputs fields for article article
 {% set article_modifiers =  ["card-small"]%}
 {% set article_classes = ['article', 'card'] %}
 
-{% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
+{# {% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
 {% set article = parse_article_json(remote_uuid) %}
 
-{# {{vardumper(article)}} #}
+{{vardumper()}}
 {% if article.imagepath %}
 	{% set image %}
   <figure>
 		<img src="{{article.imagepath}}" alt="{{article.alt}}">
   </figure>
 	{% endset %}
-{% endif %}
+{% endif %} #}
 
 
 {# article label #}
-{% if article.card_label %}
+{# {% if article.card_label %}
   {% set show_article_label = true %}
+{% endif %} #}
+
+{% if content.field_article_components %}
+{% set card_label = content.field_card_label %}
+{% set title = label %}
+{% set image = content.field_image %}
 {% endif %}
+
+
+
+
+
 {{title_suffix}}
 <div {{ bem(article_base_class, (article_modifiers), article_blockname, article_classes) }} {% if nodeId %} aria-labelledby="item--{{nodeId}}" {% endif %}> 
 
@@ -38,15 +49,15 @@ Descr: defines "article" and outputs fields for article article
 
 	<div {{ bem(article_copy_base_class|default('article__copy'), (article_copy_modifiers), article_copy_blockname) }}>
 
-		 {% if show_article_label %}
+		 {# {% if show_article_label %} #}
 			<span class="article__label">
-				{{ article.card_label }}
+				{{ card_label }}
 			</span>
       
-		{% endif %}
+		{# {% endif %} #}
 			{% include "@content/atoms/_heading.twig" with {
         "heading_level": 2,
-        "heading": article.title,
+        "heading": title,
         "heading_url": url,
         "heading_blockname": article_title_blockname|default(article_base_class),
         "heading_modifiers": article_title_modifiers,
