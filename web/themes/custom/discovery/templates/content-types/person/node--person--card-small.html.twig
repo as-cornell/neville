@@ -10,7 +10,7 @@ Descr: defines "person" and outputs fields for person card
 #}
 {# set wrapper bem calsses #}
 {% set person_base_class = 'person' %}
-{% set person_modifiers =  ["card--small"]%}
+{% set person_modifiers =  ["card-small"]%}
 {% set person_classes = ['person', 'card'] %}
 
 
@@ -71,17 +71,18 @@ Descr: defines "person" and outputs fields for person card
     image: image
 } %}{% endembed %} #}
 
-
+{{title_suffix}}
 <div {{ bem(person_base_class, (person_modifiers), person_blockname, person_classes) }} {% if person_nodeId %} aria-labelledby="item--{{person_nodeId}}" {% endif %}>
-	{{title_suffix}}
-	<figure class='person__image'>
-		{{image}}
-	</figure>
-	<div class="person__name-title">
+	<figure>
+  {{image}}
+  </figure>
+	
+	
+  
+  <div {{ bem(person_copy_base_class|default('person__copy'), (person_copy_modifiers), person_copy_blockname) }}>
 		{% include "@content/atoms/_heading.twig" with {
       "heading_level": 2,
-"heading": person.title,
-
+      "heading": person.title,
       "heading_url": card_title_link|default(card_link_url),
       "heading_blockname": card_title_blockname|default(card_base_class),
       "heading_modifiers": card_title_modifiers,
@@ -91,31 +92,17 @@ Descr: defines "person" and outputs fields for person card
       "heading_class" : ['person__name'],
       "isAriaLabel" : node.id
     } %}
-		{% if show_jobtitle %}
-			<p class="person__title">
-				{{ person.jobtitle }}
-			</p>
-		{% endif %}
-	</div>
-	{% if show_responsibilities %}
-		<div class="person__responsibilities">
-{{person.responsibilities|raw}}
-
-		</div>
-	{% endif %}
-
-	{% if personType != "Faculty" %}
-		<div class="person__contacts">
-{{person.contact}}
-
-		</div>
-	{% endif %}
+  {% if show_jobtitle %}
+    <span class="person__title">
+      {{ person.jobtitle }}
+    </span>
+  {% endif %}
 
 	{% if show_departments %}
 		<div class="person__departments">
-{{person.departments}}
-
+      {{person.departments}}
 		</div>
 	{% endif %}
+  </div>
 </div>
 

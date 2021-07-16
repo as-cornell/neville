@@ -108,4 +108,10 @@ Descr:
     font-family: var(--font-serif);
     font-weight: var(--semi);
   }
+  figcaption {
+    @extend .sr-only;
+  }
+  .toggle--figcaption {
+    display: none;
+  }
 }

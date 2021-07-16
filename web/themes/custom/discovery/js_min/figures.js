@@ -1,0 +1,1 @@
+!function(o){console.log("it figures"),o(".figure--hasCaption").addClass("active").append("<button class='toggle--figcaption'><svg class='icon' viewbox='0 0 52 32'><use xlink:href='#burger'></use></svg></button>"),o(".toggle--figcaption").on({click:function(){var s=o(this);o(s).prev().toggleClass("shown"),o(s).parent().toggleClass("showCaption")}})}(jQuery);

@@ -1,0 +1,62 @@
+/* -------------------------
+
+Title: _figure-images.scss
+Descr: sets basic image styles
+        sets all <figure> styles
+
+--------------------------- */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+figure {
+  margin: 0;
+  padding: 0;
+  border-radius: var(--border-radius);
+
+  figcaption {
+    font-size: var(--base-18);
+    padding: 1em;
+    background: var(--as-gray-200);
+  }
+  &.active {
+    // messin
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr auto auto;
+    img {
+      z-index: 1;
+      grid-column: 1 / -1;
+      grid-row: 1 / 3;
+    }
+    .caption {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      position: relative;
+      figcaption {
+        width: calc(100% - 2em);
+        transition: all 250ms ease-in;
+        transform: translateY(-100%);
+        position: absolute;
+      }
+      &.shown {
+        figcaption {
+          transform: translateY(0);
+        }
+      }
+    }
+    button {
+      width: 4em;
+      cursor: pointer;
+      background: none;
+      z-index: 1;
+      grid-column: 2;
+      grid-row: 2;
+    }
+    svg {
+      fill: var(--as-white);
+    }
+  }
+}

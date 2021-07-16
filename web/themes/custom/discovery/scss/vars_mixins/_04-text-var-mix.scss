@@ -4,8 +4,22 @@
 
 // maps
 $type-scale: (
-  small: (
+  xsmall: (
     16: 0.666rem,
+    // 16px at full
+    18: 0.75rem,
+    20: 0.75rem,
+    24: 0.75rem,
+    // 24px
+    28: 1rem,
+    36: 1rem,
+    48: 1.2rem,
+    56: 1.2rem,
+    64: 1.5rem,
+    84: 1.5rem,
+  ),
+  small: (
+    // 16: 0.666rem,
     // 16px at full
     18: 0.75rem,
     20: 0.8333rem,
@@ -43,9 +57,15 @@ $font-weights: (
   */
   --base-font-size: 24px;
   @each $screen-size, $font-size in $type-scale {
-    @if $screen-size == small {
+    @if $screen-size == xsmall {
       @each $size, $value in $font-size {
         --base-#{$size}: #{$value};
+      }
+    } @else if $screen-size == small {
+      @include mq(small) {
+        @each $size, $value in $font-size {
+          --base-#{$size}: #{$value};
+        }
       }
     } @else if $screen-size == medium {
       @include mq(medium) {

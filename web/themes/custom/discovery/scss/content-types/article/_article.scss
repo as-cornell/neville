@@ -1,0 +1,172 @@
+.article {
+  // grid-template-columns: repeat(12,calc(8.333% - 2rem));
+  grid-template-rows: auto auto;
+  // grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "title"
+    "social"
+    "content"
+    "thumbnail"
+    "aside"
+    "otherNews";
+  @include mq(medium) {
+    grid-template-columns: auto;
+    grid-template-areas:
+      "title title thumbnail "
+      "social social social"
+      "content content content"
+      "aside aside aside"
+      "otherNews otherNews otherNews";
+  }
+  @include mq(large) {
+    // grid-template-columns: repeat(24, 1fr);
+    grid-template-areas:
+      " title title title title thumbnail thumbnail"
+      " content content content content aside aside"
+      " otherNews otherNews otherNews otherNews aside aside";
+  }
+  &__title {
+    grid-area: title;
+    align-self: center;
+    // margin-bottom: 2rem;
+    display: grid;
+    grid-template-rows: auto;
+    // grid-template-columns: 1fr 1fr;
+    h1 {
+      font-family: var(--font-serif);
+      font-weight: var(--heavy);
+      // @extend .blue-radial;
+      margin-bottom: 1rem;
+      margin-top: 0.5rem;
+    }
+    .title {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+    .article__label {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      margin-top: 0;
+      font-weight: var(--semi);
+      // @extend .eyebrow;
+    }
+    .article__byline {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      font-size: var(--base-18);
+      font-weight: var(--semi);
+      margin: 0.5em 0;
+    }
+    .article__dateline {
+      grid-column: 1 / -1;
+      grid-row: 4;
+      font-size: var(--base-16);
+      font-weight: var(--semi);
+      margin-top: 0.5em;
+    }
+  }
+  &__social {
+    grid-area: social;
+
+    display: flex;
+    a {
+      margin-right: 0.5rem;
+    }
+    @include mq(large) {
+      // margin-top: 2rem;
+      flex-direction: column;
+      a {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+  &__content {
+    grid-area: content;
+    margin-top: 1rem;
+  }
+  &__thumbnail {
+    grid-area: thumbnail;
+  }
+  &__otherNews {
+    grid-area: otherNews;
+    margin-top: 2rem;
+  }
+  aside {
+    grid-area: aside;
+    font-size: var(--base-20);
+    margin-top: 2rem;
+    h3 {
+      font-size: var(--base-28);
+      margin-bottom: 1em;
+      font-weight: var(--semi);
+    }
+    // set margins for all related lists
+    ul {
+      margin-top: 0.5em;
+    }
+  }
+  &--pano {
+    grid-template-rows: auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "pano pano pano pano"
+      "title title title title "
+      "social social social social "
+      "content content content content"
+      "thumbnail thumbnail thumbnail thumbnail"
+      "aside aside aside aside";
+    @include mq(medium) {
+      grid-template-rows: auto auto auto 1fr;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-areas:
+        "pano pano pano pano pano pano pano pano pano pano pano pano"
+        "title title title title title title title title title title title title"
+        "social content content content content content content content content thumbnail thumbnail thumbnail"
+        "social content content content content content content content content aside aside aside";
+    }
+
+    @include mq(large) {
+      grid-template-columns: repeat(24, 1fr);
+      grid-template-areas:
+        ". . . pano pano pano pano pano pano pano pano pano pano pano pano pano pano pano pano pano pano . . ."
+        ". . . . title title title title title title title title title title title title title title title title . . . ."
+        "social social content content content content content content content content content content content content content content content content thumbnail thumbnail thumbnail thumbnail thumbnail thumbnail"
+        "social social content content content content content content content content content content content content content content content content aside aside aside aside aside aside";
+    }
+    .article__title {
+      text-align: center;
+
+      margin-top: 1em;
+      .title {
+        margin: 1em 0;
+      }
+      .article__label {
+        grid-column: 1;
+        grid-row: 1;
+        margin-top: 0;
+      }
+      .article__byline {
+        margin: 0 auto;
+      }
+      .article__dateline {
+        grid-column: 2;
+        grid-row: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  &__pano {
+    grid-area: pano;
+    justify-self: center;
+    figure {
+      background: none;
+      img {
+        // @extend .pano-mask-1;
+      }
+    }
+  }
+}
+//

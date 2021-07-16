@@ -48,7 +48,7 @@ Descr: Sets all specific styles for an person card
     }
   }
 }
-.card--small {
+.person--card-small {
   border: none;
   margin-bottom: 2rem;
   display: flex;
@@ -60,37 +60,38 @@ Descr: Sets all specific styles for an person card
   :before {
     display: none;
   }
-  .card--person__name-title {
-    margin: 0;
-    flex: 1 0 60%;
+  figure,
+  img {
+    flex: 0 0 30%;
+    // margin-right: 1rem;
+    border-radius: var(--border-radius);
+    // @include boxShadow();
   }
-  .card--person__name,
-  .card--person__title {
+  .person__copy {
+    flex: 1 0 60%;
+    padding: 0;
+  }
+  .person__name {
+    margin: 0;
+    font-size: var(--base-20);
+    line-height: 1.2;
+    font-weight: var(--regular);
+  }
+  .person__name,
+  .person__title {
     padding-top: 0;
     margin-top: 0;
   }
-  .card--person__name {
+  .person__name {
     font-weight: var(--semi);
     font-size: var(--base-20);
   }
-  .card--person__title {
+  .person__title {
     font-size: var(--base-20);
     font-weight: var(--regular);
   }
-  figure {
-    flex: 0 0 30%;
-    margin-right: 1rem;
-    // @include boxShadow();
-  }
-  img {
-    border-radius: var(--border-radius);
-  }
-  .card__copy {
-    flex: 0 0 60%;
-    padding: 0;
-    font-size: var(--base-18);
-  }
-  .card--person__contacts {
+
+  .person__contacts {
     display: none;
   }
 }
