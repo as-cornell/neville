@@ -1,6 +1,9 @@
 <header class="header" id="top">
 	<div id="skip">
-		<a href="#as-main-nav">
+		<a href="#main-menu">
+			Jump to main navigation
+		</a>
+		<a href="#section-menu">
 			Jump to main navigation
 		</a>
 		<a href="#mainContent">
@@ -12,8 +15,8 @@
 		Cornell University
 	</a>
 	{#<a class="department-logo" href="/" title="Test Department">
-								Department
-							</a> #}
+										Department
+									</a> #}
 	{# ADDED SITE BRANDING BLOCK FOR DIFFERENT DEPARTMENT LOGO PER DOMAIN #}
 	{# <div class="department-logo"> #}
 	{# drupal_entity('block', 'discovery_site_branding') #}
@@ -25,10 +28,10 @@
 
 
 	{# <div
-					class="header__mainNav"> #}
+							class="header__mainNav"> #}
 
 	{# ADDED MAIN MENU FOR DIFFERENT LINKS PER DOMAIN #}
-		<nav class="header__mainNav nav--main"> {{ drupal_menu('top-nav', 2, 2) }}
+		<nav class="header__mainNav nav--main" aria-label="Main menu" id="main-menu"> {{ drupal_menu('top-nav', 2, 2) }}
 	</nav>
 
 	{# </nav> #}
