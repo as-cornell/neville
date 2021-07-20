@@ -5,6 +5,12 @@
 Title: node--article.html.twig
 Descr: defines "article" and outputs fields for article card
 
+Looks at content.field_remote_uuid
+  if has value -- sets title, components, image, label, dateline, bylines, media to remote data.
+  if no value -- sets everything to local values
+
+  Related people and aricles ARE NOT pulled in from remote json. They will show if manually added to locl, that's why they are not set in the same {% if %}
+
 --------------------------- */ 
 
 #}
@@ -14,100 +20,33 @@ Descr: defines "article" and outputs fields for article card
 {% set main_element_extra_classes = ['main', 'content'] %}
 {% set main_element_base_class = 'article' %}
 {% set main_element_modifiers = [''] %}
-{# <h1>{{label}}</h1>#}
 {# {{vardumper()}}  #}
-{#
 
-*********
+{# 
 
-LOCAL ARTICLE
+  if content.field_remote_uuid.0
+  set as remote and set remote variables
 
-*********
+#}
 
- #}
-{# if article components then fetch local article fields #}
-{% if content.field_article_components %}
-	{% set title = label %}
-	{# image #}
-	{% if content.field_image %}
-		{% set image %}
-			{{content.field_image}}
-		{% endset %}
-	{% endif %}
-
-	{# card label #}
-	{% if content.field_card_label %}
-	  {% set show_label = true %}
-	  {% set card_label = content.field_card_label %}
-	{% endif %}
-
-	{# dateline #}
-	{% if content.field_dateline %}
-	  {% set show_dateline = true %}
-	  {% set dateline = content.field_dateline %}
-	{% endif %}
-
-	{# bylines #}
-	{% if content.field_bylines %}
-	  {% set show_bylines = true %}
-	  {% set bylines = content.field_bylines %}
-	{% endif %}
-
-	{# media sources #}
-	{% if content.field_media_sources %}
-	  {% set show_media_sources = true %}
-	  {% set media_sources = content.field_media_sources %}
-	{% endif %}
-
-	{# Related people #}
-	{% if content.field_related_people %}
-		{% set show_related_people = true %}
-	  {% set related_people = content.field_related_people %}
-	{% endif %}
-
-	{# Related articles #}
-	{% if content.field_related_articles %}
-		{% set show_relatedArticleList = true %}
-	  {% set related_articles = content.field_related_articles %}
-	{% endif %}
-
-	{# article components #}
-	{% if content.field_article_components %}
-	  {% set article_components = content.field_article_components %}
-	{% endif %}
-
-{% endif %}
-
-
-{#
-
-*********
-
-REMOTE ARTICLE
-
-*********
-
- #}
-{# if remote uuid then fetch article json #}
-{% if content.field_remote_uuid %}
+{% if content.field_remote_uuid.0 %}
 	{% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
 	{% set article = parse_article_json(remote_uuid) %}
 
-	{% if article.title %}
-		{% set title = article.title %}
-	{% endif %}
+	{% set title = article.title %}
+  {% set localorremote = "remote"%}
+  {# {{vardumper(article)}} #}
 
 	{% if article.article_components %}
 		{% set article_components = article.article_components %}
 	{% endif %}
 
-	{# {{vardumper(article)}} #}
+	{# This makes it so we can't use standard figure template #}
 	{% if article.imagepath %}
 		{% set image %}
 			<img src="{{article.imagepath}}" alt="{{article.alt}}">
 		{% endset %}
 	{% endif %}
-
 
 	{# card label #}
 	{% if article.card_label %}
@@ -138,39 +77,74 @@ REMOTE ARTICLE
 	  {% set show_departments_programs = true %}
 	{% endif %}
 
-	{#
+{# 
 
-	*********
+  else set to local and set all variables from "content"
 
-	if item set show as true and create related_articles and loop over array to build image, and pass what is needed to _article--card--small.twig then output as {{related_articles}}
+#}
+{% else %}
 
-	*********
+  {% set title = label %}
+  {% set localorremote = "local"%}
+  {# image #}
+  {% if content.field_image %}
+    {% set image %}
+    {{content.field_image}}
+    {% endset %}
+  {% endif %}
 
-	 #}
+  {# card label #}
+  {% if content.field_card_label %}
+    {% set show_label = true %}
+    {% set card_label = content.field_card_label %}
+  {% endif %}
 
-	{# Related people #}
-	{% if article.related_people %}
-		{% set show_related_people = true %}
+  {# dateline #}
+  {% if content.field_dateline %}
+    {% set show_dateline = true %}
+    {% set dateline = content.field_dateline %}
+  {% endif %}
 
-	  {% set related_people %}
-	    {% for person in article.related_people %}
-	      {% set image %}
-	        <img src="{{person.image['#uri']}}" alt="{{person.image['#alt']}}">
-	      {% endset %}
-	      {% embed "@content/person/_person--card.twig" with {
-	      title: person['#title'],
-	      image: image
-	      } %}{% endembed %}
-	    {% endfor %}
-	  {% endset %}
-	{% endif %}
+  {# bylines #}
+  {% if content.field_bylines %}
+    {% set show_bylines = true %}
+    {% set bylines = content.field_bylines %}
+  {% endif %}
 
+  {# media sources #}
+  {% if content.field_media_sources %}
+    {% set show_media_sources = true %}
+    {% set media_sources = content.field_media_sources %}
+  {% endif %}
+
+  {# article components #}
+  {% if content.field_article_components %}
+    {% set article_components = content.field_article_components %}
+  {% endif %}
 
 {% endif %}
 
 
+{# Set related articles here because they will always come from local #}
+{% if content.field_related_articles.0 %}
+	{% set show_related_articles = true %}
+	{% set related_articles = content.field_related_articles %}
+{% endif %}
 
-<main {{ bem(main_element_base_class, (main_element_modifiers), main_element_blockname, main_element_extra_classes) }}/>
+{# Related people #}
+{% if content.field_related_people.0 %}
+	{% set show_related_people = true %}
+	{% set related_people = content.field_related_people %}
+{% endif %}
+
+
+
+{# <p><em>{{localorremote}}</em></p> #}
+{# {{content.field_related_people}} #}
+{# {{related_articles}}
+{{article.related_articles}} #}
+
+<main {{ bem(main_element_base_class, (main_element_modifiers), main_element_blockname, main_element_extra_classes) }} id="mainContent"/>
 
 		{{titles_suffix}}
 		{{ title_prefix }}
@@ -233,11 +207,11 @@ REMOTE ARTICLE
 		</div>
 		<aside role="complimentary">
 
-			{% if show_relatedArticleList %}
+			{% if show_related_articles %}
 				<h3>
 					Related articles
 				</h3>
-				{{content.field_related_articles}}
+				{{related_articles}}
 			{% endif %}
 
 	    {# {% if show_departments_programs %}

@@ -69,7 +69,7 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 	<div class="content">
 		{{mainContent}}
 	</div>
-  <nav class="nav--site">
+  <nav class="nav--site" aria-label="Section links" id="section-menu">
     {{ drupal_menu('main', 2, 0, TRUE) }}
   </nav>
 	{% if show_sidebarContent %}
