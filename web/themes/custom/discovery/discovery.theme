@@ -90,7 +90,7 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
     );
   $form['department_variables']['department_prefix'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Department Email'),
+    '#title'         => t('Department Prefix'),
     '#default_value' => theme_get_setting('department_prefix'),
     '#description'   => t("Department prefix for css."),
   );
