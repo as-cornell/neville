@@ -5,6 +5,8 @@ config:
 proxy:
   app:
     - neville.lndo.site
+    - gary.lndo.site
+    - phil.lndo.site
 services:
   node:
     type: node
