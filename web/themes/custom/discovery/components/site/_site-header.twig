@@ -4,7 +4,7 @@
 			Jump to main navigation
 		</a>
 		<a href="#section-menu">
-			Jump to main navigation
+			Jump to section navigation
 		</a>
 		<a href="#mainContent">
 			Jump to main content
@@ -15,8 +15,8 @@
 		Cornell University
 	</a>
 	{#<a class="department-logo" href="/" title="Test Department">
-										Department
-									</a> #}
+												Department
+											</a> #}
 	{# ADDED SITE BRANDING BLOCK FOR DIFFERENT DEPARTMENT LOGO PER DOMAIN #}
 	{# <div class="department-logo"> #}
 	{# drupal_entity('block', 'discovery_site_branding') #}
@@ -28,7 +28,7 @@
 
 
 	{# <div
-							class="header__mainNav"> #}
+									class="header__mainNav"> #}
 
 	{# ADDED MAIN MENU FOR DIFFERENT LINKS PER DOMAIN #}
 		<nav class="header__mainNav nav--main" aria-label="Main menu" id="main-menu"> {{ drupal_menu('top-nav', 2, 2) }}
@@ -64,7 +64,7 @@
 				Search for:
 			</label>
 			<span class="searchField">
-				<input data-drupal-selector="edit-keywords" type="text" id="edit-keywords" name="keywords" value="" size="30" maxlength="128" class="form-text form-item__textfield"/>
+				<input data-drupal-selector="edit-keywords" type="text" id="search-input" name="keywords" value="" size="30" maxlength="128" class="form-text form-item__textfield"/>
 				<input data-drupal-selector="edit-submit-search" type="submit" id="edit-submit-search" value="Search" class="js-form-submit form-submit form-item__submit"/>
 			</span>
 		</form>

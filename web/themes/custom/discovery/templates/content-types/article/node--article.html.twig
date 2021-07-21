@@ -73,15 +73,16 @@ Looks at content.field_remote_uuid
 	{% endif %}
 
 	{# departments #}
-	{% if article.departments %}
+	{# {% if article.departments %}
 	  {% set show_departments_programs = true %}
-	{% endif %}
+	{% endif %} #}
 
 {# 
 
   else set to local and set all variables from "content"
 
 #}
+
 {% else %}
 
   {% set title = label %}

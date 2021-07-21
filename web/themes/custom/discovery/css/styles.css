@@ -584,7 +584,7 @@ form {
     border-radius: var(--border-radius);
     padding: 0.5em;
     margin-left: 1rem;
-    background: var(--storm-radial);
+    background: var(--as-teal-500);
     color: var(--as-white); }
     form .form-submit + .form-submit {
       transform: translateY(50px); }
@@ -696,6 +696,9 @@ Still needs: expand toggle for showing main nav on mobile
             fill: var(--as-black); } }
       .nav--main .nav button:focus {
         opacity: 1; }
+      @media (any-hover: hover) and (pointer: fine) {
+        .nav--main .nav button {
+          opacity: 0; } }
       .nav--main .nav button.active {
         transform: rotate(180deg);
         transform-origin: 50% 50%; }
@@ -749,22 +752,25 @@ Still needs: expand toggle for showing main nav on mobile
             width: auto;
             font-weight: var(--semi);
             padding: 0.5rem; }
-          .nav--main .nav-0 .nav-0__item:hover, .nav--main .nav-0 .nav-0__item.expanded {
+          .nav--main .nav-0 .nav-0__item:hover, .nav--main .nav-0 .nav-0__item.subnav-open {
             -webkit-text-decoration-color: var(--as-gray-500);
                     text-decoration-color: var(--as-gray-500);
             box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
             overflow: visible; }
-            .nav--main .nav-0 .nav-0__item:hover:after, .nav--main .nav-0 .nav-0__item.expanded:after {
+            .nav--main .nav-0 .nav-0__item:hover:after, .nav--main .nav-0 .nav-0__item.subnav-open:after {
               visibility: visible;
               transform: scaleX(1);
               transform-origin: top;
               transition: all 0.25s ease-out; }
-            .nav--main .nav-0 .nav-0__item:hover .nav-1, .nav--main .nav-0 .nav-0__item.expanded .nav-1 {
+            .nav--main .nav-0 .nav-0__item:hover .nav-1, .nav--main .nav-0 .nav-0__item.subnav-open .nav-1 {
               transform: scaleY(1);
               transform-origin: top;
               transition: all 250ms ease-out; }
-        .nav--main .nav-0 button {
-          opacity: 0; } }
+        .nav--main .nav-0 button:focus {
+          opacity: 1; } }
+  @media only screen and (min-width: 782px) and (any-hover: hover) and (pointer: fine) {
+    .nav--main .nav-0 button {
+      opacity: 0; } }
     @media only screen and (min-width: 1224px) {
       .nav--main .nav-0 {
         -ms-flex-pack: end;
