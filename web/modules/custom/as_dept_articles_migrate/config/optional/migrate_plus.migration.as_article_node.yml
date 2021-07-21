@@ -92,9 +92,6 @@ process:
       method: process
       source: field_related_articles
     -
-      plugin: explode
-      delimiter: ', '
-    -
       plugin: entity_lookup
       access_check: false
       entity_type: node
