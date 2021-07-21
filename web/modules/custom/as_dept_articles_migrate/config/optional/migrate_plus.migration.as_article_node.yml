@@ -77,15 +77,29 @@ process:
   path: path
   field_summary: summary
   field_related_people:
-    plugin: entity_lookup
-    source: field_related_people
-    entity_type: node
-    bundle: person
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_related_people
+    -
+      plugin: explode
+      delimiter: ', '
+    -
+      plugin: entity_lookup
+      entity_type: node
+      bundle: person
   field_related_articles:
-    plugin: entity_lookup
-    source: field_related_articles
-    entity_type: node
-    bundle: article
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_related_articles
+    -
+      plugin: explode
+      delimiter: ', '
+    -
+      plugin: entity_lookup
+      entity_type: node
+      bundle: article
   field_article_view_tags:
     plugin: entity_generate
     source: field_article_view_tags
@@ -107,8 +121,15 @@ process:
       bundle: departments_programs
       value_key: name
   'field_domain_access/target_id':
-    plugin: mapdomain
-    source: field_departments_programs
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_departments_programs
+    -
+      plugin: explode
+      delimiter: ', '
+    -
+      plugin: mapdomain
   uid:
     plugin: default_value
     default_value: 1
