@@ -2,73 +2,98 @@
 
 /* -------------------------
 
-Title: node--article--article--small.html.twig
-Descr: defines "article" and outputs fields for article article
+Title: node--article--card.html.twig
+Descr: defines "article" and outputs fields for article card
 
 --------------------------- */ 
 
 #}
 {# set wrapper bem calsses #}
-{% set article_base_class = 'article' %}
-{% set article_modifiers =  ["card-small"]%}
-{% set article_classes = ['article', 'card'] %}
-
-{# {% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
-{% set article = parse_article_json(remote_uuid) %}
-
-{{vardumper()}}
-{% if article.imagepath %}
-	{% set image %}
-  <figure>
-		<img src="{{article.imagepath}}" alt="{{article.alt}}">
-  </figure>
-	{% endset %}
-{% endif %} #}
+{% set card_base_class = 'article' %}
+{% set card_modifiers =  ["article","card-small"]%}
 
 
-{# article label #}
-{# {% if article.card_label %}
-  {% set show_article_label = true %}
-{% endif %} #}
+{% if content.field_remote_uuid.0 %}
+	{% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
+	{% set article = parse_article_json(remote_uuid) %}
+{# {{vardumper(article)}} #}
+	{% set title = article.title %}
+	{% set localorremote = "remote"%}
 
-{% if content.field_article_components %}
-{% set card_label = content.field_card_label %}
-{% set title = label %}
-{% set image = content.field_image %}
+	{# card label #}
+	{% if article.card_label %}
+		{% set show_label = true %}
+		{% set card_label = article.card_label %}
+	{% endif %}
+
+	{# 
+	  else set to local and set all variables from "content"
+	#}
+
+{% else %}
+	{% set title = label %}
+	{% set localorremote = "local"%}
+
+	{# card label #}
+	{% if content.field_card_label %}
+		{% set show_label = true %}
+		{% set card_label = content.field_card_label %}
+	{% endif %}
+
+{% endif %}
+
+{# 
+setting image
+  - if local image path set use that
+  - if no local image path and article.imagepath use that
+  - default to stock image
+#}
+{% if content.field_image.0 %}
+  {% set image %}
+    {{content.field_image}}
+  {% endset %}
+{% elseif article.imagepath %}
+  {% set image %}
+    <figure>
+      <img src="{{article.imagepath}}" alt="{{article.alt}}">
+    </figure>
+  {% endset %}
+{% else %}
+  {% set image %}
+    <figure>
+      <img src="https://as.cornell.edu/sites/default/files/styles/4_5/public/2021-03/up20150602038select1500x1000px.jpg" alt="Flowering tree in spring">
+    </figure>
+  {% endset %}
 {% endif %}
 
 
-
-
-
+<div {{ bem(card_base_class, (card_modifiers), article_blockname, article_classes) }} {% if nodeId %} aria-labelledby="item--{{nodeId}}" {% endif %}> 
+{# {{localorremote}} #}
 {{title_suffix}}
-<div {{ bem(article_base_class, (article_modifiers), article_blockname, article_classes) }} {% if nodeId %} aria-labelledby="item--{{nodeId}}" {% endif %}> 
-
 {{image}}
 
 
 	<div {{ bem(article_copy_base_class|default('article__copy'), (article_copy_modifiers), article_copy_blockname) }}>
 
-		 {# {% if show_article_label %} #}
-			<span class="article__label">
-				{{ card_label }}
-			</span>
-      
-		{# {% endif %} #}
+		
 			{% include "@content/atoms/_heading.twig" with {
         "heading_level": 2,
         "heading": title,
         "heading_url": url,
-        "heading_blockname": article_title_blockname|default(article_base_class),
+        "heading_blockname": article_title_blockname|default(card_base_class),
         "heading_modifiers": article_title_modifiers,
         "heading_link_base_class": article_title_link_base_class|default('title-link'),
-        "heading_link_blockname": article_base_class,
+        "heading_link_blockname": card_base_class,
         "heading_base_class": article_title_base_class|default('title'),
         "isAriaLabel" : nodeId
     } %}
 
 
-
+		{% if show_label %}
+			<span class="article__label">
+				{{ card_label }}
+			</span>
+		{% endif %}
 
 	</div>
 </div>

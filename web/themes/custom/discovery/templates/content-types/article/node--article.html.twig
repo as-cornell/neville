@@ -34,18 +34,9 @@ Looks at content.field_remote_uuid
 	{% set article = parse_article_json(remote_uuid) %}
 
 	{% set title = article.title %}
-  {% set localorremote = "remote"%}
-  {# {{vardumper(article)}} #}
 
 	{% if article.article_components %}
 		{% set article_components = article.article_components %}
-	{% endif %}
-
-	{# This makes it so we can't use standard figure template #}
-	{% if article.imagepath %}
-		{% set image %}
-			<img src="{{article.imagepath}}" alt="{{article.alt}}">
-		{% endset %}
 	{% endif %}
 
 	{# card label #}
@@ -72,27 +63,14 @@ Looks at content.field_remote_uuid
 	  {% set media_sources = article.media_sources %}
 	{% endif %}
 
-	{# departments #}
-	{# {% if article.departments %}
-	  {% set show_departments_programs = true %}
-	{% endif %} #}
-
 {# 
-
   else set to local and set all variables from "content"
-
 #}
 
 {% else %}
 
   {% set title = label %}
   {% set localorremote = "local"%}
-  {# image #}
-  {% if content.field_image %}
-    {% set image %}
-    {{content.field_image}}
-    {% endset %}
-  {% endif %}
 
   {# card label #}
   {% if content.field_card_label %}
@@ -138,12 +116,31 @@ Looks at content.field_remote_uuid
 	{% set related_people = content.field_related_people %}
 {% endif %}
 
+{# 
+setting image
+  - if local image path set use that
+  - if no local image path and article.imagepath use that
+  - default to stock image
+#}
+{% if content.field_image.0 %}
+	{% set image %}
+	{{content.field_image}}
+	{% endset %}
+{% elseif article.imagepath %}
+	{% set image %}
+	<figure>
+		<img src="{{article.imagepath}}" alt="{{article.alt}}">
+	</figure>
+	{% endset %}
+{% else %}
+	{% set image %}
+	<figure>
+		<img src="https://as.cornell.edu/sites/default/files/styles/4_5/public/2021-03/up20150602038select1500x1000px.jpg" alt="Flowering tree in spring">
+	</figure>
+	{% endset %}
+{% endif %}
 
 
-{# <p><em>{{localorremote}}</em></p> #}
-{# {{content.field_related_people}} #}
-{# {{related_articles}}
-{{article.related_articles}} #}
 
 <main {{ bem(main_element_base_class, (main_element_modifiers), main_element_blockname, main_element_extra_classes) }} id="mainContent"/>
 
