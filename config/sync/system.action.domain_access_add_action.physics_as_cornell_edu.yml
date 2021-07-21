@@ -1,0 +1,14 @@
+uuid: 857a71d5-fb43-45ba-8d6f-22b788d1d25a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.physics_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.physics_as_cornell_edu
+label: 'Add selected content to the Physics domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: physics_as_cornell_edu

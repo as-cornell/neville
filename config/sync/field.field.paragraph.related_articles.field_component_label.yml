@@ -1,0 +1,19 @@
+uuid: 5d512a37-d017-459f-a512-84d81e6e247c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_component_label
+    - paragraphs.paragraphs_type.related_articles
+id: paragraph.related_articles.field_component_label
+field_name: field_component_label
+entity_type: paragraph
+bundle: related_articles
+label: 'Component Label'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

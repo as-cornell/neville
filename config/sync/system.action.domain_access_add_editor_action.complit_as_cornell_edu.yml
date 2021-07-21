@@ -1,0 +1,14 @@
+uuid: 379e4c1f-a664-4e0d-828f-50b9beec8951
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.complit_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.complit_as_cornell_edu
+label: 'Add editors to the Comparative Literature domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: complit_as_cornell_edu

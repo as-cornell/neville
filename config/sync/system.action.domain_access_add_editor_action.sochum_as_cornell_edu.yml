@@ -1,0 +1,14 @@
+uuid: 10ea755c-c052-4047-a1a7-c3575b53b2f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sochum_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.sochum_as_cornell_edu
+label: 'Add editors to the Society for the Humanities domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: sochum_as_cornell_edu

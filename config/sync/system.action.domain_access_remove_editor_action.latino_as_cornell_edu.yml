@@ -1,0 +1,14 @@
+uuid: 6619f702-5f81-4ae1-a6f4-ecc7f11972f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.latino_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.latino_as_cornell_edu
+label: 'Remove editors from the Latino Studies domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: latino_as_cornell_edu

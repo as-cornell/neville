@@ -1,0 +1,14 @@
+uuid: 6dea09aa-cc8d-4664-ba85-db0b6fc72caa
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.cinema_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.cinema_as_cornell_edu
+label: 'Add editors to the Cinema domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: cinema_as_cornell_edu

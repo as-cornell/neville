@@ -1,0 +1,14 @@
+uuid: 0babe6ae-6dc9-42c7-9521-b7cd9f715636
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.jewishstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.jewishstudies_as_cornell_edu
+label: 'Add selected content to the Jewish Studies domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: jewishstudies_as_cornell_edu

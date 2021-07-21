@@ -1,0 +1,14 @@
+uuid: 6077e74a-101d-4e53-89d9-b4d4b46ac4c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mbg_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.mbg_as_cornell_edu
+label: 'Remove editors from the Molecular Biology and Genetics domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: mbg_as_cornell_edu

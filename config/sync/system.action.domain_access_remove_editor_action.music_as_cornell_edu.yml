@@ -1,0 +1,14 @@
+uuid: 35ec4fd9-4e5d-461c-96dd-1c47f516dfec
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.music_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.music_as_cornell_edu
+label: 'Remove editors from the Music domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: music_as_cornell_edu

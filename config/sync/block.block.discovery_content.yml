@@ -1,0 +1,22 @@
+uuid: d989999b-4a2e-46ec-9b64-83f87a83038a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - discovery
+_core:
+  default_config_hash: BL6Gcw5Us0zai1ADadlNYLxlEblMedc_3C3lF0PjtCE
+id: discovery_content
+theme: discovery
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,11 @@
+uuid: 94254f94-0b4e-4832-8134-a3038093448f
+langcode: en
+status: true
+dependencies: {  }
+id: sct_as_cornell_edu
+domain_id: 7132090
+hostname: sct.as.cornell.edu
+name: SCT
+scheme: https
+weight: -3
+is_default: false

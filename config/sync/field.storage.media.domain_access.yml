@@ -1,0 +1,20 @@
+uuid: f1578617-2e6e-4efe-8594-fe420ddcf6f6
+langcode: en
+status: true
+dependencies:
+  module:
+    - domain
+    - media
+id: media.domain_access
+field_name: domain_access
+entity_type: media
+type: entity_reference
+settings:
+  target_type: domain
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: true
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 4260f946-4878-431e-9f33-189bc2172c1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_formatted_text
+    - paragraphs.paragraphs_type.course_block
+  module:
+    - text
+id: paragraph.course_block.field_formatted_text
+field_name: field_formatted_text
+entity_type: paragraph
+bundle: course_block
+label: 'Formatted Text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

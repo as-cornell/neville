@@ -1,0 +1,14 @@
+uuid: 96ce183f-921e-4fe4-89a3-01738019d380
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.organ_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.organ_as_cornell_edu
+label: 'Add editors to the Organ domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: organ_as_cornell_edu

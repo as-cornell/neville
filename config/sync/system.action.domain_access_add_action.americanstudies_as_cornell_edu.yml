@@ -1,0 +1,14 @@
+uuid: bc60c9a4-ac33-4756-88ae-0b6209cbffa3
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.americanstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.americanstudies_as_cornell_edu
+label: 'Add selected content to the American Studies domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: americanstudies_as_cornell_edu

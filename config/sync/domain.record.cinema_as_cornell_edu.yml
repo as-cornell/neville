@@ -1,0 +1,11 @@
+uuid: f42a472c-d95a-4cf3-9eaa-72e495e12b3f
+langcode: en
+status: true
+dependencies: {  }
+id: cinema_as_cornell_edu
+domain_id: 6701823
+hostname: cinema.as.cornell.edu
+name: Cinema
+scheme: https
+weight: -35
+is_default: false

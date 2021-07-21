@@ -1,0 +1,14 @@
+uuid: 596a0707-6601-4ca2-9d27-8819870c55c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.milstein_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.milstein_as_cornell_edu
+label: 'Add selected content to the Milstein Program domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: milstein_as_cornell_edu

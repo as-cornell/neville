@@ -1,0 +1,11 @@
+uuid: 0045bedb-99a0-4ae1-b038-769180fa9fe8
+langcode: en
+status: true
+dependencies: {  }
+id: icmdev_as_cornell_edu
+domain_id: 3059704
+hostname: icmdev.as.cornell.edu
+name: 'Institute for Comparative Modernities'
+scheme: https
+weight: -21
+is_default: false

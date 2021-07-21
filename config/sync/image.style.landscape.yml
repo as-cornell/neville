@@ -1,0 +1,25 @@
+uuid: 1711c2bd-8bc7-4bf4-9f4f-7ca033239f86
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.landscape
+  module:
+    - crop
+name: landscape
+label: Landscape
+effects:
+  fe070b80-5cd4-4c5f-8a80-af9d3f69cd94:
+    uuid: fe070b80-5cd4-4c5f-8a80-af9d3f69cd94
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: landscape
+  d0fe597e-5dca-4ab1-b97e-8c0cdc22dd6a:
+    uuid: d0fe597e-5dca-4ab1-b97e-8c0cdc22dd6a
+    id: image_scale
+    weight: 2
+    data:
+      width: 900
+      height: null
+      upscale: false

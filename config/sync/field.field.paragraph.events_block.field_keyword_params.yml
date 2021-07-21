@@ -1,0 +1,19 @@
+uuid: 1740abcf-8278-4b1b-a03a-0d9c01cd8de2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_keyword_params
+    - paragraphs.paragraphs_type.events_block
+id: paragraph.events_block.field_keyword_params
+field_name: field_keyword_params
+entity_type: paragraph
+bundle: events_block
+label: 'Keyword Params'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

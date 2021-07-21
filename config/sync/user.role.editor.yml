@@ -1,0 +1,43 @@
+uuid: 66b39ef2-cfa7-4163-8d34-04a65e2ceb55
+langcode: en
+status: true
+dependencies: {  }
+id: editor
+label: Editor
+weight: 3
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access domain content'
+  - 'access files overview'
+  - 'access in-place editing'
+  - 'access landscape_entity_browser entity browser pages'
+  - 'access media_entity_browser_media_library entity browser pages'
+  - 'access media_entity_browser_modal entity browser pages'
+  - 'access pano_entity_browser entity browser pages'
+  - 'access paragraphs_library_items entity browser pages'
+  - 'access portrait_entity_browser entity browser pages'
+  - 'access toolbar'
+  - 'create article content on assigned domains'
+  - 'create domain content'
+  - 'create image media content on assigned domains'
+  - 'create landing_page content on assigned domains'
+  - 'create page content on assigned domains'
+  - 'create paragraph library item'
+  - 'create person content on assigned domains'
+  - 'create terms in article_view_tags'
+  - 'create terms in tags'
+  - 'edit domain content'
+  - 'edit paragraph library item'
+  - 'publish to any assigned domain'
+  - 'update article content on assigned domains'
+  - 'update image media content on assigned domains'
+  - 'update landing_page content on assigned domains'
+  - 'update page content on assigned domains'
+  - 'update person content on assigned domains'
+  - 'use domain config ui'
+  - 'use text format basic_html'
+  - 'use text format full_html'
+  - 'view the administration theme'
+  - 'view unpublished domain content'
+  - 'view unpublished paragraphs'

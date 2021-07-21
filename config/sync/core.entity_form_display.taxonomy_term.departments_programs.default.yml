@@ -1,0 +1,53 @@
+uuid: 2c4a932b-47e8-4904-8c52-d6e3d86da457
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.departments_programs.field_domain_access_target_id
+    - taxonomy.vocabulary.departments_programs
+  module:
+    - path
+    - text
+id: taxonomy_term.departments_programs.default
+targetEntityType: taxonomy_term
+bundle: departments_programs
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  field_domain_access_target_id:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+hidden: {  }

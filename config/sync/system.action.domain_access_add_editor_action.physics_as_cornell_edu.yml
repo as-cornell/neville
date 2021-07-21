@@ -1,0 +1,14 @@
+uuid: 4daa95e3-02d2-4d6a-8717-3a33c83c6eb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.physics_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.physics_as_cornell_edu
+label: 'Add editors to the Physics domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: physics_as_cornell_edu

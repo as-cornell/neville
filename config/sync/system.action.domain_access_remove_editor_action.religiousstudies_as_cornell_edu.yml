@@ -1,0 +1,14 @@
+uuid: 055ccb17-d818-451a-b787-c6af40d442f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.religiousstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.religiousstudies_as_cornell_edu
+label: 'Remove editors from the Religious Studies domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: religiousstudies_as_cornell_edu

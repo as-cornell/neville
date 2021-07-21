@@ -1,0 +1,11 @@
+uuid: 1a6b2359-01c0-4861-bc6a-3616bbb5d566
+langcode: en
+status: true
+dependencies: {  }
+id: romancestudies_as_cornell_edu
+domain_id: 5681376
+hostname: romancestudies.as.cornell.edu
+name: 'Romance Studies'
+scheme: https
+weight: -4
+is_default: false

@@ -1,0 +1,14 @@
+uuid: 761953e9-41a1-4d06-9b06-2e95d59c9eb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sct_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.sct_as_cornell_edu
+label: 'Add editors to the SCT domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: sct_as_cornell_edu

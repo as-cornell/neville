@@ -1,0 +1,11 @@
+uuid: 9e6a4e83-95dd-4665-8127-028016cdd165
+langcode: en
+status: true
+dependencies: {  }
+id: cogsci_as_cornell_edu
+domain_id: 5060702
+hostname: cogsci.as.cornell.edu
+name: 'Cognitive Science'
+scheme: https
+weight: -33
+is_default: false

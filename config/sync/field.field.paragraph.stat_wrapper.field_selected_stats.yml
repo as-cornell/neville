@@ -1,0 +1,61 @@
+uuid: 057af6e2-8632-40c0-884e-e90fcf02264b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_selected_stats
+    - paragraphs.paragraphs_type.stat
+    - paragraphs.paragraphs_type.stat_wrapper
+  module:
+    - entity_reference_revisions
+id: paragraph.stat_wrapper.field_selected_stats
+field_name: field_selected_stats
+entity_type: paragraph
+bundle: stat_wrapper
+label: 'Selected stats'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      stat: stat
+    target_bundles_drag_drop:
+      events_block:
+        weight: 13
+        enabled: false
+      formatted_text_block:
+        weight: 14
+        enabled: false
+      from_library:
+        weight: 15
+        enabled: false
+      link_block:
+        weight: 16
+        enabled: false
+      page_section:
+        weight: 17
+        enabled: false
+      photo_with_text:
+        weight: 18
+        enabled: false
+      photo_with_text_wrapper:
+        weight: 19
+        enabled: false
+      related_articles:
+        weight: 20
+        enabled: false
+      related_people:
+        weight: 21
+        enabled: false
+      stat:
+        enabled: true
+        weight: 22
+      stat_wrapper:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

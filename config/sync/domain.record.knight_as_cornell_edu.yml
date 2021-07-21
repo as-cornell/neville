@@ -1,0 +1,11 @@
+uuid: 97aa3fab-988d-4145-8ff1-03c47cf9a635
+langcode: en
+status: true
+dependencies: {  }
+id: knight_as_cornell_edu
+domain_id: 7454201
+hostname: knightdev.as.cornell.edu
+name: 'Knight Institute'
+scheme: https
+weight: -19
+is_default: false

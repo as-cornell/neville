@@ -1,0 +1,84 @@
+uuid: 6fefc802-7385-4704-a5d3-bde8237e49ec
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - as_dept_people_stub
+id: as_dept_people_stub_staff
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: people
+label: 'Staff records from people.as.cornell.edu to departments.as.cornell.edu'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  constants:
+    person_base_path: 'https://as.cornell.edu/people'
+  urls: 'https://people.as.cornell.edu/people-stubs-rest-staff'
+  item_selector: /
+  ids:
+    uuid:
+      type: string
+  fields:
+    -
+      name: uuid
+      label: uuid
+      selector: uuid
+    -
+      name: title
+      label: Title
+      selector: title
+    -
+      name: field_person_last_name
+      label: 'Last Name'
+      selector: field_person_last_name
+    -
+      name: field_person_type
+      label: 'Person Type'
+      selector: field_person_type
+    -
+      name: field_departments_programs
+      label: 'Departments and Programs'
+      selector: field_departments_programs
+    -
+      name: link
+      label: Link
+      selector: view_node
+process:
+  type:
+    plugin: default_value
+    default_value: article
+  title: title
+  field_person_last_name: field_person_last_name
+  field_remote_uuid: uuid
+  field_link/uri:
+    plugin: concat
+    source:
+      - constants/person_base_path
+      - link
+  field_departments_programs:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_departments_programs
+    -
+      plugin: explode
+      delimiter: ', '
+    -
+      plugin: entity_generate
+      entity_type: taxonomy_term
+      bundle: departments_programs
+      value_key: name
+  field_person_type:
+    plugin: entity_lookup
+    source: field_person_type
+  uid:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:node'
+migration_dependencies: null

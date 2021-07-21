@@ -1,0 +1,14 @@
+uuid: 864c6350-781f-428a-ac0f-9230def56087
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.anthropology_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.anthropology_as_cornell_edu
+label: 'Remove editors from the Anthropology domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: anthropology_as_cornell_edu

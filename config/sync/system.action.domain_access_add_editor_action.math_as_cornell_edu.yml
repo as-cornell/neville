@@ -1,0 +1,14 @@
+uuid: 3a35baeb-767d-4f02-b56c-6908484db3b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.math_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.math_as_cornell_edu
+label: 'Add editors to the Math domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: math_as_cornell_edu

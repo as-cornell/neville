@@ -1,0 +1,14 @@
+uuid: 8dcd9074-633e-408f-b200-f4d2e34f3c06
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.frenchstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.frenchstudies_as_cornell_edu
+label: 'Remove editors from the French Studies domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: frenchstudies_as_cornell_edu

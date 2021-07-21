@@ -11,7 +11,7 @@ source:
   plugin: url
   data_fetcher_plugin: file
   data_parser_plugin: json
-  urls: https://history.cornell.edu/department-articles-export.json
+  urls: https://as.cornell.edu/department-article-stubs-rest
 
   ids:
     uuid:
@@ -75,17 +75,15 @@ process:
   created: created
   changed: changed
   path: path
-  field_summary: summary
+  field_page_summary: summary
   field_related_people:
     -
       plugin: skip_on_empty
       method: process
       source: field_related_people
     -
-      plugin: explode
-      delimiter: ', '
-    -
       plugin: entity_lookup
+      access_check: false
       entity_type: node
       bundle: person
   field_related_articles:
@@ -98,6 +96,7 @@ process:
       delimiter: ', '
     -
       plugin: entity_lookup
+      access_check: false
       entity_type: node
       bundle: article
   field_article_view_tags:

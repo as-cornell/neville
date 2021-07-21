@@ -1,0 +1,17 @@
+uuid: d13a7fbe-3790-4fb0-ba6a-0f6de5f95a59
+langcode: en
+status: true
+dependencies: {  }
+name: pano_entity_browser
+label: 'Pano entity browser'
+display: modal
+display_configuration:
+  width: ''
+  height: ''
+  link_text: 'Select image'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets: {  }

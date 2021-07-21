@@ -1,0 +1,14 @@
+uuid: 6ca7793c-be76-4876-be25-8552f989993c
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.americanstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.americanstudies_as_cornell_edu
+label: 'Add editors to the American Studies domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: americanstudies_as_cornell_edu

@@ -1,0 +1,11 @@
+uuid: 5fb7c820-7e4e-4bdd-aa58-f1d699339911
+langcode: en
+status: true
+dependencies: {  }
+id: caps_as_cornell_edu
+domain_id: 1107420
+hostname: caps.as.cornell.edu
+name: CAPS
+scheme: https
+weight: -38
+is_default: false

@@ -1,0 +1,68 @@
+uuid: d7eec9b1-3077-4044-b525-066e3a25b1f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_article_components
+    - node.type.article
+    - paragraphs.paragraphs_type.formatted_text_block
+    - paragraphs.paragraphs_type.photo_with_text
+    - paragraphs.paragraphs_type.photo_with_text_wrapper
+  module:
+    - entity_reference_revisions
+id: node.article.field_article_components
+field_name: field_article_components
+entity_type: node
+bundle: article
+label: 'Article Components'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      formatted_text_block: formatted_text_block
+      photo_with_text: photo_with_text
+      photo_with_text_wrapper: photo_with_text_wrapper
+    target_bundles_drag_drop:
+      course_block:
+        weight: 13
+        enabled: false
+      events_block:
+        weight: 14
+        enabled: false
+      formatted_text_block:
+        enabled: true
+        weight: 15
+      from_library:
+        weight: 16
+        enabled: false
+      link_block:
+        weight: 17
+        enabled: false
+      page_section:
+        weight: 18
+        enabled: false
+      photo_with_text:
+        enabled: true
+        weight: 19
+      photo_with_text_wrapper:
+        enabled: true
+        weight: 20
+      related_articles:
+        weight: 21
+        enabled: false
+      related_people:
+        weight: 22
+        enabled: false
+      stat:
+        weight: 23
+        enabled: false
+      stat_wrapper:
+        weight: 24
+        enabled: false
+field_type: entity_reference_revisions

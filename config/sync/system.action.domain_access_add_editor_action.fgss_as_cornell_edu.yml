@@ -1,0 +1,14 @@
+uuid: 021b9df0-1cb0-4f6b-a1d1-2d2e08c1edf1
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.fgss_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.fgss_as_cornell_edu
+label: 'Add editors to the FGSS domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: fgss_as_cornell_edu

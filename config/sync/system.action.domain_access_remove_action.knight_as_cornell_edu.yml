@@ -1,0 +1,14 @@
+uuid: 55b539cf-a249-4cc5-9c33-a4446ca73e7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.knight_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.knight_as_cornell_edu
+label: 'Remove selected content from the Knight Institute domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: knight_as_cornell_edu

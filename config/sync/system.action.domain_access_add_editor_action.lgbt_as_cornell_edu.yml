@@ -1,0 +1,14 @@
+uuid: 703d0ec9-bdf4-4317-8204-a2a34fcaee58
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.lgbt_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.lgbt_as_cornell_edu
+label: 'Add editors to the LGBT Studies domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: lgbt_as_cornell_edu

@@ -1,0 +1,11 @@
+uuid: b0dbb348-e854-4111-aa70-70663432de85
+langcode: en
+status: true
+dependencies: {  }
+id: neareasternstudies_as_cornell_edu
+domain_id: 5074088
+hostname: neareasternstudies.as.cornell.edu
+name: 'Near Eastern Studies'
+scheme: https
+weight: -8
+is_default: false

@@ -1,0 +1,76 @@
+uuid: b1484776-32a5-43a1-9676-e2fa9099029e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_components
+    - node.type.page
+    - paragraphs.paragraphs_type.course_block
+    - paragraphs.paragraphs_type.events_block
+    - paragraphs.paragraphs_type.formatted_text_block
+    - paragraphs.paragraphs_type.from_library
+    - paragraphs.paragraphs_type.page_section
+    - paragraphs.paragraphs_type.related_articles
+    - paragraphs.paragraphs_type.related_people
+  module:
+    - entity_reference_revisions
+id: node.page.field_page_components
+field_name: field_page_components
+entity_type: node
+bundle: page
+label: 'Page Components'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      formatted_text_block: formatted_text_block
+      from_library: from_library
+      events_block: events_block
+      related_articles: related_articles
+      page_section: page_section
+      related_people: related_people
+      course_block: course_block
+    target_bundles_drag_drop:
+      course_block:
+        enabled: true
+        weight: 13
+      events_block:
+        enabled: true
+        weight: 7
+      formatted_text_block:
+        enabled: true
+        weight: 5
+      from_library:
+        enabled: true
+        weight: 6
+      link_block:
+        weight: 17
+        enabled: false
+      page_section:
+        enabled: true
+        weight: 8
+      photo_with_text:
+        weight: 19
+        enabled: false
+      photo_with_text_wrapper:
+        weight: 20
+        enabled: false
+      related_articles:
+        enabled: true
+        weight: 7
+      related_people:
+        enabled: true
+        weight: 8
+      stat:
+        weight: 23
+        enabled: false
+      stat_wrapper:
+        weight: 24
+        enabled: false
+field_type: entity_reference_revisions

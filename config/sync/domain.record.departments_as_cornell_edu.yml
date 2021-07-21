@@ -1,0 +1,11 @@
+uuid: feefcebf-7e10-4afd-adef-8647140b3fdf
+langcode: en
+status: true
+dependencies: {  }
+id: departments_as_cornell_edu
+domain_id: 11690857
+hostname: departments.as.cornell.edu
+name: 'A&S Departments'
+scheme: https
+weight: -53
+is_default: false

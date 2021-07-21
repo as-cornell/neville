@@ -1,0 +1,11 @@
+uuid: 92660388-cba8-433c-a6c3-4233cbb694c1
+langcode: en
+status: true
+dependencies: {  }
+id: asianamericanstudies_as_cornell_edu
+domain_id: 15683870
+hostname: asianamericanstudies.as.cornell.edu
+name: 'Asian American Studies'
+scheme: https
+weight: -42
+is_default: false

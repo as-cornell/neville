@@ -1,0 +1,11 @@
+uuid: ccb0a7d6-e96f-4034-8e39-561ec6ebad5d
+langcode: en
+status: true
+dependencies: {  }
+id: americanstudies_as_cornell_edu
+domain_id: 525818
+hostname: americanstudies.as.cornell.edu
+name: 'American Studies'
+scheme: https
+weight: -46
+is_default: false

@@ -1,0 +1,14 @@
+uuid: 6a43a8e9-e268-4edf-87bd-4cb5ceb383ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.archaeology_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.archaeology_as_cornell_edu
+label: 'Add editors to the Archaeology domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: archaeology_as_cornell_edu

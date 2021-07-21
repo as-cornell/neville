@@ -1,0 +1,11 @@
+uuid: b8a6618d-a67c-4a2a-ac14-24b9b4dda599
+langcode: en
+status: true
+dependencies: {  }
+id: latino_as_cornell_edu
+domain_id: 72193
+hostname: latino.as.cornell.edu
+name: 'Latino Studies'
+scheme: https
+weight: -18
+is_default: false

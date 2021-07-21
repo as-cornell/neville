@@ -1,0 +1,14 @@
+uuid: 107ebd70-1266-42cc-986a-6e21b136b811
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.icmdev_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.icmdev_as_cornell_edu
+label: 'Add selected content to the Institute for Comparative Modernities domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: icmdev_as_cornell_edu

@@ -1,0 +1,14 @@
+uuid: a11d3e5e-5f74-4e11-9884-fdd56283489b
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.inequality_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.inequality_as_cornell_edu
+label: 'Remove editors from the Inequality Studies domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: inequality_as_cornell_edu

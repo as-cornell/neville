@@ -1,0 +1,56 @@
+uuid: 78c2c882-6b8e-4b23-89b1-3e31629fc5a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.related_people.field_component_label
+    - field.field.paragraph.related_people.field_number_of_columns
+    - field.field.paragraph.related_people.field_people
+    - field.field.paragraph.related_people.paragraph_view_mode
+    - paragraphs.paragraphs_type.related_people
+  module:
+    - paragraph_view_mode
+id: paragraph.related_people.default
+targetEntityType: paragraph
+bundle: related_people
+mode: default
+content:
+  field_component_label:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_number_of_columns:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_people:
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  paragraph_view_mode:
+    type: paragraph_view_mode
+    weight: -100
+    settings:
+      view_modes:
+        default: Default
+        card: Card
+        card_sma: 'Card small'
+        teaser: Teaser
+      default_view_mode: default
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true

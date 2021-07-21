@@ -1,0 +1,11 @@
+uuid: b25e210c-c0b6-473f-a5f1-cb2d16e6e8ad
+langcode: en
+status: true
+dependencies: {  }
+id: medieval_as_cornell_edu
+domain_id: 14725945
+hostname: medieval.as.cornell.edu
+name: 'Medieval Studies'
+scheme: https
+weight: -12
+is_default: false

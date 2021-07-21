@@ -1,0 +1,14 @@
+uuid: 111ed6d5-4142-42ee-b2dc-76631b9ad9f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.africana_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.africana_as_cornell_edu
+label: 'Remove editors from the Africana domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: africana_as_cornell_edu

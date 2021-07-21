@@ -1,0 +1,10 @@
+uuid: c13df5c9-34c2-42c5-9e7d-420d97821553
+langcode: en
+status: true
+dependencies: {  }
+id: link_block
+label: 'Link block'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

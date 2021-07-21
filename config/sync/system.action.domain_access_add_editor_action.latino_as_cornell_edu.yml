@@ -1,0 +1,14 @@
+uuid: 6a0b400d-8215-4ba6-b0f9-4fa16f3ac1f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.latino_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.latino_as_cornell_edu
+label: 'Add editors to the Latino Studies domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: latino_as_cornell_edu

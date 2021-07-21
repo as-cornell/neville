@@ -1,0 +1,14 @@
+uuid: ea78558c-cbee-4391-bc55-b01bd2558cf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.igcs_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.igcs_as_cornell_edu
+label: 'Remove editors from the IGCS domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: igcs_as_cornell_edu

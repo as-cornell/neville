@@ -1,0 +1,22 @@
+uuid: 8315f771-9e1c-4136-81c7-5f97529a29c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.formatted_text_block.field_formatted_text
+    - paragraphs.paragraphs_type.formatted_text_block
+  module:
+    - text
+id: paragraph.formatted_text_block.default
+targetEntityType: paragraph
+bundle: formatted_text_block
+mode: default
+content:
+  field_formatted_text:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

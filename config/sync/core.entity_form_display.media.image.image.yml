@@ -1,0 +1,60 @@
+uuid: b1e24449-d62c-448b-b393-6a10e9edc69a
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_form_mode.media.image
+    - field.field.media.image.domain_access
+    - field.field.media.image.field_caption
+    - field.field.media.image.field_credit
+    - field.field.media.image.field_media_image
+    - image.style.portrait
+    - media.type.image
+  module:
+    - image_widget_crop
+_core:
+  default_config_hash: WeM0d1VqhuyGELo4SRiDJfhDQSLqfKavISEbrnlcTaE
+id: media.image.image
+targetEntityType: media
+bundle: image
+mode: image
+content:
+  field_caption:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_credit:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_media_image:
+    settings:
+      show_default_crop: true
+      warn_multiple_usages: true
+      preview_image_style: portrait
+      crop_preview_image_style: portrait
+      crop_list:
+        - portrait
+      crop_types_required:
+        - portrait
+      progress_indicator: throbber
+      show_crop_area: false
+    third_party_settings: {  }
+    type: image_widget_crop
+    weight: 0
+    region: content
+hidden:
+  created: true
+  domain_access: true
+  name: true
+  path: true
+  status: true
+  uid: true

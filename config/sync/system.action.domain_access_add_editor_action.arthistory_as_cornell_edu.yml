@@ -1,0 +1,14 @@
+uuid: 5392f65e-e6c2-4189-b0f2-9866834fe1b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.arthistory_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.arthistory_as_cornell_edu
+label: 'Add editors to the Art History domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: arthistory_as_cornell_edu

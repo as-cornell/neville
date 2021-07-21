@@ -1,0 +1,14 @@
+uuid: 05c473f2-850a-489a-98e5-796c165890b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.nbb_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.nbb_as_cornell_edu
+label: 'Remove editors from the Neurobiology and Behavior domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: nbb_as_cornell_edu

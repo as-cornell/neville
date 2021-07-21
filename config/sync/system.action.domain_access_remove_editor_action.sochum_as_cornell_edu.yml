@@ -1,0 +1,14 @@
+uuid: af8a1b5d-555d-4f7c-85cd-7d9b10b98783
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sochum_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.sochum_as_cornell_edu
+label: 'Remove editors from the Society for the Humanities domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: sochum_as_cornell_edu

@@ -1,0 +1,54 @@
+uuid: d5245842-d2d2-48a9-adfa-a900a90fd713
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.rss
+    - field.field.node.article.field_article_components
+    - field.field.node.article.field_article_view_tags
+    - field.field.node.article.field_bylines
+    - field.field.node.article.field_card_label
+    - field.field.node.article.field_dateline
+    - field.field.node.article.field_departments_programs
+    - field.field.node.article.field_domain_access
+    - field.field.node.article.field_domain_all_affiliates
+    - field.field.node.article.field_domain_source
+    - field.field.node.article.field_image
+    - field.field.node.article.field_media_sources
+    - field.field.node.article.field_newsletter_image
+    - field.field.node.article.field_page_summary
+    - field.field.node.article.field_related_articles
+    - field.field.node.article.field_related_people
+    - field.field.node.article.field_remote_uuid
+    - field.field.node.article.field_tags
+    - node.type.article
+  module:
+    - user
+_core:
+  default_config_hash: 2rIr6K5Q0UQ9khg0zE_CK-PtJH76UL-BDDZcZnZzwCc
+id: node.article.rss
+targetEntityType: node
+bundle: article
+mode: rss
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_article_components: true
+  field_article_view_tags: true
+  field_bylines: true
+  field_card_label: true
+  field_dateline: true
+  field_departments_programs: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_image: true
+  field_media_sources: true
+  field_newsletter_image: true
+  field_page_summary: true
+  field_related_articles: true
+  field_related_people: true
+  field_remote_uuid: true
+  field_tags: true

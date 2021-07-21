@@ -1,0 +1,14 @@
+uuid: 7fb44d70-5a7c-4074-829f-2bc945acb81f
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.linguistics_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.linguistics_as_cornell_edu
+label: 'Add editors to the Linguistics domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: linguistics_as_cornell_edu

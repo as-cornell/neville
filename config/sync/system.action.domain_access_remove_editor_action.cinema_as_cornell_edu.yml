@@ -1,0 +1,14 @@
+uuid: 1b7dc15d-6f13-4056-a2a9-99bc4fb1d8da
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.cinema_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.cinema_as_cornell_edu
+label: 'Remove editors from the Cinema domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: cinema_as_cornell_edu

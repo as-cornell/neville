@@ -1,0 +1,11 @@
+uuid: d3d22df3-5fb3-46d2-bb24-b5fd7c357871
+langcode: en
+status: true
+dependencies: {  }
+id: fgss_as_cornell_edu
+domain_id: 3001551
+hostname: fgss.as.cornell.edu
+name: FGSS
+scheme: https
+weight: -28
+is_default: false

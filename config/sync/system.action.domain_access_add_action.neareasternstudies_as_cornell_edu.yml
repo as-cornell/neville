@@ -1,0 +1,14 @@
+uuid: f4eb1223-a7c3-409c-af64-231ce0d387ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.neareasternstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.neareasternstudies_as_cornell_edu
+label: 'Add selected content to the Near Eastern Studies domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: neareasternstudies_as_cornell_edu

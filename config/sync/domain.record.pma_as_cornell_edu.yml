@@ -1,0 +1,11 @@
+uuid: 3c77a730-ad77-4135-b035-b2be949dd6e9
+langcode: en
+status: true
+dependencies: {  }
+id: pma_as_cornell_edu
+domain_id: 8262192
+hostname: pma.as.cornell.edu
+name: PMA
+scheme: https
+weight: -7
+is_default: false

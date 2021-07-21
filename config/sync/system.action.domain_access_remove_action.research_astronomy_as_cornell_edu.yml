@@ -1,0 +1,14 @@
+uuid: 8bd625ca-8604-4d12-917e-7dee804e6e77
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.research_astronomy_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.research_astronomy_as_cornell_edu
+label: 'Remove selected content from the Astronomy Research domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: research_astronomy_as_cornell_edu

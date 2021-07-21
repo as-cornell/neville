@@ -1,0 +1,14 @@
+uuid: dd867bed-0a1e-4340-8412-8862ad495bb0
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.anthropology_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.anthropology_as_cornell_edu
+label: 'Remove selected content from the Anthropology domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: anthropology_as_cornell_edu

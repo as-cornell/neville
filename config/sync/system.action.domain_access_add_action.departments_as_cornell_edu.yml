@@ -1,0 +1,14 @@
+uuid: db8d6909-1d7e-4078-ad7e-0972fe6b16ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.departments_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.departments_as_cornell_edu
+label: 'Add selected content to the A&amp;S Departments domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: departments_as_cornell_edu

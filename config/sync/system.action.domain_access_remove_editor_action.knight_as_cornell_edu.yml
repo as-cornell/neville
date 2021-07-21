@@ -1,0 +1,14 @@
+uuid: 907b73d5-5063-434a-965a-7ba395f54e84
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.knight_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.knight_as_cornell_edu
+label: 'Remove editors from the Knight Institute domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: knight_as_cornell_edu

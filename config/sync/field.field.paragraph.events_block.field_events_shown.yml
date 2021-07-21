@@ -1,0 +1,25 @@
+uuid: ce57cec5-180c-4dcd-ae9b-9ec43cadd55a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_events_shown
+    - paragraphs.paragraphs_type.events_block
+id: paragraph.events_block.field_events_shown
+field_name: field_events_shown
+entity_type: paragraph
+bundle: events_block
+label: 'Events Shown'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 3
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

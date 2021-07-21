@@ -1,0 +1,14 @@
+uuid: 69286eb6-e39d-4baa-8e91-ce056cbbf480
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.astronomy_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.astronomy_as_cornell_edu
+label: 'Add editors to the Astronomy domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: astronomy_as_cornell_edu

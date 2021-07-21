@@ -1,0 +1,12 @@
+uuid: 21739d00-6731-4d01-8b78-8491ce196b7a
+langcode: en
+status: true
+dependencies: {  }
+id: landscape
+label: Landscape
+description: '16:9 cropping for all landscape images including panos and newsletters.'
+aspect_ratio: '16:9'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: null
+hard_limit_height: null

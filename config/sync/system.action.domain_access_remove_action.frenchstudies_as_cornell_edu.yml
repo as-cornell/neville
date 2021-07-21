@@ -1,0 +1,14 @@
+uuid: 627bad2e-ff65-4b06-b909-1ae25f8c7899
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.frenchstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.frenchstudies_as_cornell_edu
+label: 'Remove selected content from the French Studies domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: frenchstudies_as_cornell_edu

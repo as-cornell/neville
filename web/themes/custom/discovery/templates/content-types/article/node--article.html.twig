@@ -38,7 +38,7 @@ Looks at content.field_remote_uuid
   {# {{vardumper(article)}} #}
 
 	{% if article.article_components %}
-		{% set article_components = article.article_components %}
+		{% set article_components = article.article_components%}
 	{% endif %}
 
 	{# This makes it so we can't use standard figure template #}
@@ -188,7 +188,7 @@ Looks at content.field_remote_uuid
 		</div>
 
 	  <div class="article__content">
-	    {{article_components}}
+	    {{article_components|raw}}
 	    
 	  </div>
     <div class="article__otherNews">

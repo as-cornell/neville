@@ -1,0 +1,14 @@
+uuid: b9d91388-16c7-47fc-9cdc-3ec61d7377a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.linguistics_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.linguistics_as_cornell_edu
+label: 'Remove selected content from the Linguistics domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: linguistics_as_cornell_edu

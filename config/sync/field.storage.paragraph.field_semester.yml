@@ -1,0 +1,45 @@
+uuid: a56bee8e-25da-4970-b446-ddc34df5c79f
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_semester
+field_name: field_semester
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: SP18
+      label: 'Spring 2018'
+    -
+      value: FA18
+      label: 'Fall 2018'
+    -
+      value: SP19
+      label: 'Spring 2019'
+    -
+      value: FA19
+      label: 'Fall 2019'
+    -
+      value: SP20
+      label: 'Spring 2020'
+    -
+      value: FA20
+      label: 'Fall 2020'
+    -
+      value: SP21
+      label: 'Spring 2021'
+    -
+      value: FA21
+      label: 'Fall 2021'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

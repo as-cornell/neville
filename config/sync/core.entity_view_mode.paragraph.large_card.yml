@@ -1,0 +1,10 @@
+uuid: 59bae5cc-d150-4591-9960-c7d4002c3623
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.large_card
+label: 'Large Card'
+targetEntityType: paragraph
+cache: true

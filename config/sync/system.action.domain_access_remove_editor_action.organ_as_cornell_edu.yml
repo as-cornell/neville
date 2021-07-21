@@ -1,0 +1,14 @@
+uuid: 7b414034-7843-4ad8-a3ba-060f47151360
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.organ_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.organ_as_cornell_edu
+label: 'Remove editors from the Organ domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: organ_as_cornell_edu

@@ -1,0 +1,25 @@
+uuid: 157ba150-a5ea-4eec-ae0d-6efe31bb18a3
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - discovery
+_core:
+  default_config_hash: sYjScJ6uW1UvGZ-G3AtTcZmPoOiQJtndHqamm8FAFgU
+id: discovery_site_branding
+theme: discovery
+region: header
+weight: -5
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

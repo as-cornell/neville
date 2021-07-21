@@ -1,0 +1,14 @@
+uuid: 40cd8371-6e6a-4c35-be85-7527f357ccfa
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.departments_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.departments_as_cornell_edu
+label: 'Add editors to the A&amp;S Departments domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: departments_as_cornell_edu

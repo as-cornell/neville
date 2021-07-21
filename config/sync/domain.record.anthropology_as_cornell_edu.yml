@@ -1,0 +1,11 @@
+uuid: d19eb6d1-5ba0-420c-915d-17d5ec721642
+langcode: en
+status: true
+dependencies: {  }
+id: anthropology_as_cornell_edu
+domain_id: 11557419
+hostname: anthropology.as.cornell.edu
+name: Anthropology
+scheme: https
+weight: -45
+is_default: false

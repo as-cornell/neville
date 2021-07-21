@@ -1,0 +1,19 @@
+uuid: 85ee8577-ee8e-4992-9897-685c77486bfa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_remote_uuid
+    - node.type.person
+id: node.person.field_remote_uuid
+field_name: field_remote_uuid
+entity_type: node
+bundle: person
+label: 'Remote UUID'
+description: 'UUID from person node on people.as.cornell.edu'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

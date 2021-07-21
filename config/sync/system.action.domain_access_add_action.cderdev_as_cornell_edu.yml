@@ -1,0 +1,14 @@
+uuid: 9715be4b-0361-4388-b8c3-7a682f746331
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.cderdev_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.cderdev_as_cornell_edu
+label: 'Add selected content to the CDER domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: cderdev_as_cornell_edu

@@ -1,0 +1,14 @@
+uuid: f9139fcc-766e-4b08-8a7a-3270fe2d5638
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.medieval_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.medieval_as_cornell_edu
+label: 'Add selected content to the Medieval Studies domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: medieval_as_cornell_edu

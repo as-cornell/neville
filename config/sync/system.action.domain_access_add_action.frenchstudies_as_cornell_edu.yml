@@ -1,0 +1,14 @@
+uuid: dcc583ed-d801-4c06-8a85-a79853a02acf
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.frenchstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.frenchstudies_as_cornell_edu
+label: 'Add selected content to the French Studies domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: frenchstudies_as_cornell_edu

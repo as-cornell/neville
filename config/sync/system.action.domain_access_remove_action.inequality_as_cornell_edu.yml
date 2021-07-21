@@ -1,0 +1,14 @@
+uuid: 69dd9d5f-a684-442d-9c88-6e1dd2cf8586
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.inequality_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.inequality_as_cornell_edu
+label: 'Remove selected content from the Inequality Studies domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: inequality_as_cornell_edu

@@ -1,0 +1,21 @@
+uuid: ea91f490-ae48-4c07-bbd2-36b3f7421dfe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_formatted_text
+    - paragraphs.paragraphs_type.photo_with_text
+  module:
+    - text
+id: paragraph.photo_with_text.field_formatted_text
+field_name: field_formatted_text
+entity_type: paragraph
+bundle: photo_with_text
+label: 'Text block'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

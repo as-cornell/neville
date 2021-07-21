@@ -1,0 +1,10 @@
+uuid: 6ef4e977-e997-476e-a503-a4b2ce4a7a14
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.pano_image
+label: 'Pano Image'
+targetEntityType: media
+cache: true

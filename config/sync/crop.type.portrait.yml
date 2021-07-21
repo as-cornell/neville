@@ -1,0 +1,12 @@
+uuid: bbab2a37-5878-4e6c-82e0-206eccd55e31
+langcode: en
+status: true
+dependencies: {  }
+id: portrait
+label: Portrait
+description: '4:5 crop for all portrait images. Will be default for articles, people and any other standard cards'
+aspect_ratio: '4:5'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: null
+hard_limit_height: null

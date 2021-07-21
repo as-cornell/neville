@@ -1,0 +1,14 @@
+uuid: ab428592-5987-4a1e-b821-a06a71f18cfa
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.lgbt_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.lgbt_as_cornell_edu
+label: 'Add selected content to the LGBT Studies domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: lgbt_as_cornell_edu

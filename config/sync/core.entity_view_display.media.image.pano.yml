@@ -1,0 +1,52 @@
+uuid: ef3eabe2-2fbd-4f11-bfb5-6f93a09bca77
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.pano
+    - field.field.media.image.domain_access
+    - field.field.media.image.field_caption
+    - field.field.media.image.field_credit
+    - field.field.media.image.field_media_image
+    - image.style.pano
+    - media.type.image
+  module:
+    - image
+_core:
+  default_config_hash: B1a2aBHmUulUZN6HrxITEH1tSResuVjXMBEv1lUBtOo
+id: media.image.pano
+targetEntityType: media
+bundle: image
+mode: pano
+content:
+  field_caption:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_credit:
+    type: string
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_media_image:
+    label: visually_hidden
+    settings:
+      image_style: pano
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    weight: 0
+    region: content
+hidden:
+  created: true
+  domain_access: true
+  name: true
+  thumbnail: true
+  uid: true

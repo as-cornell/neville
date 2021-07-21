@@ -1,0 +1,14 @@
+uuid: d5ddfe36-c1ce-45ed-83b0-8b0045deac86
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.asianamericanstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.asianamericanstudies_as_cornell_edu
+label: 'Add selected content to the Asian American Studies domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: asianamericanstudies_as_cornell_edu

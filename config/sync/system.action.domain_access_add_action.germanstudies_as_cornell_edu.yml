@@ -1,0 +1,14 @@
+uuid: 07ed7b1f-6452-4895-8b66-a54ce233872c
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.germanstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.germanstudies_as_cornell_edu
+label: 'Add selected content to the German Studies domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: germanstudies_as_cornell_edu

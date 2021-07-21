@@ -1,0 +1,14 @@
+uuid: 6c976eee-81df-475d-a584-8d2716331e0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.anthropology_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.anthropology_as_cornell_edu
+label: 'Add selected content to the Anthropology domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: anthropology_as_cornell_edu

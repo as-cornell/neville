@@ -1,0 +1,14 @@
+uuid: 1a1d7714-b062-45d8-90ea-6c778184c0a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.economics_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.economics_as_cornell_edu
+label: 'Remove editors from the Economics domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: economics_as_cornell_edu

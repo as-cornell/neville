@@ -1,0 +1,14 @@
+uuid: ad0ca17b-f85c-439e-bc93-3edb4a0a33a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.religiousstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.religiousstudies_as_cornell_edu
+label: 'Remove selected content from the Religious Studies domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: religiousstudies_as_cornell_edu

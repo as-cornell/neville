@@ -1,0 +1,14 @@
+uuid: 73d04414-2f07-414d-8abf-12cb075102ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.lrc_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.lrc_as_cornell_edu
+label: 'Remove selected content from the Language Resource Center domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: lrc_as_cornell_edu

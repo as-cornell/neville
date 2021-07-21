@@ -1,0 +1,14 @@
+uuid: 2184c840-499f-4d3d-94af-df033cfdda35
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.neville_lndo_site
+  module:
+    - domain_access
+id: domain_access_add_action.neville_lndo_site
+label: 'Add selected content to the Neville Lando domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: neville_lndo_site

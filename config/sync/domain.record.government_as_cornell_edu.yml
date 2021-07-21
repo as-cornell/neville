@@ -1,0 +1,11 @@
+uuid: 9a8af7b7-b7a5-4b19-906c-d4c4cb888604
+langcode: en
+status: true
+dependencies: {  }
+id: government_as_cornell_edu
+domain_id: 12250974
+hostname: government.as.cornell.edu
+name: Government
+scheme: https
+weight: -25
+is_default: false

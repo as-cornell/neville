@@ -1,0 +1,14 @@
+uuid: eddb2a45-ba53-4840-8744-c7c396a907e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.rural_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.rural_as_cornell_edu
+label: 'Remove selected content from the Rural Studies domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: rural_as_cornell_edu

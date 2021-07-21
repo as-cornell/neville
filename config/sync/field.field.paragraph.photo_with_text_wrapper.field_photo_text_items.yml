@@ -1,0 +1,55 @@
+uuid: 91ab8130-df4d-4244-b13a-285b1309f53a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_photo_text_items
+    - paragraphs.paragraphs_type.photo_with_text
+    - paragraphs.paragraphs_type.photo_with_text_wrapper
+  module:
+    - entity_reference_revisions
+id: paragraph.photo_with_text_wrapper.field_photo_text_items
+field_name: field_photo_text_items
+entity_type: paragraph
+bundle: photo_with_text_wrapper
+label: 'Photo text items'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      photo_with_text: photo_with_text
+    target_bundles_drag_drop:
+      events_block:
+        weight: 11
+        enabled: false
+      formatted_text_block:
+        weight: 12
+        enabled: false
+      from_library:
+        weight: 13
+        enabled: false
+      link_block:
+        weight: 14
+        enabled: false
+      page_section:
+        weight: 15
+        enabled: false
+      photo_with_text:
+        enabled: true
+        weight: 10
+      photo_with_text_wrapper:
+        weight: 16
+        enabled: false
+      related_articles:
+        weight: 17
+        enabled: false
+      related_people:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

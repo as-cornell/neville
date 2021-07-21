@@ -1,0 +1,22 @@
+uuid: e4c65b39-c5b5-43a3-ab13-dfd7ab3a558a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - discovery
+_core:
+  default_config_hash: KfyaTPRJEcAyy2e5AxEfWQnuHcn4WrfvcWek7lSmHZQ
+id: discovery_messages
+theme: discovery
+region: content
+weight: -4
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,14 @@
+uuid: a6875dc0-1d21-495d-97b9-ed9cbb9361b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.africana_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.africana_as_cornell_edu
+label: 'Add selected content to the Africana domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: africana_as_cornell_edu

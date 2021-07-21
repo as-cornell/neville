@@ -1,0 +1,14 @@
+uuid: 0a768bac-45a2-49a5-a68e-240dd67a6119
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.milstein_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.milstein_as_cornell_edu
+label: 'Remove selected content from the Milstein Program domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: milstein_as_cornell_edu

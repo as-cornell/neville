@@ -1,0 +1,14 @@
+uuid: 32b4fbab-4851-445f-a969-3dfff24b630b
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.milstein_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.milstein_as_cornell_edu
+label: 'Remove editors from the Milstein Program domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: milstein_as_cornell_edu

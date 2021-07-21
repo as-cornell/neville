@@ -1,0 +1,11 @@
+uuid: 206a3bf6-4a91-4f33-97fb-a8467a3c75d1
+langcode: en
+status: true
+dependencies: {  }
+id: complit_as_cornell_edu
+domain_id: 10099863
+hostname: complit.as.cornell.edu
+name: 'Comparative Literature'
+scheme: https
+weight: -32
+is_default: false

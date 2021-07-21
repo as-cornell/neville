@@ -1,0 +1,19 @@
+features:
+  node_user_picture: 0
+  comment_user_picture: false
+  comment_user_verification: false
+  favicon: 1
+logo:
+  use_default: 0
+  path: 'public://department-of-music_0.png'
+favicon:
+  use_default: 0
+  path: 'public://favicon.ico'
+  mimetype: image/vnd.microsoft.icon
+department_email: MusicAtCornell@gmail.com
+department_address: '101 Lincoln Hall / 256 Feeney Way'
+department_facebook: Cornell-Music-1417258475158487/
+department_instagram: ''
+department_twitter: CornellMusic
+department_linkedin: ''
+department_phone: 607-255-4097

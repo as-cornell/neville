@@ -1,0 +1,8 @@
+uuid: c45f1993-da0f-45fc-bab7-0ceb8c02cad2
+langcode: en
+status: true
+dependencies: {  }
+name: 'Departments and Programs'
+vid: departments_programs
+description: 'Departments and Programs in A&S'
+weight: 0

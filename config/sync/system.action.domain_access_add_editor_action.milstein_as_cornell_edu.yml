@@ -1,0 +1,14 @@
+uuid: ff06c171-e5e9-4019-9a20-5943e7772c74
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.milstein_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.milstein_as_cornell_edu
+label: 'Add editors to the Milstein Program domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: milstein_as_cornell_edu

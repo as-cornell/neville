@@ -1,0 +1,14 @@
+uuid: 9000a6b3-102a-4571-bdec-6285423a0277
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.pma_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.pma_as_cornell_edu
+label: 'Add selected content to the PMA domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: pma_as_cornell_edu

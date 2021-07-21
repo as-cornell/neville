@@ -1,0 +1,19 @@
+uuid: 3ed6c9e5-ca09-49db-8324-9951bab637e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_summary
+    - node.type.landing_page
+id: node.landing_page.field_page_summary
+field_name: field_page_summary
+entity_type: node
+bundle: landing_page
+label: 'Page Summary'
+description: 'Short summary for the page. Should include intended search terms for SEO'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

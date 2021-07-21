@@ -1,0 +1,14 @@
+uuid: 8b516f94-af3e-4a89-b9f8-46021b8b3c08
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.math_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.math_as_cornell_edu
+label: 'Add selected content to the Math domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: math_as_cornell_edu

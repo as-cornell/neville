@@ -1,0 +1,14 @@
+uuid: 6ea0222f-f7f1-435c-a9c3-a2928e8401c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.chemistry_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.chemistry_as_cornell_edu
+label: 'Add editors to the Chemistry and Chemical Biology domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: chemistry_as_cornell_edu

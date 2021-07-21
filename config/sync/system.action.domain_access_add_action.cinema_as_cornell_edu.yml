@@ -1,0 +1,14 @@
+uuid: 849f5259-4a08-41b0-96db-495f78f28649
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.cinema_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.cinema_as_cornell_edu
+label: 'Add selected content to the Cinema domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: cinema_as_cornell_edu

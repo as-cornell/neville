@@ -1,0 +1,14 @@
+uuid: d88f3b70-2d95-4fbe-beb6-2bdfa2f1f368
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.rural_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.rural_as_cornell_edu
+label: 'Add selected content to the Rural Studies domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: rural_as_cornell_edu

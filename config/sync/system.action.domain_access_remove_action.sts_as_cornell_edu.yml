@@ -1,0 +1,14 @@
+uuid: 6f78059c-6322-42b6-99db-72bd2701765d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sts_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.sts_as_cornell_edu
+label: 'Remove selected content from the Science and Technology Studies domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: sts_as_cornell_edu

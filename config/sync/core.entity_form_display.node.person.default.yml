@@ -1,0 +1,162 @@
+uuid: 9009da1e-004c-4650-8f94-17e7fd287810
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.person.field_departments_programs
+    - field.field.node.person.field_domain_access
+    - field.field.node.person.field_domain_all_affiliates
+    - field.field.node.person.field_domain_source
+    - field.field.node.person.field_link
+    - field.field.node.person.field_person_last_name
+    - field.field.node.person.field_person_type
+    - field.field.node.person.field_remote_uuid
+    - node.type.person
+  module:
+    - field_group
+    - link
+    - path
+third_party_settings:
+  field_group:
+    group_person_record:
+      children:
+        - group_filter_data
+        - group_remote_data
+        - group_domain
+      parent_name: ''
+      weight: 1
+      format_type: tabs
+      region: content
+      format_settings:
+        direction: horizontal
+        id: ''
+        classes: ''
+      label: 'Person Record'
+    group_filter_data:
+      children:
+        - field_person_type
+        - field_departments_programs
+        - field_person_last_name
+      parent_name: group_person_record
+      weight: 3
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Filter Data'
+    group_domain:
+      children:
+        - field_domain_access
+      parent_name: group_person_record
+      weight: 5
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Domain
+    group_remote_data:
+      children:
+        - field_remote_uuid
+        - field_link
+      parent_name: group_person_record
+      weight: 4
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Remote Data'
+id: node.person.default
+targetEntityType: node
+bundle: person
+mode: default
+content:
+  field_departments_programs:
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_domain_access:
+    type: options_buttons
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_link:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_person_last_name:
+    weight: 11
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_person_type:
+    weight: 9
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_remote_uuid:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  path:
+    type: path
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  promote: true
+  sticky: true
+  uid: true

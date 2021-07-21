@@ -1,0 +1,25 @@
+uuid: 488ca166-ac2d-42f9-9878-0bd2b9835900
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - seven
+id: seven_mainnavigation
+theme: seven
+region: content
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 2
+  depth: 0
+  expand_all_items: true
+visibility: {  }

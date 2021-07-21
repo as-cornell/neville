@@ -1,0 +1,25 @@
+uuid: 0da06f11-9441-4c0b-bedf-914d48bb38ce
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - discovery
+id: mainnavigation
+theme: discovery
+region: content
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 2
+  depth: 0
+  expand_all_items: true
+visibility: {  }

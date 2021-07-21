@@ -1,0 +1,14 @@
+uuid: aad4dd47-ac00-49c2-b8ce-60bb200a85a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.americanstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.americanstudies_as_cornell_edu
+label: 'Remove selected content from the American Studies domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: americanstudies_as_cornell_edu

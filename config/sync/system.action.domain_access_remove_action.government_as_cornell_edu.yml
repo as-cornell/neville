@@ -1,0 +1,14 @@
+uuid: 81111eb9-18df-4371-89b1-49bfc5479fe3
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.government_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.government_as_cornell_edu
+label: 'Remove selected content from the Government domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: government_as_cornell_edu

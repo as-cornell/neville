@@ -1,0 +1,11 @@
+uuid: 2538f75c-c4a6-419d-a779-b11014dda737
+langcode: en
+status: true
+dependencies: {  }
+id: math_as_cornell_edu
+domain_id: 10337864
+hostname: math.as.cornell.edu
+name: Math
+scheme: https
+weight: -14
+is_default: false

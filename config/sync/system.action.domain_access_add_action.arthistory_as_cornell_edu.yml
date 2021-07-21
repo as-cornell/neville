@@ -1,0 +1,14 @@
+uuid: 672d610e-a79d-4698-b214-ff4ac9008dc5
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.arthistory_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.arthistory_as_cornell_edu
+label: 'Add selected content to the Art History domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: arthistory_as_cornell_edu

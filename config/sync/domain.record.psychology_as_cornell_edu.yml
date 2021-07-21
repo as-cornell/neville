@@ -1,0 +1,11 @@
+uuid: c3e14920-9282-4038-8bbd-1557f10e6f54
+langcode: en
+status: true
+dependencies: {  }
+id: psychology_as_cornell_edu
+domain_id: 2899485
+hostname: psychology.as.cornell.edu
+name: 'Department of Psychology'
+scheme: https
+weight: -5
+is_default: false

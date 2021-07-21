@@ -1,0 +1,10 @@
+uuid: fb642000-8b6c-4348-950d-ad073bb4c004
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.newsletter_image
+label: 'Newsletter Image'
+targetEntityType: media
+cache: true

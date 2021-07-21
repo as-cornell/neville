@@ -1,0 +1,14 @@
+uuid: 002a9ce2-f07a-488a-832d-246df2e577d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.lgbt_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.lgbt_as_cornell_edu
+label: 'Remove editors from the LGBT Studies domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: lgbt_as_cornell_edu

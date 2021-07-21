@@ -1,0 +1,14 @@
+uuid: 90703ad3-9b1c-46e9-a27f-1a861ad3c6b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.philosophy_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.philosophy_as_cornell_edu
+label: 'Add editors to the Philosophy domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: philosophy_as_cornell_edu

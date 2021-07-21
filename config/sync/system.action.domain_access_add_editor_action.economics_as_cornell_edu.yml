@@ -1,0 +1,14 @@
+uuid: 54b97f27-0604-4a7c-891e-f7d4c2183abe
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.economics_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.economics_as_cornell_edu
+label: 'Add editors to the Economics domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: economics_as_cornell_edu

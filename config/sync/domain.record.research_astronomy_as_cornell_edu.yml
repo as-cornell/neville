@@ -1,0 +1,11 @@
+uuid: 596b83f2-6a20-451d-afd8-c9a015d0e80d
+langcode: en
+status: true
+dependencies: {  }
+id: research_astronomy_as_cornell_edu
+domain_id: 4165624
+hostname: research.astronomy.as.cornell.edu
+name: 'Astronomy Research'
+scheme: https
+weight: -39
+is_default: false

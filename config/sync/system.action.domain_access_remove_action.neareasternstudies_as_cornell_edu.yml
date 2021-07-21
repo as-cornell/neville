@@ -1,0 +1,14 @@
+uuid: afdb7e24-ab0e-4a30-9d7d-e0b12839f48c
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.neareasternstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.neareasternstudies_as_cornell_edu
+label: 'Remove selected content from the Near Eastern Studies domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: neareasternstudies_as_cornell_edu

@@ -1,0 +1,14 @@
+uuid: 7db9538f-4340-456d-8271-cbc814de388b
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.government_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.government_as_cornell_edu
+label: 'Add editors to the Government domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: government_as_cornell_edu

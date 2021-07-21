@@ -1,0 +1,14 @@
+uuid: ab91a02d-cac6-4021-8158-6f51e1218c46
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.complit_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.complit_as_cornell_edu
+label: 'Add selected content to the Comparative Literature domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: complit_as_cornell_edu

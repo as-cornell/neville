@@ -1,0 +1,14 @@
+uuid: 7dd56a28-3402-4e1a-a4c1-79e200487941
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.english_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.english_as_cornell_edu
+label: 'Add selected content to the English domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: english_as_cornell_edu

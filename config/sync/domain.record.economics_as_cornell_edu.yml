@@ -1,0 +1,11 @@
+uuid: 58636884-718d-4879-9869-bd41d6d26598
+langcode: en
+status: true
+dependencies: {  }
+id: economics_as_cornell_edu
+domain_id: 7840700
+hostname: economics.as.cornell.edu
+name: Economics
+scheme: https
+weight: -30
+is_default: false

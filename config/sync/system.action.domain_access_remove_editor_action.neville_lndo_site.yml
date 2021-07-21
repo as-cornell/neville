@@ -1,0 +1,14 @@
+uuid: b92db3e5-1997-43da-9a69-07e6cc551d2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.neville_lndo_site
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.neville_lndo_site
+label: 'Remove editors from the Neville Lando domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: neville_lndo_site

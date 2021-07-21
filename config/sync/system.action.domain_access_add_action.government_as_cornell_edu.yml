@@ -1,0 +1,14 @@
+uuid: eb4ddfeb-deb7-4c63-a351-5a28f435683d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.government_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.government_as_cornell_edu
+label: 'Add selected content to the Government domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: government_as_cornell_edu

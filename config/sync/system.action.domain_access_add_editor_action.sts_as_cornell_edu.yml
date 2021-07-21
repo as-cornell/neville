@@ -1,0 +1,14 @@
+uuid: 580b77cd-083a-431f-ac07-35395b0773ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sts_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.sts_as_cornell_edu
+label: 'Add editors to the Science and Technology Studies domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: sts_as_cornell_edu

@@ -1,0 +1,14 @@
+uuid: 7bd1885c-1fbc-4d51-abc2-9a90ed2a71ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.neareasternstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.neareasternstudies_as_cornell_edu
+label: 'Add editors to the Near Eastern Studies domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: neareasternstudies_as_cornell_edu

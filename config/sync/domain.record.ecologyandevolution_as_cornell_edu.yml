@@ -1,0 +1,11 @@
+uuid: 4ca5707c-755d-4812-b6e1-0be6d9f1095e
+langcode: en
+status: true
+dependencies: {  }
+id: ecologyandevolution_as_cornell_edu
+domain_id: 5857789
+hostname: ecologyandevolution.as.cornell.edu
+name: 'Ecology and Evolutionary Biology'
+scheme: https
+weight: -31
+is_default: false

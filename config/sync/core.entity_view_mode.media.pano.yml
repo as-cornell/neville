@@ -1,0 +1,10 @@
+uuid: 3dee768a-5e3d-46ac-95f1-32128a60155e
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.pano
+label: Pano
+targetEntityType: media
+cache: true

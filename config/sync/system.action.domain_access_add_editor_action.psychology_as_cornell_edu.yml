@@ -1,0 +1,14 @@
+uuid: e1b61388-adee-4795-9267-77bad0f372b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.psychology_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.psychology_as_cornell_edu
+label: 'Add editors to the Psychology domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: psychology_as_cornell_edu

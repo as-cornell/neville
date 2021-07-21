@@ -1,0 +1,14 @@
+uuid: eedb48d9-e02e-4b0f-adde-e007356933a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.english_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.english_as_cornell_edu
+label: 'Remove selected content from the English domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: english_as_cornell_edu

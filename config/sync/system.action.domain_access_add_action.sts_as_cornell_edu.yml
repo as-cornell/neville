@@ -1,0 +1,14 @@
+uuid: abcdc252-78ed-48ce-9636-df7812789790
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sts_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.sts_as_cornell_edu
+label: 'Add selected content to the Science and Technology Studies domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: sts_as_cornell_edu

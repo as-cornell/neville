@@ -1,0 +1,11 @@
+uuid: f771b137-667a-470f-b7c0-9d4792ba7f98
+langcode: en
+status: true
+dependencies: {  }
+id: inequality_as_cornell_edu
+domain_id: 8813334
+hostname: inequality.as.cornell.edu
+name: 'Inequality Studies'
+scheme: https
+weight: -22
+is_default: false

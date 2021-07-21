@@ -1,0 +1,14 @@
+uuid: af1d7616-a4de-44a5-ba3b-ca72a681ae97
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.music_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.music_as_cornell_edu
+label: 'Add selected content to the Music domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: music_as_cornell_edu

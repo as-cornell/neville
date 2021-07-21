@@ -1,0 +1,44 @@
+uuid: 21964184-6617-4cfd-94dc-ed23a1857a1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.card_small
+    - field.field.paragraph.related_people.field_component_label
+    - field.field.paragraph.related_people.field_number_of_columns
+    - field.field.paragraph.related_people.field_people
+    - field.field.paragraph.related_people.paragraph_view_mode
+    - paragraphs.paragraphs_type.related_people
+  module:
+    - options
+id: paragraph.related_people.card_small
+targetEntityType: paragraph
+bundle: related_people
+mode: card_small
+content:
+  field_component_label:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_number_of_columns:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+  field_people:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: card_small
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  paragraph_view_mode: true

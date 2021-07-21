@@ -1,0 +1,61 @@
+uuid: ccf69b06-786f-4953-ac33-16e0cde4eeac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.events_block.field_component_label
+    - field.field.paragraph.events_block.field_events_shown
+    - field.field.paragraph.events_block.field_formatted_text
+    - field.field.paragraph.events_block.field_keyword_params
+    - field.field.paragraph.events_block.field_link
+    - paragraphs.paragraphs_type.events_block
+  module:
+    - link
+    - text
+id: paragraph.events_block.default
+targetEntityType: paragraph
+bundle: events_block
+mode: default
+content:
+  field_component_label:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_events_shown:
+    weight: 1
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_formatted_text:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_keyword_params:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_link:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+hidden:
+  created: true
+  status: true

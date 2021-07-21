@@ -1,0 +1,14 @@
+uuid: 1f30b94b-172a-454b-8e6b-cc3e872df711
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.pma_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.pma_as_cornell_edu
+label: 'Remove editors from the PMA domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: pma_as_cornell_edu

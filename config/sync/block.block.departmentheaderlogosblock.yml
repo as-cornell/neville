@@ -1,0 +1,20 @@
+uuid: aa38b01b-c120-42a4-8796-065fee0cd957
+langcode: en
+status: true
+dependencies:
+  module:
+    - as_dept_site_settings
+  theme:
+    - discovery
+id: departmentheaderlogosblock
+theme: discovery
+region: header
+weight: 0
+provider: null
+plugin: department_header_logos_block
+settings:
+  id: department_header_logos_block
+  label: 'Department Header Logos Block'
+  provider: as_dept_site_settings
+  label_display: visible
+visibility: {  }

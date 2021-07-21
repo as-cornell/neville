@@ -1,0 +1,44 @@
+uuid: 66f9aea5-29d4-4767-a93e-a3cc80d3ebdd
+langcode: en
+status: true
+dependencies: {  }
+id: dept_article_image
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: dept_articles
+label: 'Import image files from D7 articles to D8'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  urls: 'https://history.cornell.edu/department-articles-export.json'
+  ids:
+    uuid:
+      type: string
+  item_selector: nodes
+  fields:
+    -
+      name: uuid
+      label: uuid
+      selector: /node/uuid
+    -
+      name: uri
+      label: Uri
+      selector: /node/field_image_uri
+    -
+      name: url
+      label: Url
+      selector: /node/field_image/src
+process:
+  uri:
+    plugin: download
+    source:
+      - url
+      - uri
+    guzzle_options:
+      base_uri: url
+destination:
+  plugin: 'entity:file'
+migration_dependencies: {  }

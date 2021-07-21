@@ -1,0 +1,10 @@
+uuid: ca5e6a22-ef53-425b-987b-c14eb0d7fbe6
+langcode: en
+status: true
+dependencies: {  }
+id: people
+label: People
+description: 'Migrate people content from Drupal 7 to Drupal 8'
+source_type: 'Drupal 7'
+module: null
+shared_configuration: null

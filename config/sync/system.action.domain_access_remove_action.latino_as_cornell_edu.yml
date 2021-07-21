@@ -1,0 +1,14 @@
+uuid: 90324017-094c-4cc3-9878-80dd82143b90
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.latino_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.latino_as_cornell_edu
+label: 'Remove selected content from the Latino Studies domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: latino_as_cornell_edu

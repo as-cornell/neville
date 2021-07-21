@@ -1,0 +1,44 @@
+uuid: 4d1092f0-32cf-432b-8dcd-06fed5786a48
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.card_small
+    - field.field.paragraph.related_articles.field_articles
+    - field.field.paragraph.related_articles.field_component_label
+    - field.field.paragraph.related_articles.field_number_of_columns
+    - field.field.paragraph.related_articles.paragraph_view_mode
+    - paragraphs.paragraphs_type.related_articles
+  module:
+    - options
+id: paragraph.related_articles.card_small
+targetEntityType: paragraph
+bundle: related_articles
+mode: card_small
+content:
+  field_articles:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: card
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_component_label:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_number_of_columns:
+    type: list_key
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  paragraph_view_mode: true

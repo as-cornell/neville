@@ -1,0 +1,14 @@
+uuid: 61fc4ded-0e97-4da9-a836-3f1577ec1cfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.philosophy_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.philosophy_as_cornell_edu
+label: 'Remove editors from the Philosophy domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: philosophy_as_cornell_edu

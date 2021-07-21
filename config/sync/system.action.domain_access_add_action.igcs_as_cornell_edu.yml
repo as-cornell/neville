@@ -1,0 +1,14 @@
+uuid: f2933bfb-57be-4543-908f-c1da42bbda08
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.igcs_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.igcs_as_cornell_edu
+label: 'Add selected content to the IGCS domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: igcs_as_cornell_edu

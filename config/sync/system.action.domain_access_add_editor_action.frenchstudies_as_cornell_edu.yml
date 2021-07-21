@@ -1,0 +1,14 @@
+uuid: 18b6a070-1ac1-4218-a747-58b1c8b52aa5
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.frenchstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.frenchstudies_as_cornell_edu
+label: 'Add editors to the French Studies domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: frenchstudies_as_cornell_edu

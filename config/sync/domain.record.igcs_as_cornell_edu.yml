@@ -1,0 +1,11 @@
+uuid: e8ed51b1-fa7d-446d-9643-7c297c79e542
+langcode: en
+status: true
+dependencies: {  }
+id: igcs_as_cornell_edu
+domain_id: 868259
+hostname: igcs.as.cornell.edu
+name: IGCS
+scheme: https
+weight: -23
+is_default: false

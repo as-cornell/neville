@@ -1,0 +1,14 @@
+uuid: 80072b92-87d2-4654-98c8-66ccfa743511
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.neville_lndo_site
+  module:
+    - domain_access
+id: domain_access_add_editor_action.neville_lndo_site
+label: 'Add editors to the Neville Lando domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: neville_lndo_site

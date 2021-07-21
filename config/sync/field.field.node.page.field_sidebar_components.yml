@@ -1,0 +1,47 @@
+uuid: 9a75b8be-27f4-4c5a-8eb8-0d7b2f296224
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sidebar_components
+    - node.type.page
+    - paragraphs.paragraphs_type.formatted_text_block
+    - paragraphs.paragraphs_type.related_articles
+    - paragraphs.paragraphs_type.related_people
+  module:
+    - entity_reference_revisions
+id: node.page.field_sidebar_components
+field_name: field_sidebar_components
+entity_type: node
+bundle: page
+label: 'Sidebar Components'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      formatted_text_block: formatted_text_block
+      related_articles: related_articles
+      related_people: related_people
+    target_bundles_drag_drop:
+      formatted_text_block:
+        enabled: true
+        weight: 6
+      from_library:
+        weight: 7
+        enabled: false
+      page_section:
+        weight: 8
+        enabled: false
+      related_articles:
+        enabled: true
+        weight: 9
+      related_people:
+        enabled: true
+        weight: 10
+field_type: entity_reference_revisions

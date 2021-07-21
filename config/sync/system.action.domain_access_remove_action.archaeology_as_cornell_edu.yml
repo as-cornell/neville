@@ -1,0 +1,14 @@
+uuid: 0127ce9f-b2d6-4902-872b-460c10ada6e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.archaeology_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.archaeology_as_cornell_edu
+label: 'Remove selected content from the Archaeology domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: archaeology_as_cornell_edu

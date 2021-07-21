@@ -1,0 +1,14 @@
+uuid: dda6d26d-6e05-45c3-8042-67061415f927
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.nbb_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.nbb_as_cornell_edu
+label: 'Add selected content to the Neurobiology and Behavior domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: nbb_as_cornell_edu

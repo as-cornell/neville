@@ -1,0 +1,36 @@
+uuid: ca254fd2-fbd7-4bb0-9e3e-32ded2fba2cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.link_block.field_component_label
+    - field.field.paragraph.link_block.field_link
+    - paragraphs.paragraphs_type.link_block
+  module:
+    - link
+id: paragraph.link_block.default
+targetEntityType: paragraph
+bundle: link_block
+mode: default
+content:
+  field_component_label:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_link:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden: {  }

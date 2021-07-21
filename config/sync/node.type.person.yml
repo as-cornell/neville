@@ -1,0 +1,17 @@
+uuid: 30b81aba-8a52-48f0-a635-33cb1ed7e544
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Person
+type: person
+description: 'Node type for displaying people data pulled via jsonapi from people.as.cornell.edu'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

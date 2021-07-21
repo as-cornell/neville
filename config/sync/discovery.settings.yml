@@ -1,0 +1,29 @@
+features:
+  node_user_picture: 0
+  comment_user_picture: false
+  comment_user_verification: false
+  favicon: 0
+logo:
+  use_default: 0
+  path: 'public://logo.png'
+favicon:
+  use_default: 0
+  path: ''
+  mimetype: image/vnd.microsoft.icon
+department_email: as_communication@cornell.edu
+department_address: 'KG17 Klarman Hall'
+department_facebook: CornellCAS
+department_instagram: cornellcas
+department_twitter: CornellCAS
+department_linkedin: CornellCAS
+department_phone: ''
+department_college_logos:
+  AS: AS
+  CALS: 0
+  ILR: 0
+  HUMEC: 0
+dept_logo_1:
+  - '31'
+dept_logo_2:
+  - '32'
+department_prefix: ''
