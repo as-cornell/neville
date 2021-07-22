@@ -26,7 +26,6 @@ class MapDomain extends ProcessPluginBase {
 
     if (!empty($value)) {
       // replace department name with domain key
-      //$deptname = explode(',', $value)[0];
       $deptnames = explode(', ', $value);
       //dump($deptnames);
       foreach ($deptnames as $key =>$deptname)
@@ -49,7 +48,7 @@ class MapDomain extends ProcessPluginBase {
     catch (\Exception $e) {
       throw new MigrateException('Invalid department name.');
     }
-    dump($domainmap);
+    //dump($domainmap);
     return $domainmap;
   }
 }
