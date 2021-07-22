@@ -1,0 +1,11 @@
+uuid: 27a094c7-1709-489d-9244-c8259c0c9ab6
+langcode: en
+status: true
+dependencies: {  }
+id: mediastudies_as_cornell_edu
+domain_id: 5894865
+hostname: mediastudiesdev.as.cornell.edu
+name: 'Media Studies'
+scheme: https
+weight: -13
+is_default: false

@@ -1,0 +1,11 @@
+uuid: b2a0f7d8-51c2-4eb6-96fa-f3a73f832f05
+langcode: en
+status: true
+dependencies: {  }
+id: english_as_cornell_edu
+domain_id: 12076181
+hostname: english.as.cornell.edu
+name: English
+scheme: https
+weight: -29
+is_default: false

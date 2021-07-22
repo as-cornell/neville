@@ -1,0 +1,11 @@
+uuid: d940fe71-6402-4a35-908d-47ad684c1a0f
+langcode: en
+status: true
+dependencies: {  }
+id: nbb_as_cornell_edu
+domain_id: 3166996
+hostname: nbb.as.cornell.edu
+name: 'Neurobiology and Behavior'
+scheme: https
+weight: -8
+is_default: false

@@ -1,0 +1,17 @@
+uuid: 020d4e28-b4bd-42eb-9f0a-dda59e5d9cba
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:e0323d81-8a6d-491e-9b22-5bfede046564'
+  module:
+    - paragraph_view_mode
+third_party_settings:
+  paragraph_view_mode:
+    enabled: false
+id: formatted_text_block
+label: 'Formatted Text Block'
+icon_uuid: e0323d81-8a6d-491e-9b22-5bfede046564
+icon_default: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAYFBMVEX///8AAAD8/Pz39/fs7OweHh6RkZETExMhISHr6+vv7+/o6OjLy8s8PDwQEBChoaF3d3e5ublDQ0MzMzOcnJyHh4cICAhYWFgnJyddXV1jY2MsLCzf399TU1OBgYGKiorfbJj8AAADT0lEQVR4nO3d61KjMACG4UrpYWlLT1arVr3/u3TXEdoqIQdIw7e+z89dIXmnzgiEaUYjAAAAAAAAAAB+qXFqcfOK9dPxLq3j07qIF7h+SJz3ZR2pL9ukLqttsiiF76m7LrzHCFymrrqyjFD4mDrqymP/gYvUTd8sei/cpk76Ztt74X116nI+SWdeVtO4771wWp36UOTpFIdqGtN4hf2feiDToPBGKBzmqQcyDQpv5OaFhbPv9+Zj90MTFi6f5zNXq+nlPV02XTkfOX9etk8jXqHnperu4mw7v0O3bdOIV5jP/KZ5Mamp/YevzPIkhd53Gw/1ybyf92zN04hY6PtB3N3VJ/M+8uegFFJI4dW/zObtWgotR87Mg9608FD8aZGfn2H9LFzkbYc23NGnKbQN1lIYb1B/4YNlLYWWp/MU9opCMwqjDBrgFxUeisUn58fPfRR6DxrgvG5RrSG4LiF0KAwfNEDL3aBlGahDYfigAVrWDy1LeR0KwwcNYVwDti3HdigMHzSEcR3ftqTepTB40CCH5rEOtuO6FJpeALEOGqT5fRr7qy2dCkMHDbT+8fzwweH1pE6FTYOWsd6JGn2+17av/yKV++d1bj+ma2HYoB1crDc4vibYtTBo0JvqoXDgKNRHoT4K9VGoj0J9FOqjUB+F+ijUR6E+CvVRqI9CfRTqo1Afhfoo1EehPgr1UaiPQn0U6qNQH4X6KNRHoT4K9VGoj0J9FOqjUB+F+ijUR6E+CvVRqI9CfRTqo1Afhfoo1EehPgr1UaiPQn0U6qNQ3/9f2GGPkkHLCq99Zgq1T3O52b147RX0sttE+YruSE6Gr1Kvf6D5vx9PCefsZWnaVK/+CcP/lyIf46k0BNj37Co1PsVX0/wddiV7TThvZ8Yv+3fa/1Dh97Txi/A/uexhuUk4c1d70+Sd9iHdJ5u3s/GxmqzXXrLVQcchfqv8tWJSTXbhsR9wfd0zKRrPOiTnQp/rsIzCAaGwGYVDQmEzzcJF7k7p7+H5mmbiQ+iaxnxd6kTgurTl3sKFwr2F+f7QhcL9Ycs9vp3EPf7o1KEwwr6NMYT/nkr8jv5zegrq03le+tfybWV8ptioXL3JfIBfsrEftXULAAAAAAAAAABu7gMsA0CQctxBSQAAAABJRU5ErkJggg=='
+description: 'Formatted Text Block for use in page components.'
+behavior_plugins: {  }

@@ -1,0 +1,14 @@
+uuid: aa32ccec-6633-4944-9d63-c95946e3bace
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.africana_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.africana_as_cornell_edu
+label: 'Add editors to the Africana domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: africana_as_cornell_edu

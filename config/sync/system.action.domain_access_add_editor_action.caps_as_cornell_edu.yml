@@ -1,0 +1,14 @@
+uuid: 7c7e10ad-61b5-4d8e-a6e8-71e670b3cd0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.caps_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.caps_as_cornell_edu
+label: 'Add editors to the CAPS domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: caps_as_cornell_edu

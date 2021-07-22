@@ -1,0 +1,34 @@
+uuid: 13653459-67d9-45e6-bf3c-35c1404fe464
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.link_block.field_component_label
+    - field.field.paragraph.link_block.field_link
+    - paragraphs.paragraphs_type.link_block
+  module:
+    - link
+id: paragraph.link_block.default
+targetEntityType: paragraph
+bundle: link_block
+mode: default
+content:
+  field_component_label:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_link:
+    weight: 1
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,14 @@
+uuid: 8eec618b-b3f4-4e19-b6f4-b70e0141fae2
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.arthistory_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.arthistory_as_cornell_edu
+label: 'Remove selected content from the Art History domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: arthistory_as_cornell_edu

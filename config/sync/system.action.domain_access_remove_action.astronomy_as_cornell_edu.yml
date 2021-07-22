@@ -1,0 +1,14 @@
+uuid: c035e881-5aa3-4fef-8a62-c7da69e12626
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.astronomy_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.astronomy_as_cornell_edu
+label: 'Remove selected content from the Astronomy domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: astronomy_as_cornell_edu

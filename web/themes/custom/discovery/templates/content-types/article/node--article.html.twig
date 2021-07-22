@@ -36,7 +36,7 @@ Looks at content.field_remote_uuid
 	{% set title = article.title %}
 
 	{% if article.article_components %}
-		{% set article_components = article.article_components %}
+		{% set article_components = article.article_components%}
 	{% endif %}
 
 	{# card label #}
@@ -48,7 +48,7 @@ Looks at content.field_remote_uuid
 	{# dateline #}
 	{% if article.dateline %}
 	  {% set show_dateline = true %}
-	  {% set dateline = article.dateline %}
+	  {% set dateline = article.dateline|date("n/d/Y") %}
 	{% endif %}
 
 	{# bylines #}
@@ -186,7 +186,7 @@ setting image
 		</div>
 
 	  <div class="article__content">
-	    {{article_components}}
+	    {{article_components|raw}}
 	    
 	  </div>
     <div class="article__otherNews">

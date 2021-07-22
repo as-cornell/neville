@@ -1,0 +1,10 @@
+uuid: 337c8b71-71d3-4439-a876-69e7f7ee4373
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.portrait
+label: Portrait
+targetEntityType: media
+cache: true

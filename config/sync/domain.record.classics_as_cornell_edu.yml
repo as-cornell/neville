@@ -1,0 +1,11 @@
+uuid: f5531a35-c25c-483d-bcea-49f0d1a33f86
+langcode: en
+status: true
+dependencies: {  }
+id: classics_as_cornell_edu
+domain_id: 11380089
+hostname: classics.as.cornell.edu
+name: Classics
+scheme: https
+weight: -34
+is_default: false

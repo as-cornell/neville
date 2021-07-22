@@ -1,0 +1,21 @@
+uuid: ce277dad-1722-4d76-b384-70ade5cbd7f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_order
+    - paragraphs.paragraphs_type.course_block
+  module:
+    - options
+id: paragraph.course_block.field_list_order
+field_name: field_list_order
+entity_type: paragraph
+bundle: course_block
+label: 'List Order'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

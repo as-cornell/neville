@@ -1,0 +1,14 @@
+uuid: 7a5ad303-d4d3-4d2d-9fb2-620cf46e054c
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.religiousstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.religiousstudies_as_cornell_edu
+label: 'Add selected content to the Religious Studies domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: religiousstudies_as_cornell_edu

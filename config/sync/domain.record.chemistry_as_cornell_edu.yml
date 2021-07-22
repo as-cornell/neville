@@ -1,0 +1,11 @@
+uuid: 77f7f4a1-b361-4e64-8320-d722c89901af
+langcode: en
+status: true
+dependencies: {  }
+id: chemistry_as_cornell_edu
+domain_id: 3776129
+hostname: chemistry.as.cornell.edu
+name: 'Chemistry and Chemical Biology'
+scheme: https
+weight: -36
+is_default: false

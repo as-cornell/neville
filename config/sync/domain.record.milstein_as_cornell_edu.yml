@@ -1,0 +1,11 @@
+uuid: 9a595be7-5539-4aa1-aecf-87f113261552
+langcode: en
+status: true
+dependencies: {  }
+id: milstein_as_cornell_edu
+domain_id: 3223960
+hostname: milstein.as.cornell.edu
+name: 'Milstein Program'
+scheme: https
+weight: -11
+is_default: false

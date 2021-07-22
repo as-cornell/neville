@@ -1,0 +1,10 @@
+uuid: 054151ee-447d-4af8-9cd3-67bc239b6099
+langcode: en
+status: true
+dependencies: {  }
+id: as_articles
+label: 'A&S Articles'
+description: 'Migrate articles authored by A&S Communications staff from Drupal 8'
+source_type: 'Drupal 8'
+module: null
+shared_configuration: null

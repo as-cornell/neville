@@ -1,0 +1,14 @@
+uuid: 9ca98b6b-7bde-4923-9ce0-f36c180d6013
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.cinema_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.cinema_as_cornell_edu
+label: 'Remove selected content from the Cinema domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: cinema_as_cornell_edu

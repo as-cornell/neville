@@ -1,0 +1,30 @@
+uuid: 6b3b5493-f4cf-4096-b923-46e2fefe0e45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.departments_programs.field_domain_access_target_id
+    - taxonomy.vocabulary.departments_programs
+  module:
+    - text
+id: taxonomy_term.departments_programs.default
+targetEntityType: taxonomy_term
+bundle: departments_programs
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_domain_access_target_id:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

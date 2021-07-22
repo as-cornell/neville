@@ -1,0 +1,29 @@
+uuid: c21566b7-a41a-4dc3-9bcc-b15dd319fecc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.photo_with_text_wrapper.field_photo_text_items
+    - paragraphs.paragraphs_type.photo_with_text_wrapper
+  module:
+    - paragraphs
+id: paragraph.photo_with_text_wrapper.default
+targetEntityType: paragraph
+bundle: photo_with_text_wrapper
+mode: default
+content:
+  field_photo_text_items:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true

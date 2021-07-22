@@ -1,0 +1,10 @@
+uuid: f29e828a-e6f9-423f-82e7-3452dd81186c
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.landscape
+label: Landscape
+targetEntityType: media
+cache: true

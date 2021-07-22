@@ -1,0 +1,14 @@
+uuid: 1622f808-1c8a-46be-ad55-27e9298c83b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.music_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.music_as_cornell_edu
+label: 'Remove selected content from the Music domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: music_as_cornell_edu

@@ -1,0 +1,22 @@
+uuid: dad47a13-6d96-4644-9cc7-9690f7d189c4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - discovery
+_core:
+  default_config_hash: XMsRP1YhWAcorbrFWZglMYJ_SgWHyF3fyCh5vDXaUN4
+id: discovery_breadcrumbs
+theme: discovery
+region: content
+weight: -2
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,14 @@
+uuid: fd6e4529-1a2b-4c1e-b8c3-a225445c6440
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.departments_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.departments_as_cornell_edu
+label: 'Remove editors from the A&amp;S Departments domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: departments_as_cornell_edu

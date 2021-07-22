@@ -1,0 +1,8 @@
+uuid: 37d8b337-8ac4-4af0-bdab-f01957f1e002
+langcode: en
+status: true
+dependencies: {  }
+name: 'Person Type'
+vid: person_type
+description: 'Used to categorize Person content type'
+weight: 0

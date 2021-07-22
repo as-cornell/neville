@@ -1,0 +1,14 @@
+uuid: 5f7da722-18f1-4d93-91ea-a32c4dc52e5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.fgss_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.fgss_as_cornell_edu
+label: 'Add selected content to the FGSS domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: fgss_as_cornell_edu

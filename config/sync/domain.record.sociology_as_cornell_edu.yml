@@ -1,0 +1,11 @@
+uuid: f15f2b93-b91e-455b-9f6e-e9827862416c
+langcode: en
+status: true
+dependencies: {  }
+id: sociology_as_cornell_edu
+domain_id: 3203346
+hostname: sociology.as.cornell.edu
+name: Sociology
+scheme: https
+weight: -2
+is_default: false

@@ -1,0 +1,10 @@
+uuid: 9fc711b4-2910-4750-a85a-836dcdbe2700
+langcode: en
+status: true
+dependencies: {  }
+id: photo_with_text_wrapper
+label: 'Photo with text wrapper'
+icon_uuid: null
+icon_default: null
+description: 'Add a block of photo with text elements'
+behavior_plugins: {  }

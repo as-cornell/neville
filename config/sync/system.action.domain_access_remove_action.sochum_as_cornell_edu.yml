@@ -1,0 +1,14 @@
+uuid: 7ea253de-0500-4a12-9cd4-6086464915b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sochum_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.sochum_as_cornell_edu
+label: 'Remove selected content from the Society for the Humanities domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: sochum_as_cornell_edu

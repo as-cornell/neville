@@ -1,0 +1,78 @@
+uuid: 465760dd-acf5-4859-870e-5275d1a758df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_components
+    - node.type.landing_page
+    - paragraphs.paragraphs_type.course_block
+    - paragraphs.paragraphs_type.formatted_text_block
+    - paragraphs.paragraphs_type.link_block
+    - paragraphs.paragraphs_type.page_section
+    - paragraphs.paragraphs_type.photo_with_text_wrapper
+    - paragraphs.paragraphs_type.related_articles
+    - paragraphs.paragraphs_type.related_people
+    - paragraphs.paragraphs_type.stat_wrapper
+  module:
+    - entity_reference_revisions
+id: node.landing_page.field_page_components
+field_name: field_page_components
+entity_type: node
+bundle: landing_page
+label: 'Page Components'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      formatted_text_block: formatted_text_block
+      link_block: link_block
+      page_section: page_section
+      related_articles: related_articles
+      related_people: related_people
+      course_block: course_block
+      photo_with_text_wrapper: photo_with_text_wrapper
+      stat_wrapper: stat_wrapper
+    target_bundles_drag_drop:
+      course_block:
+        enabled: true
+        weight: 13
+      events_block:
+        weight: 9
+        enabled: false
+      formatted_text_block:
+        enabled: true
+        weight: 6
+      from_library:
+        weight: 7
+        enabled: false
+      link_block:
+        enabled: true
+        weight: 8
+      page_section:
+        enabled: true
+        weight: 8
+      photo_with_text:
+        weight: 19
+        enabled: false
+      photo_with_text_wrapper:
+        enabled: true
+        weight: 20
+      related_articles:
+        enabled: true
+        weight: 9
+      related_people:
+        enabled: true
+        weight: 10
+      stat:
+        weight: 23
+        enabled: false
+      stat_wrapper:
+        enabled: true
+        weight: 24
+field_type: entity_reference_revisions

@@ -1,0 +1,14 @@
+uuid: 52431f89-ecf1-4642-8d6c-67a1d5ef385a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.chemistry_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.chemistry_as_cornell_edu
+label: 'Remove editors from the Chemistry and Chemical Biology domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: chemistry_as_cornell_edu

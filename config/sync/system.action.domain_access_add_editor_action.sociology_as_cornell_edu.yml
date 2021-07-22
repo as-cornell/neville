@@ -1,0 +1,14 @@
+uuid: b72b3a47-b206-4640-b299-18112e493756
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sociology_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.sociology_as_cornell_edu
+label: 'Add editors to the Sociology domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: sociology_as_cornell_edu

@@ -1,0 +1,69 @@
+uuid: 95658cb7-6bd3-4a7d-81e2-b93b7b030f84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_components
+    - paragraphs.paragraphs_type.formatted_text_block
+    - paragraphs.paragraphs_type.link_block
+    - paragraphs.paragraphs_type.page_section
+    - paragraphs.paragraphs_type.related_articles
+    - paragraphs.paragraphs_type.related_people
+    - paragraphs.paragraphs_type.stat_wrapper
+  module:
+    - entity_reference_revisions
+id: paragraph.page_section.field_section_components
+field_name: field_section_components
+entity_type: paragraph
+bundle: page_section
+label: 'Section Components'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      formatted_text_block: formatted_text_block
+      link_block: link_block
+      related_articles: related_articles
+      related_people: related_people
+      stat_wrapper: stat_wrapper
+    target_bundles_drag_drop:
+      events_block:
+        weight: 9
+        enabled: false
+      formatted_text_block:
+        enabled: true
+        weight: 6
+      from_library:
+        weight: 7
+        enabled: false
+      link_block:
+        enabled: true
+        weight: 8
+      page_section:
+        weight: 8
+        enabled: false
+      photo_with_text:
+        weight: 18
+        enabled: false
+      photo_with_text_wrapper:
+        weight: 19
+        enabled: false
+      related_articles:
+        enabled: true
+        weight: 9
+      related_people:
+        enabled: true
+        weight: 10
+      stat:
+        weight: 22
+        enabled: false
+      stat_wrapper:
+        enabled: true
+        weight: 12
+field_type: entity_reference_revisions

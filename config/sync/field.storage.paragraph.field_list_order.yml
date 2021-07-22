@@ -1,0 +1,27 @@
+uuid: 0660f83d-bcc7-428a-809a-1c58d7143a4d
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_list_order
+field_name: field_list_order
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: ordered
+      label: Ordered
+    -
+      value: random
+      label: Random
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

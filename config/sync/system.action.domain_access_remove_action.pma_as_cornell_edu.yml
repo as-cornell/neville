@@ -1,0 +1,14 @@
+uuid: c719c2b0-e07d-4dff-bf9c-b314a1e65e4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.pma_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.pma_as_cornell_edu
+label: 'Remove selected content from the PMA domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: pma_as_cornell_edu

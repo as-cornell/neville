@@ -1,0 +1,14 @@
+uuid: 74b0d728-4911-4163-a561-22a40ba11c02
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.archaeology_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.archaeology_as_cornell_edu
+label: 'Add selected content to the Archaeology domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: archaeology_as_cornell_edu

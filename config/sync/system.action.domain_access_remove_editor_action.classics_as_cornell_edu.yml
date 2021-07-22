@@ -1,0 +1,14 @@
+uuid: 1cc7c482-42c4-476b-aaec-516abadd31c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.classics_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.classics_as_cornell_edu
+label: 'Remove editors from the Classics domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: classics_as_cornell_edu

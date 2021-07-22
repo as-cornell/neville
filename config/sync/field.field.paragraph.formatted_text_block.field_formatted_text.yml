@@ -1,0 +1,21 @@
+uuid: 71f9fe52-4cf1-49e1-9221-08d48b65cd8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_formatted_text
+    - paragraphs.paragraphs_type.formatted_text_block
+  module:
+    - text
+id: paragraph.formatted_text_block.field_formatted_text
+field_name: field_formatted_text
+entity_type: paragraph
+bundle: formatted_text_block
+label: 'Formatted Text'
+description: 'Just the text.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

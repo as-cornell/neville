@@ -1,0 +1,14 @@
+uuid: aafec520-2974-4649-8793-775ea603b962
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.cogsci_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.cogsci_as_cornell_edu
+label: 'Remove editors from the A&amp;S Departments domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: cogsci_as_cornell_edu

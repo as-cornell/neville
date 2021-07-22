@@ -1,0 +1,10 @@
+uuid: 22761826-77ae-4646-8cc3-951b63c49d63
+langcode: en
+status: true
+dependencies: {  }
+id: dept_articles
+label: 'Department Articles'
+description: 'Migrate articles authored by department staff from Drupal 7 department sites and articles authored by A&S Communications staff from Drupal 8'
+source_type: 'Drupal 7'
+module: null
+shared_configuration: null

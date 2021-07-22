@@ -1,0 +1,14 @@
+uuid: 7e0f00ac-f631-4b70-8772-33704ba09899
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.fgss_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.fgss_as_cornell_edu
+label: 'Remove editors from the FGSS domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: fgss_as_cornell_edu

@@ -1,0 +1,14 @@
+uuid: c61b7873-baae-4e51-8d10-7748b97ddb01
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.religiousstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.religiousstudies_as_cornell_edu
+label: 'Add editors to the Religious Studies domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: religiousstudies_as_cornell_edu

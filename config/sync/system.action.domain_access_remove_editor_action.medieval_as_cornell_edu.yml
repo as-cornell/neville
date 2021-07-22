@@ -1,0 +1,14 @@
+uuid: 7561699a-8bc1-4539-9f6c-a0918f110e78
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.medieval_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.medieval_as_cornell_edu
+label: 'Remove editors from the Medieval Studies domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: medieval_as_cornell_edu

@@ -1,0 +1,14 @@
+uuid: fad216c7-b6bf-4748-86c0-5e613905f6d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sct_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.sct_as_cornell_edu
+label: 'Remove selected content from the SCT domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: sct_as_cornell_edu

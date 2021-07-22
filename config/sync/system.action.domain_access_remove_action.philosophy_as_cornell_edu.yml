@@ -1,0 +1,14 @@
+uuid: ea6472cd-7d2c-4dce-9223-46a70235228f
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.philosophy_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.philosophy_as_cornell_edu
+label: 'Remove selected content from the Philosophy domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: philosophy_as_cornell_edu

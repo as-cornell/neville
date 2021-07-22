@@ -1,0 +1,11 @@
+uuid: 1c8b07f8-3a7c-41fb-b265-d4a3ec688b74
+langcode: en
+status: true
+dependencies: {  }
+id: music_as_cornell_edu
+domain_id: 16563497
+hostname: music.as.cornell.edu
+name: Music
+scheme: https
+weight: -9
+is_default: false

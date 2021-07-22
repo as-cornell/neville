@@ -1,0 +1,14 @@
+uuid: 878ba701-f995-4f8a-b87a-82b46f28d668
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.asianstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.asianstudies_as_cornell_edu
+label: 'Remove editors from the Asian Studies domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: asianstudies_as_cornell_edu

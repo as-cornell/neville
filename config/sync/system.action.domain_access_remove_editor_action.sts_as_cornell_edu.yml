@@ -1,0 +1,14 @@
+uuid: 852ab7dc-03fb-42f4-b01a-b0a2c2b52bb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sts_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.sts_as_cornell_edu
+label: 'Remove editors from the Science and Technology Studies domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: sts_as_cornell_edu

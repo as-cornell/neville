@@ -1,0 +1,137 @@
+# Migration configuration for imported articles.
+id: as_article_node
+label: Migrate articles from as.cornell.edu to departments.as.cornell.edu.
+migration_group: dept_articles
+migration_dependencies: {}
+
+destination:
+  plugin: entity:node
+
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: json
+  urls: https://as.cornell.edu/department-article-stubs-rest
+
+  ids:
+    uuid:
+      type: string
+
+  item_selector: /
+
+  fields:
+    -
+      name: uuid
+      label: 'Uuid'
+      selector: uuid
+    -
+      name: title
+      label: 'Title'
+      selector: title
+    -
+      name: created
+      label: 'Created'
+      selector: created
+    -
+      name: changed
+      label: 'Changed'
+      selector: changed
+    -
+      name: status
+      label: 'Status'
+      selector: status
+    -
+      name: path
+      label: 'Path'
+      selector: path
+    -
+      name: summary
+      label: 'Summary'
+      selector: summary
+    -
+      name: field_related_people
+      label: 'Related People'
+      selector: field_related_people
+    -
+      name: field_related_articles
+      label: 'Related Articles'
+      selector: field_related_articles
+    -
+      name: field_departments_programs
+      label: 'Departments and Programs'
+      selector: field_departments_programs
+    -
+      name: field_article_view_tags
+      label: 'Tags'
+      selector: field_article_view_tags
+
+
+process:
+  type:
+    plugin: default_value
+    default_value: article
+  field_remote_uuid: uuid
+  title: title
+  created: created
+  changed: changed
+  path: path
+  field_page_summary: summary
+  field_related_people:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_related_people
+    -
+      plugin: explode
+      delimiter: ', '
+    -
+      plugin: entity_lookup
+      access_check: false
+      entity_type: node
+      bundle: person
+  field_related_articles:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_related_articles
+    -
+      plugin: explode
+      delimiter: ', '
+    -
+      plugin: entity_lookup
+      access_check: false
+      entity_type: node
+      bundle: article
+  field_article_view_tags:
+    plugin: entity_generate
+    source: field_article_view_tags
+    value_key: name
+    bundle: article_view_tags
+    entity_type: taxonomy_term
+    ignore_case: true
+  field_departments_programs:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_departments_programs
+    -
+      plugin: explode
+      delimiter: ', '
+    -
+      plugin: entity_generate
+      entity_type: taxonomy_term
+      bundle: departments_programs
+      value_key: name
+  'field_domain_access/target_id':
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_departments_programs
+    -
+      plugin: explode
+      delimiter: ', '
+    -
+      plugin: mapdomain
+  uid:
+    plugin: default_value
+    default_value: 1

@@ -1,0 +1,12 @@
+uuid: 4a83bcf9-a516-4c72-9043-0e6b0c626f4a
+langcode: en
+status: true
+dependencies: {  }
+id: square
+label: Square
+description: '1:1 image cropping for special use cases'
+aspect_ratio: '1:1'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: null
+hard_limit_height: null

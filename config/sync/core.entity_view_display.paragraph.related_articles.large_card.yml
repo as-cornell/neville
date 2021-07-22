@@ -1,0 +1,29 @@
+uuid: 8fec0479-a85e-44d2-920c-96423bacb655
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.large_card
+    - field.field.paragraph.related_articles.field_articles
+    - field.field.paragraph.related_articles.field_component_label
+    - field.field.paragraph.related_articles.field_number_of_columns
+    - field.field.paragraph.related_articles.paragraph_view_mode
+    - paragraphs.paragraphs_type.related_articles
+id: paragraph.related_articles.large_card
+targetEntityType: paragraph
+bundle: related_articles
+mode: large_card
+content:
+  field_articles:
+    weight: 0
+    label: above
+    settings:
+      view_mode: card
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  field_component_label: true
+  field_number_of_columns: true
+  paragraph_view_mode: true

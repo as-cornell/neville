@@ -1,0 +1,14 @@
+uuid: 9ee33a50-3549-4d73-a681-3c779259fb2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sct_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.sct_as_cornell_edu
+label: 'Add selected content to the SCT domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: sct_as_cornell_edu

@@ -1,0 +1,19 @@
+uuid: ee85865b-507b-4c26-aa63-762b422b7acd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_keyword_params
+    - paragraphs.paragraphs_type.course_block
+id: paragraph.course_block.field_keyword_params
+field_name: field_keyword_params
+entity_type: paragraph
+bundle: course_block
+label: 'Keyword Params'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

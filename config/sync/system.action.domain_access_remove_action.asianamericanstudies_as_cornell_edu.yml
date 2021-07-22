@@ -1,0 +1,14 @@
+uuid: 4059e6d4-31ee-4c7a-bfe9-0a00cc742cff
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.asianamericanstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.asianamericanstudies_as_cornell_edu
+label: 'Remove selected content from the Asian American Studies domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: asianamericanstudies_as_cornell_edu

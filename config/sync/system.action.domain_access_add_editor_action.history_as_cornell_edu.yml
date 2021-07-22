@@ -1,0 +1,14 @@
+uuid: c7a75c27-612d-4e7e-9ca2-3edc6e041a98
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.history_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.history_as_cornell_edu
+label: 'Add editors to the History domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: history_as_cornell_edu

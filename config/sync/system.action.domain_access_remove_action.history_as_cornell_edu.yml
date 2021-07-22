@@ -1,0 +1,14 @@
+uuid: dac7b9bf-c4c3-4ebf-9449-0e0424043317
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.history_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.history_as_cornell_edu
+label: 'Remove selected content from the History domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: history_as_cornell_edu

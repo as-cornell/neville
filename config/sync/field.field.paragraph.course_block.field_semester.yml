@@ -1,0 +1,21 @@
+uuid: a8af631e-1ae8-4ebd-8f39-206f62cc7278
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_semester
+    - paragraphs.paragraphs_type.course_block
+  module:
+    - options
+id: paragraph.course_block.field_semester
+field_name: field_semester
+entity_type: paragraph
+bundle: course_block
+label: Semester
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

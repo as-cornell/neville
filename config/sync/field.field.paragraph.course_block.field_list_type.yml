@@ -1,0 +1,23 @@
+uuid: 57588288-79f8-4984-aa81-f4b86aedb838
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_type
+    - paragraphs.paragraphs_type.course_block
+  module:
+    - paragraph_view_mode
+id: paragraph.course_block.field_list_type
+field_name: field_list_type
+entity_type: paragraph
+bundle: course_block
+label: 'List type'
+description: 'Should this be a hilighted card list, or a full, sortable table?'
+required: true
+translatable: false
+default_value:
+  -
+    value: default
+default_value_callback: ''
+settings: {  }
+field_type: paragraph_view_mode

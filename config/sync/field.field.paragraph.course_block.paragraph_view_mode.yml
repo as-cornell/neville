@@ -1,0 +1,21 @@
+uuid: 2c2f6258-6f75-4bdf-8efa-047bf17e91ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.paragraph_view_mode
+    - paragraphs.paragraphs_type.course_block
+  module:
+    - paragraph_view_mode
+id: paragraph.course_block.paragraph_view_mode
+field_name: paragraph_view_mode
+entity_type: paragraph
+bundle: course_block
+label: 'Layout type'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: paragraph_view_mode

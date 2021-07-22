@@ -1,0 +1,42 @@
+uuid: 902aa172-bcd6-4bb4-9695-034835306b2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.media_entity_browser
+  module:
+    - entity_browser_entity_form
+    - views
+name: landscape_entity_browser
+label: 'Landscape Entity Browser'
+display: modal
+display_configuration:
+  width: ''
+  height: ''
+  link_text: 'Chose image'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  c7e9b79f-4788-49f6-954b-187c1fe97953:
+    settings:
+      entity_type: media
+      bundle: image
+      form_mode: landscape
+      submit_text: 'Save image'
+    uuid: c7e9b79f-4788-49f6-954b-187c1fe97953
+    weight: -10
+    label: 'Add new landscape image'
+    id: entity_form
+  a6f4aa60-62b5-4e3d-9da7-dca3e2fd31aa:
+    settings:
+      view: media_entity_browser
+      view_display: entity_browser_2
+      submit_text: 'Select image'
+      auto_select: false
+    uuid: a6f4aa60-62b5-4e3d-9da7-dca3e2fd31aa
+    weight: -9
+    label: 'Use existing landscape image'
+    id: view

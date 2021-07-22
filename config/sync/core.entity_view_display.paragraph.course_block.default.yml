@@ -1,0 +1,92 @@
+uuid: 045f9027-cee6-4821-b83e-c9fd179ae3c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.course_block.field_component_label
+    - field.field.paragraph.course_block.field_courses_shown
+    - field.field.paragraph.course_block.field_formatted_text
+    - field.field.paragraph.course_block.field_keyword_params
+    - field.field.paragraph.course_block.field_link
+    - field.field.paragraph.course_block.field_list_order
+    - field.field.paragraph.course_block.field_list_type
+    - field.field.paragraph.course_block.field_semester
+    - field.field.paragraph.course_block.paragraph_view_mode
+    - paragraphs.paragraphs_type.course_block
+  module:
+    - link
+    - options
+    - paragraph_view_mode
+    - text
+id: paragraph.course_block.default
+targetEntityType: paragraph
+bundle: course_block
+mode: default
+content:
+  field_component_label:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_courses_shown:
+    weight: 2
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_formatted_text:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_keyword_params:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_link:
+    weight: 6
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_list_order:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_list_type:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: paragraph_view_mode
+    region: content
+  field_semester:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden:
+  paragraph_view_mode: true

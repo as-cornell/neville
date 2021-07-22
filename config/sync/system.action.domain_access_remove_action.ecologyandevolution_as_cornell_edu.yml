@@ -1,0 +1,14 @@
+uuid: 279de619-cebe-4bce-9e25-72b6994e0a6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.ecologyandevolution_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.ecologyandevolution_as_cornell_edu
+label: 'Remove selected content from the Ecology and Evolutionary Biology domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: ecologyandevolution_as_cornell_edu

@@ -1,0 +1,14 @@
+uuid: 73c9a24a-abac-429a-9d98-ad9396f3a323
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.classics_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.classics_as_cornell_edu
+label: 'Add selected content to the Classics domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: classics_as_cornell_edu

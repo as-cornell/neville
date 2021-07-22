@@ -1,0 +1,21 @@
+uuid: bedf2e88-cd36-4502-a230-c8ea56c4ae7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_formatted_text
+    - paragraphs.paragraphs_type.events_block
+  module:
+    - text
+id: paragraph.events_block.field_formatted_text
+field_name: field_formatted_text
+entity_type: paragraph
+bundle: events_block
+label: 'Formatted Text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

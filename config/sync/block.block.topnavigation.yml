@@ -1,0 +1,37 @@
+uuid: 1dd1fc0f-1073-4738-b627-a58aba71ebdb
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.top-nav
+  module:
+    - domain
+    - system
+  theme:
+    - discovery
+id: topnavigation
+theme: discovery
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:top-nav'
+settings:
+  id: 'system_menu_block:top-nav'
+  label: 'Top navigation'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  domain:
+    id: domain
+    domains:
+      departments_as_cornell_edu: departments_as_cornell_edu
+      economics_as_cornell_edu: economics_as_cornell_edu
+      history_as_cornell_edu: history_as_cornell_edu
+      psychology_as_cornell_edu: psychology_as_cornell_edu
+      neville_lndo_site: neville_lndo_site
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'

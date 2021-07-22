@@ -1,0 +1,14 @@
+uuid: f4cfcfe9-594a-4568-b6cd-4f40016617bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.neville_lndo_site
+  module:
+    - domain_access
+id: domain_access_remove_action.neville_lndo_site
+label: 'Remove selected content from the Neville Lando domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: neville_lndo_site

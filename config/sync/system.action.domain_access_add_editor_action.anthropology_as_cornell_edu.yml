@@ -1,0 +1,14 @@
+uuid: ca58bffb-25e4-4321-b8f7-453f635c087a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.anthropology_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.anthropology_as_cornell_edu
+label: 'Add editors to the Anthropology domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: anthropology_as_cornell_edu

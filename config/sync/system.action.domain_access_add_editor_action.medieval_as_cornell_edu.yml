@@ -1,0 +1,14 @@
+uuid: 23c5e32a-a3f7-4daf-ade3-c2b65b62013a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.medieval_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.medieval_as_cornell_edu
+label: 'Add editors to the Medieval Studies domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: medieval_as_cornell_edu

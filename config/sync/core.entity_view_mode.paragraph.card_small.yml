@@ -1,0 +1,10 @@
+uuid: b19223e6-849c-4cd5-a3f8-bb6211c95ba5
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.card_small
+label: 'Card small'
+targetEntityType: paragraph
+cache: true

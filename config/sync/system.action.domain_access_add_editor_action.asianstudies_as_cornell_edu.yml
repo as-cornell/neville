@@ -1,0 +1,14 @@
+uuid: 35687a6f-604f-4f5e-a01e-c75106f5020f
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.asianstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.asianstudies_as_cornell_edu
+label: 'Add editors to the Asian Studies domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: asianstudies_as_cornell_edu

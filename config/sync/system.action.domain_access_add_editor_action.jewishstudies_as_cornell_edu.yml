@@ -1,0 +1,14 @@
+uuid: 186bafbc-c3ab-4fe2-baf7-ddea8454c74f
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.jewishstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.jewishstudies_as_cornell_edu
+label: 'Add editors to the Jewish Studies domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: jewishstudies_as_cornell_edu

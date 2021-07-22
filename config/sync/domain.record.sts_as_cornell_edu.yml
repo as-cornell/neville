@@ -1,0 +1,11 @@
+uuid: 4820dffa-90bd-4b56-a482-fe0a042a3792
+langcode: en
+status: true
+dependencies: {  }
+id: sts_as_cornell_edu
+domain_id: 4092023
+hostname: sts.as.cornell.edu
+name: 'Science and Technology Studies'
+scheme: https
+weight: -3
+is_default: false

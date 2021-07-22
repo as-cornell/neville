@@ -1,0 +1,11 @@
+uuid: 26ba63a7-90fe-44ff-9dcb-44cb84e414f2
+langcode: en
+status: true
+dependencies: {  }
+id: germanstudies_as_cornell_edu
+domain_id: 8975321
+hostname: germanstudies.as.cornell.edu
+name: 'German Studies'
+scheme: https
+weight: -26
+is_default: false

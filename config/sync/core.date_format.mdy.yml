@@ -1,0 +1,8 @@
+uuid: c576266f-4e95-43c3-b4e2-831273552026
+langcode: en
+status: true
+dependencies: {  }
+id: mdy
+label: MDY
+locked: false
+pattern: n/d/Y

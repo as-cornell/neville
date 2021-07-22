@@ -1,0 +1,14 @@
+uuid: 2230a4ce-7158-4bdc-8c27-68a3d9d4245f
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.psychology_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.psychology_as_cornell_edu
+label: 'Add selected content to the Psychology domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: psychology_as_cornell_edu

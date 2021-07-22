@@ -1,0 +1,14 @@
+uuid: 177a5f5a-18c9-44a1-aa89-137fd6cb21b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.astronomy_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.astronomy_as_cornell_edu
+label: 'Add selected content to the Astronomy domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: astronomy_as_cornell_edu

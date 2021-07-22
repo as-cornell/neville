@@ -1,0 +1,14 @@
+uuid: d317b02c-9a01-469e-9b89-3e79dc48cf77
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.romancestudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.romancestudies_as_cornell_edu
+label: 'Remove selected content from the Romance Studies domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: romancestudies_as_cornell_edu

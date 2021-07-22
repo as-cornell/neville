@@ -1,0 +1,8 @@
+uuid: a2c9bc80-eeb3-41fa-ae13-c75f169fa6bd
+langcode: en
+status: true
+dependencies: {  }
+name: 'Article View Tags'
+vid: article_view_tags
+description: 'Tags used to create ad-hoc lists of articles'
+weight: 0

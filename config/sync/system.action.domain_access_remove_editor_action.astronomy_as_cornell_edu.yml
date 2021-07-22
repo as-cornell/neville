@@ -1,0 +1,14 @@
+uuid: 0587aa2e-d50b-4777-8a3a-6129f8c07505
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.astronomy_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.astronomy_as_cornell_edu
+label: 'Remove editors from the Astronomy domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: astronomy_as_cornell_edu

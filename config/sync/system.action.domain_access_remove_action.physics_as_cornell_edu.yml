@@ -1,0 +1,14 @@
+uuid: e29ba8c3-de6c-4a05-b08e-9233c4cdc5da
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.physics_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.physics_as_cornell_edu
+label: 'Remove selected content from the Physics domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: physics_as_cornell_edu

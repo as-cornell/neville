@@ -1,0 +1,14 @@
+uuid: e462dbb9-db23-447a-8690-cdc4cf4247cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.caps_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.caps_as_cornell_edu
+label: 'Remove editors from the CAPS domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: caps_as_cornell_edu

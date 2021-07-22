@@ -1,0 +1,14 @@
+uuid: db4aa8b1-38d0-44a1-a73d-e7c5f1893ce4
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.math_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.math_as_cornell_edu
+label: 'Remove editors from the Math domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: math_as_cornell_edu

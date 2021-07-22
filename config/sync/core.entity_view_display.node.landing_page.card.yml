@@ -1,0 +1,37 @@
+uuid: 306ebe3e-02e8-41ff-9431-2f151f820e1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.landing_page.body
+    - field.field.node.landing_page.field_domain_access
+    - field.field.node.landing_page.field_domain_all_affiliates
+    - field.field.node.landing_page.field_domain_source
+    - field.field.node.landing_page.field_page_components
+    - field.field.node.landing_page.field_page_summary
+    - node.type.landing_page
+  module:
+    - entity_reference_revisions
+    - user
+id: node.landing_page.card
+targetEntityType: node
+bundle: landing_page
+mode: card
+content:
+  field_page_components:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  body: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_page_summary: true
+  links: true

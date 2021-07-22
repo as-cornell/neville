@@ -1,0 +1,14 @@
+uuid: 713b2994-1138-4717-b658-bec3875a1094
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.romancestudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.romancestudies_as_cornell_edu
+label: 'Add selected content to the Romance Studies domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: romancestudies_as_cornell_edu

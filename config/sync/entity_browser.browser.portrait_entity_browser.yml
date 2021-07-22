@@ -1,0 +1,42 @@
+uuid: 59fccf75-d666-4125-87be-bcd9f39744aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.media_entity_browser
+  module:
+    - entity_browser_entity_form
+    - views
+name: portrait_entity_browser
+label: 'Portrait Entity Browser'
+display: modal
+display_configuration:
+  width: ''
+  height: ''
+  link_text: 'Choose image'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  9b9fbc2a-88b7-4fb7-bc66-b86614e41818:
+    settings:
+      entity_type: media
+      bundle: image
+      form_mode: portrait
+      submit_text: 'Save image'
+    uuid: 9b9fbc2a-88b7-4fb7-bc66-b86614e41818
+    weight: 1
+    label: 'Add new portrait image'
+    id: entity_form
+  df5c1100-9fd5-4f93-972b-b36304b24214:
+    settings:
+      view: media_entity_browser
+      view_display: entity_browser_3
+      submit_text: 'Select image'
+      auto_select: false
+    uuid: df5c1100-9fd5-4f93-972b-b36304b24214
+    weight: 2
+    label: 'Use existing portrait image'
+    id: view

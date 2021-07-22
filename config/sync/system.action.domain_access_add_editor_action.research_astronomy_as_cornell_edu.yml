@@ -1,0 +1,14 @@
+uuid: 771bbc97-e8b9-4334-9601-61f23c5a6081
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.research_astronomy_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.research_astronomy_as_cornell_edu
+label: 'Add editors to the Astronomy Research domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: research_astronomy_as_cornell_edu

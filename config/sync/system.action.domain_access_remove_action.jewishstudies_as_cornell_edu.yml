@@ -1,0 +1,14 @@
+uuid: 8cc4fc44-66fb-478b-bebe-66a96f716d4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.jewishstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.jewishstudies_as_cornell_edu
+label: 'Remove selected content from the Jewish Studies domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: jewishstudies_as_cornell_edu

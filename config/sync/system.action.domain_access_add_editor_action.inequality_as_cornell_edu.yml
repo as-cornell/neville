@@ -1,0 +1,14 @@
+uuid: 717a6bc7-b964-4b12-b586-6ab1ea277731
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.inequality_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.inequality_as_cornell_edu
+label: 'Add editors to the Inequality Studies domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: inequality_as_cornell_edu

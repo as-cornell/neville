@@ -1,0 +1,11 @@
+uuid: b0a85054-391b-4f74-8764-7f3ed384ede3
+langcode: en
+status: true
+dependencies: {  }
+id: sagan_as_cornell_edu
+domain_id: 5063850
+hostname: sagan.as.cornell.edu
+name: 'Carl Sagan Institute'
+scheme: https
+weight: -3
+is_default: false

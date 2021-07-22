@@ -1,0 +1,14 @@
+uuid: a8c0a617-3c9f-4a78-add4-9f821f33c4db
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.lrc_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.lrc_as_cornell_edu
+label: 'Add editors to the Language Resource Center domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: lrc_as_cornell_edu

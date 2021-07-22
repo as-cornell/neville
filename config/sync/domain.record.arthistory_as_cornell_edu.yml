@@ -1,0 +1,11 @@
+uuid: a0e160a0-8e49-4920-ba41-b4dc1c644610
+langcode: en
+status: true
+dependencies: {  }
+id: arthistory_as_cornell_edu
+domain_id: 8895738
+hostname: arthistory.as.cornell.edu
+name: 'Art History'
+scheme: https
+weight: -43
+is_default: false

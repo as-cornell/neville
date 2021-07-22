@@ -1,0 +1,14 @@
+uuid: 2690d5c3-e6bd-483f-8a40-bf68b4178084
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sociology_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.sociology_as_cornell_edu
+label: 'Remove selected content from the Sociology domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: sociology_as_cornell_edu

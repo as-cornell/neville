@@ -1,0 +1,14 @@
+uuid: 418e2050-9e18-446d-bddf-ab93e07b06da
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.psychology_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.psychology_as_cornell_edu
+label: 'Remove selected content from the Psychology domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: psychology_as_cornell_edu

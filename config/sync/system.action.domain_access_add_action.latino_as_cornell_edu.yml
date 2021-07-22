@@ -1,0 +1,14 @@
+uuid: 4564adb9-2dcb-4f90-8946-a94170355bda
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.latino_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.latino_as_cornell_edu
+label: 'Add selected content to the Latino Studies domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: latino_as_cornell_edu

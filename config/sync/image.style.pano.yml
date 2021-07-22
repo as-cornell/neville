@@ -1,0 +1,17 @@
+uuid: 98dbdca6-655c-4e65-a479-2b21f649dea0
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.landscape
+  module:
+    - crop
+name: pano
+label: Pano
+effects:
+  d51ff911-18c3-41d5-8a63-cde1c3322894:
+    uuid: d51ff911-18c3-41d5-8a63-cde1c3322894
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: landscape

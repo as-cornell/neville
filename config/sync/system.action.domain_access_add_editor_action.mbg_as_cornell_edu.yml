@@ -1,0 +1,14 @@
+uuid: f18f6745-431e-48f3-ad90-e9d48b46d37c
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mbg_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.mbg_as_cornell_edu
+label: 'Add editors to the Molecular Biology and Genetics domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: mbg_as_cornell_edu

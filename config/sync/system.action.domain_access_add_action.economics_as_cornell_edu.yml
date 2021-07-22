@@ -1,0 +1,14 @@
+uuid: c72e358c-b203-4c80-99c9-61bfd424184d
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.economics_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.economics_as_cornell_edu
+label: 'Add selected content to the Economics domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: economics_as_cornell_edu

@@ -1,0 +1,14 @@
+uuid: b183d437-62cf-46cf-a7f9-d778798c0a60
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mbg_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.mbg_as_cornell_edu
+label: 'Remove selected content from the Molecular Biology and Genetics domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: mbg_as_cornell_edu

@@ -1,0 +1,14 @@
+uuid: d58e178f-329a-4982-8863-ff9ef9b3efb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.inequality_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.inequality_as_cornell_edu
+label: 'Add selected content to the Inequality Studies domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: inequality_as_cornell_edu

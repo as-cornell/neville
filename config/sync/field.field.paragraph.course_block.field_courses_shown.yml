@@ -1,0 +1,23 @@
+uuid: e4c5ec2d-a5b0-4f86-a62d-6a2caafb0f7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_courses_shown
+    - paragraphs.paragraphs_type.course_block
+id: paragraph.course_block.field_courses_shown
+field_name: field_courses_shown
+entity_type: paragraph
+bundle: course_block
+label: 'Number of Courses Shown'
+description: 'To show entire list of courses leave empty.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

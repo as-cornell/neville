@@ -1,0 +1,14 @@
+uuid: 9ed8a0fd-e853-45a0-a98d-29033f5cfab2
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.arthistory_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.arthistory_as_cornell_edu
+label: 'Remove editors from the Art History domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: arthistory_as_cornell_edu

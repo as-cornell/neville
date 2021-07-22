@@ -1,0 +1,23 @@
+uuid: 93d2b1e7-5187-4771-bec3-b05a1d36e86e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link
+    - paragraphs.paragraphs_type.stat
+  module:
+    - link
+id: paragraph.stat.field_link
+field_name: field_link
+entity_type: paragraph
+bundle: stat
+label: 'Non-content link'
+description: 'Use only for items that are not basic pages, landing pages or articles. Links to things like views, or (gasp) external documents use this. Try the other one first. DON''T do both and only put one in.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

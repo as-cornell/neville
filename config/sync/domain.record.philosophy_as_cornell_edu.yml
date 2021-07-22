@@ -1,0 +1,11 @@
+uuid: a638eb88-8ef3-464e-aaaa-5b85ebb4496e
+langcode: en
+status: true
+dependencies: {  }
+id: philosophy_as_cornell_edu
+domain_id: 10002460
+hostname: philosophy.as.cornell.edu
+name: Philosophy
+scheme: https
+weight: -7
+is_default: false

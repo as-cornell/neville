@@ -1,0 +1,20 @@
+uuid: 161edf74-3125-4140-beaf-4e04529ea7cf
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+  theme:
+    - seven
+id: seven_userlogin
+theme: seven
+region: header
+weight: -4
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  provider: user
+  label_display: visible
+visibility: {  }

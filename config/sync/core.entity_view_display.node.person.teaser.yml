@@ -1,0 +1,36 @@
+uuid: 185b5b61-08b0-41d1-89f4-059f2e2eaf8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.person.field_departments_programs
+    - field.field.node.person.field_domain_access
+    - field.field.node.person.field_domain_all_affiliates
+    - field.field.node.person.field_domain_source
+    - field.field.node.person.field_link
+    - field.field.node.person.field_person_last_name
+    - field.field.node.person.field_person_type
+    - field.field.node.person.field_remote_uuid
+    - node.type.person
+  module:
+    - user
+id: node.person.teaser
+targetEntityType: node
+bundle: person
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_departments_programs: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_link: true
+  field_person_last_name: true
+  field_person_type: true
+  field_remote_uuid: true

@@ -1,0 +1,14 @@
+uuid: 82f4e459-7cae-4b12-aa5a-d427876e987f
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.icmdev_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.icmdev_as_cornell_edu
+label: 'Remove editors from the Institute for Comparative Modernities domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: icmdev_as_cornell_edu

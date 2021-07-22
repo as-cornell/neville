@@ -1,0 +1,14 @@
+uuid: 96f7af33-411a-4c3f-937c-ec7428d8e4ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.organ_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.organ_as_cornell_edu
+label: 'Remove selected content from the Organ domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: organ_as_cornell_edu

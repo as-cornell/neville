@@ -1,0 +1,22 @@
+uuid: 1918198d-f87f-48ee-8c4c-5151474ab066
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.pano.field_pano
+    - paragraphs.paragraphs_type.pano
+id: paragraph.pano.default
+targetEntityType: paragraph
+bundle: pano
+mode: default
+content:
+  field_pano:
+    type: entity_reference_entity_view
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden: {  }

@@ -1,0 +1,14 @@
+uuid: 62c085c5-fd96-4a61-b5b8-26c1eba511cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.igcs_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.igcs_as_cornell_edu
+label: 'Add editors to the IGCS domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: igcs_as_cornell_edu

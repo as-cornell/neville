@@ -1,0 +1,14 @@
+uuid: d9dfc9aa-268d-4955-9566-ae5d4927a6cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.nbb_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.nbb_as_cornell_edu
+label: 'Remove selected content from the Neurobiology and Behavior domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: nbb_as_cornell_edu

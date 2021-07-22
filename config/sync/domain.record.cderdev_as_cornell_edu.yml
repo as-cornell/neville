@@ -1,0 +1,11 @@
+uuid: dc1745b8-33c8-422a-a2f9-90250885dc01
+langcode: en
+status: true
+dependencies: {  }
+id: cderdev_as_cornell_edu
+domain_id: 194230
+hostname: cderdev.as.cornell.edu
+name: CDER
+scheme: https
+weight: -37
+is_default: false

@@ -1,0 +1,14 @@
+uuid: 6b257719-b759-4399-be93-7f4f9b9a8366
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.romancestudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.romancestudies_as_cornell_edu
+label: 'Remove editors from the Romance Studies domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: romancestudies_as_cornell_edu

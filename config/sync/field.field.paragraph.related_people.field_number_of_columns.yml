@@ -1,0 +1,21 @@
+uuid: 42129e4c-b24a-427a-8f75-0d593fa4cb0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_number_of_columns
+    - paragraphs.paragraphs_type.related_people
+  module:
+    - options
+id: paragraph.related_people.field_number_of_columns
+field_name: field_number_of_columns
+entity_type: paragraph
+bundle: related_people
+label: 'Number of columns'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,14 @@
+uuid: eba2a38a-b9a4-4570-8873-0d71d6b918df
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.philosophy_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.philosophy_as_cornell_edu
+label: 'Add selected content to the Philosophy domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: philosophy_as_cornell_edu

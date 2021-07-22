@@ -1,0 +1,111 @@
+uuid: be5dbaef-63c1-4e32-885e-e926e0b9b9cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.image.domain_access
+    - field.field.media.image.field_caption
+    - field.field.media.image.field_credit
+    - field.field.media.image.field_media_image
+    - image.style.thumbnail
+    - media.type.image
+  module:
+    - field_group
+    - image_widget_crop
+third_party_settings:
+  field_group:
+    group_domain:
+      children:
+        - domain_access
+        - field_domain
+      parent_name: group_image_tabs
+      weight: 5
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Domain
+    group_image_tabs:
+      children:
+        - group_image
+        - group_domain
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: 'Image Tabs'
+    group_image:
+      children:
+        - field_media_image
+        - field_caption
+        - field_credit
+      parent_name: group_image_tabs
+      weight: 4
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Image
+_core:
+  default_config_hash: WeM0d1VqhuyGELo4SRiDJfhDQSLqfKavISEbrnlcTaE
+id: media.image.default
+targetEntityType: media
+bundle: image
+mode: default
+content:
+  domain_access:
+    type: options_buttons
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_caption:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_credit:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_media_image:
+    settings:
+      show_default_crop: true
+      warn_multiple_usages: true
+      preview_image_style: thumbnail
+      crop_preview_image_style: crop_thumbnail
+      crop_list:
+        - landscape
+        - portrait
+      progress_indicator: throbber
+      crop_types_required: {  }
+      show_crop_area: false
+    third_party_settings: {  }
+    type: image_widget_crop
+    weight: 3
+    region: content
+hidden:
+  created: true
+  name: true
+  path: true
+  status: true
+  uid: true

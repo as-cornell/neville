@@ -1,0 +1,14 @@
+uuid: 913616f4-5e8b-4416-8cf1-54aa2c8b060b
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.history_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.history_as_cornell_edu
+label: 'Remove editors from the History domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: history_as_cornell_edu

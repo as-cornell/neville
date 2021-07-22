@@ -31,6 +31,7 @@
         "drupal/entity_usage": "^2.0@beta",
         "drupal/field_group": "^3.1",
         "drupal/image_widget_crop": "^2.3",
+        "drupal/jquery_ui_accordion": "^1.1",
         "drupal/media_entity_browser": "^2.0@alpha",
         "drupal/menu_item_extras": "^2.15",
         "drupal/migrate_tools": "^5.0",

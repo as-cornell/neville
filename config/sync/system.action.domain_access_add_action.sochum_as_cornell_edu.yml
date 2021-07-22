@@ -1,0 +1,14 @@
+uuid: 4a2e266d-01ba-4dad-b2dd-ce7f7e491b0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sochum_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.sochum_as_cornell_edu
+label: 'Add selected content to the Society for the Humanities domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: sochum_as_cornell_edu

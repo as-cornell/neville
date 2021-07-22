@@ -1,0 +1,44 @@
+uuid: 6413c349-feec-4bca-bd81-6f890e956420
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.paragraphs_library_browser
+  module:
+    - entity_browser_entity_form
+    - views
+_core:
+  default_config_hash: hL10O_U8EaCNhab9aVtHZVC9bUAvPGeOQOVh9K1yyls
+name: paragraphs_library_items
+label: 'Paragraphs library items'
+display: iframe
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Select Existing Page Components'
+  auto_open: true
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  19e5e98c-307e-437a-b850-0fab163d7fec:
+    settings:
+      view: paragraphs_library_browser
+      view_display: entity_browser
+      submit_text: 'Select Page Component'
+      auto_select: false
+    uuid: 19e5e98c-307e-437a-b850-0fab163d7fec
+    weight: 1
+    label: 'Available Page Components'
+    id: view
+  432788eb-c688-4e1f-acbb-017f51b32aa9:
+    settings:
+      entity_type: paragraphs_library_item
+      bundle: paragraphs_library_item
+      form_mode: default
+      submit_text: 'Save entity'
+    uuid: 432788eb-c688-4e1f-acbb-017f51b32aa9
+    weight: 2
+    label: entity_form
+    id: entity_form

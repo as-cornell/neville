@@ -1,0 +1,14 @@
+uuid: e2fbfb8c-baed-4c91-914e-155397a554dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.lrc_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.lrc_as_cornell_edu
+label: 'Add selected content to the Language Resource Center domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: lrc_as_cornell_edu

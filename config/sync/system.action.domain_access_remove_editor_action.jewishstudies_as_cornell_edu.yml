@@ -1,0 +1,14 @@
+uuid: 3c919b5e-135a-4d4d-82de-591cc99537e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.jewishstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.jewishstudies_as_cornell_edu
+label: 'Remove editors from the Jewish Studies domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: jewishstudies_as_cornell_edu

@@ -1,0 +1,14 @@
+uuid: af266111-0f16-4507-a0e9-545f2783fac5
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.cogsci_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.cogsci_as_cornell_edu
+label: 'Add editors to the A&amp;S Departments domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: cogsci_as_cornell_edu

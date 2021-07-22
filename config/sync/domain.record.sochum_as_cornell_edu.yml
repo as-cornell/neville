@@ -1,0 +1,11 @@
+uuid: 18974198-3bdc-4519-8ce0-7d519f4650e1
+langcode: en
+status: true
+dependencies: {  }
+id: sochum_as_cornell_edu
+domain_id: 7875904
+hostname: sochum.as.cornell.edu
+name: 'Society for the Humanities'
+scheme: https
+weight: -3
+is_default: false

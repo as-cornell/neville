@@ -1,0 +1,14 @@
+uuid: 2a652fdd-0732-4c48-998a-e24521a1fa2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.english_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.english_as_cornell_edu
+label: 'Add editors to the English domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: english_as_cornell_edu

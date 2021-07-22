@@ -1,0 +1,14 @@
+uuid: b64f1422-66c8-4744-b24f-32d5a653efea
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.neareasternstudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.neareasternstudies_as_cornell_edu
+label: 'Remove editors from the Near Eastern Studies domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: neareasternstudies_as_cornell_edu

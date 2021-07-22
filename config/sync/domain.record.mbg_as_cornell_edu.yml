@@ -1,0 +1,11 @@
+uuid: 30a67c12-ed8f-4abb-8381-b4cf7e31194b
+langcode: en
+status: true
+dependencies: {  }
+id: mbg_as_cornell_edu
+domain_id: 13268756
+hostname: mbg.as.cornell.edu
+name: 'Molecular Biology and Genetics'
+scheme: https
+weight: -10
+is_default: false

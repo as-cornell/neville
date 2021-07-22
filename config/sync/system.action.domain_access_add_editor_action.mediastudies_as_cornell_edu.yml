@@ -1,0 +1,14 @@
+uuid: a2008884-d328-4ef0-9334-2e1d52184870
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mediastudies_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.mediastudies_as_cornell_edu
+label: 'Add editors to the A&amp;S Departments domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: mediastudies_as_cornell_edu

@@ -1,0 +1,14 @@
+uuid: 6e4219c5-2222-42d9-aba3-02c53b555025
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.complit_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.complit_as_cornell_edu
+label: 'Remove editors from the Comparative Literature domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: complit_as_cornell_edu

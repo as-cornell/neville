@@ -1,0 +1,14 @@
+uuid: ee7c7cfd-ea76-4032-abc5-4dbc60d3f137
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.chemistry_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.chemistry_as_cornell_edu
+label: 'Add selected content to the Chemistry and Chemical Biology domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: chemistry_as_cornell_edu

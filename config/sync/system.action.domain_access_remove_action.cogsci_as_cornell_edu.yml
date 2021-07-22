@@ -1,0 +1,14 @@
+uuid: 879d7bc8-65b3-4adc-9aa1-932a03ed5caf
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.cogsci_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.cogsci_as_cornell_edu
+label: 'Remove selected content from the A&amp;S Departments domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: cogsci_as_cornell_edu

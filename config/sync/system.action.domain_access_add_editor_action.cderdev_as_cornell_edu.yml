@@ -1,0 +1,14 @@
+uuid: 0f286bb9-e20a-4bd7-a22a-48ba296e3738
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.cderdev_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.cderdev_as_cornell_edu
+label: 'Add editors to the CDER domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: cderdev_as_cornell_edu

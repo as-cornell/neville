@@ -1,0 +1,11 @@
+uuid: 4f31bdf3-d60c-4e0b-a653-dfb052189314
+langcode: en
+status: true
+dependencies: {  }
+id: rural_as_cornell_edu
+domain_id: 3944222
+hostname: ruraldev.as.cornell.edu
+name: 'Rural Studies'
+scheme: https
+weight: -3
+is_default: false

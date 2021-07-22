@@ -1,0 +1,11 @@
+uuid: 02374bfb-07fe-4c44-a2f1-0af4963b1548
+langcode: en
+status: true
+dependencies: {  }
+id: physics_as_cornell_edu
+domain_id: 1924884
+hostname: physics.as.cornell.edu
+name: Physics
+scheme: https
+weight: -6
+is_default: false

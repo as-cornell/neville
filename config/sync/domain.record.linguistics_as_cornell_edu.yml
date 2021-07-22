@@ -1,0 +1,11 @@
+uuid: 4884ad53-6658-4a73-a6f6-7b2d17d190aa
+langcode: en
+status: true
+dependencies: {  }
+id: linguistics_as_cornell_edu
+domain_id: 3732232
+hostname: linguistics.as.cornell.edu
+name: Linguistics
+scheme: https
+weight: -16
+is_default: false

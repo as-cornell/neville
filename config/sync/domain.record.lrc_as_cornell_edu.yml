@@ -1,0 +1,11 @@
+uuid: ee9b1d88-92ba-482c-9765-c53de650a829
+langcode: en
+status: true
+dependencies: {  }
+id: lrc_as_cornell_edu
+domain_id: 3167583
+hostname: lrc.as.cornell.edu
+name: 'Language Resource Center'
+scheme: https
+weight: -15
+is_default: false

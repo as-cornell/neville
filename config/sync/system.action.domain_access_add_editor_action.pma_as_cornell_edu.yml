@@ -1,0 +1,14 @@
+uuid: 21810474-3f97-478d-b5a9-e12b463f210a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.pma_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.pma_as_cornell_edu
+label: 'Add editors to the PMA domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: pma_as_cornell_edu

@@ -1,0 +1,11 @@
+uuid: 96b3460e-99d1-44ce-b833-78964478233f
+langcode: en
+status: true
+dependencies: {  }
+id: lgbt_as_cornell_edu
+domain_id: 13343235
+hostname: lgbt.as.cornell.edu
+name: 'LGBT Studies'
+scheme: https
+weight: -17
+is_default: false

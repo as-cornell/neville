@@ -1,0 +1,14 @@
+uuid: 2f461742-3c2d-4d90-b238-3f0bbae1f815
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.igcs_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.igcs_as_cornell_edu
+label: 'Remove selected content from the IGCS domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: igcs_as_cornell_edu

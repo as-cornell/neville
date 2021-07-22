@@ -1,0 +1,14 @@
+uuid: 2c238e51-fd5c-4c89-aedd-05c04e87f649
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.linguistics_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.linguistics_as_cornell_edu
+label: 'Add selected content to the Linguistics domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: linguistics_as_cornell_edu

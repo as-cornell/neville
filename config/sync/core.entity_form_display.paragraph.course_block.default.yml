@@ -1,0 +1,90 @@
+uuid: bdd9d4c9-9c30-4d39-b152-e35ac4806c5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.course_block.field_component_label
+    - field.field.paragraph.course_block.field_courses_shown
+    - field.field.paragraph.course_block.field_formatted_text
+    - field.field.paragraph.course_block.field_keyword_params
+    - field.field.paragraph.course_block.field_link
+    - field.field.paragraph.course_block.field_list_order
+    - field.field.paragraph.course_block.field_list_type
+    - field.field.paragraph.course_block.field_semester
+    - field.field.paragraph.course_block.paragraph_view_mode
+    - paragraphs.paragraphs_type.course_block
+  module:
+    - link
+    - paragraph_view_mode
+    - text
+id: paragraph.course_block.default
+targetEntityType: paragraph
+bundle: course_block
+mode: default
+content:
+  field_component_label:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_courses_shown:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_formatted_text:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_keyword_params:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_link:
+    weight: 7
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_list_order:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_semester:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  paragraph_view_mode:
+    type: paragraph_view_mode
+    weight: 1
+    settings:
+      view_modes:
+        default: Default
+        cards: Cards
+        list: List
+      default_view_mode: default
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_list_type: true
+  status: true

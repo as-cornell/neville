@@ -1,0 +1,14 @@
+uuid: a64751ce-f74a-49b8-8128-01bb93299e3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.government_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.government_as_cornell_edu
+label: 'Remove editors from the Government domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: government_as_cornell_edu

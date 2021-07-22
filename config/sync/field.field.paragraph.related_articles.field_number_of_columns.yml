@@ -1,0 +1,21 @@
+uuid: 621b7239-bab4-49cb-b15e-3681d93d3557
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_number_of_columns
+    - paragraphs.paragraphs_type.related_articles
+  module:
+    - options
+id: paragraph.related_articles.field_number_of_columns
+field_name: field_number_of_columns
+entity_type: paragraph
+bundle: related_articles
+label: 'Number of columns'
+description: 'How many columns will content be rendered in?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

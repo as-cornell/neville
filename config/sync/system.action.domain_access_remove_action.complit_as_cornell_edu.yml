@@ -1,0 +1,14 @@
+uuid: 64cabd16-5d8c-464c-8086-e1081c2454bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.complit_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.complit_as_cornell_edu
+label: 'Remove selected content from the Comparative Literature domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: complit_as_cornell_edu

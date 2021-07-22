@@ -1,0 +1,31 @@
+uuid: 3eae1a76-4445-4ace-a34f-0acf6a738ac4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_related_content
+    - node.type.landing_page
+    - node.type.page
+    - paragraphs.paragraphs_type.stat
+id: paragraph.stat.field_related_content
+field_name: field_related_content
+entity_type: paragraph
+bundle: stat
+label: 'Related content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      page: page
+      landing_page: landing_page
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: page
+field_type: entity_reference

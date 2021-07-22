@@ -1,0 +1,11 @@
+uuid: c0ab4ec9-deb3-4981-8ef2-33349f04acc8
+langcode: en
+status: true
+dependencies: {  }
+id: religiousstudies_as_cornell_edu
+domain_id: 5546348
+hostname: religiousstudies.as.cornell.edu
+name: 'Religious Studies'
+scheme: https
+weight: -4
+is_default: false

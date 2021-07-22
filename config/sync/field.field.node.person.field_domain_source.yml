@@ -1,0 +1,25 @@
+uuid: fe918099-b2ab-4177-8121-d1ef2461168f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_source
+    - node.type.person
+id: node.person.field_domain_source
+field_name: field_domain_source
+entity_type: node
+bundle: person
+label: 'Domain Source'
+description: 'Select the canonical domain for this content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:domain'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: weight
+      direction: ASC
+field_type: entity_reference

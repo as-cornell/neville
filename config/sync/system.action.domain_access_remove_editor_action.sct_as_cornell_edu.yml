@@ -1,0 +1,14 @@
+uuid: 4d7a8462-d21c-4be1-8d84-56e3a04c2ac0
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sct_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.sct_as_cornell_edu
+label: 'Remove editors from the SCT domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: sct_as_cornell_edu

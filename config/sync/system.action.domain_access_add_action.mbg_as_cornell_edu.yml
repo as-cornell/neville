@@ -1,0 +1,14 @@
+uuid: d8d77a77-8c72-4d57-a3b1-20d647978981
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.mbg_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_action.mbg_as_cornell_edu
+label: 'Add selected content to the Molecular Biology and Genetics domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: mbg_as_cornell_edu

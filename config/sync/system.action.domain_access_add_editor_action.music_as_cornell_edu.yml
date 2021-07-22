@@ -1,0 +1,14 @@
+uuid: 77e068e9-cf78-48d7-ab19-5a03b636e352
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.music_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.music_as_cornell_edu
+label: 'Add editors to the Music domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: music_as_cornell_edu

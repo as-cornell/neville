@@ -1,0 +1,76 @@
+uuid: 0d3ce48f-84e2-4dd0-83d9-659056b01209
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card_small
+    - field.field.node.article.field_article_components
+    - field.field.node.article.field_article_view_tags
+    - field.field.node.article.field_bylines
+    - field.field.node.article.field_card_label
+    - field.field.node.article.field_dateline
+    - field.field.node.article.field_departments_programs
+    - field.field.node.article.field_domain_access
+    - field.field.node.article.field_domain_all_affiliates
+    - field.field.node.article.field_domain_source
+    - field.field.node.article.field_image
+    - field.field.node.article.field_media_sources
+    - field.field.node.article.field_newsletter_image
+    - field.field.node.article.field_page_summary
+    - field.field.node.article.field_related_articles
+    - field.field.node.article.field_related_people
+    - field.field.node.article.field_remote_uuid
+    - field.field.node.article.field_tags
+    - node.type.article
+  module:
+    - entity_reference_revisions
+    - user
+_core:
+  default_config_hash: ChmU3AVqDKU32A_fyChG0W9dTRKmVBR58B6OClCLvZI
+id: node.article.card_small
+targetEntityType: node
+bundle: article
+mode: card_small
+content:
+  field_article_components:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_card_label:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: portrait
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_article_view_tags: true
+  field_bylines: true
+  field_dateline: true
+  field_departments_programs: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_domain_source: true
+  field_media_sources: true
+  field_newsletter_image: true
+  field_page_summary: true
+  field_related_articles: true
+  field_related_people: true
+  field_remote_uuid: true
+  field_tags: true
+  links: true

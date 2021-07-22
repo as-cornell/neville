@@ -1,0 +1,44 @@
+uuid: 3225d9ce-03d1-42f5-bd52-be244e39adee
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.teaser
+    - field.field.paragraph.related_people.field_component_label
+    - field.field.paragraph.related_people.field_number_of_columns
+    - field.field.paragraph.related_people.field_people
+    - field.field.paragraph.related_people.paragraph_view_mode
+    - paragraphs.paragraphs_type.related_people
+  module:
+    - options
+id: paragraph.related_people.teaser
+targetEntityType: paragraph
+bundle: related_people
+mode: teaser
+content:
+  field_component_label:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_number_of_columns:
+    type: list_key
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_people:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  paragraph_view_mode: true

@@ -1,0 +1,15 @@
+uuid: 62cfc434-2ae9-418c-bfa4-586bf7181768
+name: 'Department of History'
+mail: mew72@cornell.edu
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/76
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yTxtFqBHnEWxQswuWvkjE8mKw2t8oKuCL1q8KnfHuGE
+mail_notification: ''

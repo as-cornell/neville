@@ -1,0 +1,29 @@
+uuid: eb9461e2-3192-4483-9fca-61a33608fefc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_departments_programs
+    - node.type.article
+    - taxonomy.vocabulary.departments_programs
+id: node.article.field_departments_programs
+field_name: field_departments_programs
+entity_type: node
+bundle: article
+label: 'Departments and Programs'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      departments_programs: departments_programs
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

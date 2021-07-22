@@ -1,0 +1,11 @@
+uuid: aaeec6fa-34e9-4dd0-811d-874f33a3e814
+langcode: en
+status: true
+dependencies: {  }
+id: history_as_cornell_edu
+domain_id: 11733544
+hostname: history.as.cornell.edu
+name: History
+scheme: https
+weight: -24
+is_default: false

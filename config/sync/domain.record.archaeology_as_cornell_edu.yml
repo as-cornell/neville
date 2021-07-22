@@ -1,0 +1,11 @@
+uuid: dbbcade8-175f-46a7-a49f-ea440dc5160d
+langcode: en
+status: true
+dependencies: {  }
+id: archaeology_as_cornell_edu
+domain_id: 10099010
+hostname: archaeology.as.cornell.edu
+name: Archaeology
+scheme: https
+weight: -44
+is_default: false

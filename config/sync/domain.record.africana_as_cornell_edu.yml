@@ -1,0 +1,11 @@
+uuid: 91d0a44d-61b2-422f-9af3-84acb2eeb045
+langcode: en
+status: true
+dependencies: {  }
+id: africana_as_cornell_edu
+domain_id: 8470853
+hostname: africana.as.cornell.edu
+name: Africana
+scheme: https
+weight: -47
+is_default: false

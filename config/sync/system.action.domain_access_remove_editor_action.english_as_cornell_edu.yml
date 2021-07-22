@@ -1,0 +1,14 @@
+uuid: 6cdaecc9-44ff-449f-8015-c786da071a49
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.english_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.english_as_cornell_edu
+label: 'Remove editors from the English domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: english_as_cornell_edu

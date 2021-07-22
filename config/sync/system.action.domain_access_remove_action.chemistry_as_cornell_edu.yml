@@ -1,0 +1,14 @@
+uuid: caf853ef-6264-4228-86a2-08a6012deec0
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.chemistry_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.chemistry_as_cornell_edu
+label: 'Remove selected content from the Chemistry and Chemical Biology domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: chemistry_as_cornell_edu

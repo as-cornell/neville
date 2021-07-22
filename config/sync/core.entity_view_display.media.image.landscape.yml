@@ -1,0 +1,52 @@
+uuid: cf4e84fd-adea-4893-b9c9-cf6428b464f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.landscape
+    - field.field.media.image.domain_access
+    - field.field.media.image.field_caption
+    - field.field.media.image.field_credit
+    - field.field.media.image.field_media_image
+    - image.style.landscape
+    - media.type.image
+  module:
+    - image
+_core:
+  default_config_hash: B1a2aBHmUulUZN6HrxITEH1tSResuVjXMBEv1lUBtOo
+id: media.image.landscape
+targetEntityType: media
+bundle: image
+mode: landscape
+content:
+  field_caption:
+    type: string
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_credit:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_media_image:
+    label: visually_hidden
+    settings:
+      image_style: landscape
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    weight: 0
+    region: content
+hidden:
+  created: true
+  domain_access: true
+  name: true
+  thumbnail: true
+  uid: true

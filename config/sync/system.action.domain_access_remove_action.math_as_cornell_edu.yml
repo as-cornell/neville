@@ -1,0 +1,14 @@
+uuid: dbd9bd6d-79ae-4e40-b4d0-8b178a4d175e
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.math_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.math_as_cornell_edu
+label: 'Remove selected content from the Math domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: math_as_cornell_edu

@@ -1,0 +1,122 @@
+uuid: 74cdb064-1e56-4f88-84e8-425d417b0149
+langcode: en
+status: true
+dependencies: {  }
+id: dept_article_node
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: dept_articles
+label: 'Migrate department articles from Drupal 7 to Drupal 8'
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: json
+  urls: 'https://history.cornell.edu/department-articles-export.json'
+  ids:
+    uuid:
+      type: string
+  item_selector: nodes
+  fields:
+    -
+      name: uuid
+      label: Uuid
+      selector: /node/uuid
+    -
+      name: title
+      label: Title
+      selector: /node/title
+    -
+      name: created
+      label: Created
+      selector: /node/created
+    -
+      name: changed
+      label: Changed
+      selector: /node/changed
+    -
+      name: status
+      label: Status
+      selector: /node/status
+    -
+      name: path
+      label: Path
+      selector: /node/path
+    -
+      name: summary
+      label: Summary
+      selector: /node/summary
+    -
+      name: field_byline
+      label: 'Field Byline'
+      selector: /node/field_byline
+    -
+      name: field_media_source
+      label: 'Field Media Source'
+      selector: /node/field_media_source
+    -
+      name: field_dateline
+      label: 'Field dateline'
+      selector: /node/field_dateline
+    -
+      name: field_card_label
+      label: 'Field Card Label'
+      selector: /node/field_card_label
+    -
+      name: field_related_people
+      label: 'Related People'
+      selector: /node/field_related_people
+    -
+      name: field_article_view_tags
+      label: Tags
+      selector: /node/field_article_view_tags
+process:
+  type:
+    plugin: default_value
+    default_value: article
+  title: title
+  created: created
+  changed: changed
+  path: path
+  field_summary: summary
+  article_components:
+    plugin: migration_lookup
+    migration: dept_article_body
+    source: uuid
+  field_article_components:
+    plugin: sub_process
+    source:
+      - '@article_components'
+    process:
+      target_id: '0'
+      target_revision_id: '1'
+  field_dateline: field_dateline
+  field_card_label: field_card_label
+  field_bylines: field_byline
+  field_media_source: field_media_source
+  field_related_people:
+    plugin: entity_lookup
+    source: field_related_people
+    entity_type: node
+    bundle: person
+  field_article_view_tags:
+    plugin: entity_generate
+    source: field_article_view_tags
+    value_key: name
+    bundle: article_view_tags
+    entity_type: taxonomy_term
+    ignore_case: true
+  field_image/target_id:
+    plugin: migration_lookup
+    migration: dept_article_image_media
+    source: uuid
+  field_domain_access/target_id:
+    plugin: default_value
+    default_value: history_as_cornell_edu
+  uid:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:node'
+migration_dependencies: {  }

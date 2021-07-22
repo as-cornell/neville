@@ -1,0 +1,22 @@
+uuid: a43e3f79-71f8-41f5-925e-8149f48e4831
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.photo_with_text.field_formatted_text
+    - paragraphs.paragraphs_type.photo_with_text
+  module:
+    - text
+id: paragraph.photo_with_text.default
+targetEntityType: paragraph
+bundle: photo_with_text
+mode: default
+content:
+  field_formatted_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

@@ -1,0 +1,14 @@
+uuid: 5364883d-28a2-48c1-86ae-50cd619e2473
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.sagan_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.sagan_as_cornell_edu
+label: 'Remove editors from the Carl Sagan Institute domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: sagan_as_cornell_edu

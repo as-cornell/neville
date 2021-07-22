@@ -1,0 +1,14 @@
+uuid: 17856dcd-d0f9-4e3b-b72d-f271d44e9c3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.caps_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.caps_as_cornell_edu
+label: 'Remove selected content from the CAPS domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: caps_as_cornell_edu

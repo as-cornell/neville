@@ -1,0 +1,29 @@
+uuid: 02cbd14e-6c4d-43e8-bca8-d29dfaf6c7eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_article_view_tags
+    - node.type.article
+    - taxonomy.vocabulary.article_view_tags
+id: node.article.field_article_view_tags
+field_name: field_article_view_tags
+entity_type: node
+bundle: article
+label: 'Article View Tags'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      article_view_tags: article_view_tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

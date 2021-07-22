@@ -1,0 +1,14 @@
+uuid: f8f67f04-6537-45b9-957a-87dace2a9a0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.africana_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.africana_as_cornell_edu
+label: 'Remove selected content from the Africana domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: africana_as_cornell_edu

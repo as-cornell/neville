@@ -1,0 +1,11 @@
+uuid: d2acf74a-d073-4975-97c9-73d96900dddb
+langcode: en
+status: true
+dependencies: {  }
+id: frenchstudies_as_cornell_edu
+domain_id: 5184408
+hostname: frenchstudies.as.cornell.edu
+name: 'French Studies'
+scheme: https
+weight: -27
+is_default: false

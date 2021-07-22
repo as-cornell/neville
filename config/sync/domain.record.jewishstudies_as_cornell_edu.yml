@@ -1,0 +1,11 @@
+uuid: c830cdef-cd7e-4253-b07a-c4f66f53c27f
+langcode: en
+status: true
+dependencies: {  }
+id: jewishstudies_as_cornell_edu
+domain_id: 2000961
+hostname: jewishstudies.as.cornell.edu
+name: 'Jewish Studies'
+scheme: https
+weight: -20
+is_default: false

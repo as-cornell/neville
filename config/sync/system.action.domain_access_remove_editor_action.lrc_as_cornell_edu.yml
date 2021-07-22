@@ -1,0 +1,14 @@
+uuid: a8119a00-a755-4288-b4c8-0e24abc7b218
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.lrc_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.lrc_as_cornell_edu
+label: 'Remove editors from the Language Resource Center domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: lrc_as_cornell_edu

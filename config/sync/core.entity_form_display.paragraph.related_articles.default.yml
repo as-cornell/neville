@@ -1,0 +1,56 @@
+uuid: a01d3ad8-76b6-46b4-afea-df5bace701fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.related_articles.field_articles
+    - field.field.paragraph.related_articles.field_component_label
+    - field.field.paragraph.related_articles.field_number_of_columns
+    - field.field.paragraph.related_articles.paragraph_view_mode
+    - paragraphs.paragraphs_type.related_articles
+  module:
+    - paragraph_view_mode
+id: paragraph.related_articles.default
+targetEntityType: paragraph
+bundle: related_articles
+mode: default
+content:
+  field_articles:
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_component_label:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_number_of_columns:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  paragraph_view_mode:
+    type: paragraph_view_mode
+    weight: -100
+    settings:
+      view_modes:
+        card: card
+        card_small: card_small
+        teaser: teaser
+        default: 0
+      default_view_mode: card
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true

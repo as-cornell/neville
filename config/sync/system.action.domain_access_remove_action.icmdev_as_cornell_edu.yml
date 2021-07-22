@@ -1,0 +1,14 @@
+uuid: 91dd0a84-ce21-4e6a-a9d7-93f392cc5243
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.icmdev_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_action.icmdev_as_cornell_edu
+label: 'Remove selected content from the Institute for Comparative Modernities domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: icmdev_as_cornell_edu

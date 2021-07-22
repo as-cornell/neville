@@ -59,7 +59,7 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
     '#open' => TRUE,
   ];
   $form['department_logos']['dept_logo_1'] = [
-    '#type' => 'managed_file',
+    '#type' => 'file',
     '#title' => t('Upload Department Logo 1'),
     '#description' => t("Use this field to upload Department Logo 1."),
     '#default_value' => theme_get_setting('dept_logo_1'),
@@ -71,7 +71,7 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
     ],
   ];
   $form['department_logos']['dept_logo_2'] = [
-    '#type' => 'managed_file',
+    '#type' => 'file',
     '#title' => t('Upload Department Logo 2'),
     '#description' => t("Use this field to upload Department Logo 2."),
     '#default_value' => theme_get_setting('dept_logo_2'),
@@ -90,7 +90,7 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
     );
   $form['department_variables']['department_prefix'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Department Email'),
+    '#title'         => t('Department Prefix'),
     '#default_value' => theme_get_setting('department_prefix'),
     '#description'   => t("Department prefix for css."),
   );

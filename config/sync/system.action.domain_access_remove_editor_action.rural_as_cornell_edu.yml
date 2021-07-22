@@ -1,0 +1,14 @@
+uuid: b5e4721c-7caf-454d-bc44-124151bad3f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.rural_as_cornell_edu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.rural_as_cornell_edu
+label: 'Remove editors from the Rural Studies domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: rural_as_cornell_edu

@@ -1,0 +1,11 @@
+uuid: 3600598f-54d1-4c3e-9589-b152eef895e7
+langcode: en
+status: true
+dependencies: {  }
+id: astronomy_as_cornell_edu
+domain_id: 473682
+hostname: astronomy.as.cornell.edu
+name: Astronomy
+scheme: https
+weight: -40
+is_default: false

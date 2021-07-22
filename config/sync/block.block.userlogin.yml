@@ -1,0 +1,20 @@
+uuid: 02b6c05d-0997-4ba3-b53f-35a1a9f19742
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+  theme:
+    - discovery
+id: userlogin
+theme: discovery
+region: footer
+weight: -4
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  provider: user
+  label_display: visible
+visibility: {  }
