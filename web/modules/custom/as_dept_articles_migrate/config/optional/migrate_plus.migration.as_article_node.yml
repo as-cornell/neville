@@ -123,8 +123,15 @@ process:
       bundle: departments_programs
       value_key: name
   'field_domain_access/target_id':
-    plugin: mapdomain
-    source: field_departments_programs
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_departments_programs
+    -
+      plugin: explode
+      delimiter: ', '
+    -
+      plugin: mapdomain
   uid:
     plugin: default_value
     default_value: 1
