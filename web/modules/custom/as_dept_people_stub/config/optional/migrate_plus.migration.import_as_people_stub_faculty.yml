@@ -72,7 +72,7 @@ process:
       source: field_departments_programs
     -
       plugin: explode
-      delimiter: ', '
+      delimiter: '|'
     -
       plugin: entity_generate
       entity_type: taxonomy_term

@@ -26,7 +26,7 @@ class MapDomain extends ProcessPluginBase {
 
     if (!empty($value)) {
       // replace department name with domain key
-      $deptnames = explode(', ', $value);
+      $deptnames = explode('|', $value);
       //dump($deptnames);
       foreach ($deptnames as $key =>$deptname)
         {

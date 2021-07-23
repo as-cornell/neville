@@ -83,7 +83,7 @@ process:
       source: field_related_people
     -
       plugin: explode
-      delimiter: ', '
+      delimiter: '|'
     -
       plugin: entity_lookup
       access_check: false
@@ -96,7 +96,7 @@ process:
       source: field_related_articles
     -
       plugin: explode
-      delimiter: ', '
+      delimiter: '|'
     -
       plugin: entity_lookup
       access_check: false
@@ -116,7 +116,7 @@ process:
       source: field_departments_programs
     -
       plugin: explode
-      delimiter: ', '
+      delimiter: '|'
     -
       plugin: entity_generate
       entity_type: taxonomy_term
