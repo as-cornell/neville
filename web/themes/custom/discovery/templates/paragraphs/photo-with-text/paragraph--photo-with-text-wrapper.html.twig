@@ -42,19 +42,19 @@
   set classes = [
     'paragraph',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
+    paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
-{{vardumper()}}
+{# {{vardumper()}} #}
 {% block paragraph %}
-
-	<h1>
-		pt wrapper
-	</h1>
 	<div{{attributes.addClass(classes)}}>
-		{% block content %}
-			{{ content }}
-		{% endblock %}
+		{% if content.field_component_label.0 %}
+			<h2>
+				{{content.field_component_label}}
+			</h2>
+		{% endif %}
+		{{content.field_photo_text_items}}
 	</div>
 {% endblock paragraph %}

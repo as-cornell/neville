@@ -4,3 +4,30 @@ Title: _photo-with-text
 Descr: sets up photo with text items
 
 --------------------------- */
+.photo-with-text {
+  margin-top: 2rem;
+  &__text {
+    margin-top: 1rem;
+  }
+  @include mq(medium) {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    &__image {
+      flex: 0 0 40%;
+    }
+    &__text {
+      margin-top: 0;
+      flex: 0 0 calc(60% - 2rem);
+    }
+    h2 + &:first-of-type {
+      margin-top: 1rem;
+    }
+    &:nth-of-type(odd) {
+      flex-direction: row-reverse;
+    }
+  }
+  &--Spotlight {
+    border: 1px solid var(--as-teal-400);
+  }
+}

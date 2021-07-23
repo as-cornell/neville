@@ -52,13 +52,19 @@
 
 {# {% set modifiers = modifiers | default(['']) %}
 {% set classes = classes | default(['']) %} #}
-{{vardumper()}}
+
+{% if content.field_spotlight.0 %}
+	{% set spotlightValue = content.field_spotlight.0["#markup"] %}
+	{% set classes = classes|merge([paragraph.bundle|clean_class ~ '--' ~ spotlightValue])%}
+{% endif %}
+{# {{vardumper()}} #}
+
 <div {{ bem(base_class, (modifiers),'', classes) }}>
 	{{ title_suffix }}
 	<div {{ bem('image','', base_class) }}>
-		{{content.field_formatted_text}}
+		{{content.field_image}}
 	</div>
 	<div {{ bem('text','', base_class) }}>
-		{{ content.field_pt_image }}
+		{{ content.field_formatted_text }}
 	</div>
 </div>

@@ -2147,12 +2147,41 @@ Title: _photo-with-text-wrapper
 Descr: sets up photo with text items
 
 --------------------------- */
+.photo-with-text-wrapper {
+  margin-top: 4rem; }
+
 /* -------------------------
 
 Title: _photo-with-text
 Descr: sets up photo with text items
 
 --------------------------- */
+.photo-with-text {
+  margin-top: 2rem; }
+  .photo-with-text__text {
+    margin-top: 1rem; }
+  @media only screen and (min-width: 782px) {
+    .photo-with-text {
+      margin-top: 4rem;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+      .photo-with-text__image {
+        -ms-flex: 0 0 40%;
+            flex: 0 0 40%; }
+      .photo-with-text__text {
+        margin-top: 0;
+        -ms-flex: 0 0 calc(60% - 2rem);
+            flex: 0 0 calc(60% - 2rem); }
+      h2 + .photo-with-text:first-of-type {
+        margin-top: 1rem; }
+      .photo-with-text:nth-of-type(odd) {
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse; } }
+  .photo-with-text--Spotlight {
+    border: 1px solid var(--as-teal-400); }
+
 /* -------------------------
 
 Title: _stat-wrapper
