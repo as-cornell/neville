@@ -83,7 +83,7 @@ process:
       source: field_related_people
     -
       plugin: explode
-      delimiter: ', '
+      delimiter: '|'
     -
       plugin: entity_lookup
       access_check: false
@@ -96,7 +96,7 @@ process:
       source: field_related_articles
     -
       plugin: explode
-      delimiter: ', '
+      delimiter: '|'
     -
       plugin: entity_lookup
       access_check: false
@@ -116,22 +116,15 @@ process:
       source: field_departments_programs
     -
       plugin: explode
-      delimiter: ', '
+      delimiter: '|'
     -
       plugin: entity_generate
       entity_type: taxonomy_term
       bundle: departments_programs
       value_key: name
-  'field_domain_access/target_id':
-    -
-      plugin: skip_on_empty
-      method: process
-      source: field_departments_programs
-    -
-      plugin: explode
-      delimiter: ', '
-    -
-      plugin: mapdomain
+  field_domain_access:
+    plugin: mapdomain
+    source: field_departments_programs
   uid:
     plugin: default_value
     default_value: 1

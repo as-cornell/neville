@@ -26,19 +26,21 @@ class MapDomain extends ProcessPluginBase {
 
     if (!empty($value)) {
       // replace department name with domain key
-      //$deptname = explode(',', $value)[0];
-      $deptname = $value;
-      //use entity query to look up domain id
-      //$domainmap = as_dept_people_stub_map_dept_domain($deptname);
-      $termids = \Drupal::entityQuery('taxonomy_term')
-        ->condition('vid', 'departments_programs')
-        ->condition('name', $deptname)
-        ->execute();
-        if (!empty($termids)){
-          foreach($termids as $tid)
-            {
-              $term = Term::load($tid);
-              $domainid = $term->get('field_domain_access_target_id')->value;
+      $deptnames = explode('|', $value);
+      //dump($deptnames);
+      foreach ($deptnames as $key =>$deptname)
+        {
+        //use entity query to look up domain id
+        $termids = \Drupal::entityQuery('taxonomy_term')
+          ->condition('vid', 'departments_programs')
+          ->condition('name', $deptname)
+          ->execute();
+          if (!empty($termids)){
+            foreach($termids as $tid)
+              {
+                $term = Term::load($tid);
+                $domainmap[$key] = $term->get('field_domain_access_target_id')->value;
+              }
             }
           }
       }
@@ -46,6 +48,7 @@ class MapDomain extends ProcessPluginBase {
     catch (\Exception $e) {
       throw new MigrateException('Invalid department name.');
     }
+    //dump($domainmap);
     return $domainmap;
   }
 }

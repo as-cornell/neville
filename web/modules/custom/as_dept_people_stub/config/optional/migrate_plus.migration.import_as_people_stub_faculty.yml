@@ -72,7 +72,7 @@ process:
       source: field_departments_programs
     -
       plugin: explode
-      delimiter: ', '
+      delimiter: '|'
     -
       plugin: entity_generate
       entity_type: taxonomy_term
@@ -81,7 +81,7 @@ process:
   field_person_type:
     plugin: entity_lookup
     source: field_person_type
-  'field_domain_access/target_id':
+  field_domain_access:
     plugin: mapdomain
     source: field_departments_programs
   uid:
