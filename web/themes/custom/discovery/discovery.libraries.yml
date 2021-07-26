@@ -39,3 +39,12 @@ figures:
     js_min/figures.js: {}
   dependencies:
     - core/jquery
+
+flickity:
+  js:
+    js_min/flickity.pkgd.js: {}
+  dependencies:
+    - core/jquery
+  css:
+    theme:
+      css/plugins/flickity.css: {}

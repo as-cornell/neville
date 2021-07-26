@@ -23,7 +23,7 @@ Descr: This is the framework for a landing page contnet type.
 {# {% set show_sidebarNav = true %} #}
 {% set show_aside = false %}
 
-{# {{vardumper()}} #}
+
 {# Create classes array. The 'node' class is required for contextual edit links. #}
 {% set classes = [
   'node'
@@ -49,11 +49,26 @@ Descr: This is the framework for a landing page contnet type.
 
 {# need to add pano #}
 
+
+{% if content.field_pano.0 %}
+  {% set showPano = "true" %}
+  {% set main_element_modifiers = main_element_modifiers|merge(["pano"]) %}
+  {% else %}
+{% set main_element_modifiers = main_element_modifiers|merge(["no-pano"]) %}
+
+{% endif %}
+
 {% set sidebar_wrapper_extra_classes = sidebar_wrapper_extra_classes | default(['']) %}
+{# {{vardumper()}} #}
 
 <main {{ bem(main_element_base_class, (main_element_modifiers), main_element_blockname, main_element_extra_classes) }} id="mainContent">
-	
+
+  {% if showPano %}
+	<div class="pano">
   {{content.field_pano}}
+  </div>
+  {% endif %}
+  
   <div class="title">
 		{% include "@content/atoms/_heading.twig" with {
         "heading_level" : 1,
