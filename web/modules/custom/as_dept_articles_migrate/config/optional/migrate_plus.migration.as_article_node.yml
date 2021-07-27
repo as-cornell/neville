@@ -118,6 +118,9 @@ process:
       plugin: explode
       delimiter: '|'
     -
+      plugin: callback
+      callable: htmlspecialchars_decode
+    -
       plugin: entity_generate
       entity_type: taxonomy_term
       bundle: departments_programs
