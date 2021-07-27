@@ -2111,6 +2111,44 @@ Descr: sets up all uniquie styles for formatted text block
 --------------------------- */
 /* -------------------------
 
+Title: _link-block  
+Descr: sets up all uniquie styles for link-block pargraps on
+  --landing pages
+  --basic pages
+  --articles
+
+--------------------------- */
+.link-block {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  background: var(--as-gray-200);
+  padding: 3rem 0;
+  border-radius: var(--border-radius);
+  margin-top: 4rem; }
+  .link-block__label {
+    text-align: center; }
+  .link-block__links {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    gap: 1rem;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    max-width: 80%;
+    margin-top: 2rem; }
+    .link-block__links > a {
+      padding: 0.5em 1em;
+      background: var(--as-black);
+      color: var(--as-white);
+      border-radius: var(--border-radius); }
+
+/* -------------------------
+
 Title: _page-section
 Descr: sets up all uniquie styles for page-sections and page section labels
 
