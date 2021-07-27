@@ -71,7 +71,10 @@ process:
     plugin: default_value
     default_value: article
   field_remote_uuid: uuid
-  title: title
+  title:
+    plugin: callback
+    callable: htmlspecialchars_decode
+    source: title
   created: created
   changed: changed
   path: path
@@ -97,6 +100,9 @@ process:
     -
       plugin: explode
       delimiter: '|'
+    -
+      plugin: callback
+      callable: htmlspecialchars_decode
     -
       plugin: entity_lookup
       access_check: false

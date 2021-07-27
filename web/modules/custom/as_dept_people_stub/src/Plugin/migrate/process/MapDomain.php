@@ -27,7 +27,7 @@ class MapDomain extends ProcessPluginBase {
     if (!empty($value)) {
       // replace department name with domain key
       $deptnames = explode('|', htmlspecialchars_decode($value));
-      dump($deptnames);
+      //dump($deptnames);
       foreach ($deptnames as $key =>$deptname)
         {
         //use entity query to look up domain id
