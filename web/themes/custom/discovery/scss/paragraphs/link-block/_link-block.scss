@@ -1,0 +1,35 @@
+/* -------------------------
+
+Title: _link-block  
+Descr: sets up all uniquie styles for link-block pargraps on
+  --landing pages
+  --basic pages
+  --articles
+
+--------------------------- */
+.link-block {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: var(--as-gray-200);
+  padding: 3rem 0;
+  border-radius: var(--border-radius);
+  margin-top: 4rem;
+  &__label {
+    text-align: center;
+  }
+  &__links {
+    display: inline-flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 80%;
+    margin-top: 2rem;
+    > a {
+      padding: 0.5em 1em;
+      background: var(--as-black);
+      color: var(--as-white);
+      border-radius: var(--border-radius);
+    }
+  }
+}
