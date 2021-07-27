@@ -72,8 +72,7 @@ process:
     default_value: article
   field_remote_uuid: uuid
   title:
-    plugin: callback
-    callable: htmlspecialchars_decode
+    plugin: cleantitle
     source: title
   created: created
   changed: changed
