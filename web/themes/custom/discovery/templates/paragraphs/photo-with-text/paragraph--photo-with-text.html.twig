@@ -38,42 +38,33 @@
  * @ingroup themeable
  */
 #}
-{{attach_library('discovery/flickity')}}
-
 {%
   set classes = [
     'paragraph',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    not paragraph.isPublished() ? 'paragraph--unpublished',
-paragraph.bundle|clean_class,
-
-   
-
+    not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
-{# 'grid',
-'grid--' ~ content.field_number_of_columns[0]["#markup"] #}
-{% if content.field_carousel.0 %}
-	{% set isCarousel = "carousel" %}
-	{% set classes = classes|merge([paragraph.bundle|clean_class ~ "--carousel"])%}
-	{% set flickityCall = "data-flickity='{ \"cellAlign\": \"left\", \"contain\": true, \"wrapAround\": true }'"%}
 
+
+{% set base_class = 'photo-with-text' %}
+
+{# {% set modifiers = modifiers | default(['']) %}
+{% set classes = classes | default(['']) %} #}
+
+{% if content.field_spotlight.0 %}
+	{% set spotlightValue = content.field_spotlight.0["#markup"] %}
+	{% set classes = classes|merge([paragraph.bundle|clean_class ~ '--' ~ spotlightValue])%}
 {% endif %}
-
 {# {{vardumper()}} #}
-{% block paragraph %}
-	<h3>
-		{{content.field_component_label}}
-	</h3>
-	<div{{attributes.addClass(classes)}} {% if isCarousel %} {{flickityCall|raw}} {% endif %}>
-		{% block content %}
-			{{ content.field_articles }}
-		{% endblock %}
+
+<div {{ bem(base_class, (modifiers),'', classes) }}>
+	{{ title_suffix }}
+	<div {{ bem('image','', base_class) }}>
+		{{content.field_image}}
 	</div>
-	<p>
-		<a href="#">
-			view all department news
-		</a>
-	</p>
-{% endblock paragraph %}
+	<div {{ bem('text','', base_class) }}>
+		{{ content.field_formatted_text }}
+	</div>
+</div>

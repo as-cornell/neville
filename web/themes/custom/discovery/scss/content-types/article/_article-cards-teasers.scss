@@ -92,7 +92,7 @@ Descr:
     // @include boxShadow();
   }
   .article__copy {
-    flex: 1 0 60%;
+    flex: 0 0 60%;
     padding: 0;
   }
   .article__title {
@@ -113,5 +113,23 @@ Descr:
   }
   .toggle--figcaption {
     display: none;
+  }
+}
+
+.article--teaser {
+  figure {
+  }
+  .article__copy {
+    margin-top: 1rem;
+    font-size: var(--base-20);
+  }
+  .article__title {
+    font-size: var(--base-28);
+    font-weight: var(--regular);
+  }
+  .article__link-title {
+    color: var(--as-teal-400);
+  }
+  .article__summary {
   }
 }

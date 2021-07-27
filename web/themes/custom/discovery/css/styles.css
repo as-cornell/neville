@@ -1,6 +1,7 @@
 /*
 
 Base .scss aggregator for departmetn and program sites
+js plugins not included here. they are in the libraries. 
 
 */
 :root {
@@ -157,7 +158,7 @@ font size bases to be used as extends
   font-size: var(--base-64);
   line-height: 1em; }
 
-.base-84, .landingPage--pano .title figcaption {
+.base-84 {
   font-size: var(--base-84);
   line-height: 0.9em; }
 
@@ -584,7 +585,7 @@ form {
     border-radius: var(--border-radius);
     padding: 0.5em;
     margin-left: 1rem;
-    background: var(--storm-radial);
+    background: var(--as-teal-500);
     color: var(--as-white); }
     form .form-submit + .form-submit {
       transform: translateY(50px); }
@@ -696,6 +697,9 @@ Still needs: expand toggle for showing main nav on mobile
             fill: var(--as-black); } }
       .nav--main .nav button:focus {
         opacity: 1; }
+      @media (any-hover: hover) and (pointer: fine) {
+        .nav--main .nav button {
+          opacity: 0; } }
       .nav--main .nav button.active {
         transform: rotate(180deg);
         transform-origin: 50% 50%; }
@@ -749,22 +753,25 @@ Still needs: expand toggle for showing main nav on mobile
             width: auto;
             font-weight: var(--semi);
             padding: 0.5rem; }
-          .nav--main .nav-0 .nav-0__item:hover, .nav--main .nav-0 .nav-0__item.expanded {
+          .nav--main .nav-0 .nav-0__item:hover, .nav--main .nav-0 .nav-0__item.subnav-open {
             -webkit-text-decoration-color: var(--as-gray-500);
                     text-decoration-color: var(--as-gray-500);
             box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
             overflow: visible; }
-            .nav--main .nav-0 .nav-0__item:hover:after, .nav--main .nav-0 .nav-0__item.expanded:after {
+            .nav--main .nav-0 .nav-0__item:hover:after, .nav--main .nav-0 .nav-0__item.subnav-open:after {
               visibility: visible;
               transform: scaleX(1);
               transform-origin: top;
               transition: all 0.25s ease-out; }
-            .nav--main .nav-0 .nav-0__item:hover .nav-1, .nav--main .nav-0 .nav-0__item.expanded .nav-1 {
+            .nav--main .nav-0 .nav-0__item:hover .nav-1, .nav--main .nav-0 .nav-0__item.subnav-open .nav-1 {
               transform: scaleY(1);
               transform-origin: top;
               transition: all 250ms ease-out; }
-        .nav--main .nav-0 button {
-          opacity: 0; } }
+        .nav--main .nav-0 button:focus {
+          opacity: 1; } }
+  @media only screen and (min-width: 782px) and (any-hover: hover) and (pointer: fine) {
+    .nav--main .nav-0 button {
+      opacity: 0; } }
     @media only screen and (min-width: 1224px) {
       .nav--main .nav-0 {
         -ms-flex-pack: end;
@@ -1554,8 +1561,8 @@ Descr:
         flex: 0 0 30%;
     border-radius: var(--border-radius); }
   .article--card-small .article__copy {
-    -ms-flex: 1 0 60%;
-        flex: 1 0 60%;
+    -ms-flex: 0 0 60%;
+        flex: 0 0 60%;
     padding: 0; }
   .article--card-small .article__title {
     grid-area: title;
@@ -1569,6 +1576,17 @@ Descr:
     font-weight: var(--semi); }
   .article--card-small .toggle--figcaption {
     display: none; }
+
+.article--teaser .article__copy {
+  margin-top: 1rem;
+  font-size: var(--base-20); }
+
+.article--teaser .article__title {
+  font-size: var(--base-28);
+  font-weight: var(--regular); }
+
+.article--teaser .article__link-title {
+  color: var(--as-teal-400); }
 
 .article {
   grid-template-rows: auto auto;
@@ -1801,52 +1819,26 @@ Descr:
   .landingPage--no-pano .title {
     position: relative;
     margin: 0 auto; }
-  .landingPage--pano .title {
-    text-align: center; }
+  .landingPage--pano {
+    grid-template-areas: "title" "pano" "aside" "content"; }
     @media only screen and (min-width: 782px) {
-      .landingPage--pano .title {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-direction: column;
-            flex-direction: column;
-        font-weight: var(--heavy);
-        grid-template-columns: 1fr;
-        -ms-flex-align: end;
-            align-items: flex-end;
-        max-width: 100%; } }
-    .landingPage--pano .title figure,
-    .landingPage--pano .title h1 {
-      margin: 0.5em auto; }
-    .landingPage--pano .title figure {
-      background: none;
-      margin-bottom: 2rem; }
+      .landingPage--pano {
+        grid-template-areas: "pano" "title" "aside" "content"; } }
+    .landingPage--pano .title {
+      text-align: center; }
       @media only screen and (min-width: 782px) {
-        .landingPage--pano .title figure {
-          display: grid; } }
-    .landingPage--pano .title figcaption,
-    .landingPage--pano .title img {
-      grid-column: 1;
-      grid-row: 1; }
-    .landingPage--pano .title figcaption {
-      color: var(--storm-radial);
-      font-weight: var(--regular);
-      margin: 0 auto 1em auto;
-      font-family: var(--font-serif);
-      text-align: center;
-      font-size: var(--base-84);
-      max-width: 25ch;
-      line-height: 1em;
-      margin-bottom: 0.5em;
-      -ms-flex-item-align: end;
-          align-self: flex-end; }
-      @media only screen and (min-width: 782px) {
-        .landingPage--pano .title figcaption {
-          color: var(--as-white);
-          max-width: 80%;
-          animation: 2s captionFadeIn 1 forwards ease-in;
-          font-weight: var(--heavy); } }
-      .landingPage--pano .title figcaption .credit {
-        display: none; }
+        .landingPage--pano .title {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-direction: column;
+              flex-direction: column;
+          font-weight: var(--heavy);
+          grid-template-columns: 1fr;
+          -ms-flex-align: center;
+              align-items: center;
+          max-width: 100%; } }
+    .landingPage--pano .pano {
+      grid-area: pano; }
   .landingPage--homepage aside {
     display: none; }
 
@@ -2134,6 +2126,106 @@ Descr: sets up all uniquie styles for page-sections and page section labels
   font-family: var(--font-serif);
   font-size: var(--base-56);
   font-weight: var(--semi); }
+
+/* -------------------------
+
+Title: _pano  
+Descr: sets up all uniquie styles for pano pargraps on
+  --landing pages
+  --basic pages
+  --articles
+
+--------------------------- */
+.pano {
+  display: grid; }
+  .pano__image, .pano__text {
+    grid-column: 1;
+    grid-row: 1; }
+  .pano__text {
+    font-family: var(--font-serif);
+    font-weight: var(--semi);
+    justify-self: center;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    color: var(--as-white);
+    z-index: 1;
+    font-size: var(--base-28);
+    text-align: center; }
+    .pano__text .credit {
+      display: none; }
+  @media only screen and (min-width: 782px) {
+    .pano__text {
+      max-width: 80%;
+      animation: 2s captionFadeIn 1 forwards ease-in;
+      font-weight: var(--heavy);
+      font-size: var(--base-84);
+      line-height: 1;
+      margin-bottom: 2rem; } }
+
+/* -------------------------
+
+Title: _photo-with-text-wrapper
+Descr: sets up photo with text items
+
+--------------------------- */
+.photo-with-text-wrapper {
+  margin-top: 4rem; }
+
+/* -------------------------
+
+Title: _photo-with-text
+Descr: sets up photo with text items
+
+--------------------------- */
+.photo-with-text {
+  margin-top: 2rem; }
+  .photo-with-text__text {
+    margin-top: 1rem; }
+  @media only screen and (min-width: 782px) {
+    .photo-with-text {
+      margin-top: 4rem;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+      .photo-with-text__image {
+        -ms-flex: 0 0 40%;
+            flex: 0 0 40%; }
+      .photo-with-text__text {
+        margin-top: 0;
+        -ms-flex: 0 0 calc(60% - 2rem);
+            flex: 0 0 calc(60% - 2rem); }
+      h2 + .photo-with-text:first-of-type {
+        margin-top: 1rem; }
+      .photo-with-text:nth-of-type(odd) {
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse; } }
+  .photo-with-text--spotlight {
+    border: 1px solid var(--as-teal-400); }
+
+/* -------------------------
+
+Title: _related-articles
+Descr: sets up all uniquie styles for related aritcle specific things
+  - includes flickity overirdes
+
+--------------------------- */
+.related-articles--carousel {
+  padding: 1rem; }
+  .related-articles--carousel .article--teaser {
+    width: 100%;
+    margin: 0 0.5rem;
+    height: 450px; }
+    @media only screen and (min-width: 782px) {
+      .related-articles--carousel .article--teaser {
+        width: calc(50% - 0.5rem);
+        margin: 0 0.5rem;
+        height: 500px; } }
+    @media only screen and (min-width: 900px) {
+      .related-articles--carousel .article--teaser {
+        width: calc(33.33333333% - 0.5rem);
+        margin: 0 0.5rem;
+        height: 500px; } }
 
 /* -------------------------
 

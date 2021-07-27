@@ -2,7 +2,7 @@
 
 /* -------------------------
 
-Title: node--article--card.html.twig
+Title: node--article--teaser.html.twig
 Descr: defines "article" and outputs fields for article card
 
 --------------------------- */ 
@@ -10,65 +10,100 @@ Descr: defines "article" and outputs fields for article card
 #}
 {# set wrapper bem calsses #}
 {% set card_base_class = 'article' %}
-{% set card_modifiers =  ["article","card-small"]%}
-
+{% set card_modifiers =  ["teaser"]%}
 
 {% if content.field_remote_uuid.0 %}
 	{% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
 	{% set article = parse_article_json(remote_uuid) %}
-{# {{vardumper(article)}} #}
+
 	{% set title = article.title %}
-	{% set localorremote = "remote"%}
 
 	{# card label #}
 	{% if article.card_label %}
 		{% set show_label = true %}
 		{% set card_label = article.card_label %}
 	{% endif %}
+	{# dateline #}
+	{% if article.dateline %}
+		{% set show_dateline = true %}
+		{% set dateline = article.dateline %}
+	{% endif %}
+	{# bylines #}
+	{% if article.bylines %}
+		{% set show_bylines = true %}
+		{% set bylines = article.bylines %}
+	{% endif %}
+
+  {# summary #}
+  {% if article.summary %}
+    {% set show_summary = true %}
+    {% set summary = article.summary %}
+  {% endif %}
+
 
 	{# 
 	  else set to local and set all variables from "content"
 	#}
-
 {% else %}
 	{% set title = label %}
-	{% set localorremote = "local"%}
-
 	{# card label #}
 	{% if content.field_card_label %}
 		{% set show_label = true %}
 		{% set card_label = content.field_card_label %}
 	{% endif %}
+	{# dateline #}
+	{% if content.field_dateline %}
+		{% set show_dateline = true %}
+		{% set dateline = content.field_dateline %}
+	{% endif %}
+	{# bylines #}
+	{% if content.field_bylines %}
+		{% set show_bylines = true %}
+		{% set bylines = content.field_bylines %}
+	{% endif %}
+  {# summary #}
+  {% if content.field_page_summary %}
+    {% set show_summary = true %}
+    {% set summary = content.field_page_summary %}
+  {% endif %}
 
 {% endif %}
-
 {# 
 setting image
   - if local image path set use that
   - if no local image path and article.imagepath use that
   - default to stock image
 #}
-{% if content.field_image.0 %}
-  {% set image %}
-    {{content.field_image}}
-  {% endset %}
+{# 
+  NOTE Setting geric image for now. need to get newsletter/landscape set up for remot items
+{% if content.field_newsletter_image.0 %}
+	{% set image %}
+	{{content.field_newsletter_image}}
+	{% endset %}
 {% elseif article.imagepath %}
-  {% set image %}
-    <figure>
-      <img src="{{article.imagepath}}" alt="{{article.alt}}">
-    </figure>
-  {% endset %}
+	{% set image %}
+	<figure>
+		<img src="{{article.imagepath}}" alt="{{article.alt}}">
+	</figure>
+	{% endset %}
 {% else %}
-  {% set image %}
-    <figure>
-      <img src="https://as.cornell.edu/sites/default/files/styles/4_5/public/2021-03/up20150602038select1500x1000px.jpg" alt="Flowering tree in spring">
-    </figure>
-  {% endset %}
-{% endif %}
+	{% set image %}
+	<figure>
+{{ drupal_image('public://2021-07/giant-side-close.jpg', 'landscape')}}
+</figure>
+	{% endset %}
+{% endif %} #}
+{% set image %}
+<figure>
+<img src="/sites/default/files/styles/landscape/public/2021-07/giant-side%20%281%29.jpg?h=6b5b50d2&itok=go5yxNB5" alt="">
 
+</figure>
+{% endset %}
+
+{# {{vardumper()}} #}
 
 <div {{ bem(card_base_class, (card_modifiers), article_blockname, article_classes) }} {% if nodeId %} aria-labelledby="item--{{nodeId}}" {% endif %}> 
-{# {{localorremote}} #}
+
 {{title_suffix}}
 {{image}}
 
@@ -87,13 +122,31 @@ setting image
         "heading_base_class": article_title_base_class|default('title'),
         "isAriaLabel" : nodeId
     } %}
-
+{# 
 
 		{% if show_label %}
 			<span class="article__label">
 				{{ card_label }}
 			</span>
-		{% endif %}
+		{% endif %} #}
+
+		{# {% if show_dateline %}
+			<span class="article__date">
+				{{ dateline }}
+			</span>
+		{% endif %} #}
+
+		{# {% if show_bylines %}
+			<span class="article__byline">
+				By |
+				{{ bylines }}
+			</span>
+		{% endif %} #}
+    {% if show_summary %}
+      <p class="article__summary">
+      {{summary}}
+      </p>
+    {% endif %}
 
 	</div>
 </div>

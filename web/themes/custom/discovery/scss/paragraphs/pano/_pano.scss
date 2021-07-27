@@ -1,0 +1,41 @@
+/* -------------------------
+
+Title: _pano  
+Descr: sets up all uniquie styles for pano pargraps on
+  --landing pages
+  --basic pages
+  --articles
+
+--------------------------- */
+
+.pano {
+  display: grid;
+  &__image,
+  &__text {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  &__text {
+    font-family: var(--font-serif);
+    font-weight: var(--semi);
+    justify-self: center;
+    align-self: flex-end;
+    color: var(--as-white);
+    z-index: 1;
+    font-size: var(--base-28);
+    text-align: center;
+    .credit {
+      display: none;
+    }
+  }
+  @include mq(medium) {
+    &__text {
+      max-width: 80%;
+      animation: 2s captionFadeIn 1 forwards ease-in;
+      font-weight: var(--heavy);
+      font-size: var(--base-84);
+      line-height: 1;
+      margin-bottom: 2rem;
+    }
+  }
+}
