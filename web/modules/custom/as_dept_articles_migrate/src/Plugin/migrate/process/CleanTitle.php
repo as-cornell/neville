@@ -28,7 +28,6 @@ class CleanTitle extends ProcessPluginBase {
       // decode special characters
       $cleantitle = htmlspecialchars_decode($value);
       $cleantitle = html_entity_decode($cleantitle, ENT_QUOTES, 'UTF-8');
-      //dump($cleantitle);
       }
     }
     catch (\Exception $e) {
