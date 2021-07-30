@@ -75,13 +75,15 @@ class parsePeopleJson extends \Twig_Extension
         if (!empty($person_data['attributes']['field_links'])) {
           $person_record['links'] = $person_data['attributes']['field_links'];
           }
+        // departments are now coming from content field values imported via migration
         // get department label from json
-        foreach ($person_data['relationships']['field_departments_programs']['data'] as $dept_data) {
-          $deptuuid = $dept_data['id'];
-          $dept_json = as_dept_people_json_get_dept_json($deptuuid);
-          $departments = $departments . $dept_json['data']['attributes']['name'] . ', ';
-        }
-        $person_record['departments'] = rtrim($departments, ', ');
+        //foreach ($person_data['relationships']['field_departments_programs']['data'] as $dept_data) {
+          //$deptuuid = $dept_data['id'];
+          //$dept_json = as_dept_people_json_get_dept_json($deptuuid);
+          //$departments = $departments . $dept_json['data']['attributes']['name'] . ', ';
+        //}
+        //$person_record['departments'] = rtrim($departments, ', ');
+        // related articles are now coming from a views block filtered by related person nid
         // get list of articles from as.cornell.edu
           //$articles_json = as_dept_people_json_get_people_articles_json($pathtoken);
           //dump($articles_json);

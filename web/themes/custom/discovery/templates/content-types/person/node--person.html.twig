@@ -20,6 +20,7 @@ Descr: defines "person" and outputs fields for full person view
 {% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
 {% set person = parse_people_json(remote_uuid) %}
 {# {{dump(person)}} #}
+{# {{dump(content)}} #}
 {% set contact = drupal_block('ldap_block', {netid: person.netid}) %}
 {# job title #}
 {% if person.jobtitle %}
@@ -27,7 +28,7 @@ Descr: defines "person" and outputs fields for full person view
 {% endif %}
 
 {# departments #}
-{% if person.departments %}
+{% if content.field_departments_programs %}
 	{% set show_departments = true %}
 {% endif %}
 
@@ -55,8 +56,13 @@ Descr: defines "person" and outputs fields for full person view
   {% set show_researchfocus = true %}
 {% endif %}
 
-{# related_articles #}
+{# old related_articles #}
 {% if person.related_articles %}
+  {% set show_related_articles = true %}
+{% endif %}
+
+{# new related_articles #}
+{% if drupal_view('people_articles', 'block_1', node.nid.value) %}
   {% set show_related_articles = true %}
 {% endif %}
 
@@ -112,11 +118,19 @@ Descr: defines "person" and outputs fields for full person view
 			</h2>
 			{{person.publications|raw}}
 		{% endif %}
+		{# old related articles from json #}
+		{% if show_related_articles %}
+			{#<h2>
+				In the news
+			</h2>#}
+			<ul>{{person.related_articles|raw}}</ul>
+		{% endif %}
+		{# new related articles from views block #}
 		{% if show_related_articles %}
 			<h2>
 				In the news
 			</h2>
-			<ul>{{person.related_articles|raw}}</ul>
+		<div>{{ drupal_view('people_articles', 'block_1', node.nid.value) }}</div>
 		{% endif %}
 
 	</div>
@@ -135,7 +149,7 @@ Descr: defines "person" and outputs fields for full person view
 			<h3>
 				Departments and programs
 			</h3>
-			{{person.departments|raw}}
+			{{content.field_departments_programs}}
 		{% endif %}
 		{% if show_links %}
 			<h3>
