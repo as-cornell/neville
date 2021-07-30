@@ -27,7 +27,7 @@ Descr: defines "person" and outputs fields for person card
 {% endif %}
 
 {# departments #}
-{% if person.departments %}
+{% if content.field_departments_programs %}
 	{% set show_departments = true %}
 {% endif %}
 
@@ -67,7 +67,7 @@ Descr: defines "person" and outputs fields for person card
     jobtitle: person.jobtitle,
     responsibilities: person.responsibilities,
     contact: 'contacts coming',
-    departments: person.departments,
+    departments: content.field_departments_programs,
     image: image
 } %}{% endembed %} #}
 
