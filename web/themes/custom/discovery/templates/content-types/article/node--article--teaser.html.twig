@@ -26,7 +26,7 @@ Descr: defines "article" and outputs fields for article card
 	{# dateline #}
 	{% if article.dateline %}
 		{% set show_dateline = true %}
-		{% set dateline = article.dateline %}
+		{% set dateline = article.dateline|date("n/d/Y") %}
 	{% endif %}
 	{# bylines #}
 	{% if article.bylines %}
