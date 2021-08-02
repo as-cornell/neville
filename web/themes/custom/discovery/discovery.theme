@@ -46,7 +46,7 @@ function discovery_preprocess_block(&$variables) {
     //dump($variables);
 }
 
-function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id = NULL) {
+function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
   // Work-around for a core bug affecting admin themes. See issue #943212.
   if (isset($form_id)) {
     return;
@@ -149,17 +149,24 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
   );
 }
 
-function discovery_form_system_theme_settings_submit($form, &$form_state) {
-
+function discovery_form_system_theme_settings_submit(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  // Work-around for a core bug affecting admin themes. See issue #943212.
+  if (isset($form_id)) {
+    return;
+  }
   if (isset($form_state['values']['dept_logo_1'])) {
     $file = file_load($form_state['values']['dept_logo_1']);
     $file->status = FILE_STATUS_PERMANENT;
     file_save($file);
+    // Add a reference to prevent warnings.
+    file_usage_add($file, 'discovery', 'theme', 1);
   }
   if (isset($form_state['values']['dept_logo_2'])) {
     $file = file_load($form_state['values']['dept_logo_2']);
     $file->status = FILE_STATUS_PERMANENT;
     file_save($file);
+    // Add a reference to prevent warnings.
+    file_usage_add($file, 'discovery', 'theme', 1);
   }
 }
 
