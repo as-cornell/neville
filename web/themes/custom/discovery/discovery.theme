@@ -149,6 +149,20 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
   );
 }
 
+function discovery_form_system_theme_settings_submit($form, &$form_state) {
+
+  if (isset($form_state['values']['dept_logo_1'])) {
+    $file = file_load($form_state['values']['dept_logo_1']);
+    $file->status = FILE_STATUS_PERMANENT;
+    file_save($file);
+  }
+  if (isset($form_state['values']['dept_logo_2'])) {
+    $file = file_load($form_state['values']['dept_logo_2']);
+    $file->status = FILE_STATUS_PERMANENT;
+    file_save($file);
+  }
+}
+
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  *
