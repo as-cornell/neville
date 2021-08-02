@@ -53,11 +53,11 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
   }
   // unset stock site branding logo group
   //$form['logo']['#access'] = FALSE;
-  //$form['department_logos'] = [
-    //'#type' => 'details',
-    //'#title' => t('Department Logos'),
-    //'#open' => TRUE,
-  //];
+  $form['department_logos'] = [
+    '#type' => 'details',
+    '#title' => t('Department Logos'),
+    '#open' => TRUE,
+  ];
   $form['department_logos']['dept_logo_1'] = [
     '#type' => 'file_managed',
     '#title' => t('Upload Department Logo 1'),
