@@ -2248,19 +2248,19 @@ Descr: sets up all uniquie styles for related aritcle specific things
   - includes flickity overirdes
 
 --------------------------- */
-.related-articles--carousel {
+.related-articles--carousel, .list-block--carousel {
   padding: 1rem; }
-  .related-articles--carousel .article--teaser {
+  .related-articles--carousel .article--teaser, .list-block--carousel .article--teaser {
     width: 100%;
     margin: 0 0.5rem;
     height: 450px; }
     @media only screen and (min-width: 782px) {
-      .related-articles--carousel .article--teaser {
+      .related-articles--carousel .article--teaser, .list-block--carousel .article--teaser {
         width: calc(50% - 0.5rem);
         margin: 0 0.5rem;
         height: 500px; } }
     @media only screen and (min-width: 900px) {
-      .related-articles--carousel .article--teaser {
+      .related-articles--carousel .article--teaser, .list-block--carousel .article--teaser {
         width: calc(33.33333333% - 0.5rem);
         margin: 0 0.5rem;
         height: 500px; } }

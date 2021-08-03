@@ -39,7 +39,9 @@
  */
 #}
 
-{# {{vardumper()}} #}
+{{vardumper()}}
+{{attach_library('discovery/flickity')}}
+
 {%
   set classes = [
     'paragraph',
@@ -49,6 +51,13 @@
 paragraph.bundle|clean_class,
   ]
 %}
+
+{% if content.field_carousel.0 %}
+	{% set isCarousel = "carousel" %}
+	{% set classes = classes|merge([paragraph.bundle|clean_class ~ "--carousel"])%}
+	{% set flickityCall = "data-flickity='{ \"cellAlign\": \"left\", \"contain\": true, \"wrapAround\": true }'"%}
+{% endif %}
+
 
 <div{{attributes.addClass(classes)}}>
 	<h3 class="list-block__label">
@@ -62,3 +71,4 @@ paragraph.bundle|clean_class,
   {{content.field_link}}
 	{# {{content}} #}
 </div>
+ {# {% if isCarousel %} {{flickityCall|raw}} {% endif %} #}
