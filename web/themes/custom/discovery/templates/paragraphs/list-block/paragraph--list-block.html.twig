@@ -39,11 +39,9 @@
  */
 #}
 
-{{vardumper()}}
-{{attach_library('discovery/flickity')}}
 
 {%
-  set classes = [
+  set blockClasses = [
     'paragraph',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
@@ -52,23 +50,34 @@ paragraph.bundle|clean_class,
   ]
 %}
 
+{# 
+  set list_attributes
+  set list_classes - if carousel or grid
+  include flicity library if carousel
+#}
+{% set list_attributes = create_attribute() %}
+{% set list_classes = ['list-block__list'] %}
 {% if content.field_carousel.0 %}
-	{% set isCarousel = "carousel" %}
-	{% set classes = classes|merge([paragraph.bundle|clean_class ~ "--carousel"])%}
-	{% set flickityCall = "data-flickity='{ \"cellAlign\": \"left\", \"contain\": true, \"wrapAround\": true }'"%}
+  {% set list_classes = list_classes|merge(['carousel', 'carousel--article-teasers']) %}
+  {{attach_library('discovery/flickity')}}
+{% else %}
+  {% set list_classes = list_classes|merge(['grid', 'grid--' ~ content.field_number_of_columns.0["#markup"]]) %}
 {% endif %}
 
+{#  #}
 
-<div{{attributes.addClass(classes)}}>
+{# {{vardumper()}} #}
+<div{{attributes.addClass(blockClasses)}}>
 	<h3 class="list-block__label">
 		{{content.field_component_label}}
 	</h3>
-  {{content.field_formatted_text}}
-	<div class="list-block__list">
+  {% if content.field_formatted_text.0 %}
+  <div class="list-block__text">
+    {{content.field_formatted_text}}
+  </div>
+  {% endif %}
+	<div {{list_attributes.addClass(list_classes)}}>
 		{{content.field_list_reference}}
 	</div>
-  {{content.field_list_block_layout}}
   {{content.field_link}}
-	{# {{content}} #}
 </div>
- {# {% if isCarousel %} {{flickityCall|raw}} {% endif %} #}

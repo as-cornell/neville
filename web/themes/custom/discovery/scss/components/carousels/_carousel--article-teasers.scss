@@ -1,13 +1,14 @@
+
 /* -------------------------
 
-Title: _related-articles
-Descr: sets up all uniquie styles for related aritcle specific things
+Title: _carousel--article-teasers
+Descr: sets up all uniquie styles for article teaser carousels
   - includes flickity overirdes
 
 --------------------------- */
 
-.related-articles--carousel, .list-block--carousel {
-  padding: 1rem;
+.carousel--article-teasers {
+  padding: 0 1rem;
   .article--teaser {
     width: 100%;
     margin: 0 0.5rem;
@@ -24,3 +25,4 @@ Descr: sets up all uniquie styles for related aritcle specific things
     }
   }
 }
+// 

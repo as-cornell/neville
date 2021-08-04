@@ -518,6 +518,30 @@ Descr: Sets shape and border of cards
 
 /* -------------------------
 
+Title: _carousel--article-teasers
+Descr: sets up all uniquie styles for article teaser carousels
+  - includes flickity overirdes
+
+--------------------------- */
+.carousel--article-teasers {
+  padding: 0 1rem; }
+  .carousel--article-teasers .article--teaser {
+    width: 100%;
+    margin: 0 0.5rem;
+    height: 450px; }
+    @media only screen and (min-width: 782px) {
+      .carousel--article-teasers .article--teaser {
+        width: calc(50% - 0.5rem);
+        margin: 0 0.5rem;
+        height: 500px; } }
+    @media only screen and (min-width: 900px) {
+      .carousel--article-teasers .article--teaser {
+        width: calc(33.33333333% - 0.5rem);
+        margin: 0 0.5rem;
+        height: 500px; } }
+
+/* -------------------------
+
 Title: _forms.scss
 Descr: 
     Main inpage forms
@@ -2149,6 +2173,20 @@ Descr: sets up all uniquie styles for link-block pargraps on
 
 /* -------------------------
 
+Title: _list-block
+Descr: sets up all generic styles for list-block paragraphs
+
+--------------------------- */
+.list-block {
+  margin-top: 4rem; }
+  .list-block__text {
+    max-width: 80%;
+    margin-top: 1em; }
+  .list-block__list {
+    margin-top: 2rem; }
+
+/* -------------------------
+
 Title: _page-section
 Descr: sets up all uniquie styles for page-sections and page section labels
 
@@ -2240,30 +2278,6 @@ Descr: sets up photo with text items
             flex-direction: row-reverse; } }
   .photo-with-text--spotlight {
     border: 1px solid var(--as-teal-400); }
-
-/* -------------------------
-
-Title: _related-articles
-Descr: sets up all uniquie styles for related aritcle specific things
-  - includes flickity overirdes
-
---------------------------- */
-.related-articles--carousel, .list-block--carousel {
-  padding: 1rem; }
-  .related-articles--carousel .article--teaser, .list-block--carousel .article--teaser {
-    width: 100%;
-    margin: 0 0.5rem;
-    height: 450px; }
-    @media only screen and (min-width: 782px) {
-      .related-articles--carousel .article--teaser, .list-block--carousel .article--teaser {
-        width: calc(50% - 0.5rem);
-        margin: 0 0.5rem;
-        height: 500px; } }
-    @media only screen and (min-width: 900px) {
-      .related-articles--carousel .article--teaser, .list-block--carousel .article--teaser {
-        width: calc(33.33333333% - 0.5rem);
-        margin: 0 0.5rem;
-        height: 500px; } }
 
 /* -------------------------
 

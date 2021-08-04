@@ -1,0 +1,18 @@
+
+/* -------------------------
+
+Title: _list-block
+Descr: sets up all generic styles for list-block paragraphs
+
+--------------------------- */
+
+.list-block{
+  margin-top:4rem;
+  &__text{
+    max-width: 80%;
+    margin-top: 1em;
+  }
+  &__list{
+    margin-top: 2rem;
+  }
+}

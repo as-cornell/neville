@@ -43,8 +43,9 @@ figures:
 flickity:
   js:
     js_min/flickity.pkgd.js: {}
+    js_min/flickity-calls.js: {}
   dependencies:
     - core/jquery
   css:
     theme:
-      css/plugins/flickity.css: {}
+      css/plugins/flickity/flickity.css: {}
