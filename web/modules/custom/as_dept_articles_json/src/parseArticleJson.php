@@ -62,12 +62,7 @@ class parseArticleJson extends \Twig_Extension
             $article_record['imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/4_5/public/field/image/Klarmanarticle.jpg';
             }
           }
-          if (!empty($article_json['included'][1]['attributes']['image_style_uri'][0]['6_4_large'])) {
-            $article_record['newsletter_imagepath'] = $article_json['included'][1]['attributes']['image_style_uri'][0]['6_4_large'];
-          }else{
-            $article_record['newsletter_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/6_4_large/public/field/image/Klarmanarticle.jpg';
-            }
-          }
+
         }
 
       foreach ($article_json['data'] as $article_data) {
