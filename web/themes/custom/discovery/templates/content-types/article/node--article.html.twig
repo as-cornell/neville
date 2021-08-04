@@ -20,7 +20,7 @@ Looks at content.field_remote_uuid
 {% set main_element_extra_classes = ['main', 'content'] %}
 {% set main_element_base_class = 'article' %}
 {% set main_element_modifiers = [''] %}
-{# {{vardumper()}}  #}
+
 
 {# 
 
@@ -32,7 +32,7 @@ Looks at content.field_remote_uuid
 {% if content.field_remote_uuid.0 %}
 	{% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
 	{% set article = parse_article_json(remote_uuid) %}
-
+{{vardumper(article.newsletter_imagepath)}}
 	{% set title = article.title %}
 
 	{% if article.article_components %}
