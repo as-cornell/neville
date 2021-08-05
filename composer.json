@@ -41,6 +41,7 @@
         "drupal/paragraphs": "^1.12",
         "drupal/pathauto": "^1.8",
         "drupal/redis": "^1.5",
+        "drupal/sharedemail": "^2.2",
         "drupal/simplesamlphp_auth": "^3.2",
         "drupal/site_settings": "^1.19",
         "drupal/twig_field_value": "^2.0",
