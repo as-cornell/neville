@@ -166,6 +166,14 @@ font size bases to be used as extends
 :root {
   --box-shadow: 0 0 8px var(--as-gray-300); }
 
+@keyframes simpleFadeIn {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
 .flickity-enabled {
   position: relative; }
 

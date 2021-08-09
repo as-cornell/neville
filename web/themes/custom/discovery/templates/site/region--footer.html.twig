@@ -17,7 +17,59 @@
   - going to have to come up with way to show persistent items like a11y message etc in template and include menus and logos in block to make updatateable on /admin
  #}
 
-{% include "@site/_site-footer.twig" with {
-content: content
+<footer>
+	{% block footer_content %}
+		<div class="footer">
+	{# 		{# {{content}} #}
+			{# {{ drupal_form('exposedformsearchpage_2') }} #}
 
-} %}
+				{# <div class="footer__currentStudents">
+				<h2>For current students</h2>
+				{{ drupal_menu('for-current-students', 1, 2, true)	}}
+				</div> #}
+
+			<div class="footer__importantLinks"> FOOTER MENU
+				{{ drupal_menu('footer', 1, 2, true) }}
+			</div>
+
+
+			{# college logos and contact information from department theme variables #}
+			{{ drupal_block('site_variables_block') }}
+
+
+			{# Below here will be consistent #}
+			<div class="footer__otherInformation">
+				<ul class="extraLinks">
+					<li>
+						&copy; 2021 College of Arts &amp; Sciences
+					</li>
+					<li>
+						<a href="/web-accessibility">
+							Website Accessibility
+						</a>
+					</li>
+					<li>
+						<a href="/privacy-policy">
+							Privacy Policy
+						</a>
+					</li>
+					<li>
+						<a href="https://hr.cornell.edu/our-culture-diversity/diversity-inclusion/equal-opportunity-and-affirmative-action/equal-education">
+							Equal Education &amp; Employment
+						</a>
+					</li>
+					<li>
+						<a href="https://emergency.cornell.edu/">
+							Emergency Information
+						</a>
+					</li>
+				</ul>
+
+			</div>
+
+		</div>
+	{% endblock %}
+</footer>
+<a href="#top" class="toTopButton" title="got to top of page">
+	Top
+</a>

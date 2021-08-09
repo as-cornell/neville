@@ -38,10 +38,10 @@
  * @ingroup themeable
  */
 #}
-{{attach_library('discovery/flickity')}}
+{# {{attach_library('discovery/flickity')}} #}
 
 {%
-  set classes = [
+  set blockClasses = [
     'paragraph',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
@@ -52,16 +52,21 @@ paragraph.bundle|clean_class,
 
   ]
 %}
-{# 'grid',
-'grid--' ~ content.field_number_of_columns[0]["#markup"] #}
+{% set list_attributes = create_attribute() %}
+{% set list_classes = ['list-block__list'] %}
 {% if content.field_carousel.0 %}
-	{% set isCarousel = "carousel" %}
-	{% set classes = classes|merge([paragraph.bundle|clean_class ~ "--carousel"])%}
-	{% set flickityCall = "data-flickity='{ \"cellAlign\": \"left\", \"contain\": true, \"wrapAround\": true }'"%}
+  {% set list_classes = list_classes|merge(['carousel', 'carousel--article-teasers']) %}
+  {# {{attach_library('discovery/flickity')}} #}
+{% else %}
+  {% set list_classes = list_classes|merge(['grid', 'grid--' ~ content.field_number_of_columns.0["#markup"]]) %}
 {% endif %}
 
-{# {{vardumper()}} #}
-{% block paragraph %}
+
+
+
+
+{{vardumper()}}
+{# {% block paragraph %}
 	<h3>
 		{{content.field_component_label}}
 	</h3>
@@ -75,4 +80,19 @@ paragraph.bundle|clean_class,
 			view all department news
 		</a>
 	</p>
-{% endblock paragraph %}
+{% endblock paragraph %} #}
+
+<div{{attributes.addClass(blockClasses)}}>
+	<h3 class="list-block__label">
+		{{content.field_component_label}}
+	</h3>
+  {% if content.field_formatted_text.0 %}
+  <div class="list-block__text">
+    {{content.field_formatted_text}}
+  </div>
+  {% endif %}
+	<div {{list_attributes.addClass(list_classes)}}>
+		{{content.field_larticles}}
+	</div>
+  {{content.field_link}}
+</div>

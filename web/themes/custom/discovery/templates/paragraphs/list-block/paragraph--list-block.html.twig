@@ -55,6 +55,7 @@ paragraph.bundle|clean_class,
   set list_classes - if carousel or grid
   include flicity library if carousel
 #}
+
 {% set list_attributes = create_attribute() %}
 {% set list_classes = ['list-block__list'] %}
 {% if content.field_carousel.0 %}
@@ -64,9 +65,7 @@ paragraph.bundle|clean_class,
   {% set list_classes = list_classes|merge(['grid', 'grid--' ~ content.field_number_of_columns.0["#markup"]]) %}
 {% endif %}
 
-{#  #}
 
-{# {{vardumper()}} #}
 <div{{attributes.addClass(blockClasses)}}>
 	<h3 class="list-block__label">
 		{{content.field_component_label}}

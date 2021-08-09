@@ -169,6 +169,14 @@ font size bases to be used as extends
 :root {
   --box-shadow: 0 0 8px var(--as-gray-300); }
 
+@keyframes simpleFadeIn {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
 /* -------------------------
 
 Title: _base.scss
@@ -1612,6 +1620,10 @@ Descr:
 .article--teaser .article__link-title {
   color: var(--as-teal-400); }
 
+.article--teaser-small {
+  display: -ms-flexbox;
+  display: flex; }
+
 .article {
   grid-template-rows: auto auto;
   grid-template-areas: "title" "social" "content" "thumbnail" "aside" "otherNews"; }
@@ -1862,7 +1874,14 @@ Descr:
               align-items: center;
           max-width: 100%; } }
     .landingPage--pano .pano {
-      grid-area: pano; }
+      grid-area: pano;
+      margin: 0 auto;
+      max-width: 1200px; }
+      .landingPage--pano .pano img {
+        border-radius: 8px; }
+      .landingPage--pano .pano__text {
+        animation: 2s simpleFadeIn 1 forwards ease-in;
+        text-shadow: var(--box-shadow); }
   .landingPage--homepage aside {
     display: none; }
 
