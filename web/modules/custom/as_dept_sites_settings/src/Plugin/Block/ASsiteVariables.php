@@ -6,10 +6,10 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Block\BlockPluginInterface;
 
 /**
- * Provides a Current Events Block.
+ * Provides a Site Footer Block.
  *
  * @Block(
- *   id = "site_variables_block",
+ *   id = "site_footer_block",
  *   admin_label = @Translation("Department Footer Site Settings Block"),
  *   category = @Translation("Site Layout"),
  * )
@@ -27,7 +27,7 @@ class ASsiteVariables extends BlockBase implements BlockPluginInterface {
     $build = [];
     $markup = '';
     //$config = $this->getConfiguration();
-    $build['site_variables_block']['#markup'] = $markup;
+    $build['site_footer_block']['#markup'] = $markup;
 
 
     return $build;

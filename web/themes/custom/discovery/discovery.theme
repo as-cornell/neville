@@ -54,6 +54,23 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
 
   // unset stock site branding logo group
   $form['logo']['#access'] = FALSE;
+  $form['theme_settings']['#access'] = FALSE;
+  $form['college_logos'] = [
+    '#type' => 'details',
+    '#title' => t('College Logos'),
+    '#open' => TRUE,
+  ];
+  $form['college_logos']['department_college_logos'] = array(
+    '#type' => 'checkboxes',
+    '#title' => t('College logos to display'),
+    '#options' => array(
+     'AS' => t('Arts & Sciences in HEADER'),
+     'CALS' => t('CALS in FOOTER'),
+     'ILR' => t('ILR in FOOTER'),
+     'HUMEC' => t('Human Ecology in FOOTER'),
+   ),
+   '#default_value' => theme_get_setting('department_college_logos')
+  );
   $form['department_logos'] = [
     '#type' => 'details',
     '#title' => t('Department Logos'),
@@ -137,17 +154,7 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
     '#default_value' => theme_get_setting('department_linkedin'),
     '#description'   => t("URL to LinkedIn page."),
   );
-  $form['department_variables']['department_college_logos'] = array(
-    '#type' => 'checkboxes',
-    '#title' => t('College logos to display'),
-    '#options' => array(
-     'AS' => t('Arts & Sciences'),
-     'CALS' => t('CALS'),
-     'ILR' => t('ILR'),
-     'HUMEC' => t('Human Ecology'),
-   ),
-   '#default_value' => theme_get_setting('department_college_logos')
-  );
+
   $form['#submit'][] = '_discovery_form_system_theme_settings_submit';
 }
 
