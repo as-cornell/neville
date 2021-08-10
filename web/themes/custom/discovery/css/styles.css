@@ -163,11 +163,21 @@ font size bases to be used as extends
   line-height: 0.9em; }
 
 /*
-  -box shados
+  -box shadows
   -gradients
 */
 :root {
-  --box-shadow: 0 0 8px var(--as-gray-300); }
+  --box-shadow: 0 0 8px var(--as-gray-500);
+  --button-gradient: linear-gradient(
+    120deg,
+    var(--as-teal-600) 0%,
+    var(--as-teal-400) 90%
+  );
+  --button-gradient-2: linear-gradient(
+    120deg,
+    var(--as-teal-600) 0%,
+    var(--as-teal-500) 95%
+  ); }
 
 @keyframes simpleFadeIn {
   0% {
@@ -177,6 +187,11 @@ font size bases to be used as extends
   100% {
     opacity: 1; } }
 
+/*
+----
+All kinds of buttony things
+----
+*/
 /* -------------------------
 
 Title: _base.scss
@@ -499,6 +514,26 @@ ICON/SVG buttons
 .icon--button svg {
   width: 0.75rem; }
 
+/*
+----
+"Buttons"
+----
+*/
+.button {
+  padding: 0.5em 1em;
+  border-radius: var(--border-radius);
+  color: var(--as-white);
+  position: relative;
+  overflow: hidden;
+  background-image: var(--button-gradient);
+  transition: 0.5s;
+  background-size: 150% auto;
+  background-position: left center;
+  font-weight: var(--semi);
+  box-shadow: var(--box-shadow); }
+  .button:hover {
+    background-position: right center; }
+
 /* -------------------------
 
 Title: Cards
@@ -546,7 +581,7 @@ Descr: sets up all uniquie styles for article teaser carousels
       .carousel--article-teasers .article--teaser {
         width: calc(33.33333333% - 0.5rem);
         margin: 0 0.5rem;
-        height: 500px; } }
+        height: 700px; } }
 
 /* -------------------------
 
@@ -1494,25 +1529,28 @@ Descr: Set
 
 --------------------------- */
 .system-block {
-  background: red; }
+  background: var(--as-gold-200); }
 
-.local-tasks ul {
-  background: var(--as-teal-300);
-  font-size: var(--base-16);
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  list-style: none;
-  padding-left: 0;
-  border-radius: var(--border-radius); }
-  .local-tasks ul li {
-    margin: 0.25rem; }
-  .local-tasks ul a {
-    display: block;
-    padding: 0.25rem 0.5rem;
-    background: var(--as-teal-200);
-    border-radius: var(--border-radius);
-    color: var(--as-teal-600);
-    font-weight: var(--semi); }
+.local-tasks {
+  position: absolute;
+  top: 100px; }
+  .local-tasks ul {
+    background: var(--as-teal-300);
+    font-size: var(--base-16);
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    list-style: none;
+    padding-left: 0;
+    border-radius: var(--border-radius); }
+    .local-tasks ul li {
+      margin: 0.25rem; }
+    .local-tasks ul a {
+      display: block;
+      padding: 0.25rem 0.5rem;
+      background: var(--as-teal-200);
+      border-radius: var(--border-radius);
+      color: var(--as-teal-600);
+      font-weight: var(--semi); }
 
 /* -------------------------
 
@@ -1609,16 +1647,41 @@ Descr:
   .article--card-small .toggle--figcaption {
     display: none; }
 
-.article--teaser .article__copy {
-  margin-top: 1rem;
-  font-size: var(--base-20); }
-
-.article--teaser .article__title {
-  font-size: var(--base-28);
-  font-weight: var(--regular); }
-
-.article--teaser .article__link-title {
-  color: var(--as-teal-400); }
+.article--teaser {
+  background: var(--as-gray-200);
+  border-radius: var(--border-radius); }
+  .article--teaser .article__copy {
+    font-size: var(--base-20);
+    background: var(--as-white);
+    width: calc(100% - 4rem);
+    margin: -1rem auto 0 auto;
+    display: block;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--box-shadow); }
+  .article--teaser .article__title {
+    font-size: var(--base-28);
+    font-weight: var(--regular); }
+    .article--teaser .article__title a {
+      position: relative;
+      -webkit-text-decoration-color: var(--as-teal-300);
+              text-decoration-color: var(--as-teal-300);
+      color: var(--as-teal-500);
+      font-family: var(--font-serif);
+      font-weight: var(--semi); }
+      .article--teaser .article__title a:before {
+        content: "";
+        background: red;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        bottom: 0; }
+  .article--teaser .article__link-title {
+    color: var(--as-teal-400); }
+  .article--teaser .article__link {
+    margin-top: 1em;
+    display: inline-block; }
 
 .article--teaser-small {
   display: -ms-flexbox;
@@ -2171,7 +2234,8 @@ Descr: sets up all uniquie styles for link-block pargraps on
   background: var(--as-gray-200);
   padding: 3rem 0;
   border-radius: var(--border-radius);
-  margin-top: 4rem; }
+  width: 120%;
+  margin: 4rem 0 0 -10%; }
   .link-block__label {
     text-align: center; }
   .link-block__links {
@@ -2186,9 +2250,18 @@ Descr: sets up all uniquie styles for link-block pargraps on
     margin-top: 2rem; }
     .link-block__links > a {
       padding: 0.5em 1em;
-      background: var(--as-black);
+      border-radius: var(--border-radius);
       color: var(--as-white);
-      border-radius: var(--border-radius); }
+      position: relative;
+      overflow: hidden;
+      background-image: var(--button-gradient-2);
+      transition: 0.5s;
+      background-size: 150% auto;
+      background-position: left center;
+      font-weight: var(--semi);
+      box-shadow: var(--box-shadow); }
+      .link-block__links > a:hover {
+        background-position: right center; }
 
 /* -------------------------
 

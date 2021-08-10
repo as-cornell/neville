@@ -109,7 +109,6 @@ setting image
 
 	<div {{ bem(article_copy_base_class|default('article__copy'), (article_copy_modifiers), article_copy_blockname) }}>
 
-		
 			{% include "@content/atoms/_heading.twig" with {
         "heading_level": 2,
         "heading": title,
@@ -146,6 +145,7 @@ setting image
       {{summary}}
       </p>
     {% endif %}
+    <a href="{{url}}" class="button article__link">Read More</a>
 
 	</div>
 </div>

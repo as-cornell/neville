@@ -1,0 +1,21 @@
+/*
+----
+All kinds of buttony things
+----
+*/
+@mixin button($bgimage: var(--button-gradient)) {
+  padding: 0.5em 1em;
+  border-radius: var(--border-radius);
+  color: var(--as-white);
+  position: relative;
+  overflow: hidden;
+  background-image: $bgimage;
+  transition: 0.5s;
+  background-size: 150% auto;
+  background-position: left center;
+  font-weight: var(--semi);
+  box-shadow: var(--box-shadow);
+  &:hover {
+    background-position: right center;
+  }
+}

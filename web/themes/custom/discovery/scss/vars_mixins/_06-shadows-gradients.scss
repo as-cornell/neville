@@ -1,7 +1,20 @@
 /*
-  -box shados
+  -box shadows
   -gradients
 */
 :root {
-  --box-shadow: 0 0 8px var(--as-gray-300);
+  --box-shadow: 0 0 8px var(--as-gray-500);
+  //need gradient
+  // big
+  // hilightone
+  --button-gradient: linear-gradient(
+    120deg,
+    var(--as-teal-600) 0%,
+    var(--as-teal-400) 90%
+  );
+  --button-gradient-2: linear-gradient(
+    120deg,
+    var(--as-teal-600) 0%,
+    var(--as-teal-500) 95%
+  );
 }

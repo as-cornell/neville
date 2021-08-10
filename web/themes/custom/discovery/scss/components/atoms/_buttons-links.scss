@@ -25,3 +25,13 @@ ICON/SVG buttons
     width: 0.75rem;
   }
 }
+
+/*
+----
+"Buttons"
+----
+*/
+
+.button {
+  @include button();
+}

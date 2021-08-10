@@ -6,10 +6,12 @@ Descr: Set
 
 --------------------------- */
 .system-block {
-  background: red;
+  background: var(--as-gold-200);
 }
 
 .local-tasks {
+  position: absolute;
+  top: 100px;
   ul {
     background: var(--as-teal-300);
     font-size: var(--base-16);

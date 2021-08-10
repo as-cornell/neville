@@ -160,11 +160,21 @@ font size bases to be used as extends
   line-height: 0.9em; }
 
 /*
-  -box shados
+  -box shadows
   -gradients
 */
 :root {
-  --box-shadow: 0 0 8px var(--as-gray-300); }
+  --box-shadow: 0 0 8px var(--as-gray-500);
+  --button-gradient: linear-gradient(
+    120deg,
+    var(--as-teal-600) 0%,
+    var(--as-teal-400) 90%
+  );
+  --button-gradient-2: linear-gradient(
+    120deg,
+    var(--as-teal-600) 0%,
+    var(--as-teal-500) 95%
+  ); }
 
 @keyframes simpleFadeIn {
   0% {
@@ -174,6 +184,11 @@ font size bases to be used as extends
   100% {
     opacity: 1; } }
 
+/*
+----
+All kinds of buttony things
+----
+*/
 .flickity-enabled {
   position: relative; }
 

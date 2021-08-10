@@ -14,7 +14,8 @@ Descr: sets up all uniquie styles for link-block pargraps on
   background: var(--as-gray-200);
   padding: 3rem 0;
   border-radius: var(--border-radius);
-  margin-top: 4rem;
+  width: 120%;
+  margin: 4rem 0 0 -10%;
   &__label {
     text-align: center;
   }
@@ -26,10 +27,7 @@ Descr: sets up all uniquie styles for link-block pargraps on
     max-width: 80%;
     margin-top: 2rem;
     > a {
-      padding: 0.5em 1em;
-      background: var(--as-black);
-      color: var(--as-white);
-      border-radius: var(--border-radius);
+      @include button($bgimage: var(--button-gradient-2));
     }
   }
 }
