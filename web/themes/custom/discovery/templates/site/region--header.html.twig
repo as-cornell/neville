@@ -39,7 +39,7 @@ content: content
 											</a> #}
 	{# ADDED SITE BRANDING BLOCK FOR DIFFERENT DEPARTMENT LOGO PER DOMAIN #}
 	{# <div class="department-logo"> #}
-	{{ drupal_entity('block', 'masquerade') }}
+	{{ drupal_entity('block', 'masquerade', check_access=true) }}
 	{{ drupal_block('department_header_logos_block') }}
 	{# </div> #}
 
@@ -48,7 +48,7 @@ content: content
 
 
 	{# ADDED MAIN MENU FOR DIFFERENT LINKS PER DOMAIN #}
-		<nav class="header__mainNav nav--main" aria-label="Main menu" id="main-menu"> {{ drupal_menu('top-nav', 2, 2) }}
+		<nav class="header__mainNav nav--main" aria-label="Main menu" id="main-menu"> {{ drupal_menu('top-nav', 2, 2, expand=true) }}
 	</nav>
 
 	{# </nav> #}
