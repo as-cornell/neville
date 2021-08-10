@@ -39,7 +39,7 @@ content: content
 											</a> #}
 	{# ADDED SITE BRANDING BLOCK FOR DIFFERENT DEPARTMENT LOGO PER DOMAIN #}
 	{# <div class="department-logo"> #}
-	{# drupal_entity('block', 'departmentheaderlogosblock', check_access=false) #}
+	{{ drupal_entity('block', 'masquerade', check_access=false) }}
 	{{ drupal_block('department_header_logos_block') }}
 	{# </div> #}
 
