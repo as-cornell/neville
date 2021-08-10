@@ -8,7 +8,8 @@ All kinds of buttony things
   border-radius: var(--border-radius);
   color: var(--as-white);
   position: relative;
-  overflow: hidden;
+  display: inline-block;
+  margin-top: 1rem;
   background-image: $bgimage;
   transition: 0.5s;
   background-size: 150% auto;

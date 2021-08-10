@@ -481,6 +481,20 @@ strong {
   max-width: 760px;
   margin: 0 auto; }
 
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: var(--base-64);
+  position: relative;
+  display: inline-block; }
+  .sectionTitle:after {
+    position: absolute;
+    height: 2px;
+    width: 50%;
+    bottom: -1rem;
+    left: 0;
+    content: "";
+    background: var(--as-teal-400); }
+
 /* -------------------------
 
 Title: Visibilities 
@@ -539,7 +553,8 @@ ICON/SVG buttons
   border-radius: var(--border-radius);
   color: var(--as-white);
   position: relative;
-  overflow: hidden;
+  display: inline-block;
+  margin-top: 1rem;
   background-image: var(--button-gradient);
   transition: 0.5s;
   background-size: 150% auto;
@@ -2268,7 +2283,8 @@ Descr: sets up all uniquie styles for link-block pargraps on
       border-radius: var(--border-radius);
       color: var(--as-white);
       position: relative;
-      overflow: hidden;
+      display: inline-block;
+      margin-top: 1rem;
       background-image: var(--button-gradient-2);
       transition: 0.5s;
       background-size: 150% auto;
@@ -2379,7 +2395,7 @@ Descr: sets up photo with text items
         -ms-flex: 0 0 calc(60% - 2rem);
             flex: 0 0 calc(60% - 2rem); }
       h2 + .photo-with-text:first-of-type {
-        margin-top: 1rem; }
+        margin-top: 3rem; }
       .photo-with-text:nth-of-type(odd) {
         -ms-flex-direction: row-reverse;
             flex-direction: row-reverse; }

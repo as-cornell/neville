@@ -26,3 +26,19 @@ strong {
   max-width: 760px;
   margin: 0 auto;
 }
+
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: var(--base-64);
+  position: relative;
+  display: inline-block;
+  &:after {
+    position: absolute;
+    height: 2px;
+    width: 50%;
+    bottom: -1rem;
+    left: 0;
+    content: "";
+    background: var(--as-teal-400);
+  }
+}

@@ -21,7 +21,7 @@ Descr: sets up photo with text items
       flex: 0 0 calc(60% - 2rem);
     }
     h2 + &:first-of-type {
-      margin-top: 1rem;
+      margin-top: 3rem;
     }
     &:nth-of-type(odd) {
       flex-direction: row-reverse;
