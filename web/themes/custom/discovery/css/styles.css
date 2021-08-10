@@ -167,13 +167,18 @@ font size bases to be used as extends
   -gradients
 */
 :root {
-  --box-shadow: 0 0 8px var(--as-gray-500);
+  --box-shadow: 0 0 12px var(--as-gray-300);
   --button-gradient: linear-gradient(
     120deg,
     var(--as-teal-600) 0%,
     var(--as-teal-400) 90%
   );
   --button-gradient-2: linear-gradient(
+    120deg,
+    var(--as-teal-600) 0%,
+    var(--as-teal-500) 95%
+  );
+  --pt-gradient: linear-gradient(
     120deg,
     var(--as-teal-600) 0%,
     var(--as-teal-500) 95%
@@ -465,6 +470,16 @@ p {
 
 strong {
   font-weight: var(--regular); }
+
+.eyebrow {
+  font-family: var(--font-serif);
+  font-size: var(--base-20); }
+
+.introduction {
+  font-size: var(--base-28);
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto; }
 
 /* -------------------------
 
@@ -2367,9 +2382,27 @@ Descr: sets up photo with text items
         margin-top: 1rem; }
       .photo-with-text:nth-of-type(odd) {
         -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse; } }
+            flex-direction: row-reverse; }
+      .photo-with-text img {
+        box-shadow: var(--box-shadow);
+        border-radius: var(--border-radius); } }
   .photo-with-text--spotlight {
-    border: 1px solid var(--as-teal-400); }
+    background-image: linear-gradient(130deg, var(--as-teal-400) 0%, var(--as-teal-200) 6%, #f4f6f4 8%);
+    width: 100%;
+    padding: 3rem;
+    margin-left: -3rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow); }
+    .photo-with-text--spotlight .button {
+      position: relative; }
+      .photo-with-text--spotlight .button:after {
+        position: absolute;
+        height: 2px;
+        width: 200px;
+        top: -1em;
+        left: 0;
+        content: "";
+        background: var(--as-gold-400); }
 
 /* -------------------------
 

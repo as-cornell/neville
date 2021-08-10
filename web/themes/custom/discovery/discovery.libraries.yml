@@ -48,4 +48,4 @@ flickity:
     - core/jquery
   css:
     theme:
-      css/plugins/flickity/flickity.css: {}
+      css/plugins/flickity.css: {}

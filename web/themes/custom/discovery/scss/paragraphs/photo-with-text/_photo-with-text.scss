@@ -26,8 +26,35 @@ Descr: sets up photo with text items
     &:nth-of-type(odd) {
       flex-direction: row-reverse;
     }
+    img {
+      box-shadow: var(--box-shadow);
+      border-radius: var(--border-radius);
+    }
   }
   &--spotlight {
-    border: 1px solid var(--as-teal-400);
+    // background-image: var(--pt-gradient);
+    background-image: linear-gradient(
+      130deg,
+      var(--as-teal-400) 0%,
+      var(--as-teal-200) 6%,
+      #f4f6f4 8%
+    );
+    width: 100%;
+    padding: 3rem;
+    margin-left: -3rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    .button {
+      position: relative;
+      &:after {
+        position: absolute;
+        height: 2px;
+        width: 200px;
+        top: -1em;
+        left: 0;
+        content: "";
+        background: var(--as-gold-400);
+      }
+    }
   }
 }

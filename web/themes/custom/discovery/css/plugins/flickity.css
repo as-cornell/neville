@@ -164,13 +164,18 @@ font size bases to be used as extends
   -gradients
 */
 :root {
-  --box-shadow: 0 0 8px var(--as-gray-500);
+  --box-shadow: 0 0 12px var(--as-gray-300);
   --button-gradient: linear-gradient(
     120deg,
     var(--as-teal-600) 0%,
     var(--as-teal-400) 90%
   );
   --button-gradient-2: linear-gradient(
+    120deg,
+    var(--as-teal-600) 0%,
+    var(--as-teal-500) 95%
+  );
+  --pt-gradient: linear-gradient(
     120deg,
     var(--as-teal-600) 0%,
     var(--as-teal-500) 95%
