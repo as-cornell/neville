@@ -10,3 +10,20 @@
     opacity: 1;
   }
 }
+
+@mixin linkUnderline(
+  $color1: var(--as-teal-500),
+  $color2: var(--as-red-500),
+  $lineHeight: 2px
+) {
+  background-image: linear-gradient(90deg, $color1, $color2);
+  background-size: 0 $lineHeight;
+  background-position: left 92%;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  transition: background-size 300ms ease;
+
+  &:hover {
+    background-size: 100% $lineHeight;
+  }
+}

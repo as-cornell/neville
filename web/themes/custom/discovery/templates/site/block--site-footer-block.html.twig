@@ -30,72 +30,83 @@
 
 {% block content %}
 
+	<div class="footer__contacts">
+		<div class="footer__address">
+			{{department_address}}
+			<br/>
+			Ithaca, NY 14853
+			<br/>
+			United States
+			{% if department_phone %}
+				<br/>
+				{{department_phone}}
+			{% endif %}
+		</div>
+		<div class="footer__email">
 
-        <div class="footer__logo">
-          <a href="http://cornell.edu" title="Cornell University" class="cu-logo">
-            Cornell University
-          </a>
-          <a class="as-logo" href="https://as.cornell.edu" title="College of Arts & Sciences">
-            The College of Arts & Sciences
-          </a>
-        </div>
-        {% if department_college_logos.CALS %}
-        <div>
-          <a href="https://cals.cornell.edu" title="College of Agriculture and Life Sciences">
-            <img src='/sites/default/files/CALS-wordmark.png' alt ='CALS'>
-          </a>
-          </div>
-        {% endif %}
-        {% if department_college_logos.ILR  %}
-        <div>
-          <a href="https://ilr.cornell.edu" title="College of Indistrial and Labor Relations">
-            <img src='/sites/default/files/ILR.png' alt='ILR'>
-          </a>
-          </div>
-        {% endif %}
-        {% if department_college_logos.HUMEC %}
-        <div>
-          <a href="https://www.human.cornell.edu" title="College of Human Ecology">
-            <img src='/sites/default/files/che.png' alt='Human Ecology'>
-          </a>
-          </div>
-        {% endif %}
+			<a href="mailto:{{department_email}}">
+				Email
+				{{ drupal_config('system.site', 'name') }}
+			</a>
+		</div>
+		<div class="footer__socialLinks">
+			<ul>
+				{% if department_twitter %}
+					<li>
+						<a href="https://twitter.com/{{department_twitter}}" class="socialLink socialLink--twitter">
+							Twitter
+						</a>
+					</li>
+				{% endif %}
+				{% if department_instagram %}
+					<li>
+						<a href="https://instagram.com/{{department_instagram}}" class="socialLink socialLink--instagram">
+							Instagram
+						</a>
+					</li>
+				{% endif %}
+				{% if department_facebook %}
+					<li>
+						<a href="https://www.facebook.com/{{department_facebook}}" class="socialLink socialLink--facebook">
+							Facebook
+						</a>
+					</li>
+				{% endif %}
+				{% if department_linkedin %}
+					<li>
+						<a href="https://www.linkedin.com/{{department_linkedin}}" class="socialLink socialLink--facebook">
+							LinkedIn
+						</a>
+					</li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
 
+	<div class="footer__logo">
+		<a href="http://cornell.edu" title="Cornell University" class="cu-logo">
+			Cornell University
+		</a>
 
-      <div class="footer__address">
-        {{department_address}}
-        <br/>
-        Ithaca, NY 14853
-        <br/>
-        United States
-        {% if department_phone %}
-        <br/>
-        {{department_phone}}
-        {% endif %}
-      </div>
-      <div class="footer__contacts">
-
-        <a href="mailto:{{department_email}}">
-          Contact {{ drupal_config('system.site', 'name') }}
-        </a>
-      </div>
-      <div class="footer__socialLinks">
-        <ul>
-          {% if department_twitter %}
-          <li><a href="https://twitter.com/{{department_twitter}}" class="socialLink socialLink--twitter">Twitter</a></li>
-          {% endif %}
-          {% if department_instagram %}
-          <li><a href="https://instagram.com/{{department_instagram}}" class="socialLink socialLink--instagram">Instagram</a></li>
-          {% endif %}
-          {% if department_facebook %}
-          <li><a href="https://www.facebook.com/{{department_facebook}}" class="socialLink socialLink--facebook">Facebook</a></li>
-          {% endif %}
-          {% if department_linkedin %}
-          <li><a href="https://www.linkedin.com/{{department_linkedin}}" class="socialLink socialLink--facebook">LinkedIn</a></li>
-          {% endif %}
-        </ul>
-      </div>
-
+		<a class="as-logo" href="https://as.cornell.edu" title="College of Arts & Sciences">
+			The College of Arts & Sciences
+		</a>
+		{% if department_college_logos.CALS %}
+			<a href="https://cals.cornell.edu" title="College of Agriculture and Life Sciences">
+				<img src='/sites/default/files/CALS-wordmark.png' alt='CALS'>
+			</a>
+		{% endif %}
+		{% if department_college_logos.ILR  %}
+			<a href="https://ilr.cornell.edu" title="College of Indistrial and Labor Relations">
+				<img src='/sites/default/files/ILR.png' alt='ILR'>
+			</a>
+		{% endif %}
+		{% if department_college_logos.HUMEC %}
+			<a href="https://www.human.cornell.edu" title="College of Human Ecology">
+				<img src='/sites/default/files/che.png' alt='Human Ecology'>
+			</a>
+		{% endif %}
+	</div>
 	{# content #}
 
 {% endblock %}
