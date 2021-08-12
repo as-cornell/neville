@@ -11,8 +11,9 @@ Descr: defines "person" and outputs fields for full person view
 
 
 {# set wrapper bem classes #}
-{% set card_base_class = 'page' %}
-{% set card_modifiers =  ["person"]%}
+{% set main_element_extra_classes = ['main', 'content'] %}
+{% set main_element_base_class = 'person' %}
+{% set main_element_modifiers = [''] %}
 
 
 
@@ -130,7 +131,8 @@ Descr: defines "person" and outputs fields for full person view
 			<h2>
 				In the news
 			</h2>
-		<div>{{ drupal_view('people_articles', 'block_1', node.nid.value) }}</div>
+      <p><em>Need to make different template for this block, so it doesn't use the full page template with all the html that shouldn't be nexted.</em></p>
+		{# {{ drupal_view('people_articles', 'block_1', node.nid.value) }} #}
 		{% endif %}
 
 	</div>

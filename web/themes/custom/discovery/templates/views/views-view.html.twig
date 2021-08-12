@@ -33,37 +33,43 @@
 {%
   set classes = [
     dom_id ? 'js-view-dom-id-' ~ dom_id,
+    'viewList',
+    'viewList--' ~ css_name,
+    'main'
   ]
 %}
-<div{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {{ title }}
-  {{ title_suffix }}
+{# {{vardumper()}} #}
+<main{{attributes.addClass(classes)}}>
+	{{ title_prefix }}
+	{{ title }}
+	{{ title_suffix }}
 
-  {% if header %}
-    <header>
-      {{ header }}
-    </header>
-  {% endif %}
+	{% if header %}
+		<header>
+			{{ header }}
+		</header>
+	{% endif %}
 
-  {{ exposed }}
-  {{ attachment_before }}
+	{{ exposed }}
+	{{ attachment_before }}
+	<div class="viewList__content">
+		{% if rows -%}
+			{{ rows }}
+		{% elseif empty -%}
+			{{ empty }}
+		{% endif %}
+	</div>
 
-  {% if rows -%}
-    {{ rows }}
-  {% elseif empty -%}
-    {{ empty }}
-  {% endif %}
-  {{ pager }}
+	{{ pager }}
 
-  {{ attachment_after }}
-  {{ more }}
+	{{ attachment_after }}
+	{{ more }}
 
-  {% if footer %}
-    <footer>
-      {{ footer }}
-    </footer>
-  {% endif %}
+	{% if footer %}
+		<footer>
+			{{ footer }}
+		</footer>
+	{% endif %}
 
-  {{ feed_icons }}
+	{{ feed_icons }}
 </div>

@@ -9,6 +9,8 @@ Descr: defines "article" and outputs fields for article teaser-small
 --------------------------- */ 
 
 #}
+{% set card_base_class = 'article' %}
+{% set card_modifiers =  ["teaser--small"]%}
 
 
 {% if content.field_remote_uuid.0 %}
@@ -33,16 +35,16 @@ Descr: defines "article" and outputs fields for article teaser-small
 		{% set bylines = article.bylines %}
 	{% endif %}
 
-  {# summary #}
-  {% if article.summary %}
-    {% set show_summary = true %}
-    {% set summary = article.summary %}
-  {% endif %}
+	{# summary #}
+	{% if article.summary %}
+		{% set show_summary = true %}
+		{% set summary = article.summary %}
+	{% endif %}
 
 
 	{# 
-	  else set to local and set all variables from "content"
-	#}
+					  else set to local and set all variables from "content"
+					#}
 {% else %}
 	{% set title = label %}
 	{# card label #}
@@ -60,13 +62,15 @@ Descr: defines "article" and outputs fields for article teaser-small
 		{% set show_bylines = true %}
 		{% set bylines = content.field_bylines %}
 	{% endif %}
-  {# summary #}
-  {% if content.field_page_summary %}
-    {% set show_summary = true %}
-    {% set summary = content.field_page_summary %}
-  {% endif %}
+	{# summary #}
+	{% if content.field_page_summary %}
+		{% set show_summary = true %}
+		{% set summary = content.field_page_summary %}
+	{% endif %}
 
 {% endif %}
+
+{# {{vardumper(article)}} #}
 {# 
 setting image
   - if local image path set use that
@@ -75,23 +79,23 @@ setting image
 #}
 {# 
   NOTE Setting geric image for now. need to get newsletter/landscape set up for remot items#}
-{% if content.field_newsletter_image.0 %}
+	{% if content.field_newsletter_image.0 %}
 	{% set image %}
 	{{content.field_newsletter_image}}
 	{% endset %}
-{# {% elseif article.imagepath %}
-	{% set image %}
-	<figure>
-		<img src="{{article.imagepath}}" alt="{{article.alt}}">
-	</figure>
-	{% endset %} #}
+	{# {% elseif article.imagepath %}
+					{% set image %}
+					<figure>
+						<img src="{{article.imagepath}}" alt="{{article.alt}}">
+					</figure>
+					{% endset %} #}
 {% else %}
 	{% set image %}
 	<figure>
-{{ drupal_image('public://2021-07/giant-side-close.jpg', 'medium')}}
-</figure>
+		{{ drupal_image('public://2021-07/giant-side-close.jpg', 'medium')}}
+	</figure>
 	{% endset %}
-{% endif %} 
+{% endif %}
 {# {% set image %}
 <figure>
 <img src="/sites/default/files/styles/landscape/public/2021-07/giant-side%20%281%29.jpg?h=6b5b50d2&itok=go5yxNB5" alt="">
@@ -100,14 +104,14 @@ setting image
 
 {# {{vardumper(article)}}
 {{vardumper(content)}} #}
-<div class="article article--teaser-small" aria-labelledby="item--{{nodeId}}"> 
+<div class="article article--teaser-small" aria-labelledby="item--{{nodeId}}">
 
-<div class="article__image">
-{{image}}
-</div>
+	<div class="article__image">
+		{{image}}
+	</div>
 
 	<div class="article__copy">
-			{% include "@content/atoms/_heading.twig" with {
+		{% include "@content/atoms/_heading.twig" with {
         "heading_level": 2,
         "heading": title,
         "heading_url": url,
@@ -118,11 +122,11 @@ setting image
         "heading_base_class": article_title_base_class|default('title'),
         "isAriaLabel" : nodeId
     } %}
-		{% if show_label %}
-			<span class="article__label">
-				{{ card_label }}
-			</span>
-		{% endif %}
+		{# {% if show_label %}
+					<span class="article__label">
+						{{ card_label }}
+					</span>
+				{% endif %} #}
 		{% if show_dateline %}
 			<span class="article__date">
 				{{ dateline }}
@@ -134,10 +138,10 @@ setting image
 				{{ bylines }}
 			</span>
 		{% endif %}
-    {% if show_summary %}
-      <p class="article__summary">
-      {{summary}}
-      </p>
-    {% endif %}
+		{% if show_summary %}
+			<p class="article__summary">
+				{{summary}}
+			</p>
+		{% endif %}
 	</div>
 </div>

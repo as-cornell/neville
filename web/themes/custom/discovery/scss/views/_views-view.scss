@@ -1,0 +1,13 @@
+/* -------------------------
+
+Title: views-view
+Descr: Sets layout for basic view wrappers
+        Sets all default individual course listings
+
+--------------------------- */
+.viewList {
+  &__content {
+    max-width: var(--header);
+    margin: 0 auto;
+  }
+}

@@ -138,7 +138,7 @@ font size bases to be used as extends
   font-size: var(--base-24);
   line-height: var(--line-height); }
 
-.base-28, .basicSidebar .content > .pageComponent--ftb > p:first-of-type {
+.base-28, .basicSidebar .content > .pageComponent--ftb > p:first-of-type, .person .sidebar h3 {
   font-size: var(--base-28);
   line-height: 1.4; }
 
@@ -1695,7 +1695,40 @@ Descr:
 
 .article--teaser-small {
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  margin-top: 2rem; }
+  .article--teaser-small .article__image {
+    -ms-flex: 0 0 20%;
+        flex: 0 0 20%; }
+  .article--teaser-small .article__copy {
+    -ms-flex: 0 0 75%;
+        flex: 0 0 75%; }
+  .article--teaser-small .article__title {
+    font-size: var(--base-36);
+    font-weight: var(--regular);
+    display: inherit;
+    margin-bottom: 0.25em; }
+    .article--teaser-small .article__title a {
+      position: relative;
+      color: var(--as-teal-500);
+      font-family: var(--font-serif);
+      font-weight: var(--semi);
+      background-image: linear-gradient(90deg, var(--as-teal-500), var(--as-red-500));
+      background-size: 0 2px;
+      background-position: left 92%;
+      background-repeat: no-repeat;
+      text-decoration: none;
+      transition: background-size 300ms ease; }
+      .article--teaser-small .article__title a:hover {
+        background-size: 100% 2px; }
+  .article--teaser-small .article__date,
+  .article--teaser-small .article__byline {
+    font-size: var(--base-18);
+    font-weight: var(--semi); }
+  .article--teaser-small .article__summary {
+    margin-top: 0.25rem; }
 
 .article {
   grid-template-rows: auto auto;
@@ -2048,6 +2081,45 @@ Descr: Sets all specific styles for an person card
     font-weight: var(--regular); }
   .person--card-small .person__contacts {
     display: none; }
+
+/* -------------------------
+
+Title: person
+Descr: 
+    uses the <main> 12 column grid as a base.
+    under /pages because it includes the <main> element
+
+    defines main layouts for default person pages
+
+--------------------------- */
+.person {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas: "title title title title" "content content content content" "sidebar sidebar sidebar sidebar"; }
+  @media only screen and (min-width: 782px) {
+    .person {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-areas: "title title title title title title title title . . . ." "content content content content content content content content sidebar sidebar sidebar sidebar"; } }
+  @media only screen and (min-width: 1224px) {
+    .person {
+      grid-template-areas: ". title title title title title title title . . . ." ". content content content content content content content sidebar sidebar sidebar ."; } }
+  .person .title {
+    grid-area: title; }
+    .person .title h1 {
+      margin-bottom: 0; }
+    .person .title h3 {
+      margin-top: 0;
+      margin-bottom: 1em; }
+  .person .content {
+    grid-area: content; }
+    .person .content > h2:first-of-type {
+      margin-top: 0; }
+  .person .sidebar {
+    grid-area: sidebar; }
+    .person .sidebar h3 {
+      margin-bottom: 0.5em; }
+  .person__contact {
+    margin-top: 2rem; }
 
 /* -------------------------
 
@@ -2491,6 +2563,17 @@ Descr: sets up all uniquie styles for Stats wrapper and cards
       margin-right: 1rem; }
       .basicSidebar .stat-wrapper .stat:last-of-type {
         margin-right: 0; } }
+
+/* -------------------------
+
+Title: views-view
+Descr: Sets layout for basic view wrappers
+        Sets all default individual course listings
+
+--------------------------- */
+.viewList__content {
+  max-width: var(--header);
+  margin: 0 auto; }
 
 /*# sourceMappingURL=styles.css.map */
 
