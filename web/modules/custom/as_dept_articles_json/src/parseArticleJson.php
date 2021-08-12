@@ -67,9 +67,9 @@ class parseArticleJson extends \Twig_Extension
             $article_record['newsletter_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/6_4_large/public/field/image/0824_cnf1_450x517px.jpg';
             }
             if (!empty($article_json['included'][1]['attributes']['image_style_uri'][0]['1_1_thumbnail_forced'])) {
-            $article_record['newsletter_imagepath'] = $article_json['included'][1]['attributes']['image_style_uri'][0]['1_1_thumbnail_forced'];
+            $article_record['thumbnail_imagepath'] = $article_json['included'][1]['attributes']['image_style_uri'][0]['1_1_thumbnail_forced'];
           }else{
-            $article_record['newsletter_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/6_4_large/public/field/image/0824_cnf1_450x517px.jpg';
+            $article_record['thumbnail_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/6_4_large/public/field/image/0824_cnf1_450x517px.jpg';
             }
           }
         }

@@ -78,8 +78,8 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
   ];
   $form['department_logos']['dept_logo_1'] = [
     '#type' => 'managed_file',
-    '#title' => t('Upload Department Logo 1'),
-    '#description' => t("Use this field to upload Department Logo 1."),
+    '#title' => t('Upload one-line department logo'),
+    '#description' => t("Use this field to upload a one-line department logo."),
     '#default_value' => theme_get_setting('dept_logo_1'),
     '#upload_location' => 'public://',
     '#upload_validators' => [
@@ -90,8 +90,8 @@ function discovery_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
   ];
   $form['department_logos']['dept_logo_2'] = [
     '#type' => 'managed_file',
-    '#title' => t('Upload Department Logo 2'),
-    '#description' => t("Use this field to upload Department Logo 2."),
+    '#title' => t('Upload two-line department logo'),
+    '#description' => t("Use this field to upload a two-line department logo."),
     '#default_value' => theme_get_setting('dept_logo_2'),
     '#preview_image_style' => 'medium',
     '#upload_location' => 'public://',
