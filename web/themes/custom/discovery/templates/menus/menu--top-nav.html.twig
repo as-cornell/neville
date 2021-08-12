@@ -20,7 +20,7 @@
 #}
 
 
-<p class="nav-toggle nav-toggle--sidebar">
+{# <p class="nav-toggle nav-toggle--sidebar">
 	<span>
 		Show section navigation
 	</span>
@@ -28,7 +28,7 @@
     shape : "chevron-down"
   } %}
 	{% endembed %}
-</p>
+</p> #}
 {% import _self as menus %}
 
 {#
@@ -54,7 +54,7 @@
 					{# link(item.title, item.url) #}
 					{% if item.below %}
 						{% embed "@content/atoms/_chevron.twig" with {
-                toggleClass : "subnav-toggle--sidebar",
+                toggleClass : "subnav-toggle--top",
                 shape : "chevron-down"
             } %}
 						{% endembed %}

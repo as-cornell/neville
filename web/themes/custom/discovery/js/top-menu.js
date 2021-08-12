@@ -1,13 +1,16 @@
 // document is ready to go
 (function ($) {
-  console.log('hello');
-  $(".nav--main-opener").on({
+  $(".toggle--topNav").on({
     click: function () {
       $(".header__searchForm > form").removeClass("shown");
-
-      $(".nav--main").toggleClass("shown");
-      
+      $(".nav--main .nav-0").toggleClass("shown");
       $(".main").toggleClass("fade");
+    },
+  });
+    $(".subnav-toggle--top").on({
+    click: function () {
+      var toggle = $(this);
+      $(toggle).parent().toggleClass("subnav-open");
     },
   });
 // yo

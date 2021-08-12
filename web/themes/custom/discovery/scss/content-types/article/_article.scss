@@ -10,7 +10,7 @@
     "aside"
     "otherNews";
   @include mq(medium) {
-    grid-template-columns: auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-areas:
       "title title thumbnail "
       "social social social"
@@ -19,7 +19,7 @@
       "otherNews otherNews otherNews";
   }
   @include mq(large) {
-    // grid-template-columns: repeat(24, 1fr);
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     grid-template-areas:
       " title title title title thumbnail thumbnail"
       " content content content content aside aside"

@@ -5,7 +5,7 @@ global:
 
 global-scripts:
   js:
-    js_min/main-menu.js: {}
+    js_min/top-menu.js: {}
     js_min/sidebar-menu.js: {}
     js_min/forms.js: {}
     js_min/on-this-page-nav.js: {}
