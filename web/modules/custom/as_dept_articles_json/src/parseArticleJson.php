@@ -56,13 +56,18 @@ class parseArticleJson extends \Twig_Extension
         }
       if (!empty($article_json['included'][1])) {
         if ($article_json['included'][1]['type'] == 'file--file') {
-          if (!empty($article_json['included'][1]['attributes']['image_style_uri'][0]['4_5'])) {
-            $article_record['imagepath'] = $article_json['included'][1]['attributes']['image_style_uri'][0]['4_5'];
+          if (!empty($article_json['included'][1]['attributes']['image_style_uri'][1]['4_5'])) {
+            $article_record['imagepath'] = $article_json['included'][1]['attributes']['image_style_uri'][1]['4_5'];
           }else{
             $article_record['imagepath'] = 'https://as.cornell.edu/sites/default/files/field/image/Klarmanarticle.jpg';
             }
-            if (!empty($article_json['included'][1]['attributes']['image_style_uri'][1]['6_4_large'])) {
-            $article_record['newsletter_imagepath'] = $article_json['included'][1]['attributes']['image_style_uri'][1]['6_4_large'];
+            if (!empty($article_json['included'][1]['attributes']['image_style_uri'][2]['6_4_newsletter'])) {
+            $article_record['newsletter_imagepath'] = $article_json['included'][1]['attributes']['image_style_uri'][2]['6_4_newsletter'];
+          }else{
+            $article_record['newsletter_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/6_4_large/public/field/image/0824_cnf1_450x517px.jpg';
+            }
+            if (!empty($article_json['included'][1]['attributes']['image_style_uri'][0]['1_1_thumbnail_forced'])) {
+            $article_record['newsletter_imagepath'] = $article_json['included'][1]['attributes']['image_style_uri'][0]['1_1_thumbnail_forced'];
           }else{
             $article_record['newsletter_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/6_4_large/public/field/image/0824_cnf1_450x517px.jpg';
             }
