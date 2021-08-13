@@ -18,6 +18,11 @@ content: content
 
 } %} #}
 
+{# sev variables to show or hide menu based on role and site url #}
+{% set roles = user.getroles(TRUE) %}
+{% set nomenu = ['http://localhost:65409/','https://departments.as.cornell.edu/'] %}
+{% set menupath = url('<front>')|render|render %}
+
 <header class="header" id="top">
 	<div id="skip">
 		<a href="#main-menu">
@@ -39,8 +44,9 @@ content: content
 											</a> #}
 	{# ADDED SITE BRANDING BLOCK FOR DIFFERENT DEPARTMENT LOGO PER DOMAIN #}
 	{# <div class="department-logo"> #}
-	{# drupal_entity('block', 'masquerade', check_access=true) #}
 	{{ drupal_block('department_header_logos_block') }}
+	{# needs block to be placed in block layout to work as drupal_entity #}
+	{# drupal_entity('block', 'departmentheaderlogosblock', check_access=false) #}
 	{# </div> #}
 
 	{# ADDED COLLEGE LOGO BLOCK FOR DIFFERENT COLLEGE LOGO PER DOMAIN #}
@@ -48,9 +54,14 @@ content: content
 
 
 	{# ADDED MAIN MENU FOR DIFFERENT LINKS PER DOMAIN #}
+	{% if roles.0 == 'administrator' %}
+	{# added as user switcher #}
+	{# drupal_entity('block', 'masquerade', check_access=true) #}
+	<nav class="header__mainNav nav--main" aria-label="Main menu" id="main-menu"> {{ drupal_menu('top-nav', 1, 2, expand=true) }}
+	{% else %}
 		<nav class="header__mainNav nav--main" aria-label="Main menu" id="main-menu"> {{ drupal_menu('top-nav', 2, 2, expand=true) }}
 	</nav>
-
+	{% endif %}
 	{# </nav> #}
 	<div class="header__buttons">
 		<div class="iconButton iconButton--search">
