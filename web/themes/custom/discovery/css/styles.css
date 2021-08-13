@@ -1029,9 +1029,12 @@ Still needs: expand toggle for showing main nav on mobile
       -ms-flex: 0 0 2rem;
           flex: 0 0 2rem;
       margin-bottom: 1px; }
+      @media only screen and (min-width: 782px) {
+        .nav--main .nav button {
+          background: transparent; } }
       .nav--main .nav button svg {
         fill: var(--as-white); }
-        @media only screen and (min-width: 900px) {
+        @media only screen and (min-width: 782px) {
           .nav--main .nav button svg {
             fill: var(--as-black); } }
       .nav--main .nav button:focus {
@@ -1045,116 +1048,93 @@ Still needs: expand toggle for showing main nav on mobile
               text-decoration-color: var(--as-gray-300);
       position: relative;
       display: block; }
-      .nav--main .nav a:before {
-        position: absolute;
-        content: "";
-        height: 100%;
-        top: 0;
-        width: 4px;
-        transform: translateX(-1em);
-        border-radius: 2px; }
   .nav--main .nav-0 {
     border-radius: var(--border-radius);
     max-height: 0;
     margin-bottom: 1rem;
     background: var(--as-white); }
+    @media only screen and (min-width: 782px) {
+      .nav--main .nav-0 {
+        max-height: 100%;
+        -ms-flex-direction: row;
+            flex-direction: row;
+        overflow: visible;
+        margin-bottom: 0; } }
+    @media only screen and (min-width: 1224px) {
+      .nav--main .nav-0 {
+        -ms-flex-pack: end;
+            justify-content: flex-end; } }
     .nav--main .nav-0.shown {
       max-height: 100%; }
-    .nav--main .nav-0 .nav-0__item {
-      margin-bottom: 0;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
-      .nav--main .nav-0 .nav-0__item.subnav-open ul {
-        max-height: 100%; }
-      .nav--main .nav-0 .nav-0__item.subnav-open button {
+  .nav--main .nav-0__item {
+    margin-bottom: 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    position: relative;
+    overflow: hidden; }
+    .nav--main .nav-0__item:after {
+      position: absolute;
+      content: "";
+      height: 100%;
+      top: 0;
+      width: 4px;
+      border-radius: 2px;
+      background: var(--as-teal-300); }
+    .nav--main .nav-0__item.subnav-open, .nav--main .nav-0__item:hover {
+      overflow: visible; }
+      .nav--main .nav-0__item.subnav-open ul, .nav--main .nav-0__item:hover ul {
+        max-height: 1000px; }
+      .nav--main .nav-0__item.subnav-open button, .nav--main .nav-0__item:hover button {
         transform: rotate(180deg);
         transform-origin: 50% 50%; }
-    .nav--main .nav-0 .nav-0__link {
-      color: var(--as-gray-200);
-      background: var(--as-black);
-      padding: 1em 0 1em 1em;
-      width: 100%;
-      transition: opacity 150ms ease-in-out;
-      -ms-flex: 1 1 calc(100% - 3rem);
-          flex: 1 1 calc(100% - 3rem);
-      margin-bottom: 1px; }
-      .nav--main .nav-0 .nav-0__link:before {
-        background: var(--as-teal-300); }
-      .nav--main .nav-0 .nav-0__link:hover:before, .nav--main .nav-0 .nav-0__link.active:before {
-        background: var(--as-teal-600); }
-      @media only screen and (min-width: 782px) {
-        .nav--main .nav-0 .nav-0__link {
-          display: -ms-flexbox;
-          display: flex;
-          -ms-flex-direction: row;
-              flex-direction: row;
-          transform: none;
+    .nav--main .nav-0__item.has-sub .nav-0__link {
+      -ms-flex: calc(100% - 2rem);
+          flex: calc(100% - 2rem);
+      padding: 1em 0 1em 1em; }
+    .nav--main .nav-0__item.has-sub button {
+      -ms-flex: 1rem;
+          flex: 1rem; }
+    @media only screen and (min-width: 782px) {
+      .nav--main .nav-0__item {
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto; }
+        .nav--main .nav-0__item:after {
           width: 100%;
-          color: var(--as-black);
-          background: transparent;
-          overflow: visible;
-          position: relative;
-          -ms-flex-pack: start;
-              justify-content: flex-start;
-          font-size: var(--base-20); }
-          .nav--main .nav-0 .nav-0__link .nav-1 {
-            transform: scale(0, 0); }
-          .nav--main .nav-0 .nav-0__link .nav-0__item {
-            background: transparent;
-            position: relative; }
-            .nav--main .nav-0 .nav-0__link .nav-0__item:after {
-              position: absolute;
-              content: "";
-              width: calc(100% - 27px);
-              height: 3px;
-              background: var(--as-red-400);
-              top: 0;
-              left: 0;
-              transform: scaleX(0);
-              transition: all 0.15s ease-in;
-              visibility: hidden;
-              border-radius: 2px; }
-            .nav--main .nav-0 .nav-0__link .nav-0__item .nav-0__link {
-              background: none;
-              opacity: 1;
-              color: var(--as-black);
-              width: auto;
-              font-weight: var(--semi);
-              padding: 0.5rem; }
-            .nav--main .nav-0 .nav-0__link .nav-0__item:hover, .nav--main .nav-0 .nav-0__link .nav-0__item.subnav-open {
-              -webkit-text-decoration-color: var(--as-gray-500);
-                      text-decoration-color: var(--as-gray-500);
-              box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
-              overflow: visible; }
-              .nav--main .nav-0 .nav-0__link .nav-0__item:hover:after, .nav--main .nav-0 .nav-0__link .nav-0__item.subnav-open:after {
-                visibility: visible;
-                transform: scaleX(1);
-                transform-origin: top;
-                transition: all 0.25s ease-out; }
-              .nav--main .nav-0 .nav-0__link .nav-0__item:hover .nav-1, .nav--main .nav-0 .nav-0__link .nav-0__item.subnav-open .nav-1 {
-                transform: scaleY(1);
-                transform-origin: top;
-                transition: all 250ms ease-out; }
-          .nav--main .nav-0 .nav-0__link button:focus {
-            opacity: 1; } }
-  @media only screen and (min-width: 782px) and (any-hover: hover) and (pointer: fine) {
-    .nav--main .nav-0 .nav-0__link button {
-      opacity: 0; } }
-      @media only screen and (min-width: 1224px) {
-        .nav--main .nav-0 .nav-0__link {
-          -ms-flex-pack: end;
-              justify-content: flex-end; } }
+          height: 4px;
+          transform: translateX(-100%); }
+        .nav--main .nav-0__item:hover {
+          overflow: visible; }
+          .nav--main .nav-0__item:hover:after {
+            transform: translateX(0%); } }
+  .nav--main .nav-0__link {
+    color: var(--as-gray-200);
+    background: var(--as-black);
+    padding: 1em;
+    width: 100%;
+    transition: opacity 150ms ease-in-out;
+    margin-bottom: 1px; }
+    .nav--main .nav-0__link:hover:before, .nav--main .nav-0__link.active:before {
+      background: var(--as-teal-600); }
+    @media only screen and (min-width: 782px) {
+      .nav--main .nav-0__link {
+        background: transparent;
+        color: var(--as-black); }
+        .nav--main .nav-0__link:before {
+          top: 0;
+          width: 100%;
+          height: 4px; } }
   .nav--main .nav-1 {
     border-radius: 0;
     width: 100%;
     padding-left: 0;
     margin-top: 0;
     max-height: 0;
-    background: var(--as-gray-200); }
-    .nav--main .nav-1 .nav-1__item {
-      overflow: hidden; }
+    background: var(--as-gray-200);
+    overflow: visible;
+    z-index: 1;
+    box-shadow: var(--box-shadow); }
     .nav--main .nav-1 .nav-1__link {
       padding: 1em 1em 1em 1.5em;
       color: var(--as-black);
@@ -1166,7 +1146,13 @@ Still needs: expand toggle for showing main nav on mobile
         background: var(--as-teal-200); }
       .nav--main .nav-1 .nav-1__link:before {
         background: var(--as-teal-400);
-        transform: translateX(-1.5em); }
+        transform: translateX(-1.5em);
+        position: absolute;
+        content: "";
+        height: 100%;
+        top: 0;
+        width: 4px;
+        border-radius: 2px; }
       @media only screen and (min-width: 782px) {
         .nav--main .nav-1 .nav-1__link:hover {
           color: var(--as-white);
@@ -1178,7 +1164,8 @@ Still needs: expand toggle for showing main nav on mobile
             height: 100%;
             top: 0;
             background: var(--as-red-400);
-            border-radius: 4px; }
+            border-radius: 4px;
+            transform: translateX(0); }
           .nav--main .nav-1 .nav-1__link:hover:after {
             right: -0.125rem; }
           .nav--main .nav-1 .nav-1__link:hover:before {
@@ -1187,7 +1174,11 @@ Still needs: expand toggle for showing main nav on mobile
       max-height: 100%; }
     @media only screen and (min-width: 782px) {
       .nav--main .nav-1 {
-        width: 260px; } }
+        width: 260px;
+        -ms-flex-direction: column;
+            flex-direction: column;
+        position: absolute;
+        top: 100%; } }
 
 /* -------------------------
 
@@ -1452,14 +1443,13 @@ header {
   header .header__logo {
     -ms-flex: 0 0 100%;
         flex: 0 0 100%;
-    grid-column: 1 / -1;
+    grid-column: 1;
     grid-row: 2;
-    margin: 2rem 0; }
+    margin: 2rem 2rem 2rem 0; }
     @media only screen and (min-width: 1224px) {
       header .header__logo {
         background-size: contain;
-        background-repeat: no-repeat;
-        width: 500px; } }
+        background-repeat: no-repeat; } }
     header .header__logo--two-logos .logo--one {
       display: block; }
       @media only screen and (min-width: 1224px) {

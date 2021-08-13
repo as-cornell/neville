@@ -31,29 +31,28 @@
 {# {{vardumper()}} #}
 
 {% block content %}
-	<div class="header__logo {% if dept_logo_2.0 %}header__logo--two-logos{% endif %}">
-		{% if dept_logo_1.0 %}
-			<div class="logo--one">
-				<a href="/">
-					{{ drupal_image(dept_logo_1.0) }}
-					<span class="sr-only">
-						Department Homepage
-					</span>
-				</a>
-			</div>
-		{% endif %}
-		{% if dept_logo_2.0 %}
-			<div class="logo--two">
-				<a href="/">
-					{{ drupal_image(dept_logo_2.0) }}
-					<span class="sr-only">
-						Department Homepage
-					</span>
-
-				</a>
-			</div>
-		{% endif %}
-	</div>
+	{# <div class="header__logo {% if dept_logo_2.0 %}header__logo--two-logos{% endif %}"> #}
+	{% if dept_logo_1.0 %}
+		{# <div class="logo--one"> #}
+		<a href="/" class="header__logo logo--1">
+			{{ drupal_image(dept_logo_1.0) }}
+			<span class="sr-only">
+				Department Homepage
+			</span>
+		</a>
+		{# </div> #}
+	{% endif %}
+	{% if dept_logo_2.0 %}
+		{# <div class="logo--two"> #}
+		<a href="/" class="header__logo logo--2">
+			{{ drupal_image(dept_logo_2.0) }}
+			<span class="sr-only">
+				Department Homepage
+			</span>
+		</a>
+		{# </div> #}
+	{% endif %}
+	{# </div> #}
 
 
 	{# content #}

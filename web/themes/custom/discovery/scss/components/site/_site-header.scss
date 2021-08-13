@@ -76,15 +76,14 @@ header {
   .header__logo {
     // text-indent: -9999px;
     flex: 0 0 100%;
-    grid-column: 1 / -1;
+    grid-column: 1;
     grid-row: 2;
 
-    // background: url(/themes/custom/discovery/images/TEST-NES-oneline.svg);
-    margin: 2rem 0;
+    margin: 2rem 2rem 2rem 0;
     @include mq(large) {
       background-size: contain;
       background-repeat: no-repeat;
-      width: 500px;
+      // width: 500px;
     }
     &--two-logos {
       .logo--one {
