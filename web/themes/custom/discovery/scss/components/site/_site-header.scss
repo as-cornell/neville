@@ -33,17 +33,16 @@ header {
   margin: 0 auto;
   max-width: var(--xl);
   position: relative;
-
   @include mq(medium) {
     grid-template-columns: 1fr 1fr auto;
-    margin: 1rem auto 2rem auto;
+    // margin: 1rem auto 2rem auto;
   }
 
   @include mq(header) {
-    grid-template-columns: auto 1fr auto;
+    // grid-template-columns: 1fr;
     grid-template-rows: auto;
     align-items: center;
-    margin: 2rem auto 2rem auto;
+    margin: 2rem auto 1rem auto;
   }
 
   .header__searchForm {
@@ -76,11 +75,15 @@ header {
   .header__logo {
     // text-indent: -9999px;
     flex: 0 0 100%;
-    grid-column: 1;
+    grid-column: 1 / -1;
     grid-row: 2;
-
-    margin: 2rem 2rem 2rem 0;
+    margin: 1rem 0;
+    @include mq(medium) {
+      grid-column: 1;
+      margin: 2rem 0 1rem 0;
+    }
     @include mq(large) {
+      margin: 2rem 2rem 2rem 0;
       background-size: contain;
       background-repeat: no-repeat;
       // width: 500px;
@@ -112,7 +115,7 @@ header {
     background-position-x: right;
     text-indent: -5000px;
     @include mq(medium) {
-      background: url(/themes/custom/discovery/images/Arts-and-sciences.svg);
+      background: url(/themes/custom/discovery/images/arts-and-sciences-small.svg);
       background-repeat: no-repeat;
       background-size: contain;
       width: 150px;

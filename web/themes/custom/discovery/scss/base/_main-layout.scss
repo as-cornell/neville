@@ -14,7 +14,7 @@ Descr:
 
 .main {
   // base page main conent grids
-  max-width: var(--large);
+  max-width: var(--xl);
   margin: 0 auto var(--margin-2) auto;
   display: grid;
   grid-gap: 2rem;
@@ -23,8 +23,9 @@ Descr:
   transition: opacity 150ms ease-in-out;
   &.fade {
     opacity: 0.25;
-    transition: opacity 250ms ease-in-out 250ms;
+    transition: opacity 250ms ease-in-out 0ms;
   }
+
   .sidebar {
     h3 {
       margin-bottom: 1em;

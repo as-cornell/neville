@@ -407,7 +407,7 @@ Descr:
 
 --------------------------- */
 .main {
-  max-width: var(--large);
+  max-width: var(--xl);
   margin: 0 auto var(--margin-2) auto;
   display: grid;
   grid-gap: 2rem;
@@ -416,7 +416,7 @@ Descr:
   transition: opacity 150ms ease-in-out; }
   .main.fade {
     opacity: 0.25;
-    transition: opacity 250ms ease-in-out 250ms; }
+    transition: opacity 250ms ease-in-out 0ms; }
   .main .sidebar h3 {
     margin-bottom: 1em; }
 
@@ -1010,7 +1010,13 @@ Still needs: expand toggle for showing main nav on mobile
 .nav--main {
   position: relative;
   font-weight: var(--regular);
-  font-size: var(--base-18); }
+  font-size: var(--base-18);
+  position: absolute;
+  z-index: 10;
+  width: 100%; }
+  @media only screen and (min-width: 782px) {
+    .nav--main {
+      position: relative; } }
   .nav--main .nav {
     padding: 0;
     margin: 0;
@@ -1051,7 +1057,6 @@ Still needs: expand toggle for showing main nav on mobile
   .nav--main .nav-0 {
     border-radius: var(--border-radius);
     max-height: 0;
-    margin-bottom: 1rem;
     background: var(--as-white); }
     @media only screen and (min-width: 782px) {
       .nav--main .nav-0 {
@@ -1065,7 +1070,8 @@ Still needs: expand toggle for showing main nav on mobile
         -ms-flex-pack: end;
             justify-content: flex-end; } }
     .nav--main .nav-0.shown {
-      max-height: 100%; }
+      max-height: 100%;
+      margin-bottom: 1rem; }
   .nav--main .nav-0__item {
     margin-bottom: 0;
     display: -ms-flexbox;
@@ -1406,15 +1412,13 @@ header {
   position: relative; }
   @media only screen and (min-width: 782px) {
     header {
-      grid-template-columns: 1fr 1fr auto;
-      margin: 1rem auto 2rem auto; } }
+      grid-template-columns: 1fr 1fr auto; } }
   @media only screen and (min-width: 900px) {
     header {
-      grid-template-columns: auto 1fr auto;
       grid-template-rows: auto;
       -ms-flex-align: center;
           align-items: center;
-      margin: 2rem auto 2rem auto; } }
+      margin: 2rem auto 1rem auto; } }
   header .header__searchForm {
     grid-column: 1 / -1;
     grid-row: 3;
@@ -1443,11 +1447,16 @@ header {
   header .header__logo {
     -ms-flex: 0 0 100%;
         flex: 0 0 100%;
-    grid-column: 1;
+    grid-column: 1 / -1;
     grid-row: 2;
-    margin: 2rem 2rem 2rem 0; }
+    margin: 1rem 0; }
+    @media only screen and (min-width: 782px) {
+      header .header__logo {
+        grid-column: 1;
+        margin: 2rem 0 1rem 0; } }
     @media only screen and (min-width: 1224px) {
       header .header__logo {
+        margin: 2rem 2rem 2rem 0;
         background-size: contain;
         background-repeat: no-repeat; } }
     header .header__logo--two-logos .logo--one {
@@ -1474,7 +1483,7 @@ header {
     text-indent: -5000px; }
     @media only screen and (min-width: 782px) {
       header .as-logo {
-        background: url(/themes/custom/discovery/images/Arts-and-sciences.svg);
+        background: url(/themes/custom/discovery/images/arts-and-sciences-small.svg);
         background-repeat: no-repeat;
         background-size: contain;
         width: 150px;
@@ -1901,7 +1910,7 @@ Descr:
       grid-template-areas: " title title " "nav content " "sidebar content  "; } }
   @media only screen and (min-width: 1224px) {
     .basicSidebar {
-      grid-template-columns: 3rem 1fr 2fr 3rem;
+      grid-template-columns: 1rem 1fr 2fr 1rem;
       grid-template-areas: ". title title ." ". nav content ." ". sidebar content ."; } }
   @media only screen and (min-width: 782px) {
     .basicSidebar--has-aside {

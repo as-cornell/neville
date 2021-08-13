@@ -10,7 +10,12 @@ Still needs: expand toggle for showing main nav on mobile
   position: relative;
   font-weight: var(--regular);
   font-size: var(--base-18);
-
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  @include mq(medium) {
+    position: relative;
+  }
   .nav {
     padding: 0;
     margin: 0;
@@ -60,7 +65,7 @@ Still needs: expand toggle for showing main nav on mobile
   .nav-0 {
     border-radius: var(--border-radius);
     max-height: 0;
-    margin-bottom: 1rem;
+
     background: var(--as-white);
     @include mq(medium) {
       max-height: 100%;
@@ -73,6 +78,7 @@ Still needs: expand toggle for showing main nav on mobile
     }
     &.shown {
       max-height: 100%;
+      margin-bottom: 1rem;
     }
   }
   .nav-0__item {
@@ -132,17 +138,7 @@ Still needs: expand toggle for showing main nav on mobile
     padding: 1em;
     width: 100%;
     transition: opacity 150ms ease-in-out;
-    // flex: 1 1 calc(100% - 3rem);
     margin-bottom: 1px;
-    // &:before {
-    //   position: absolute;
-    //   content: "";
-    //   height: 100%;
-    //   top: 0;
-    //   width: 4px;
-    //   transform: translateX(-1em);
-    //   border-radius: 2px;
-    // }
     &:hover,
     &.active {
       &:before {
@@ -239,7 +235,6 @@ Still needs: expand toggle for showing main nav on mobile
     z-index: 1;
     box-shadow: var(--box-shadow);
     .nav-1__item {
-      // overflow: hidden;
     }
     .nav-1__link {
       padding: 1em 1em 1em 1.5em;
