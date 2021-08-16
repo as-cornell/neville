@@ -1,0 +1,86 @@
+{#
+
+/* -------------------------
+
+Title: node--person.html.twig
+Descr: defines "person" and outputs fields for full person view
+
+--------------------------- */
+
+#}
+
+
+{# set wrapper bem classes #}
+{% set main_element_extra_classes = ['main', 'content'] %}
+{% set main_element_base_class = 'person' %}
+{% set main_element_modifiers = [''] %}
+
+
+{# set var person #}
+{% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
+{% set person = parse_people_json(remote_uuid) %}
+{# {{dump(person)}} #}
+{# {{dump(content)}} #}
+{# job title #}
+{% if person.jobtitle %}
+	{% set show_jobtitle = true %}
+{% endif %}
+
+{# departments #}
+{% if content.field_departments_programs %}
+	{% set show_departments = true %}
+{% endif %}
+
+{# person type #}
+{% set personType = content.field_person_type.0["#plain_text"] %}
+{# set link #}
+{% set card_link_url = '/people'~person.path %}
+
+{# summary #}
+{% if person.summary %}
+  {% set show_summary = true %}
+{% endif %}
+
+{# set image #}
+{% if person.imagepath %}
+	{% set image %}
+		<img src="{{person.imagepath}}" alt="{{person.alt}}">
+  {% endset %}
+  {% else %}
+  {% set image %}
+		<img src="https://people.as.cornell.edu/sites/people/files/Klarmanarticle_4784_2.jpg" alt="Klarman Hall"/>
+  {% endset %}
+{% endif %}
+
+<main {{ bem(main_element_base_class, (main_element_modifiers), main_blockname, main_element_extra_classes) }}>
+	{{title_suffix}}
+	<div class="title">
+		{% include "@content/atoms/_heading.twig" with {
+    "heading_level" : 1,
+    "heading" : name,
+    "heading_base_class" : "title"
+  } %}
+		{% include "@content/atoms/_heading.twig" with {
+    "heading_level" : 3,
+    "heading" : title,
+    "heading_modifiers" : ["person"],
+    "heading_base_class" : "title"
+  } %}
+	</div>
+
+	<div class="content">
+		{{image}}
+		{% if show_summary %}
+			<h2>
+				Summary
+			</h2>
+			{{person.summary|raw}}
+		{% endif %}
+		{% if show_departments %}
+			<h3>
+				Departments and programs
+			</h3>
+			{{content.field_departments_programs}}
+		{% endif %}
+	</div>
+</main>
