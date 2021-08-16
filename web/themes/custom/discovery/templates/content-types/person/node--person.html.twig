@@ -63,7 +63,7 @@ Descr: defines "person" and outputs fields for full person view
 {% endif %}
 
 {# new related_articles #}
-{% if drupal_view('people_articles', 'block_1', node.nid.value) %}
+{% if drupal_view('people_articles', 'all', node.nid.value) %}
   {% set show_related_articles = true %}
 {% endif %}
 
@@ -132,7 +132,7 @@ Descr: defines "person" and outputs fields for full person view
 				In the news
 			</h2>
       <p><em>Need to make different template for this block, so it doesn't use the full page template with all the html that shouldn't be nexted.</em></p>
-		{# {{ drupal_view('people_articles', 'block_1', node.nid.value) }} #}
+		{{ drupal_view('people_articles', 'all', node.nid.value) }}
 		{% endif %}
 
 	</div>
