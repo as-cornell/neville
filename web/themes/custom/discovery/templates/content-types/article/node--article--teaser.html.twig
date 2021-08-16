@@ -142,7 +142,7 @@ setting image
 		{% endif %} #}
     {% if show_summary %}
       <p class="article__summary">
-      {{summary}}
+      {{summary|raw}}
       </p>
     {% endif %}
     <a href="{{url}}" class="button article__link">Read More</a>

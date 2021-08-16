@@ -74,7 +74,7 @@ Descr: defines "person" and outputs fields for full person view
 			<h2>
 				Summary
 			</h2>
-			{{person.summary|raw}}
+			{{person.summary|raw|truncate(500)}}
 		{% endif %}
 		{% if show_departments %}
 			<h3>
