@@ -34,7 +34,7 @@ header {
   max-width: var(--xl);
   position: relative;
   @include mq(medium) {
-    grid-template-columns: 1fr 1fr auto;
+    grid-template-columns: auto 1fr auto;
     // margin: 1rem auto 2rem auto;
   }
 
@@ -156,13 +156,19 @@ header {
     justify-content: flex-end;
     align-items: center;
     align-self: center;
+
     @include mq(medium) {
       grid-column: 3;
     }
     button {
+      width: 2rem;
+      height: 2rem;
       border: none;
       background: none;
       cursor: pointer;
+    }
+    .icon--button svg {
+      width: auto;
     }
     .iconButton--showNav {
       @include mq(medium) {

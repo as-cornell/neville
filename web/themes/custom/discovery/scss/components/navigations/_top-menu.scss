@@ -16,6 +16,10 @@ Still needs: expand toggle for showing main nav on mobile
   @include mq(medium) {
     position: relative;
   }
+  @include mq(header) {
+    display: flex;
+    justify-content: flex-end;
+  }
   .nav {
     padding: 0;
     margin: 0;
@@ -72,6 +76,7 @@ Still needs: expand toggle for showing main nav on mobile
       flex-direction: row;
       overflow: visible;
       margin-bottom: 0;
+      display: inline-flex;
     }
     @include mq(large) {
       justify-content: flex-end;
@@ -110,22 +115,30 @@ Still needs: expand toggle for showing main nav on mobile
     }
     &.has-sub {
       .nav-0__link {
-        flex: calc(100% - 2rem);
+        flex: calc(100% - 3rem);
         padding: 1em 0 1em 1em;
       }
       button {
         flex: 1rem;
+        padding: 0 0.5em;
       }
     }
     @include mq(medium) {
       flex: 1 0 auto;
+      flex-wrap: nowrap;
       &:after {
         width: 100%;
         height: 4px;
         transform: translateX(-100%);
       }
-      &:hover {
+      &:hover,
+      &.subnav-open {
         overflow: visible;
+        &:after {
+          transform: translateX(0%);
+        }
+      }
+      &.active {
         &:after {
           transform: translateX(0%);
         }
@@ -148,6 +161,7 @@ Still needs: expand toggle for showing main nav on mobile
     @include mq(medium) {
       background: transparent;
       color: var(--as-black);
+      white-space: nowrap;
       &:before {
         top: 0;
         width: 100%;
@@ -243,9 +257,9 @@ Still needs: expand toggle for showing main nav on mobile
       text-decoration: underline;
       display: block;
       margin-bottom: 1px;
-      &:hover,
-      &:focus {
-        background: var(--as-teal-200);
+      overflow: hidden;
+      @include mq(medium) {
+        padding: 1em;
       }
       &:before {
         background: var(--as-teal-400);
@@ -256,28 +270,28 @@ Still needs: expand toggle for showing main nav on mobile
         top: 0;
         width: 4px;
         border-radius: 2px;
-      }
-
-      @include mq(medium) {
-        &:hover {
-          color: var(--as-white);
+        @include mq(medium) {
+          top: calc(100% - 4px);
+          width: 100%;
+          height: 4px;
           background: var(--as-red-400);
-          &:after,
-          &:before {
-            position: absolute;
-            content: "";
-            width: 0.25rem;
-            height: 100%;
-            top: 0;
-            background: var(--as-red-400);
-            border-radius: 4px;
-            transform: translateX(0);
+          transform: translateX(calc((100% + 1em) * -1));
+          transition: all 250ms ease-in;
+        }
+      }
+      &:hover,
+      &:focus {
+        background: var(--as-gray-200);
+        @include mq(medium) {
+          &::before {
+            transform: translateX(-1em);
           }
-          &:after {
-            right: -0.125rem;
-          }
-          &:before {
-            left: -0.125rem;
+        }
+      }
+      &.active {
+        @include mq(medium) {
+          &::before {
+            transform: translateX(-1em);
           }
         }
       }

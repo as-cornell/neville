@@ -45,7 +45,8 @@
 	{% if items %}
 		<ul class=" nav {{listClass}} ">
 			{% for item in items %}
-				<li class="{{listClass}}__item{% if item.below %} has-sub{% endif %}">
+<li class="{{listClass}}__item{% if item.below %} has-sub{% endif %} {% if item.in_active_trail %} active {% endif %}">
+
 
 					<a href="{{item.url}}" class="{{listClass}}__link {% if item.in_active_trail %} active{% endif %}">
 						{{item.title}}

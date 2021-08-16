@@ -810,6 +810,9 @@ Descr: otpN small and large, hovers and toggles for subNav
         padding: 0.25em 0.25em 0 0.25em;
         margin-right: 1em;
         text-decoration: none; } }
+    @media only screen and (min-width: 1224px) {
+      .otpNav a {
+        margin-right: 0; } }
     .otpNav a:before, .otpNav a:after {
       position: absolute;
       content: "";
@@ -1017,6 +1020,12 @@ Still needs: expand toggle for showing main nav on mobile
   @media only screen and (min-width: 782px) {
     .nav--main {
       position: relative; } }
+  @media only screen and (min-width: 900px) {
+    .nav--main {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: end;
+          justify-content: flex-end; } }
   .nav--main .nav {
     padding: 0;
     margin: 0;
@@ -1064,7 +1073,9 @@ Still needs: expand toggle for showing main nav on mobile
         -ms-flex-direction: row;
             flex-direction: row;
         overflow: visible;
-        margin-bottom: 0; } }
+        margin-bottom: 0;
+        display: -ms-inline-flexbox;
+        display: inline-flex; } }
     @media only screen and (min-width: 1224px) {
       .nav--main .nav-0 {
         -ms-flex-pack: end;
@@ -1096,24 +1107,29 @@ Still needs: expand toggle for showing main nav on mobile
         transform: rotate(180deg);
         transform-origin: 50% 50%; }
     .nav--main .nav-0__item.has-sub .nav-0__link {
-      -ms-flex: calc(100% - 2rem);
-          flex: calc(100% - 2rem);
+      -ms-flex: calc(100% - 3rem);
+          flex: calc(100% - 3rem);
       padding: 1em 0 1em 1em; }
     .nav--main .nav-0__item.has-sub button {
       -ms-flex: 1rem;
-          flex: 1rem; }
+          flex: 1rem;
+      padding: 0 0.5em; }
     @media only screen and (min-width: 782px) {
       .nav--main .nav-0__item {
         -ms-flex: 1 0 auto;
-            flex: 1 0 auto; }
+            flex: 1 0 auto;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap; }
         .nav--main .nav-0__item:after {
           width: 100%;
           height: 4px;
           transform: translateX(-100%); }
-        .nav--main .nav-0__item:hover {
+        .nav--main .nav-0__item:hover, .nav--main .nav-0__item.subnav-open {
           overflow: visible; }
-          .nav--main .nav-0__item:hover:after {
-            transform: translateX(0%); } }
+          .nav--main .nav-0__item:hover:after, .nav--main .nav-0__item.subnav-open:after {
+            transform: translateX(0%); }
+        .nav--main .nav-0__item.active:after {
+          transform: translateX(0%); } }
   .nav--main .nav-0__link {
     color: var(--as-gray-200);
     background: var(--as-black);
@@ -1126,7 +1142,8 @@ Still needs: expand toggle for showing main nav on mobile
     @media only screen and (min-width: 782px) {
       .nav--main .nav-0__link {
         background: transparent;
-        color: var(--as-black); }
+        color: var(--as-black);
+        white-space: nowrap; }
         .nav--main .nav-0__link:before {
           top: 0;
           width: 100%;
@@ -1147,9 +1164,11 @@ Still needs: expand toggle for showing main nav on mobile
       background: var(--as-white);
       text-decoration: underline;
       display: block;
-      margin-bottom: 1px; }
-      .nav--main .nav-1 .nav-1__link:hover, .nav--main .nav-1 .nav-1__link:focus {
-        background: var(--as-teal-200); }
+      margin-bottom: 1px;
+      overflow: hidden; }
+      @media only screen and (min-width: 782px) {
+        .nav--main .nav-1 .nav-1__link {
+          padding: 1em; } }
       .nav--main .nav-1 .nav-1__link:before {
         background: var(--as-teal-400);
         transform: translateX(-1.5em);
@@ -1159,23 +1178,22 @@ Still needs: expand toggle for showing main nav on mobile
         top: 0;
         width: 4px;
         border-radius: 2px; }
-      @media only screen and (min-width: 782px) {
-        .nav--main .nav-1 .nav-1__link:hover {
-          color: var(--as-white);
-          background: var(--as-red-400); }
-          .nav--main .nav-1 .nav-1__link:hover:after, .nav--main .nav-1 .nav-1__link:hover:before {
-            position: absolute;
-            content: "";
-            width: 0.25rem;
-            height: 100%;
-            top: 0;
+        @media only screen and (min-width: 782px) {
+          .nav--main .nav-1 .nav-1__link:before {
+            top: calc(100% - 4px);
+            width: 100%;
+            height: 4px;
             background: var(--as-red-400);
-            border-radius: 4px;
-            transform: translateX(0); }
-          .nav--main .nav-1 .nav-1__link:hover:after {
-            right: -0.125rem; }
-          .nav--main .nav-1 .nav-1__link:hover:before {
-            left: -0.125rem; } }
+            transform: translateX(calc((100% + 1em) * -1));
+            transition: all 250ms ease-in; } }
+      .nav--main .nav-1 .nav-1__link:hover, .nav--main .nav-1 .nav-1__link:focus {
+        background: var(--as-gray-200); }
+        @media only screen and (min-width: 782px) {
+          .nav--main .nav-1 .nav-1__link:hover::before, .nav--main .nav-1 .nav-1__link:focus::before {
+            transform: translateX(-1em); } }
+      @media only screen and (min-width: 782px) {
+        .nav--main .nav-1 .nav-1__link.active::before {
+          transform: translateX(-1em); } }
     .nav--main .nav-1.shown {
       max-height: 100%; }
     @media only screen and (min-width: 782px) {
@@ -1412,7 +1430,7 @@ header {
   position: relative; }
   @media only screen and (min-width: 782px) {
     header {
-      grid-template-columns: 1fr 1fr auto; } }
+      grid-template-columns: auto 1fr auto; } }
   @media only screen and (min-width: 900px) {
     header {
       grid-template-rows: auto;
@@ -1526,9 +1544,13 @@ header {
       header .header__buttons {
         grid-column: 3; } }
     header .header__buttons button {
+      width: 2rem;
+      height: 2rem;
       border: none;
       background: none;
       cursor: pointer; }
+    header .header__buttons .icon--button svg {
+      width: auto; }
     @media only screen and (min-width: 782px) {
       header .header__buttons .iconButton--showNav {
         display: none; } }

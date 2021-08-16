@@ -72,6 +72,10 @@ Descr: otpN small and large, hovers and toggles for subNav
       margin-right: 1em;
       text-decoration: none;
     }
+
+    @include mq(large) {
+      margin-right: 0;
+    }
     &:before,
     &:after {
       position: absolute;

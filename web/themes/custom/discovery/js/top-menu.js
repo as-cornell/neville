@@ -20,9 +20,9 @@
   //
 
   // Add aria-haspopup true to links with popups
-  $(".nav--main-opener").prev().attr("aria-haspopup", "true");
+  $(".subnav-toggle--top").prev().attr("aria-haspopup", "true");
 
-  $(".subNav a").attr("tabindex", -1);
+  $(".nav--main .nav-1 a").attr("tabindex", -1);
 
 
   // if a menu-button is clicked...
