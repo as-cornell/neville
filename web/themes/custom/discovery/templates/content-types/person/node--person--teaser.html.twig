@@ -69,13 +69,15 @@ Descr: defines "person" and outputs fields for full person view
 	</div>
 
 	<div class="content">
-		{{image}}
-		{% if show_summary %}
+			{% if show_summary %}
 			<h2>
 				Summary
 			</h2>
-			{{person.summary|raw|truncate(500)}}
+			{{person.summary|striptags|truncate(500, true)}}...
 		{% endif %}
+	</div>
+	<div class="sidebar">
+		{{image}}
 		{% if show_departments %}
 			<h3>
 				Departments and programs
