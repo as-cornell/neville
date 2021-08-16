@@ -71,7 +71,7 @@ Descr: defines "person" and outputs fields for full person view
 	<div class="content">
 			{% if show_summary %}
 			<h2>
-				Summary
+				{{title}}
 			</h2>
 			{{person.summary|striptags|truncate(500, true)}}...
 		{% endif %}
