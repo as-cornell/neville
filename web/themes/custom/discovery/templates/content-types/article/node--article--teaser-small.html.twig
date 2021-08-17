@@ -40,6 +40,7 @@ Descr: defines "article" and outputs fields for article teaser-small
 		{% set show_summary = true %}
 		{% set summary = article.summary %}
 	{% endif %}
+	{{vardumper(article.summary)}}
 
 
 	{# 
@@ -70,42 +71,26 @@ Descr: defines "article" and outputs fields for article teaser-small
 
 {% endif %}
 
-{# {{vardumper(article)}} #}
 {# 
 setting image
   - if local image path set use that
   - if no local image path and article.imagepath use that
   - default to stock image
 #}
-{# 
-  NOTE Setting geric image for now. need to get newsletter/landscape set up for remot items#}
-	{% if content.field_newsletter_image.0 %}
-	{% set image %}
-	{{content.field_newsletter_image}}
-	{% endset %}
-	{# {% elseif article.imagepath %}
-					{% set image %}
-					<figure>
-						<img src="{{article.imagepath}}" alt="{{article.alt}}">
-					</figure>
-					{% endset %} #}
-{% else %}
-	{% set image %}
-	{{vardumper(article.imagealt)}}
-	<figure>
-		{{ drupal_image('article.imagepath', 'medium')}}
-		<img src="{{article.newsletter_imagepath}}" alt="{{article.imagealt}}">
-	</figure>
-	{% endset %}
-{% endif %}
-{# {% set image %}
-<figure>
-<img src="public://2021-07/giant-side-close.jpg" alt="">
-</figure>
-{% endset %} #}
 
-{# {{vardumper(article)}}
-{{vardumper(content)}} #}
+	{% if content.field_newsletter_image.0 %}
+		{% set image %}
+		{{content.field_newsletter_image}}
+		{% endset %}
+	{% else %}
+		{% set image %}
+		<figure>
+			{{ drupal_image('article.imagepath', 'medium')}}
+			<img src="{{article.newsletter_imagepath}}" alt="{{article.imagealt}}">
+		</figure>
+		{% endset %}
+	{% endif %}
+
 <div class="article article--teaser-small" aria-labelledby="item--{{nodeId}}">
 
 	<div class="article__image">
@@ -142,7 +127,7 @@ setting image
 		{% endif %}
 		{% if show_summary %}
 			<p class="article__summary">
-				{{summary|raw}}
+				{{summary|replace({'<h3>': '<p>', '</h3>': '</p>'})|raw}}
 			</p>
 		{% endif %}
 	</div>
