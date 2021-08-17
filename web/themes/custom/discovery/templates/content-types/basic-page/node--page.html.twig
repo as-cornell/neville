@@ -9,7 +9,8 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 
 #}
 
-
+{# set variables to show or hide menu based on role and site url #}
+{% set roles = user.getroles(TRUE) %}
 {# Set up main
     - extra class main
     - base class page
