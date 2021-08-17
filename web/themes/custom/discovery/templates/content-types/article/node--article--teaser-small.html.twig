@@ -92,13 +92,14 @@ setting image
 {% else %}
 	{% set image %}
 	<figure>
-		{{ drupal_image('public://2021-07/giant-side-close.jpg', 'medium')}}
+		{{ drupal_image('article.imagepath', 'medium')}}
+		<img src="{{article.newsletter_imagepath}}" alt="{{article.alt}}">
 	</figure>
 	{% endset %}
 {% endif %}
 {# {% set image %}
 <figure>
-<img src="/sites/default/files/styles/landscape/public/2021-07/giant-side%20%281%29.jpg?h=6b5b50d2&itok=go5yxNB5" alt="">
+<img src="public://2021-07/giant-side-close.jpg" alt="">
 </figure>
 {% endset %} #}
 
@@ -140,7 +141,7 @@ setting image
 		{% endif %}
 		{% if show_summary %}
 			<p class="article__summary">
-				{{summary}}
+				{{summary|striptags}}
 			</p>
 		{% endif %}
 	</div>
