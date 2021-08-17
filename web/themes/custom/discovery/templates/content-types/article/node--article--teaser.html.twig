@@ -142,7 +142,7 @@ setting image
 		{% endif %} #}
     {% if show_summary %}
       <p class="article__summary">
-      {{summary|replace({'<h3>': '<p>', '</h3>': '</p>'})|raw}}
+      {{summary|raw}}
       </p>
     {% endif %}
     <a href="{{url}}" class="button article__link">Read More</a>
