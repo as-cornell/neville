@@ -91,9 +91,10 @@ setting image
 					{% endset %} #}
 {% else %}
 	{% set image %}
+	{{vardumper(article.imagealt)}}
 	<figure>
 		{{ drupal_image('article.imagepath', 'medium')}}
-		<img src="{{article.newsletter_imagepath}}" alt="{{article.alt}}">
+		<img src="{{article.newsletter_imagepath}}" alt="{{article.imagealt}}">
 	</figure>
 	{% endset %}
 {% endif %}
