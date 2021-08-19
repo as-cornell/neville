@@ -30,6 +30,7 @@
         "drupal/domain_entity": "^1.0@beta",
         "drupal/domain_menus": "^3.1",
         "drupal/domain_path": "^1.0",
+        "drupal/editor_advanced_link": "^1.9",
         "drupal/entity_embed": "^1.1",
         "drupal/entity_usage": "^2.0@beta",
         "drupal/field_group": "^3.1",
