@@ -49,7 +49,7 @@ class parseArticleJson extends \Twig_Extension
     $article_json = as_dept_articles_json_get_article_json($remote_uuid);
     if (!empty($article_json['data'])) {
       // get image path and alt tag from json
-      if (!empty($article_json['included'][0])) {
+      if (!empty($article_json['included'][0]['relationships']['field_media_image']['data']['meta']['alt'])) {
         if ($article_json['included'][0]['type'] == 'media--image') {
       $article_record['imagealt'] = $article_json['included'][0]['relationships']['field_media_image']['data']['meta']['alt'];
           }
@@ -59,17 +59,17 @@ class parseArticleJson extends \Twig_Extension
           if (!empty($article_json['included'][1]['attributes']['image_style_uri'][1]['4_5'])) {
             $article_record['imagepath'] = $article_json['included'][1]['attributes']['image_style_uri'][1]['4_5'];
           }else{
-            $article_record['imagepath'] = 'https://as.cornell.edu/sites/default/files/field/image/Klarmanarticle.jpg';
+            $article_record['imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/4_5/public/field/image/Klarmanarticle.jpg';
             }
             if (!empty($article_json['included'][1]['attributes']['image_style_uri'][2]['6_4_newsletter'])) {
             $article_record['newsletter_imagepath'] = $article_json['included'][1]['attributes']['image_style_uri'][2]['6_4_newsletter'];
           }else{
-            $article_record['newsletter_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/6_4_large/public/field/image/0824_cnf1_450x517px.jpg';
+            $article_record['newsletter_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/6_4_newsletter/public/field/image/Klarmanarticle.jpg';
             }
             if (!empty($article_json['included'][1]['attributes']['image_style_uri'][0]['1_1_thumbnail_forced'])) {
             $article_record['thumbnail_imagepath'] = $article_json['included'][1]['attributes']['image_style_uri'][0]['1_1_thumbnail_forced'];
           }else{
-            $article_record['thumbnail_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/6_4_large/public/field/image/0824_cnf1_450x517px.jpg';
+            $article_record['thumbnail_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/1_1_thumbnail_forced/public/field/image/Klarmanarticle.jpg';
             }
           }
         }
@@ -104,71 +104,6 @@ class parseArticleJson extends \Twig_Extension
             }
           }
         $article_record['media_sources'] = rtrim($media_sources, ', ');
-        // related departments programs are now coming from departments programs relationship on node
-        // get department label from json
-        //if (!empty($article_data['relationships']['field_department_program']['data'])) {
-            //foreach ($article_data['relationships']['field_department_program']['data'] as $term_data) {
-              //$term_id = $term_data['id'];
-              //$dept_json = as_dept_articles_json_get_term_json($term_id,$term_type);
-              //$departments = $departments . $dept_json['data']['attributes']['name'] . ', ';
-            //}
-          //}
-        //$article_record['departments'] = rtrim($departments, ', ');
-        // related articles are now coming from relared articles field on node
-        // get related article title, link, and thumbnail from json
-        //if (!empty($article_data['relationships']['field_related_articles'])) {
-            //foreach ($article_data['relationships']['field_related_articles']['data'] as $key => $related_article_data) {
-              //$article_id = $related_article_data['id'];
-              //$related_articles_json = as_dept_articles_json_get_article_json($article_id);
-                //foreach ($related_articles_json['data'] as $related_article_json) {
-                    //$related_articles[$key] = [
-                      //'#title' => $related_article_json['attributes']['title'],
-                      //'#alias' => 'https://as.cornell.edu' .$related_article_json['attributes']['path']['alias']
-                    //];
-                  //foreach ($related_articles_json['included'] as $related_article_image_json) {
-                  //if ($related_article_image_json['type'] =='file--file') {
-
-                    //$related_articles[$key]['image']['#uri'] = 'https://as.cornell.edu' . $related_article_image_json['attributes']['uri']['url'];
-                   // }
-                  //if ($related_article_image_json['type'] =='media--image') {
-
-                    //$related_articles[$key]['image']['#alt'] = $related_article_image_json['relationships']['field_media_image']['data']['meta']['alt'];
-                    //}
-                 // }
-                //}
-            //}
-
-          //}
-
-        //$article_record['related_articles']= $related_articles;
-        // related people are now coming from people node relationship on node
-        // get related people title, link, and thumbnail from json
-        //if (!empty($article_data['relationships']['field_related_people'])) {
-            //foreach ($article_data['relationships']['field_related_people']['data'] as $key => $related_people_data) {
-              //$person_uuid = $related_people_data['id'];
-              //if (!empty($person_uuid)) {
-              //$related_people_json = as_dept_articles_json_get_person_json($person_uuid);
-              //if (!empty($related_people_json)) {
-                //foreach ($related_people_json['data'] as $related_person_json) {
-                    //$related_people[$key] = [
-                      //'#title' => $related_person_json['attributes']['title'],
-                      //'#alias' => 'https://as.cornell.edu/people' .$related_person_json['attributes']['path']['alias']
-                    //];
-                  //foreach ($related_people_json['included'] as $related_person_image_json) {
-                  //if ($related_person_image_json['type'] =='file--file') {
-                    //$related_people[$key]['image']['#uri'] = 'https://people.as.cornell.edu' . $related_person_image_json['attributes']['uri']['url'];
-                    //}
-                  //if ($related_person_image_json['type'] =='media--image') {
-                    //$related_people[$key]['image']['#alt'] = $related_person_image_json['relationships']['field_media_image']['data']['meta']['alt'];
-                   // }
-                  //}
-                 //}
-                //}
-                //}
-            //}
-
-          //}
-        //$article_record['related_people'] = $related_people;
 
         // get article body
         if (!empty($article_data['relationships']['field_article_components_entity']['data'])) {

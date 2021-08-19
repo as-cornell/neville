@@ -9,7 +9,8 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 
 #}
 
-
+{# set variables to show or hide menu based on role and site url #}
+{% set roles = user.getroles(TRUE) %}
 {# Set up main
     - extra class main
     - base class page
@@ -70,7 +71,11 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 		{{mainContent}}
 	</div>
   <nav class="nav--site" aria-label="Section links" id="section-menu">
-    {{ drupal_menu('main', 2, 0, TRUE) }}
+  {% if roles.0 == 'administrator' %}
+    {{ drupal_entity('block', 'domainmenusactivedomainmenu_2', check_access=false) }}
+  {% else %}
+    {{ drupal_menu('main', 2, 0, expand=true) }}
+  {% endif %}
   </nav>
 	{% if show_sidebarContent %}
 		<div class="sidebar">

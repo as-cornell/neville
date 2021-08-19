@@ -32,7 +32,7 @@ Looks at content.field_remote_uuid
 {% if content.field_remote_uuid.0 %}
 	{% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
 	{% set article = parse_article_json(remote_uuid) %}
-{{vardumper(article.newsletter_imagepath)}}
+
 	{% set title = article.title %}
 
 	{% if article.article_components %}
@@ -194,7 +194,7 @@ setting image
         More News from A&S
       </h2>
       <div class="smallCards pcWrapper pcWrapper--relatedArticles">
-        {{ drupal_view('news', 'block_2') }}
+        {{ drupal_view('article_list', '4_small_cards') }}
         <a href="/news" class="btn btn--blue">
           View all news
         </a>

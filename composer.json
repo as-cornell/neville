@@ -28,6 +28,7 @@
         "drupal/domain": "^1.0@beta",
         "drupal/domain_access_search_api": "^1.0",
         "drupal/domain_entity": "^1.0@beta",
+        "drupal/domain_menus": "^3.1",
         "drupal/domain_path": "^1.0",
         "drupal/entity_embed": "^1.1",
         "drupal/entity_usage": "^2.0@beta",

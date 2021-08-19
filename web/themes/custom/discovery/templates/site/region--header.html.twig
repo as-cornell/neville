@@ -48,21 +48,21 @@ content: content
 	{# needs block to be placed in block layout to work as drupal_entity #}
 	{# drupal_entity('block', 'departmentheaderlogosblock', check_access=false) #}
 	{# </div> #}
+	{# drupal_entity('block', 'masquerade', check_access=true) #}
 
 	{# ADDED COLLEGE LOGO BLOCK FOR DIFFERENT COLLEGE LOGO PER DOMAIN #}
 	{{ drupal_block('college_header_logos_block') }}
 
 
 	{# ADDED MAIN MENU FOR DIFFERENT LINKS PER DOMAIN #}
+	<nav class="header__mainNav nav--main" aria-label="Main menu" id="main-menu">
 	{% if roles.0 == 'administrator' %}
-	{# added as user switcher #}
-	{# drupal_entity('block', 'masquerade', check_access=true) #}
-	<nav class="header__mainNav nav--main" aria-label="Main menu" id="main-menu"> {{ drupal_menu('top-nav', 1, 2, expand=true) }}
+		{{ drupal_entity('block', 'domainmenusactivedomainmenu', check_access=false) }}
 	{% else %}
-		<nav class="header__mainNav nav--main" aria-label="Main menu" id="main-menu"> {{ drupal_menu('top-nav', 2, 2, expand=true) }}
-	</nav>
+		{{ drupal_menu('top-nav', 2, 2, expand=true) }}
 	{% endif %}
-	{# </nav> #}
+	</nav>
+
 	<div class="header__buttons">
 		<div class="iconButton iconButton--search">
 			<button class="icon icon--button search-opener" id="search-opener">
@@ -87,7 +87,7 @@ content: content
 
 	</div>
 	<div class="header__searchForm">
-		<form action="/site-search" id="header__searchform" class="form form--overlaySearch">
+		<form action="/search" id="header__searchform" class="form form--overlaySearch">
 			<label for="search-input">
 				Search for:
 			</label>
