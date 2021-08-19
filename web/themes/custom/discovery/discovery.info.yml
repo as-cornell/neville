@@ -16,6 +16,11 @@ regions:
   sidebar: Sidebar
   footer: Footer
 
+# CKEditor stylesheet loads in wysiwyg to give content editors a better experience
+ckeditor_stylesheets:
+  - https://use.typekit.net/dsj5vco.css
+  - css/styles.css
+
 # Component libraries - it's a module thing
 # content-site is for header, footer and anything that is on EVERY page.
 
