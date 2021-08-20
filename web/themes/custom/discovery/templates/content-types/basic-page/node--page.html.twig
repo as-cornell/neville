@@ -18,12 +18,12 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
     - turn on sidebarNav
  #}
 {% set main_element_extra_classes = ['main'] %}
-{% set main_element_base_class = 'basicSidebar' %}
+{% set main_element_base_class = 'basicPage' %}
 {% set main_element_modifiers = [''] %}
 {# set defaults #}
 {# {% set show_sidebarNav = true %} #}
 {% set show_aside = false %}
-{% set show_sidebarContent = false %}
+{# {% set show_sidebarContent = false %} #}
 {# {{vardumper()}} #}
 {# Create classes array. The 'node' class is required for contextual edit links. #}
 {% set classes = [
@@ -33,13 +33,24 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 {# Set main content #}
 {% set mainContent = content.field_page_components %}
 
+{# set has-sidebar #}
+{% if content.field_page_layout.0["#markup"] == "hasSidebar" %}
+  {% set main_element_modifiers = main_element_modifiers|merge(['has-sidebar'])%}
+  {% set show_sidebarContent = true %}
+{% elseif content.field_page_layout.0["#markup"] == "fullPage" %}
+  {% set main_element_modifiers = main_element_modifiers|merge(['full-page'])%}
+  {% set show_sidebarContent = false %}
+{% else %}
+  {% set main_element_modifiers = main_element_modifiers|merge(['has-sidebar'])%}
+  {% set show_sidebarContent = true %}
+{% endif %}
+
 {# Set sidebar content #}
 {% if content.field_sidebar_components %}
-  {% set show_sidebarContent = true %}
   {% set sidebarContent = content.field_sidebar_components %}
 {% endif %}
 
-{# Set linkValues and show aside #}
+{# Set linkValues and show aside for OTP page section #}
 {% set linkValues = [] %}
 {% for item in content.field_page_components|field_target_entity %}
 	{% set type =  item.type.value.0.target_id%}
@@ -57,6 +68,7 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 {% set sidebar_wrapper_extra_classes = sidebar_wrapper_extra_classes | default(['']) %}
 
 
+
 <main {{ bem(main_element_base_class, (main_element_modifiers), main_element_blockname, main_element_extra_classes) }} id="mainContent">
 	<div class="title">
 		{% include "@content/atoms/_heading.twig" with {
@@ -70,14 +82,14 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 	<div class="content">
 		{{mainContent}}
 	</div>
-  <nav class="nav--site" aria-label="Section links" id="section-menu">
-  {% if roles.0 == 'administrator' %}
-    {{ drupal_entity('block', 'domainmenusactivedomainmenu_2', check_access=false) }}
-  {% else %}
-    {{ drupal_menu('main', 2, 0, expand=true) }}
-  {% endif %}
-  </nav>
-	{% if show_sidebarContent %}
+  {% if show_sidebarContent %}
+    <nav class="nav--site" aria-label="Section links" id="section-menu">
+    {% if roles.0 == 'administrator' %}
+      {{ drupal_entity('block', 'domainmenusactivedomainmenu_2', check_access=false) }}
+    {% else %}
+      {{ drupal_menu('main', 2, 0, expand=true) }}
+    {% endif %}
+    </nav>
 		<div class="sidebar">
 			{{sidebarContent}}
 		</div>

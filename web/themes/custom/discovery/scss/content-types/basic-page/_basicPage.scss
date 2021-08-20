@@ -6,13 +6,9 @@ Descr:
 
 --------------------------- */
 
-// Basic sidebar
-.basicSidebar {
-  grid-template-rows: auto auto 1fr;
+// basicPage
 
-  .nav--site {
-    grid-area: nav;
-  }
+.basicPage {
   .title {
     grid-area: title;
     h1 {
@@ -20,7 +16,7 @@ Descr:
       font-weight: var(--semi);
       font-size: var(--base-56);
       position: relative;
-      margin: 0 0 2em 0;
+      margin: 0 0 1em 0;
       font-weight: var(--heavy);
       &:before {
         position: absolute;
@@ -38,50 +34,64 @@ Descr:
       }
     }
   }
-  .sidebar {
-    grid-area: sidebar;
-  }
+
   .content {
     grid-area: content;
   }
-  aside {
-    // display: none;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    margin-bottom: 2rem;
-    @include mq(medium) {
-      grid-area: aside;
-    }
+  .nav--site {
+    grid-area: nav;
+  }
+  .sidebar {
+    grid-area: sidebar;
+  }
+  &--full-page {
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    grid-template-areas: "title" "content";
+  }
+  &--has-sidebar {
+    grid-template-rows: auto auto 1fr;
 
-    .page_component_entity {
-      display: none;
-      @include mq(large) {
-        display: block;
+    aside {
+      // display: none;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      margin-bottom: 2rem;
+      @include mq(medium) {
+        grid-area: aside;
+      }
+
+      .page_component_entity {
+        display: none;
+        @include mq(large) {
+          display: block;
+        }
       }
     }
-  }
-  grid-template-areas:
-    "nav"
-    "title"
-    "aside"
-    "content"
-    "sidebar";
+    grid-template-areas:
+      "nav"
+      "title"
+      "aside"
+      "content"
+      "sidebar";
 
-  @include mq(medium) {
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas:
-      " title title "
-      "nav content "
-      "sidebar content  ";
+    @include mq(medium) {
+      grid-template-columns: minmax(8em, 30%) 1fr;
+      grid-template-areas:
+        " title title "
+        "nav content "
+        "sidebar content  ";
+    }
+    @include mq(large) {
+      grid-template-columns: 1fr 2fr;
+      grid-template-areas:
+        " title title "
+        " nav content "
+        " sidebar content ";
+    }
   }
-  @include mq(large) {
-    grid-template-columns: 1rem 1fr 2fr 1rem;
-    grid-template-areas:
-      ". title title ."
-      ". nav content ."
-      ". sidebar content .";
-  }
+
   &--has-aside {
     @include mq(medium) {
       grid-template-columns: 1fr 2fr;
@@ -92,18 +102,19 @@ Descr:
         "sidebar content";
     }
     @include mq(large) {
-      grid-template-columns: 1.5fr minmax(20em, 25em) 0.75fr;
+      grid-template-columns: minmax(8em, 16em) minmax(12em, 34em) 1fr;
       grid-template-areas:
         "title title title"
         "nav content aside"
         "sidebar content aside";
     }
-    @include mq(xl) {
-      grid-template-columns: 1.5fr minmax(20em, 33em) 1fr;
-      grid-template-areas:
-        "title title title"
-        "nav content aside"
-        "sidebar content aside";
+  }
+
+  // full page with aside
+  &--full-page {
+    &.basicPage--has-aside {
+      grid-template-columns: 3fr 1fr;
+      grid-template-areas: "title title" "content aside";
     }
   }
 
@@ -115,10 +126,5 @@ Descr:
     > .pageComponent--ftb > p:first-of-type {
       @extend .base-28;
     }
-  }
-
-  //pcWrapper
-  .pcWrapper {
-    margin-bottom: 3rem;
   }
 }
