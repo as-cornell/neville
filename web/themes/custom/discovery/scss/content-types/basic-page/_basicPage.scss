@@ -102,7 +102,7 @@ Descr:
         "sidebar content";
     }
     @include mq(large) {
-      grid-template-columns: minmax(8em, 16em) minmax(12em, 34em) 1fr;
+      grid-template-columns: minmax(6em, 14em) minmax(20em, 34em) 1fr;
       grid-template-areas:
         "title title title"
         "nav content aside"
