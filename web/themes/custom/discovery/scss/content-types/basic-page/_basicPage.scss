@@ -113,8 +113,12 @@ Descr:
   // full page with aside
   &--full-page {
     &.basicPage--has-aside {
-      grid-template-columns: 3fr 1fr;
-      grid-template-areas: "title title" "content aside";
+      grid-template-columns: 1fr;
+      grid-template-areas: "title" "aside" "content";
+      @include mq(medium) {
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas: "title title" "content aside";
+      }
     }
   }
 

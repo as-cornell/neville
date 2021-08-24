@@ -1,4 +1,3 @@
-
 /* -------------------------
 
 Title: _list-block
@@ -6,13 +5,43 @@ Descr: sets up all generic styles for list-block paragraphs
 
 --------------------------- */
 
-.list-block{
-  margin-top:4rem;
-  &__text{
+.list-block {
+  // margin-top: 4rem;
+  &__text {
     max-width: 80%;
     margin-top: 1em;
   }
-  &__list{
+  &__list {
     margin-top: 2rem;
+  }
+}
+
+// Adjust list block grid layout according to basic page layout
+
+.basicPage--has-sidebar {
+  .list-block__list {
+    display: grid;
+    grid-gap: 2rem;
+    @include mq(small) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+.basicPage--full-page {
+  .list-block__list {
+    display: flex;
+    grid-gap: 2rem;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(4, 1fr);
+    > div {
+      flex: 100%;
+      @include mq(small) {
+        flex: 0 1 46%;
+      }
+      @include mq(xl) {
+        flex: 0 1 21%;
+      }
+    }
   }
 }

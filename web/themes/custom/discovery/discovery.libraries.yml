@@ -49,3 +49,12 @@ flickity:
   css:
     theme:
       css/plugins/flickity.css: {}
+# slick:
+#   js:
+#     js_min/slick.js: {}
+#     js_min/slick-calls.js: {}
+#   dependencies:
+#     - core/jquery
+#   css:
+#     theme:
+#       css/plugins/slick.css: {}

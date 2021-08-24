@@ -413,7 +413,8 @@ Descr:
   grid-gap: 2rem;
   grid-row-gap: 0;
   opacity: 1;
-  transition: opacity 150ms ease-in-out; }
+  transition: opacity 150ms ease-in-out;
+  grid-template-columns: minmax(0, 1fr); }
   .main.fade {
     opacity: 0.25;
     transition: opacity 250ms ease-in-out 0ms; }
@@ -594,25 +595,9 @@ Descr: Sets shape and border of cards
 Title: _carousel--article-teasers
 Descr: sets up all uniquie styles for article teaser carousels
   - includes flickity overirdes
+  - sets dimensions of flickity items based on view mode of the node
 
 --------------------------- */
-.carousel--article-teasers {
-  padding: 0 1rem; }
-  .carousel--article-teasers .article--teaser {
-    width: 100%;
-    margin: 0 0.5rem;
-    height: 450px; }
-    @media only screen and (min-width: 782px) {
-      .carousel--article-teasers .article--teaser {
-        width: calc(50% - 0.5rem);
-        margin: 0 0.5rem;
-        height: 500px; } }
-    @media only screen and (min-width: 900px) {
-      .carousel--article-teasers .article--teaser {
-        width: calc(33.33333333% - 0.5rem);
-        margin: 0 0.5rem;
-        height: 700px; } }
-
 /* -------------------------
 
 Title: _forms.scss
@@ -1696,18 +1681,14 @@ Descr:
     display: none; }
 
 .article--teaser {
-  background: var(--as-gray-200);
-  border-radius: var(--border-radius); }
+  background: var(--as-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow); }
   .article--teaser .article__copy {
     font-size: var(--base-20);
-    background: var(--as-white);
-    width: calc(100% - 4rem);
-    margin: -1rem auto 0 auto;
     display: block;
     padding: 1rem;
-    border-radius: var(--border-radius);
-    position: relative;
-    box-shadow: var(--box-shadow); }
+    position: relative; }
   .article--teaser .article__title {
     font-size: var(--base-28);
     font-weight: var(--regular);
@@ -1730,6 +1711,27 @@ Descr:
   .article--teaser .article__link {
     margin-top: 1em;
     display: inline-block; }
+
+.carousel div[class*="teaser"] {
+  width: calc(100% - 2rem);
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  transform: translateX(1rem); }
+  @media only screen and (min-width: 782px) {
+    .carousel div[class*="teaser"] {
+      width: calc(50% - 2rem); } }
+  @media only screen and (min-width: 900px) {
+    .carousel div[class*="teaser"] {
+      width: calc(33% - 2rem); } }
+
+.carousel div[class*="card-small"] {
+  width: 100%;
+  margin: 0 0.5rem;
+  height: 450px; }
+  @media only screen and (min-width: 782px) {
+    .carousel div[class*="card-small"] {
+      width: calc(50% - 0.5rem);
+      height: 150px; } }
 
 .article--teaser-small {
   display: -ms-flexbox;
@@ -1955,8 +1957,12 @@ Descr:
     grid-template-areas: "title title title" "nav content aside" "sidebar content aside"; } }
 
 .basicPage--full-page.basicPage--has-aside {
-  grid-template-columns: 3fr 1fr;
-  grid-template-areas: "title title" "content aside"; }
+  grid-template-columns: 1fr;
+  grid-template-areas: "title" "aside" "content"; }
+  @media only screen and (min-width: 782px) {
+    .basicPage--full-page.basicPage--has-aside {
+      grid-template-columns: 3fr 1fr;
+      grid-template-areas: "title title" "content aside"; } }
 
 .basicPage .content > h2:first-of-type {
   margin-top: 0; }
@@ -2169,6 +2175,15 @@ Descr:
       margin-bottom: 0.5em; }
   .person__contact {
     margin-top: 2rem; }
+
+/* -------------------------
+
+Title: _paragraphs
+Descr: sets most universl paragraphs stuff
+
+--------------------------- */
+.paragraph + .paragraph {
+  margin-top: 4rem; }
 
 /* -------------------------
 
@@ -2401,13 +2416,38 @@ Title: _list-block
 Descr: sets up all generic styles for list-block paragraphs
 
 --------------------------- */
-.list-block {
-  margin-top: 4rem; }
-  .list-block__text {
-    max-width: 80%;
-    margin-top: 1em; }
-  .list-block__list {
-    margin-top: 2rem; }
+.list-block__text {
+  max-width: 80%;
+  margin-top: 1em; }
+
+.list-block__list {
+  margin-top: 2rem; }
+
+.basicPage--has-sidebar .list-block__list {
+  display: grid;
+  grid-gap: 2rem; }
+  @media only screen and (min-width: 480px) {
+    .basicPage--has-sidebar .list-block__list {
+      grid-template-columns: repeat(2, 1fr); } }
+
+.basicPage--full-page .list-block__list {
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 2rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  grid-template-columns: repeat(4, 1fr); }
+  .basicPage--full-page .list-block__list > div {
+    -ms-flex: 100%;
+        flex: 100%; }
+    @media only screen and (min-width: 480px) {
+      .basicPage--full-page .list-block__list > div {
+        -ms-flex: 0 1 46%;
+            flex: 0 1 46%; } }
+    @media only screen and (min-width: 1432px) {
+      .basicPage--full-page .list-block__list > div {
+        -ms-flex: 0 1 21%;
+            flex: 0 1 21%; } }
 
 /* -------------------------
 

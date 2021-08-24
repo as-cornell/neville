@@ -50,6 +50,9 @@ paragraph.bundle|clean_class,
   ]
 %}
 
+{# set view mode #}
+{% set view_mode = elements["#view_mode"] %}
+
 {# 
   set list_attributes
   set list_classes - if carousel or grid
@@ -57,26 +60,28 @@ paragraph.bundle|clean_class,
 #}
 
 {% set list_attributes = create_attribute() %}
-{% set list_classes = ['list-block__list'] %}
+{% set list_classes = [] %}
+
+
 {% if content.field_carousel.0 %}
-  {% set list_classes = list_classes|merge(['carousel', 'carousel--article-teasers']) %}
-  {{attach_library('discovery/flickity')}}
+	{% set list_classes = list_classes|merge(['carousel', 'list-block__list', 'carousel--' ~ view_mode]) %}
+	{{attach_library('discovery/flickity')}}
 {% else %}
-  {% set list_classes = list_classes|merge(['grid', 'grid--' ~ content.field_number_of_columns.0["#markup"]]) %}
+	{% set list_classes = list_classes|merge(['list-block__list']) %}
 {% endif %}
 
-
+{# {{vardumper()}} #}
 <div{{attributes.addClass(blockClasses)}}>
 	<h3 class="list-block__label">
 		{{content.field_component_label}}
 	</h3>
-  {% if content.field_formatted_text.0 %}
-  <div class="list-block__text">
-    {{content.field_formatted_text}}
-  </div>
-  {% endif %}
+	{% if content.field_formatted_text.0 %}
+		<div class="list-block__text">
+			{{content.field_formatted_text}}
+		</div>
+	{% endif %}
 	<div {{list_attributes.addClass(list_classes)}}>
 		{{content.field_list_reference}}
 	</div>
-  {{content.field_link}}
+	{{content.field_link}}
 </div>
