@@ -1,4 +1,4 @@
-/* -------------------------
+:first-of-type/* -------------------------
 
 Title: main navigation
 Descr: nav--main small and large, hovers and toggles for subNav
@@ -8,16 +8,22 @@ Still needs: expand toggle for showing main nav on mobile
 --------------------------- */
 .nav--main {
   position: relative;
-  font-weight: var(--regular);
+  // font-weight: var(--regular);
   font-size: var(--base-18);
   position: absolute;
   z-index: 10;
-  width: 100%;
+  width: calc(100% + 2rem);
+  margin-left: -1rem;
   @include mq(medium) {
     position: relative;
   }
   @include mq(header) {
     display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 0;
+  }
+  @include mq(large) {
     justify-content: flex-end;
   }
   .nav {
@@ -57,7 +63,7 @@ Still needs: expand toggle for showing main nav on mobile
       }
     }
     a {
-      font-weight: var(--regular);
+      // font-weight: var(--regular);
       text-decoration-color: var(--as-gray-300);
       position: relative;
       display: block;
@@ -67,7 +73,7 @@ Still needs: expand toggle for showing main nav on mobile
     }
   }
   .nav-0 {
-    border-radius: var(--border-radius);
+    // border-radius: var(--border-radius);
     max-height: 0;
 
     background: var(--as-white);
@@ -104,7 +110,7 @@ Still needs: expand toggle for showing main nav on mobile
     }
     &.subnav-open,
     &:hover {
-      overflow: visible;
+      // overflow: visible;
       ul {
         max-height: 1000px;
       }
@@ -126,20 +132,23 @@ Still needs: expand toggle for showing main nav on mobile
     @include mq(medium) {
       flex: 1 0 auto;
       flex-wrap: nowrap;
+
       &:after {
-        width: 100%;
+        width: calc(100% - 1em);
         height: 4px;
         transform: translateX(-100%);
+        transition: transform 100ms ease-in;
       }
       &:hover,
       &.subnav-open {
-        overflow: visible;
+        // overflow: visible;
         &:after {
           transform: translateX(0%);
         }
       }
       &.active {
         &:after {
+          background: var(--as-red-400);
           transform: translateX(0%);
         }
       }
@@ -148,10 +157,12 @@ Still needs: expand toggle for showing main nav on mobile
   .nav-0__link {
     color: var(--as-gray-200);
     background: var(--as-black);
-    padding: 1em;
+    padding: 1em 0.5em;
     width: 100%;
+    margin-right: 1em;
     transition: opacity 150ms ease-in-out;
     margin-bottom: 1px;
+    font-weight: var(--semi);
     &:hover,
     &.active {
       &:before {
@@ -168,75 +179,6 @@ Still needs: expand toggle for showing main nav on mobile
         height: 4px;
       }
     }
-    // @include mq(medium) {
-    //   display: flex;
-    //   flex-direction: row;
-    //   transform: none;
-    //   width: 100%;
-    //   color: var(--as-black);
-    //   background: transparent;
-    //   overflow: visible;
-    //   position: relative;
-    //   justify-content: flex-start;
-    //   font-size: var(--base-20);
-    //   .nav-1 {
-    //     transform: scale(0, 0);
-    //   }
-    //   .nav-0__item {
-    //     background: transparent;
-    //     position: relative;
-    //     // padding: 0.5rem;
-    //     &:after {
-    //       position: absolute;
-    //       content: "";
-    //       width: calc(100% - 27px);
-    //       height: 3px;
-    //       background: var(--as-red-400);
-    //       top: 0;
-    //       left: 0;
-    //       transform: scaleX(0);
-    //       transition: all 0.15s ease-in;
-    //       visibility: hidden;
-    //       border-radius: 2px;
-    //     }
-    //     .nav-0__link {
-    //       background: none;
-    //       opacity: 1;
-    //       color: var(--as-black);
-    //       width: auto;
-    //       font-weight: var(--semi);
-    //       padding: 0.5rem;
-    //     }
-    //     &:hover,
-    //     &.subnav-open {
-    //       text-decoration-color: var(--as-gray-500);
-    //       box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
-    //       &:after {
-    //         visibility: visible;
-    //         transform: scaleX(1);
-    //         transform-origin: top;
-    //         transition: all 0.25s ease-out;
-    //       }
-    //       .nav-1 {
-    //         transform: scaleY(1);
-    //         transform-origin: top;
-    //         transition: all 250ms ease-out;
-    //       }
-    //       overflow: visible;
-    //     }
-    //   }
-    //   button {
-    //     &:focus {
-    //       opacity: 1;
-    //     }
-    //     @media (any-hover: hover) and (pointer: fine) {
-    //       opacity: 0;
-    //     }
-    //   }
-    // }
-    // @include mq(large) {
-    //   justify-content: flex-end;
-    // }
   }
   .nav-1 {
     border-radius: 0;

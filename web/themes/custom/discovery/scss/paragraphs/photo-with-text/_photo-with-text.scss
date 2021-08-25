@@ -39,9 +39,9 @@ Descr: sets up photo with text items
       var(--as-teal-200) 6%,
       #f4f6f4 8%
     );
-    width: 100%;
+    width: calc(100% - 6rem);
     padding: 3rem;
-    margin-left: -3rem;
+    // margin-left: -3rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     .button {

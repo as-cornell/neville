@@ -167,7 +167,8 @@ font size bases to be used as extends
   -gradients
 */
 :root {
-  --box-shadow: 0 0 12px var(--as-gray-300);
+  --box-shadow: 0 12px 16px var(--as-gray-400);
+  --box-shadow-dark: 0 0 16px var(--as-gray-700);
   --button-gradient: linear-gradient(
     120deg,
     var(--as-teal-600) 0%,
@@ -389,9 +390,6 @@ ul {
 
 .content * + ul {
   margin-top: 1em; }
-
-.content li + li {
-  margin-top: 0.5em; }
 
 /* -------------------------
 
@@ -921,8 +919,7 @@ Descr: otpN small and large, hovers and toggles for subNav
         height: 100%;
         top: 0;
         width: 4px;
-        transform: translateX(-1em);
-        border-radius: 2px; }
+        transform: translateX(-1em); }
   .nav--site .nav-0 {
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     max-height: 0;
@@ -932,7 +929,7 @@ Descr: otpN small and large, hovers and toggles for subNav
     @media only screen and (min-width: 782px) {
       .nav--site .nav-0 {
         max-height: 100%;
-        border-radius: var(--border-radius); } }
+        border-radius: 0; } }
     .nav--site .nav-0 .nav-0__item {
       margin-bottom: 0;
       display: -ms-flexbox;
@@ -946,13 +943,14 @@ Descr: otpN small and large, hovers and toggles for subNav
         transform-origin: 50% 50%; }
     .nav--site .nav-0 .nav-0__link {
       color: var(--as-black);
-      background: var(--as-gray-200);
+      background: var(--as-white);
       padding: 1em 0 1em 1em;
       width: 100%;
       transition: opacity 150ms ease-in-out;
       -ms-flex: 1 1 calc(100% - 3rem);
           flex: 1 1 calc(100% - 3rem);
-      margin-bottom: 1px; }
+      margin-bottom: 0.5em;
+      border-bottom: 1px solid var(--as-gray-200); }
       @media only screen and (min-width: 782px) {
         .nav--site .nav-0 .nav-0__link {
           padding: 1em;
@@ -960,8 +958,12 @@ Descr: otpN small and large, hovers and toggles for subNav
               flex: 1 1 calc(100% - 4rem); } }
       .nav--site .nav-0 .nav-0__link:before {
         background: var(--as-teal-300); }
-      .nav--site .nav-0 .nav-0__link:hover:before, .nav--site .nav-0 .nav-0__link.active:before {
-        background: var(--as-teal-600); }
+      .nav--site .nav-0 .nav-0__link:hover:before {
+        background: var(--as-teal-400); }
+      .nav--site .nav-0 .nav-0__link.active {
+        font-weight: var(--semi); }
+        .nav--site .nav-0 .nav-0__link.active:before {
+          background: var(--as-red-400); }
   .nav--site .nav-1 {
     border-radius: 0;
     width: 100%;
@@ -987,31 +989,29 @@ Descr: otpN small and large, hovers and toggles for subNav
     .nav--site {
       overflow: visible; } }
 
-/* -------------------------
-
-Title: main navigation
-Descr: nav--main small and large, hovers and toggles for subNav
-       
-Still needs: expand toggle for showing main nav on mobile
-
---------------------------- */
-.nav--main {
+:first-of-type .nav--main {
   position: relative;
-  font-weight: var(--regular);
   font-size: var(--base-18);
   position: absolute;
   z-index: 10;
-  width: 100%; }
+  width: calc(100% + 2rem);
+  margin-left: -1rem; }
   @media only screen and (min-width: 782px) {
-    .nav--main {
+    :first-of-type .nav--main {
       position: relative; } }
   @media only screen and (min-width: 900px) {
-    .nav--main {
+    :first-of-type .nav--main {
       display: -ms-flexbox;
       display: flex;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+      width: 100%;
+      margin-left: 0; } }
+  @media only screen and (min-width: 1224px) {
+    :first-of-type .nav--main {
       -ms-flex-pack: end;
           justify-content: flex-end; } }
-  .nav--main .nav {
+  :first-of-type .nav--main .nav {
     padding: 0;
     margin: 0;
     overflow: hidden;
@@ -1020,9 +1020,9 @@ Still needs: expand toggle for showing main nav on mobile
     -ms-flex-direction: column;
         flex-direction: column; }
     @media only screen and (min-width: 782px) {
-      .nav--main .nav {
+      :first-of-type .nav--main .nav {
         position: relative; } }
-    .nav--main .nav button {
+    :first-of-type .nav--main .nav button {
       padding: 0;
       background: var(--as-black);
       border-radius: 0;
@@ -1030,30 +1030,28 @@ Still needs: expand toggle for showing main nav on mobile
           flex: 0 0 2rem;
       margin-bottom: 1px; }
       @media only screen and (min-width: 782px) {
-        .nav--main .nav button {
+        :first-of-type .nav--main .nav button {
           background: transparent; } }
-      .nav--main .nav button svg {
+      :first-of-type .nav--main .nav button svg {
         fill: var(--as-white); }
         @media only screen and (min-width: 782px) {
-          .nav--main .nav button svg {
+          :first-of-type .nav--main .nav button svg {
             fill: var(--as-black); } }
-      .nav--main .nav button:focus {
+      :first-of-type .nav--main .nav button:focus {
         opacity: 1; }
-      .nav--main .nav button.active {
+      :first-of-type .nav--main .nav button.active {
         transform: rotate(180deg);
         transform-origin: 50% 50%; }
-    .nav--main .nav a {
-      font-weight: var(--regular);
+    :first-of-type .nav--main .nav a {
       -webkit-text-decoration-color: var(--as-gray-300);
               text-decoration-color: var(--as-gray-300);
       position: relative;
       display: block; }
-  .nav--main .nav-0 {
-    border-radius: var(--border-radius);
+  :first-of-type .nav--main .nav-0 {
     max-height: 0;
     background: var(--as-white); }
     @media only screen and (min-width: 782px) {
-      .nav--main .nav-0 {
+      :first-of-type .nav--main .nav-0 {
         max-height: 100%;
         -ms-flex-direction: row;
             flex-direction: row;
@@ -1062,13 +1060,13 @@ Still needs: expand toggle for showing main nav on mobile
         display: -ms-inline-flexbox;
         display: inline-flex; } }
     @media only screen and (min-width: 1224px) {
-      .nav--main .nav-0 {
+      :first-of-type .nav--main .nav-0 {
         -ms-flex-pack: end;
             justify-content: flex-end; } }
-    .nav--main .nav-0.shown {
+    :first-of-type .nav--main .nav-0.shown {
       max-height: 100%;
       margin-bottom: 1rem; }
-  .nav--main .nav-0__item {
+  :first-of-type .nav--main .nav-0__item {
     margin-bottom: 0;
     display: -ms-flexbox;
     display: flex;
@@ -1076,7 +1074,7 @@ Still needs: expand toggle for showing main nav on mobile
         flex-wrap: wrap;
     position: relative;
     overflow: hidden; }
-    .nav--main .nav-0__item:after {
+    :first-of-type .nav--main .nav-0__item:after {
       position: absolute;
       content: "";
       height: 100%;
@@ -1084,56 +1082,56 @@ Still needs: expand toggle for showing main nav on mobile
       width: 4px;
       border-radius: 2px;
       background: var(--as-teal-300); }
-    .nav--main .nav-0__item.subnav-open, .nav--main .nav-0__item:hover {
-      overflow: visible; }
-      .nav--main .nav-0__item.subnav-open ul, .nav--main .nav-0__item:hover ul {
-        max-height: 1000px; }
-      .nav--main .nav-0__item.subnav-open button, .nav--main .nav-0__item:hover button {
-        transform: rotate(180deg);
-        transform-origin: 50% 50%; }
-    .nav--main .nav-0__item.has-sub .nav-0__link {
+    :first-of-type .nav--main .nav-0__item.subnav-open ul, :first-of-type .nav--main .nav-0__item:hover ul {
+      max-height: 1000px; }
+    :first-of-type .nav--main .nav-0__item.subnav-open button, :first-of-type .nav--main .nav-0__item:hover button {
+      transform: rotate(180deg);
+      transform-origin: 50% 50%; }
+    :first-of-type .nav--main .nav-0__item.has-sub .nav-0__link {
       -ms-flex: calc(100% - 3rem);
           flex: calc(100% - 3rem);
       padding: 1em 0 1em 1em; }
-    .nav--main .nav-0__item.has-sub button {
+    :first-of-type .nav--main .nav-0__item.has-sub button {
       -ms-flex: 1rem;
           flex: 1rem;
       padding: 0 0.5em; }
     @media only screen and (min-width: 782px) {
-      .nav--main .nav-0__item {
+      :first-of-type .nav--main .nav-0__item {
         -ms-flex: 1 0 auto;
             flex: 1 0 auto;
         -ms-flex-wrap: nowrap;
             flex-wrap: nowrap; }
-        .nav--main .nav-0__item:after {
-          width: 100%;
+        :first-of-type .nav--main .nav-0__item:after {
+          width: calc(100% - 1em);
           height: 4px;
-          transform: translateX(-100%); }
-        .nav--main .nav-0__item:hover, .nav--main .nav-0__item.subnav-open {
-          overflow: visible; }
-          .nav--main .nav-0__item:hover:after, .nav--main .nav-0__item.subnav-open:after {
-            transform: translateX(0%); }
-        .nav--main .nav-0__item.active:after {
+          transform: translateX(-100%);
+          transition: transform 100ms ease-in; }
+        :first-of-type .nav--main .nav-0__item:hover:after, :first-of-type .nav--main .nav-0__item.subnav-open:after {
+          transform: translateX(0%); }
+        :first-of-type .nav--main .nav-0__item.active:after {
+          background: var(--as-red-400);
           transform: translateX(0%); } }
-  .nav--main .nav-0__link {
+  :first-of-type .nav--main .nav-0__link {
     color: var(--as-gray-200);
     background: var(--as-black);
-    padding: 1em;
+    padding: 1em 0.5em;
     width: 100%;
+    margin-right: 1em;
     transition: opacity 150ms ease-in-out;
-    margin-bottom: 1px; }
-    .nav--main .nav-0__link:hover:before, .nav--main .nav-0__link.active:before {
+    margin-bottom: 1px;
+    font-weight: var(--semi); }
+    :first-of-type .nav--main .nav-0__link:hover:before, :first-of-type .nav--main .nav-0__link.active:before {
       background: var(--as-teal-600); }
     @media only screen and (min-width: 782px) {
-      .nav--main .nav-0__link {
+      :first-of-type .nav--main .nav-0__link {
         background: transparent;
         color: var(--as-black);
         white-space: nowrap; }
-        .nav--main .nav-0__link:before {
+        :first-of-type .nav--main .nav-0__link:before {
           top: 0;
           width: 100%;
           height: 4px; } }
-  .nav--main .nav-1 {
+  :first-of-type .nav--main .nav-1 {
     border-radius: 0;
     width: 100%;
     padding-left: 0;
@@ -1143,7 +1141,7 @@ Still needs: expand toggle for showing main nav on mobile
     overflow: visible;
     z-index: 1;
     box-shadow: var(--box-shadow); }
-    .nav--main .nav-1 .nav-1__link {
+    :first-of-type .nav--main .nav-1 .nav-1__link {
       padding: 1em 1em 1em 1.5em;
       color: var(--as-black);
       background: var(--as-white);
@@ -1152,9 +1150,9 @@ Still needs: expand toggle for showing main nav on mobile
       margin-bottom: 1px;
       overflow: hidden; }
       @media only screen and (min-width: 782px) {
-        .nav--main .nav-1 .nav-1__link {
+        :first-of-type .nav--main .nav-1 .nav-1__link {
           padding: 1em; } }
-      .nav--main .nav-1 .nav-1__link:before {
+      :first-of-type .nav--main .nav-1 .nav-1__link:before {
         background: var(--as-teal-400);
         transform: translateX(-1.5em);
         position: absolute;
@@ -1164,25 +1162,25 @@ Still needs: expand toggle for showing main nav on mobile
         width: 4px;
         border-radius: 2px; }
         @media only screen and (min-width: 782px) {
-          .nav--main .nav-1 .nav-1__link:before {
+          :first-of-type .nav--main .nav-1 .nav-1__link:before {
             top: calc(100% - 4px);
             width: 100%;
             height: 4px;
             background: var(--as-red-400);
             transform: translateX(calc((100% + 1em) * -1));
             transition: all 250ms ease-in; } }
-      .nav--main .nav-1 .nav-1__link:hover, .nav--main .nav-1 .nav-1__link:focus {
+      :first-of-type .nav--main .nav-1 .nav-1__link:hover, :first-of-type .nav--main .nav-1 .nav-1__link:focus {
         background: var(--as-gray-200); }
         @media only screen and (min-width: 782px) {
-          .nav--main .nav-1 .nav-1__link:hover::before, .nav--main .nav-1 .nav-1__link:focus::before {
+          :first-of-type .nav--main .nav-1 .nav-1__link:hover::before, :first-of-type .nav--main .nav-1 .nav-1__link:focus::before {
             transform: translateX(-1em); } }
       @media only screen and (min-width: 782px) {
-        .nav--main .nav-1 .nav-1__link.active::before {
+        :first-of-type .nav--main .nav-1 .nav-1__link.active::before {
           transform: translateX(-1em); } }
-    .nav--main .nav-1.shown {
+    :first-of-type .nav--main .nav-1.shown {
       max-height: 100%; }
     @media only screen and (min-width: 782px) {
-      .nav--main .nav-1 {
+      :first-of-type .nav--main .nav-1 {
         width: 260px;
         -ms-flex-direction: column;
             flex-direction: column;
@@ -1650,18 +1648,17 @@ Descr:
   margin-bottom: 1rem;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
   -ms-flex-align: start;
       align-items: flex-start;
   background: none;
   box-shadow: none; }
   .article--card-small :before {
     display: none; }
-  .article--card-small figure,
-  .article--card-small img {
+  .article--card-small figure {
     -ms-flex: 0 0 30%;
         flex: 0 0 30%;
+    margin-right: 1rem; }
+  .article--card-small img {
     border-radius: var(--border-radius); }
   .article--card-small .article__copy {
     -ms-flex: 0 0 60%;
@@ -1726,12 +1723,10 @@ Descr:
 
 .carousel div[class*="card-small"] {
   width: 100%;
-  margin: 0 0.5rem;
-  height: 450px; }
+  margin: 0 0.5rem; }
   @media only screen and (min-width: 782px) {
     .carousel div[class*="card-small"] {
-      width: calc(50% - 0.5rem);
-      height: 150px; } }
+      width: calc(50% - 0.5rem); } }
 
 .article--teaser-small {
   display: -ms-flexbox;
@@ -1924,27 +1919,24 @@ Descr:
 .basicPage--has-sidebar {
   grid-template-rows: auto auto 1fr;
   grid-template-areas: "nav" "title" "aside" "content" "sidebar"; }
-  .basicPage--has-sidebar aside {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    margin-bottom: 2rem; }
-    @media only screen and (min-width: 782px) {
-      .basicPage--has-sidebar aside {
-        grid-area: aside; } }
-    .basicPage--has-sidebar aside .page_component_entity {
-      display: none; }
-      @media only screen and (min-width: 1224px) {
-        .basicPage--has-sidebar aside .page_component_entity {
-          display: block; } }
   @media only screen and (min-width: 782px) {
     .basicPage--has-sidebar {
-      grid-template-columns: minmax(8em, 30%) 1fr;
+      grid-template-columns: minmax(8em, 16em) minmax(22em, 40em);
       grid-template-areas: " title title " "nav content " "sidebar content  "; } }
-  @media only screen and (min-width: 1224px) {
-    .basicPage--has-sidebar {
-      grid-template-columns: 1fr 2fr;
-      grid-template-areas: " title title " " nav content " " sidebar content "; } }
+
+.basicPage--has-aside aside {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin-bottom: 2rem; }
+  @media only screen and (min-width: 782px) {
+    .basicPage--has-aside aside {
+      grid-area: aside; } }
+  .basicPage--has-aside aside .page_component_entity {
+    display: none; }
+    @media only screen and (min-width: 1224px) {
+      .basicPage--has-aside aside .page_component_entity {
+        display: block; } }
 
 @media only screen and (min-width: 782px) {
   .basicPage--has-aside {
@@ -2034,6 +2026,9 @@ Descr:
           -ms-flex-align: center;
               align-items: center;
           max-width: 100%; } }
+      .landingPage--pano .title h1 {
+        font-size: var(--base-56);
+        margin-top: 1em; }
     .landingPage--pano .pano {
       grid-area: pano;
       margin: 0 auto;
@@ -2042,7 +2037,7 @@ Descr:
         border-radius: 8px; }
       .landingPage--pano .pano__text {
         animation: 2s simpleFadeIn 1 forwards ease-in;
-        text-shadow: var(--box-shadow); }
+        text-shadow: var(--box-shadow-dark); }
   .landingPage--homepage aside {
     display: none; }
 
@@ -2545,9 +2540,8 @@ Descr: sets up photo with text items
         border-radius: var(--border-radius); } }
   .photo-with-text--spotlight {
     background-image: linear-gradient(130deg, var(--as-teal-400) 0%, var(--as-teal-200) 6%, #f4f6f4 8%);
-    width: 100%;
+    width: calc(100% - 6rem);
     padding: 3rem;
-    margin-left: -3rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow); }
     .photo-with-text--spotlight .button {

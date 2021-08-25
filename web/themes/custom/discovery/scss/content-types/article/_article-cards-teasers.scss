@@ -78,19 +78,21 @@ Descr:
   border: none;
   margin-bottom: 1rem;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   align-items: flex-start;
   background: none;
   box-shadow: none;
   :before {
     display: none;
   }
-  figure,
-  img {
+  figure {
     flex: 0 0 30%;
-    // margin-right: 1rem;
-    border-radius: var(--border-radius);
+    margin-right: 1rem;
+
     // @include boxShadow();
+  }
+  img {
+    border-radius: var(--border-radius);
   }
   .article__copy {
     flex: 0 0 60%;
@@ -169,10 +171,10 @@ Descr:
   div[class*="card-small"] {
     width: 100%;
     margin: 0 0.5rem;
-    height: 450px;
+    // height: 450px;
     @include mq(medium) {
       width: calc(50% - 0.5rem);
-      height: 150px;
+      // height: 150px;
     }
   }
 }

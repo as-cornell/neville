@@ -1,8 +1,14 @@
 {#
+  Output lists used for 
+  - paragraph--list-block
+  - paragraph--related-articles
 
-  paragraph--related-articles.html.twig
-  - set items to content.field_articles
-  - embed _ouput-lists.twig
+  Builds block classes 
+  list classes
+
+  Checks for carousel
+
+
 /**
  * @file
  * Default theme implementation to display a paragraph.
@@ -43,6 +49,44 @@
  */
 #}
 
-{% set items = content.field_articles %}
-{% embed "@content/paragraphs/_output-lists.twig" with{} %}
-{% endembed %}
+{# set classes for the container #}
+{%
+  set blockClasses = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+paragraph.bundle|clean_class,
+  ]
+%}
+
+{# set view mode #}
+{% set view_mode = elements["#view_mode"] %}
+
+{# set list_attributes for thelist #}
+{% set list_attributes = create_attribute() %}
+{# set array list_classes #}
+{% set list_classes = [] %}
+
+{# marge list_classes based on 'carousel' , include flickity if carousel#}
+{% if content.field_carousel.0 %}
+  {% set list_classes = list_classes|merge(['carousel', 'carousel--' ~ view_mode]) %}
+  {{attach_library('discovery/flickity')}}
+{% else %}
+  {% set list_classes = list_classes|merge(['list-block__list']) %}
+{% endif %}
+
+<div{{attributes.addClass(blockClasses)}}>
+	<h3 class="list-block__label">
+		{{content.field_component_label}}
+	</h3>
+  {% if content.field_formatted_text.0 %}
+  <div class="list-block__text">
+    {{content.field_formatted_text}}
+  </div>
+  {% endif %}
+	<div {{list_attributes.addClass(list_classes)}}>
+		{{items}}
+	</div>
+  {{content.field_link}}
+</div>

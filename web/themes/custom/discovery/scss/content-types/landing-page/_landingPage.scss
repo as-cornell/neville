@@ -93,17 +93,21 @@ Descr:
         align-items: center;
         max-width: 100%;
       }
+      h1 {
+        font-size: var(--base-56);
+        margin-top: 1em;
+      }
     }
     .pano {
       grid-area: pano;
       margin: 0 auto;
       max-width: 1200px;
-      img{
+      img {
         border-radius: 8px;
       }
-      &__text{
+      &__text {
         animation: 2s simpleFadeIn 1 forwards ease-in;
-       text-shadow: var(--box-shadow);
+        text-shadow: var(--box-shadow-dark);
       }
     }
   }

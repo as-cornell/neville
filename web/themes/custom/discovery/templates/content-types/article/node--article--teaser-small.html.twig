@@ -40,12 +40,12 @@ Descr: defines "article" and outputs fields for article teaser-small
 		{% set show_summary = true %}
 		{% set summary = article.summary %}
 	{% endif %}
-	{{vardumper(article.summary)}}
+	{# {{vardumper(article.summary)}} #}
 
 
 	{# 
-					  else set to local and set all variables from "content"
-					#}
+						  else set to local and set all variables from "content"
+						#}
 {% else %}
 	{% set title = label %}
 	{# card label #}
@@ -78,18 +78,18 @@ setting image
   - default to stock image
 #}
 
-	{% if content.field_newsletter_image.0 %}
-		{% set image %}
-		{{content.field_newsletter_image}}
-		{% endset %}
-	{% else %}
-		{% set image %}
-		<figure>
-			{{ drupal_image('article.imagepath', 'medium')}}
-			<img src="{{article.newsletter_imagepath}}" alt="{{article.imagealt}}">
-		</figure>
-		{% endset %}
-	{% endif %}
+{% if content.field_newsletter_image.0 %}
+	{% set image %}
+	{{content.field_newsletter_image}}
+	{% endset %}
+{% else %}
+	{% set image %}
+	<figure>
+		{{ drupal_image('article.imagepath', 'medium')}}
+		<img src="{{article.newsletter_imagepath}}" alt="{{article.imagealt}}">
+	</figure>
+	{% endset %}
+{% endif %}
 
 <div class="article article--teaser-small" aria-labelledby="item--{{nodeId}}">
 
@@ -110,10 +110,10 @@ setting image
         "isAriaLabel" : nodeId
     } %}
 		{# {% if show_label %}
-					<span class="article__label">
-						{{ card_label }}
-					</span>
-				{% endif %} #}
+							<span class="article__label">
+								{{ card_label }}
+							</span>
+						{% endif %} #}
 		{% if show_dateline %}
 			<span class="article__date">
 				{{ dateline }}
