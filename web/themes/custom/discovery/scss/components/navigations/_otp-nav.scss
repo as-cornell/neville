@@ -142,35 +142,47 @@ Descr: otpN small and large, hovers and toggles for subNav
   }
 }
 
-.otpNavWrapper--basic_page {
+@mixin verticalOTP {
+  flex-direction: column;
+  a {
+    margin-top: 1em;
+    padding: 0.25em 0.25em 0 0.75em;
+    &:before,
+    &:after {
+      position: absolute;
+      content: "";
+      height: 75%;
+      top: 12.5%;
+      left: 0;
+      width: 4px;
+      border-radius: var(--border-radius);
+      background-image: var(--as-gold-400);
+    }
+    &:after {
+      background: var(--as-teal-400);
+      transform: translatey(-115%);
+    }
+    &:hover,
+    &.active {
+      &:after {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+.otpNavWrapper--fullPage {
+  .otpNav {
+    @include mq(medium) {
+      @include verticalOTP();
+    }
+  }
+}
+
+.otpNavWrapper--hasSidebar {
   .otpNav {
     @include mq(large) {
-      flex-direction: column;
-      a {
-        margin-top: 1em;
-        padding: 0.25em 0.25em 0 0.75em;
-        &:before,
-        &:after {
-          position: absolute;
-          content: "";
-          height: 75%;
-          top: 12.5%;
-          left: 0;
-          width: 4px;
-          border-radius: var(--border-radius);
-          background-image: var(--as-gold-400);
-        }
-        &:after {
-          background: var(--as-teal-400);
-          transform: translatey(-115%);
-        }
-        &:hover,
-        &.active {
-          &:after {
-            transform: translateY(0);
-          }
-        }
-      }
+      @include verticalOTP();
     }
   }
 }

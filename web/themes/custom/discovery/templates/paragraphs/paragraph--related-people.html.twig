@@ -1,4 +1,9 @@
 {#
+
+  paragraph--related-people.htm.twig
+  - set items to content.field_people
+  - embed _output-lists.twig
+
 /**
  * @file
  * Default theme implementation to display a paragraph.
@@ -21,7 +26,7 @@
  *   The attributes.class element may contain one or more of the following
  *   classes:
  *   - paragraphs: The current template type (also known as a "theming hook").
- *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *   - paragraphs--type-[type]: \The current paragraphs type. For example, if the paragraph is an
  *     "Image" it would result in "paragraphs--type--image". Note that the machine
  *     name will often be in a short form of the human readable label.
  *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
@@ -39,9 +44,13 @@
  */
 #}
 
-{# set columns  #}
 
-{%
+{% set items = content.field_people %}
+{% embed "@content/paragraphs/_output-lists.twig" with{} %}
+{% endembed %}
+
+
+{# {%
   set classes = [
     'paragraph',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
@@ -62,7 +71,7 @@
 	<div{{attributes.addClass(classes)}}>
 		{% block content %}
     {# reder as some view mode #}
-			{{ content.field_people }}
+{# {{ content.field_people }}
 		{% endblock %}
 	</div>
 	<p>
@@ -70,4 +79,4 @@
 			view all people
 		</a>
 	</p>
-{% endblock paragraph %}
+{% endblock paragraph %}  #}

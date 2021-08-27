@@ -107,10 +107,10 @@
       width: 100%;
       transition: opacity 150ms ease-in-out;
       flex: 1 1 calc(100% - 3rem);
-      margin-bottom: 0.5em;
+      // margin-bottom: 0.5em;
       border-bottom: 1px solid var(--as-gray-200);
       @include mq(medium) {
-        padding: 1em;
+        // padding: 1em;
         flex: 1 1 calc(100% - 4rem);
       }
       &:before {
@@ -154,6 +154,7 @@
       &:before {
         background: var(--as-teal-400);
         transform: translateX(-1.5em);
+        // width: 8px;
       }
     }
   }

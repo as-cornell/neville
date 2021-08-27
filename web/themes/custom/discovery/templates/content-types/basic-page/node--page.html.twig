@@ -17,31 +17,36 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
     - modifier basic
     - turn on sidebarNav
  #}
-{% set main_element_extra_classes = ['main'] %}
+{# {% set main_element_extra_classes = ['main'] %}
 {% set main_element_base_class = 'basicPage' %}
-{% set main_element_modifiers = [''] %}
+{% set blockClasses = [''] %} #}
 {# set defaults #}
 {# {% set show_sidebarNav = true %} #}
 {% set show_aside = false %}
 {# {% set show_sidebarContent = false %} #}
 {# {{vardumper()}} #}
 {# Create classes array. The 'node' class is required for contextual edit links. #}
-{% set classes = [
-  'node'
-] %}
+{# set classes for the container #}
+{%
+  set blockClasses = [
+    'basicPage',
+    'main',
+  ]
+%}
+
 
 {# Set main content #}
 {% set mainContent = content.field_page_components %}
 
 {# set has-sidebar #}
 {% if content.field_page_layout.0["#markup"] == "hasSidebar" %}
-  {% set main_element_modifiers = main_element_modifiers|merge(['has-sidebar'])%}
+  {% set blockClasses = blockClasses|merge(['basicPage--has-sidebar'])%}
   {% set show_sidebarContent = true %}
 {% elseif content.field_page_layout.0["#markup"] == "fullPage" %}
-  {% set main_element_modifiers = main_element_modifiers|merge(['full-page'])%}
+  {% set blockClasses = blockClasses|merge(['basicPage--full-page'])%}
   {% set show_sidebarContent = false %}
 {% else %}
-  {% set main_element_modifiers = main_element_modifiers|merge(['has-sidebar'])%}
+  {% set blockClasses = blockClasses|merge(['basicPage--has-sidebar'])%}
   {% set show_sidebarContent = true %}
 {% endif %}
 
@@ -53,7 +58,8 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 {# Set linkValues and show aside for OTP page section #}
 {% set linkValues = [] %}
 {% for item in content.field_page_components|field_target_entity %}
-	{% set type =  item.type.value.0.target_id%}
+
+{% set type =  item.type.value.0.target_id%}
 	{% if type == 'page_section' %}
 		{% set sectionLabel =  item.field_section_label.value%}
 		{% set linkValues = linkValues|merge([sectionLabel]) %}
@@ -61,15 +67,16 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 {% endfor %}
 {% if linkValues != [] %}
   {% set show_aside = true %}
-{% set main_element_modifiers = main_element_modifiers|merge(['has-aside']) %}
+{% set blockClasses = blockClasses|merge(['basicPage--has-aside']) %}
 
 {% endif %}
 
 {% set sidebar_wrapper_extra_classes = sidebar_wrapper_extra_classes | default(['']) %}
 
+{# {{vardumper(content)}} #}
 
+<main{{attributes.addClass(blockClasses)}} id="mainContent">
 
-<main {{ bem(main_element_base_class, (main_element_modifiers), main_element_blockname, main_element_extra_classes) }} id="mainContent">
 	<div class="title">
 		{% include "@content/atoms/_heading.twig" with {
         "heading_level" : 1,
@@ -97,7 +104,9 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 	{% if show_aside %}
 		<aside role="complimentary">
     {% if linkValues %}
-      <div class="otpNavWrapper otpNavWrapper--basic_page"> 
+    {# has-sidebar or full-page #}
+<div class='otpNavWrapper otpNavWrapper--{{content.field_page_layout.0["#markup"]}}'>
+
 
         {% embed "@content/atoms/_section-toggle.twig" with{
           section_toggle_base_class : "toggle",

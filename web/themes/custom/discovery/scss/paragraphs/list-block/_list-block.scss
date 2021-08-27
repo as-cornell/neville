@@ -7,12 +7,18 @@ Descr: sets up all generic styles for list-block paragraphs
 
 .list-block {
   // margin-top: 4rem;
+  &__label {
+    margin-top: 1em;
+  }
   &__text {
     max-width: 80%;
     margin-top: 1em;
   }
   &__list {
     margin-top: 2rem;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -20,8 +26,8 @@ Descr: sets up all generic styles for list-block paragraphs
 
 .basicPage--has-sidebar {
   .list-block__list {
-    display: grid;
-    grid-gap: 2rem;
+    // display: grid;
+    // grid-template-columns: 1fr;
     @include mq(small) {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -30,18 +36,17 @@ Descr: sets up all generic styles for list-block paragraphs
 
 .basicPage--full-page {
   .list-block__list {
-    display: flex;
-    grid-gap: 2rem;
-    flex-wrap: wrap;
-    grid-template-columns: repeat(4, 1fr);
-    > div {
-      flex: 100%;
-      @include mq(small) {
-        flex: 0 1 46%;
-      }
-      @include mq(xl) {
-        flex: 0 1 21%;
-      }
+    // display: grid;
+    grid-gap: 1rem;
+    // grid-template-columns: 1fr;
+    @include mq(small) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include mq(medium) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include mq(large) {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 }

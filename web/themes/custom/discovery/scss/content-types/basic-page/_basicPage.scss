@@ -11,6 +11,7 @@ Descr:
 .basicPage {
   .title {
     grid-area: title;
+    padding-bottom: 1em;
     h1 {
       font-family: var(--font-serif);
       font-weight: var(--semi);
@@ -120,7 +121,7 @@ Descr:
       grid-template-columns: 1fr;
       grid-template-areas: "title" "aside" "content";
       @include mq(medium) {
-        grid-template-columns: 3fr 1fr;
+        grid-template-columns: 1fr minmax(6em, 10em);
         grid-template-areas: "title title" "content aside";
       }
     }

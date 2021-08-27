@@ -9,8 +9,14 @@ Descr: defines "article" and outputs fields for article card
 
 #}
 {# set wrapper bem calsses #}
-{% set card_base_class = 'article' %}
-{% set card_modifiers =  ["article","card-small"]%}
+{# {% set card_base_class = 'article' %}
+{% set card_modifiers =  ["article","card-small"]%} #}
+{%
+  set blockClasses = [
+    'article',
+    view_mode ? 'article--' ~ view_mode|clean_class,
+  ]
+%}
 
 
 {% if content.field_remote_uuid.0 %}
@@ -55,7 +61,7 @@ setting image
 {% elseif article.imagepath %}
   {% set image %}
     <figure>
-      <img src="{{article.imagepath}}" alt="{{article.alt}}">
+      <img src="{{article.newsletter_imagepath}}" alt="{{article.alt}}">
     </figure>
   {% endset %}
 {% else %}
@@ -65,35 +71,26 @@ setting image
     </figure>
   {% endset %}
 {% endif %}
+{# {{vardumper()}} #}
 
+<article {{attributes.addClass(blockClasses)}} {% if nodeId %} aria-labelledby="item--{{nodeId}}" {% endif %}>
 
-<div {{ bem(card_base_class, (card_modifiers), article_blockname, article_classes) }} {% if nodeId %} aria-labelledby="item--{{nodeId}}" {% endif %}> 
 {# {{localorremote}} #}
 {{title_suffix}}
 {{image}}
 
 
-	<div {{ bem(article_copy_base_class|default('article__copy'), (article_copy_modifiers), article_copy_blockname) }}>
-
-		
-			{% include "@content/atoms/_heading.twig" with {
-        "heading_level": 2,
-        "heading": title,
-        "heading_url": url,
-        "heading_blockname": article_title_blockname|default(card_base_class),
-        "heading_modifiers": article_title_modifiers,
-        "heading_link_base_class": article_title_link_base_class|default('title-link'),
-        "heading_link_blockname": card_base_class,
-        "heading_base_class": article_title_base_class|default('title'),
-        "isAriaLabel" : nodeId
-    } %}
-
-
-		{% if show_label %}
-			<span class="article__label">
+	<div class="article__copy">
+   		
+     <h2 class="article__title">
+      <a href="{{url}}">{{title}}</a>
+    </h2>
+    {% if show_label %}
+			<p class="article__label">
 				{{ card_label }}
-			</span>
+			</p>
 		{% endif %}
 
+
 	</div>
-</div>
+</article>

@@ -34,12 +34,12 @@ header {
   max-width: var(--xl);
   position: relative;
   @include mq(medium) {
-    grid-template-columns: auto 1fr auto;
     // margin: 1rem auto 2rem auto;
   }
 
   @include mq(header) {
     // grid-template-columns: 1fr;
+    grid-template-columns: auto 1fr auto;
     grid-template-rows: auto;
     align-items: center;
     margin: 2rem auto 1rem auto;
@@ -60,7 +60,6 @@ header {
 
   .cu-logo {
     text-indent: -9999px;
-
     flex: 0 0 100%;
     width: 200px;
     height: 45px;
@@ -80,7 +79,7 @@ header {
     margin: 1rem 0;
     @include mq(medium) {
       grid-column: 1;
-      margin: 2rem 0 1rem 0;
+      margin: 2rem 0 2rem 0;
     }
     @include mq(large) {
       margin: 2rem 2rem 2rem 0;
@@ -157,7 +156,7 @@ header {
     align-items: center;
     align-self: center;
 
-    @include mq(medium) {
+    @include mq(header) {
       grid-column: 3;
     }
     button {

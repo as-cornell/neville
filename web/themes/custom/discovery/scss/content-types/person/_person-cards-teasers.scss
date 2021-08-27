@@ -7,23 +7,61 @@ Descr: Sets all specific styles for an person card
 --------------------------- */
 
 .person--card {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   align-content: flex-start;
   figure {
     background: none;
+    max-width: 200px;
+    @include mq(large) {
+      max-width: 100%;
+    }
+  }
+  img {
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    transition: transform 100ms ease-in-out;
   }
   .person__name-title {
-    font-size: var(--base-28);
-    font-weight: var(--semi);
-    margin: 0 1rem;
+    margin: 1em 0;
   }
   .person__name {
     font-size: var(--base-28);
-    font-weight: var(--semi);
+    font-weight: var(--regular);
+    line-height: 1em;
+    display: block;
+    padding-bottom: 0.5em;
+    position: relative;
+
+    &:after {
+      position: absolute;
+      content: "";
+      width: 4em;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(
+        90deg,
+        var(--as-teal-400),
+        var(--as-gray-200)
+      );
+      background-size: 200%;
+      background-position: right bottom;
+      background-repeat: no-repeat;
+      transition: background-position 150ms ease-in;
+    }
+
+    &:hover {
+      &:after {
+        background-position: left bottom;
+      }
+    }
   }
   .person__title {
-    font-size: var(--base-20);
-    margin-top: 0;
+    font-size: var(--base-18);
+    line-height: 1.2;
+    // font-weight: var(--regular);
+    margin-top: 0.5em;
   }
   .person__contacts {
     font-size: var(--base-18);
@@ -47,28 +85,42 @@ Descr: Sets all specific styles for an person card
       margin-top: 0;
     }
   }
+  padding: 1em;
+  background-image: linear-gradient(45deg, var(--as-white), var(--as-gray-200));
+  background-size: 400% 100%;
+  background-position: left bottom;
+  // border: 4px solid var(--as-white);
+  border-radius: var(--border-radius);
+  transition: background-position 300ms ease;
+  &:hover {
+    background-position: right bottom;
+    img {
+      transform: scale(1.05);
+    }
+  }
 }
 .person--card-small {
   border: none;
   margin-bottom: 2rem;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   align-items: flex-start;
   background: none;
   box-shadow: none;
-  // max-width: 322px;
+
   :before {
     display: none;
   }
-  figure,
-  img {
+  figure {
     flex: 0 0 30%;
-    // margin-right: 1rem;
+    margin-right: 1rem;
+  }
+  img {
     border-radius: var(--border-radius);
-    // @include boxShadow();
+    box-shadow: var(--box-shadow);
   }
   .person__copy {
-    flex: 1 0 60%;
+    // flex: 1 0 60%;
     padding: 0;
   }
   .person__name {
@@ -82,71 +134,13 @@ Descr: Sets all specific styles for an person card
     padding-top: 0;
     margin-top: 0;
   }
-  .person__name {
-    font-weight: var(--semi);
-    font-size: var(--base-20);
-  }
+
   .person__title {
-    font-size: var(--base-20);
-    font-weight: var(--regular);
+    font-size: var(--base-18);
+    line-height: 1.2;
   }
 
   .person__contacts {
     display: none;
   }
 }
-// embed people
-// .pcWrapper--ftb {
-//   .card--person {
-//     max-width: 320px;
-//     margin-top: 1rem;
-//     .card--person__contacts {
-//       display: none;
-//     }
-//   }
-// }
-
-// .list--people {
-//   .card--person {
-//     grid-template-columns: 1fr 2fr;
-//     grid-template-rows: auto 1fr auto;
-//     column-gap: var(--space);
-//     &__image {
-//       grid-column: 1;
-//       grid-row: 1 / 3;
-//     }
-//     &__name-title {
-//       grid-column: 2;
-//       grid-row: 1;
-//       margin: 0;
-//       font-size: var(--base-28);
-//       font-weight: var(--semi);
-//       margin-right: 1rem;
-//     }
-//     &__name {
-//       font-size: var(--base-28);
-//       font-weight: var(--semi);
-//     }
-//     &__title {
-//       font-size: var(--base-20);
-//       margin-top: 0;
-//     }
-//     &__contacts {
-//       grid-column: 2;
-//       grid-row: 2;
-//       font-size: var(--base-18);
-//       padding: 0;
-//       margin: 1rem 1rem 1rem 0;
-//       display: block;
-//     }
-//     &__departments,
-//     &__responsibilities {
-//       margin: 1rem;
-//       padding-bottom: 0;
-//       grid-column: 1 / -1;
-//       ul {
-//         padding-left: 1rem;
-//       }
-//     }
-//   }
-// }

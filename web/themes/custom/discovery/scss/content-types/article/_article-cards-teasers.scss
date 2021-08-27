@@ -97,19 +97,24 @@ Descr:
   .article__copy {
     flex: 0 0 60%;
     padding: 0;
+    display: flex;
+    flex-flow: column-reverse;
   }
   .article__title {
     grid-area: title;
     margin: 0;
-    font-size: var(--base-20);
+    font-size: var(--base-24);
     line-height: 1.2;
     font-weight: var(--regular);
+    align-self: auto;
   }
 
   .article__label {
     font-size: var(--base-18);
-    font-family: var(--font-serif);
     font-weight: var(--semi);
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    margin-top: 0;
   }
   figcaption {
     @extend .sr-only;
@@ -156,11 +161,12 @@ Descr:
 
 // Set sizes for teasers and card-small in Carousel
 .carousel {
-  div[class*="teaser"] {
+  div[class*="teaser"],
+  article[class*="teaser"] {
     width: calc(100% - 2rem);
     margin-right: 1rem;
     margin-bottom: 1rem;
-    transform: translateX(1rem);
+    transform: translateX(0.5rem);
     @include mq(medium) {
       width: calc(50% - 2rem);
     }
@@ -168,7 +174,8 @@ Descr:
       width: calc(33% - 2rem);
     }
   }
-  div[class*="card-small"] {
+  div[class*="card-small"],
+  article[class*="card-small"] {
     width: 100%;
     margin: 0 0.5rem;
     // height: 450px;
