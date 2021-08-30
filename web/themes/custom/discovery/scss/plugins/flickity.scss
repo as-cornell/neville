@@ -48,9 +48,9 @@ https://flickity.metafizzy.co
 
 .flickity-button {
   position: absolute;
-  background: #333;
+  background: var(--as-teal-400);
   border: none;
-  color: hsla(0, 0%, 100%, 0.75);
+  color: var(--as-white);
 }
 
 .flickity-button:hover {
@@ -84,32 +84,39 @@ https://flickity.metafizzy.co
   top: 50%;
   width: 32px;
   height: 32px;
+  top: calc(50% - 16px);
   @include mq(medium) {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
+    top: calc(50% - 20px);
   }
 
-  border-radius: 50%;
+  border-radius: 12px;
+  transition: all 150ms ease-in;
   /* vertically center */
-  transform: translateY(-50%);
+  // transform: translateY(-50%);
+  &:hover {
+    transform: scale(1.1);
+    // box-shadow: var(--box-shadow);
+  }
 }
 
 .flickity-prev-next-button.previous {
   left: -16px;
   @include mq(medium) {
-    left: -40px;
+    left: -48px;
   }
   @include mq(xl) {
-    left: -48;
+    left: -52;
   }
 }
 .flickity-prev-next-button.next {
   right: -16px;
   @include mq(medium) {
-    right: -40px;
+    right: -48px;
   }
   @include mq(xl) {
-    right: -48;
+    right: -52;
   }
 }
 /* right to left */

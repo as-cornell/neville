@@ -11,10 +11,25 @@ Descr: defines "person" and outputs fields for full person view
 
 
 {# set wrapper bem classes #}
-{% set main_element_extra_classes = ['main', 'content'] %}
-{% set main_element_base_class = 'person' %}
-{% set main_element_modifiers = [''] %}
+{# set classes for the container #}
+{# {%
+  set blockClasses = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+paragraph.bundle|clean_class,
+  ]
+%} #}
+{# set classes for the container #}
+{%
+  set blockClasses = [
+    'person',
+    'main',
+    view_mode ? 'person--' ~ view_mode|clean_class,
 
+  ]
+%}
 
 
 {# set var person #}
@@ -82,8 +97,8 @@ Descr: defines "person" and outputs fields for full person view
 		<img src="https://people.as.cornell.edu/sites/people/files/Klarmanarticle_4784_2.jpg" alt="Klarman Hall"/>
   {% endset %}
 {% endif %}
-
-<main {{ bem(main_element_base_class, (main_element_modifiers), main_blockname, main_element_extra_classes) }}>
+{{vardumper()}}
+<main{{attributes.addClass(blockClasses)}}>
 	{{title_suffix}}
 	<div class="title">
 		{% include "@content/atoms/_heading.twig" with {
@@ -138,7 +153,7 @@ Descr: defines "person" and outputs fields for full person view
 	</div>
 	<div class="sidebar">
 		{{image}}
-		<div class="person__contact">
+		<div class="person--{{view_mode}}__contact">
 			{{contact}}
 		</div>
 		{% if show_education %}

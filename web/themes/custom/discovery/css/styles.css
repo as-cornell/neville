@@ -138,9 +138,9 @@ font size bases to be used as extends
   font-size: var(--base-24);
   line-height: var(--line-height); }
 
-.base-28, .basicPage .content > .pageComponent--ftb > p:first-of-type, .person .sidebar h3 {
+.base-28, .basicPage .content > .pageComponent--ftb > p:first-of-type, .person--full .sidebar h3 {
   font-size: var(--base-28);
-  line-height: 1.4; }
+  line-height: 1; }
 
 .base-36 {
   font-size: var(--base-36);
@@ -167,7 +167,7 @@ font size bases to be used as extends
   -gradients
 */
 :root {
-  --box-shadow: 0 12px 16px var(--as-gray-400);
+  --box-shadow: 0 8px 12px var(--as-gray-400);
   --box-shadow-dark: 0 0 16px var(--as-gray-700);
   --button-gradient: linear-gradient(
     120deg,
@@ -324,7 +324,9 @@ Descr:
 
 --------------------------- */
 a {
-  color: var(--as-red-400); }
+  color: var(--as-red-400);
+  -webkit-text-decoration-color: var(--as-gray-200);
+          text-decoration-color: var(--as-gray-200); }
 
 /* -------------------------
 
@@ -596,6 +598,9 @@ Descr: sets up all uniquie styles for article teaser carousels
   - sets dimensions of flickity items based on view mode of the node
 
 --------------------------- */
+.carousel {
+  margin-top: 2rem; }
+
 /* -------------------------
 
 Title: _forms.scss
@@ -840,14 +845,14 @@ Descr: otpN small and large, hovers and toggles for subNav
   .main.otpStuck .otpNavWrapper {
     width: 100%; } }
 
-@media only screen and (min-width: 1224px) {
-  .otpNavWrapper--basic_page .otpNav {
+@media only screen and (min-width: 782px) {
+  .otpNavWrapper--fullPage .otpNav {
     -ms-flex-direction: column;
         flex-direction: column; }
-    .otpNavWrapper--basic_page .otpNav a {
+    .otpNavWrapper--fullPage .otpNav a {
       margin-top: 1em;
       padding: 0.25em 0.25em 0 0.75em; }
-      .otpNavWrapper--basic_page .otpNav a:before, .otpNavWrapper--basic_page .otpNav a:after {
+      .otpNavWrapper--fullPage .otpNav a:before, .otpNavWrapper--fullPage .otpNav a:after {
         position: absolute;
         content: "";
         height: 75%;
@@ -856,10 +861,32 @@ Descr: otpN small and large, hovers and toggles for subNav
         width: 4px;
         border-radius: var(--border-radius);
         background-image: var(--as-gold-400); }
-      .otpNavWrapper--basic_page .otpNav a:after {
+      .otpNavWrapper--fullPage .otpNav a:after {
         background: var(--as-teal-400);
         transform: translatey(-115%); }
-      .otpNavWrapper--basic_page .otpNav a:hover:after, .otpNavWrapper--basic_page .otpNav a.active:after {
+      .otpNavWrapper--fullPage .otpNav a:hover:after, .otpNavWrapper--fullPage .otpNav a.active:after {
+        transform: translateY(0); } }
+
+@media only screen and (min-width: 1224px) {
+  .otpNavWrapper--hasSidebar .otpNav {
+    -ms-flex-direction: column;
+        flex-direction: column; }
+    .otpNavWrapper--hasSidebar .otpNav a {
+      margin-top: 1em;
+      padding: 0.25em 0.25em 0 0.75em; }
+      .otpNavWrapper--hasSidebar .otpNav a:before, .otpNavWrapper--hasSidebar .otpNav a:after {
+        position: absolute;
+        content: "";
+        height: 75%;
+        top: 12.5%;
+        left: 0;
+        width: 4px;
+        border-radius: var(--border-radius);
+        background-image: var(--as-gold-400); }
+      .otpNavWrapper--hasSidebar .otpNav a:after {
+        background: var(--as-teal-400);
+        transform: translatey(-115%); }
+      .otpNavWrapper--hasSidebar .otpNav a:hover:after, .otpNavWrapper--hasSidebar .otpNav a.active:after {
         transform: translateY(0); } }
 
 .nav--site {
@@ -949,11 +976,9 @@ Descr: otpN small and large, hovers and toggles for subNav
       transition: opacity 150ms ease-in-out;
       -ms-flex: 1 1 calc(100% - 3rem);
           flex: 1 1 calc(100% - 3rem);
-      margin-bottom: 0.5em;
       border-bottom: 1px solid var(--as-gray-200); }
       @media only screen and (min-width: 782px) {
         .nav--site .nav-0 .nav-0__link {
-          padding: 1em;
           -ms-flex: 1 1 calc(100% - 4rem);
               flex: 1 1 calc(100% - 4rem); } }
       .nav--site .nav-0 .nav-0__link:before {
@@ -989,7 +1014,15 @@ Descr: otpN small and large, hovers and toggles for subNav
     .nav--site {
       overflow: visible; } }
 
-:first-of-type .nav--main {
+/* -------------------------
+
+Title: main navigation
+Descr: nav--main small and large, hovers and toggles for subNav
+       
+Still needs: expand toggle for showing main nav on mobile
+
+--------------------------- */
+.nav--main {
   position: relative;
   font-size: var(--base-18);
   position: absolute;
@@ -997,21 +1030,22 @@ Descr: otpN small and large, hovers and toggles for subNav
   width: calc(100% + 2rem);
   margin-left: -1rem; }
   @media only screen and (min-width: 782px) {
-    :first-of-type .nav--main {
-      position: relative; } }
+    .nav--main {
+      position: relative;
+      margin-left: 0; } }
   @media only screen and (min-width: 900px) {
-    :first-of-type .nav--main {
+    .nav--main {
       display: -ms-flexbox;
       display: flex;
       -ms-flex-pack: start;
           justify-content: flex-start;
-      width: 100%;
-      margin-left: 0; } }
+      width: 100%; } }
   @media only screen and (min-width: 1224px) {
-    :first-of-type .nav--main {
+    .nav--main {
+      margin-left: -1rem;
       -ms-flex-pack: end;
           justify-content: flex-end; } }
-  :first-of-type .nav--main .nav {
+  .nav--main .nav {
     padding: 0;
     margin: 0;
     overflow: hidden;
@@ -1020,9 +1054,9 @@ Descr: otpN small and large, hovers and toggles for subNav
     -ms-flex-direction: column;
         flex-direction: column; }
     @media only screen and (min-width: 782px) {
-      :first-of-type .nav--main .nav {
+      .nav--main .nav {
         position: relative; } }
-    :first-of-type .nav--main .nav button {
+    .nav--main .nav button {
       padding: 0;
       background: var(--as-black);
       border-radius: 0;
@@ -1030,28 +1064,28 @@ Descr: otpN small and large, hovers and toggles for subNav
           flex: 0 0 2rem;
       margin-bottom: 1px; }
       @media only screen and (min-width: 782px) {
-        :first-of-type .nav--main .nav button {
+        .nav--main .nav button {
           background: transparent; } }
-      :first-of-type .nav--main .nav button svg {
+      .nav--main .nav button svg {
         fill: var(--as-white); }
         @media only screen and (min-width: 782px) {
-          :first-of-type .nav--main .nav button svg {
+          .nav--main .nav button svg {
             fill: var(--as-black); } }
-      :first-of-type .nav--main .nav button:focus {
+      .nav--main .nav button:focus {
         opacity: 1; }
-      :first-of-type .nav--main .nav button.active {
+      .nav--main .nav button.active {
         transform: rotate(180deg);
         transform-origin: 50% 50%; }
-    :first-of-type .nav--main .nav a {
+    .nav--main .nav a {
       -webkit-text-decoration-color: var(--as-gray-300);
               text-decoration-color: var(--as-gray-300);
       position: relative;
       display: block; }
-  :first-of-type .nav--main .nav-0 {
+  .nav--main .nav-0 {
     max-height: 0;
     background: var(--as-white); }
     @media only screen and (min-width: 782px) {
-      :first-of-type .nav--main .nav-0 {
+      .nav--main .nav-0 {
         max-height: 100%;
         -ms-flex-direction: row;
             flex-direction: row;
@@ -1060,13 +1094,13 @@ Descr: otpN small and large, hovers and toggles for subNav
         display: -ms-inline-flexbox;
         display: inline-flex; } }
     @media only screen and (min-width: 1224px) {
-      :first-of-type .nav--main .nav-0 {
+      .nav--main .nav-0 {
         -ms-flex-pack: end;
             justify-content: flex-end; } }
-    :first-of-type .nav--main .nav-0.shown {
+    .nav--main .nav-0.shown {
       max-height: 100%;
       margin-bottom: 1rem; }
-  :first-of-type .nav--main .nav-0__item {
+  .nav--main .nav-0__item {
     margin-bottom: 0;
     display: -ms-flexbox;
     display: flex;
@@ -1074,7 +1108,7 @@ Descr: otpN small and large, hovers and toggles for subNav
         flex-wrap: wrap;
     position: relative;
     overflow: hidden; }
-    :first-of-type .nav--main .nav-0__item:after {
+    .nav--main .nav-0__item:after {
       position: absolute;
       content: "";
       height: 100%;
@@ -1082,56 +1116,60 @@ Descr: otpN small and large, hovers and toggles for subNav
       width: 4px;
       border-radius: 2px;
       background: var(--as-teal-300); }
-    :first-of-type .nav--main .nav-0__item.subnav-open ul, :first-of-type .nav--main .nav-0__item:hover ul {
+    .nav--main .nav-0__item.subnav-open ul, .nav--main .nav-0__item:hover ul {
       max-height: 1000px; }
-    :first-of-type .nav--main .nav-0__item.subnav-open button, :first-of-type .nav--main .nav-0__item:hover button {
+    .nav--main .nav-0__item.subnav-open button, .nav--main .nav-0__item:hover button {
       transform: rotate(180deg);
       transform-origin: 50% 50%; }
-    :first-of-type .nav--main .nav-0__item.has-sub .nav-0__link {
+    .nav--main .nav-0__item.has-sub .nav-0__link {
       -ms-flex: calc(100% - 3rem);
           flex: calc(100% - 3rem);
       padding: 1em 0 1em 1em; }
-    :first-of-type .nav--main .nav-0__item.has-sub button {
+    .nav--main .nav-0__item.has-sub button {
       -ms-flex: 1rem;
           flex: 1rem;
       padding: 0 0.5em; }
     @media only screen and (min-width: 782px) {
-      :first-of-type .nav--main .nav-0__item {
+      .nav--main .nav-0__item.has-sub.subnav-open, .nav--main .nav-0__item.has-sub:hover {
+        box-shadow: var(--box-shadow); } }
+    @media only screen and (min-width: 782px) {
+      .nav--main .nav-0__item {
         -ms-flex: 1 0 auto;
             flex: 1 0 auto;
         -ms-flex-wrap: nowrap;
             flex-wrap: nowrap; }
-        :first-of-type .nav--main .nav-0__item:after {
-          width: calc(100% - 1em);
+        .nav--main .nav-0__item:after {
+          width: calc(100%);
           height: 4px;
-          transform: translateX(-100%);
+          transform: scaleX(0);
           transition: transform 100ms ease-in; }
-        :first-of-type .nav--main .nav-0__item:hover:after, :first-of-type .nav--main .nav-0__item.subnav-open:after {
-          transform: translateX(0%); }
-        :first-of-type .nav--main .nav-0__item.active:after {
+        .nav--main .nav-0__item:hover, .nav--main .nav-0__item.subnav-open {
+          overflow: visible; }
+          .nav--main .nav-0__item:hover:after, .nav--main .nav-0__item.subnav-open:after {
+            transform: scale(1); }
+        .nav--main .nav-0__item.active:after {
           background: var(--as-red-400);
-          transform: translateX(0%); } }
-  :first-of-type .nav--main .nav-0__link {
+          transform: scale(1); } }
+  .nav--main .nav-0__link {
     color: var(--as-gray-200);
     background: var(--as-black);
     padding: 1em 0.5em;
     width: 100%;
-    margin-right: 1em;
     transition: opacity 150ms ease-in-out;
     margin-bottom: 1px;
     font-weight: var(--semi); }
-    :first-of-type .nav--main .nav-0__link:hover:before, :first-of-type .nav--main .nav-0__link.active:before {
+    .nav--main .nav-0__link:hover:before, .nav--main .nav-0__link.active:before {
       background: var(--as-teal-600); }
     @media only screen and (min-width: 782px) {
-      :first-of-type .nav--main .nav-0__link {
+      .nav--main .nav-0__link {
         background: transparent;
         color: var(--as-black);
         white-space: nowrap; }
-        :first-of-type .nav--main .nav-0__link:before {
+        .nav--main .nav-0__link:before {
           top: 0;
           width: 100%;
           height: 4px; } }
-  :first-of-type .nav--main .nav-1 {
+  .nav--main .nav-1 {
     border-radius: 0;
     width: 100%;
     padding-left: 0;
@@ -1141,7 +1179,7 @@ Descr: otpN small and large, hovers and toggles for subNav
     overflow: visible;
     z-index: 1;
     box-shadow: var(--box-shadow); }
-    :first-of-type .nav--main .nav-1 .nav-1__link {
+    .nav--main .nav-1 .nav-1__link {
       padding: 1em 1em 1em 1.5em;
       color: var(--as-black);
       background: var(--as-white);
@@ -1150,9 +1188,10 @@ Descr: otpN small and large, hovers and toggles for subNav
       margin-bottom: 1px;
       overflow: hidden; }
       @media only screen and (min-width: 782px) {
-        :first-of-type .nav--main .nav-1 .nav-1__link {
-          padding: 1em; } }
-      :first-of-type .nav--main .nav-1 .nav-1__link:before {
+        .nav--main .nav-1 .nav-1__link {
+          padding: 1em;
+          font-weight: var(--regular); } }
+      .nav--main .nav-1 .nav-1__link:before {
         background: var(--as-teal-400);
         transform: translateX(-1.5em);
         position: absolute;
@@ -1162,25 +1201,25 @@ Descr: otpN small and large, hovers and toggles for subNav
         width: 4px;
         border-radius: 2px; }
         @media only screen and (min-width: 782px) {
-          :first-of-type .nav--main .nav-1 .nav-1__link:before {
+          .nav--main .nav-1 .nav-1__link:before {
             top: calc(100% - 4px);
             width: 100%;
             height: 4px;
             background: var(--as-red-400);
             transform: translateX(calc((100% + 1em) * -1));
             transition: all 250ms ease-in; } }
-      :first-of-type .nav--main .nav-1 .nav-1__link:hover, :first-of-type .nav--main .nav-1 .nav-1__link:focus {
+      .nav--main .nav-1 .nav-1__link:hover, .nav--main .nav-1 .nav-1__link:focus {
         background: var(--as-gray-200); }
         @media only screen and (min-width: 782px) {
-          :first-of-type .nav--main .nav-1 .nav-1__link:hover::before, :first-of-type .nav--main .nav-1 .nav-1__link:focus::before {
+          .nav--main .nav-1 .nav-1__link:hover::before, .nav--main .nav-1 .nav-1__link:focus::before {
             transform: translateX(-1em); } }
       @media only screen and (min-width: 782px) {
-        :first-of-type .nav--main .nav-1 .nav-1__link.active::before {
+        .nav--main .nav-1 .nav-1__link.active::before {
           transform: translateX(-1em); } }
-    :first-of-type .nav--main .nav-1.shown {
+    .nav--main .nav-1.shown {
       max-height: 100%; }
     @media only screen and (min-width: 782px) {
-      :first-of-type .nav--main .nav-1 {
+      .nav--main .nav-1 {
         width: 260px;
         -ms-flex-direction: column;
             flex-direction: column;
@@ -1411,11 +1450,9 @@ header {
   margin: 0 auto;
   max-width: var(--xl);
   position: relative; }
-  @media only screen and (min-width: 782px) {
-    header {
-      grid-template-columns: auto 1fr auto; } }
   @media only screen and (min-width: 900px) {
     header {
+      grid-template-columns: auto 1fr auto;
       grid-template-rows: auto;
       -ms-flex-align: center;
           align-items: center;
@@ -1454,7 +1491,7 @@ header {
     @media only screen and (min-width: 782px) {
       header .header__logo {
         grid-column: 1;
-        margin: 2rem 0 1rem 0; } }
+        margin: 2rem 0 2rem 0; } }
     @media only screen and (min-width: 1224px) {
       header .header__logo {
         margin: 2rem 2rem 2rem 0;
@@ -1523,7 +1560,7 @@ header {
         align-items: center;
     -ms-flex-item-align: center;
         align-self: center; }
-    @media only screen and (min-width: 782px) {
+    @media only screen and (min-width: 900px) {
       header .header__buttons {
         grid-column: 3; } }
     header .header__buttons button {
@@ -1663,17 +1700,25 @@ Descr:
   .article--card-small .article__copy {
     -ms-flex: 0 0 60%;
         flex: 0 0 60%;
-    padding: 0; }
+    padding: 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column-reverse;
+        flex-flow: column-reverse; }
   .article--card-small .article__title {
     grid-area: title;
     margin: 0;
-    font-size: var(--base-20);
+    font-size: var(--base-24);
     line-height: 1.2;
-    font-weight: var(--regular); }
+    font-weight: var(--regular);
+    -ms-flex-item-align: auto;
+        align-self: auto; }
   .article--card-small .article__label {
     font-size: var(--base-18);
-    font-family: var(--font-serif);
-    font-weight: var(--semi); }
+    font-weight: var(--semi);
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    margin-top: 0; }
   .article--card-small .toggle--figcaption {
     display: none; }
 
@@ -1695,7 +1740,7 @@ Descr:
       color: var(--as-teal-500);
       font-family: var(--font-serif);
       font-weight: var(--semi);
-      background-image: linear-gradient(90deg, var(--as-teal-500), var(--as-red-500));
+      background-image: linear-gradient(90deg, var(--as-teal-400), var(--as-red-400));
       background-size: 0 2px;
       background-position: left 92%;
       background-repeat: no-repeat;
@@ -1709,23 +1754,28 @@ Descr:
     margin-top: 1em;
     display: inline-block; }
 
-.carousel div[class*="teaser"] {
+.carousel div[class*="teaser"],
+.carousel article[class*="teaser"] {
   width: calc(100% - 2rem);
   margin-right: 1rem;
   margin-bottom: 1rem;
-  transform: translateX(1rem); }
+  transform: translateX(0.5rem); }
   @media only screen and (min-width: 782px) {
-    .carousel div[class*="teaser"] {
+    .carousel div[class*="teaser"],
+    .carousel article[class*="teaser"] {
       width: calc(50% - 2rem); } }
   @media only screen and (min-width: 900px) {
-    .carousel div[class*="teaser"] {
+    .carousel div[class*="teaser"],
+    .carousel article[class*="teaser"] {
       width: calc(33% - 2rem); } }
 
-.carousel div[class*="card-small"] {
+.carousel div[class*="card-small"],
+.carousel article[class*="card-small"] {
   width: 100%;
   margin: 0 0.5rem; }
   @media only screen and (min-width: 782px) {
-    .carousel div[class*="card-small"] {
+    .carousel div[class*="card-small"],
+    .carousel article[class*="card-small"] {
       width: calc(50% - 0.5rem); } }
 
 .article--teaser-small {
@@ -1750,7 +1800,7 @@ Descr:
       color: var(--as-teal-500);
       font-family: var(--font-serif);
       font-weight: var(--semi);
-      background-image: linear-gradient(90deg, var(--as-teal-500), var(--as-red-500));
+      background-image: linear-gradient(90deg, var(--as-teal-400), var(--as-red-400));
       background-size: 0 2px;
       background-position: left 92%;
       background-repeat: no-repeat;
@@ -1885,7 +1935,8 @@ Descr:
 
 --------------------------- */
 .basicPage .title {
-  grid-area: title; }
+  grid-area: title;
+  padding-bottom: 1em; }
   .basicPage .title h1 {
     font-family: var(--font-serif);
     font-weight: var(--semi);
@@ -1953,7 +2004,7 @@ Descr:
   grid-template-areas: "title" "aside" "content"; }
   @media only screen and (min-width: 782px) {
     .basicPage--full-page.basicPage--has-aside {
-      grid-template-columns: 3fr 1fr;
+      grid-template-columns: 1fr minmax(6em, 10em);
       grid-template-areas: "title title" "content aside"; } }
 
 .basicPage .content > h2:first-of-type {
@@ -2057,21 +2108,55 @@ Descr: Sets all specific styles for an person card
 
 --------------------------- */
 .person--card {
-  display: grid;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
   -ms-flex-line-pack: start;
-      align-content: flex-start; }
+      align-content: flex-start;
+  padding: 1em;
+  background-image: linear-gradient(45deg, var(--as-white), var(--as-gray-200));
+  background-size: 400% 100%;
+  background-position: left bottom;
+  border-radius: var(--border-radius);
+  transition: background-position 300ms ease; }
   .person--card figure {
-    background: none; }
+    background: none;
+    max-width: 200px; }
+    @media only screen and (min-width: 1224px) {
+      .person--card figure {
+        max-width: 100%; } }
+  .person--card img {
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    transition: transform 100ms ease-in-out; }
   .person--card .person__name-title {
-    font-size: var(--base-28);
-    font-weight: var(--semi);
-    margin: 0 1rem; }
+    margin: 1em 0; }
   .person--card .person__name {
     font-size: var(--base-28);
-    font-weight: var(--semi); }
+    font-weight: var(--regular);
+    line-height: 1em;
+    display: block;
+    padding-bottom: 0.5em;
+    position: relative; }
+    .person--card .person__name:after {
+      position: absolute;
+      content: "";
+      width: 4em;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(90deg, var(--as-teal-400), var(--as-gray-200));
+      background-size: 200%;
+      background-position: right bottom;
+      background-repeat: no-repeat;
+      transition: background-position 150ms ease-in; }
+    .person--card .person__name:hover:after {
+      background-position: left bottom; }
   .person--card .person__title {
-    font-size: var(--base-20);
-    margin-top: 0; }
+    font-size: var(--base-18);
+    line-height: 1.2;
+    margin-top: 0.5em; }
   .person--card .person__contacts {
     font-size: var(--base-18);
     padding: 1rem;
@@ -2091,28 +2176,30 @@ Descr: Sets all specific styles for an person card
       padding-left: 1rem;
       margin-left: 0;
       margin-top: 0; }
+  .person--card:hover {
+    background-position: right bottom; }
+    .person--card:hover img {
+      transform: scale(1.05); }
 
 .person--card-small {
   border: none;
   margin-bottom: 2rem;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
   -ms-flex-align: start;
       align-items: flex-start;
   background: none;
   box-shadow: none; }
   .person--card-small :before {
     display: none; }
-  .person--card-small figure,
-  .person--card-small img {
+  .person--card-small figure {
     -ms-flex: 0 0 30%;
         flex: 0 0 30%;
-    border-radius: var(--border-radius); }
+    margin-right: 1rem; }
+  .person--card-small img {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow); }
   .person--card-small .person__copy {
-    -ms-flex: 1 0 60%;
-        flex: 1 0 60%;
     padding: 0; }
   .person--card-small .person__name {
     margin: 0;
@@ -2123,12 +2210,9 @@ Descr: Sets all specific styles for an person card
   .person--card-small .person__title {
     padding-top: 0;
     margin-top: 0; }
-  .person--card-small .person__name {
-    font-weight: var(--semi);
-    font-size: var(--base-20); }
   .person--card-small .person__title {
-    font-size: var(--base-20);
-    font-weight: var(--regular); }
+    font-size: var(--base-18);
+    line-height: 1.2; }
   .person--card-small .person__contacts {
     display: none; }
 
@@ -2142,33 +2226,36 @@ Descr:
     defines main layouts for default person pages
 
 --------------------------- */
-.person {
+.person--full {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto auto auto auto;
   grid-template-areas: "title title title title" "content content content content" "sidebar sidebar sidebar sidebar"; }
   @media only screen and (min-width: 782px) {
-    .person {
+    .person--full {
       grid-template-columns: repeat(12, 1fr);
       grid-template-areas: "title title title title title title title title . . . ." "content content content content content content content content sidebar sidebar sidebar sidebar"; } }
   @media only screen and (min-width: 1224px) {
-    .person {
+    .person--full {
       grid-template-areas: ". title title title title title title title . . . ." ". content content content content content content content sidebar sidebar sidebar ."; } }
-  .person .title {
+  .person--full .title {
     grid-area: title; }
-    .person .title h1 {
+    .person--full .title h1 {
       margin-bottom: 0; }
-    .person .title h3 {
+    .person--full .title h3 {
       margin-top: 0;
       margin-bottom: 1em; }
-  .person .content {
+  .person--full .content {
     grid-area: content; }
-    .person .content > h2:first-of-type {
+    .person--full .content > h2:first-of-type {
       margin-top: 0; }
-  .person .sidebar {
+  .person--full .sidebar {
     grid-area: sidebar; }
-    .person .sidebar h3 {
+    .person--full .sidebar h3 {
       margin-bottom: 0.5em; }
-  .person__contact {
+    .person--full .sidebar img {
+      box-shadow: var(--box-shadow);
+      border-radius: var(--border-radius); }
+  .person--full__contact {
     margin-top: 2rem; }
 
 /* -------------------------
@@ -2372,7 +2459,7 @@ Descr: sets up all uniquie styles for link-block pargraps on
       align-items: center;
   -ms-flex-direction: column;
       flex-direction: column;
-  background: var(--as-gray-200);
+  background: linear-gradient(var(--as-white), var(--as-gray-200));
   padding: 3rem 0;
   border-radius: var(--border-radius);
   width: 120%;
@@ -2411,38 +2498,34 @@ Title: _list-block
 Descr: sets up all generic styles for list-block paragraphs
 
 --------------------------- */
+.list-block__label {
+  margin-top: 1em; }
+
 .list-block__text {
   max-width: 80%;
   margin-top: 1em; }
 
 .list-block__list {
-  margin-top: 2rem; }
-
-.basicPage--has-sidebar .list-block__list {
+  margin-top: 2rem;
   display: grid;
-  grid-gap: 2rem; }
-  @media only screen and (min-width: 480px) {
-    .basicPage--has-sidebar .list-block__list {
-      grid-template-columns: repeat(2, 1fr); } }
+  grid-gap: 1rem;
+  grid-template-columns: 1fr; }
+
+@media only screen and (min-width: 480px) {
+  .basicPage--has-sidebar .list-block__list {
+    grid-template-columns: repeat(2, 1fr); } }
 
 .basicPage--full-page .list-block__list {
-  display: -ms-flexbox;
-  display: flex;
-  grid-gap: 2rem;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  grid-template-columns: repeat(4, 1fr); }
-  .basicPage--full-page .list-block__list > div {
-    -ms-flex: 100%;
-        flex: 100%; }
-    @media only screen and (min-width: 480px) {
-      .basicPage--full-page .list-block__list > div {
-        -ms-flex: 0 1 46%;
-            flex: 0 1 46%; } }
-    @media only screen and (min-width: 1432px) {
-      .basicPage--full-page .list-block__list > div {
-        -ms-flex: 0 1 21%;
-            flex: 0 1 21%; } }
+  grid-gap: 1rem; }
+  @media only screen and (min-width: 480px) {
+    .basicPage--full-page .list-block__list {
+      grid-template-columns: repeat(2, 1fr); } }
+  @media only screen and (min-width: 782px) {
+    .basicPage--full-page .list-block__list {
+      grid-template-columns: repeat(3, 1fr); } }
+  @media only screen and (min-width: 1224px) {
+    .basicPage--full-page .list-block__list {
+      grid-template-columns: repeat(4, 1fr); } }
 
 /* -------------------------
 

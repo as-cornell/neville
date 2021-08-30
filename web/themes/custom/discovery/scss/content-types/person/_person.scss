@@ -9,7 +9,7 @@ Descr:
 
 --------------------------- */
 
-.person {
+.person--full {
   grid-template-columns: repeat(4, 1fr);
 
   grid-template-rows: auto auto auto auto;
@@ -50,6 +50,10 @@ Descr:
     h3 {
       @extend .base-28;
       margin-bottom: 0.5em;
+    }
+    img {
+      box-shadow: var(--box-shadow);
+      border-radius: var(--border-radius);
     }
   }
   &__contact {

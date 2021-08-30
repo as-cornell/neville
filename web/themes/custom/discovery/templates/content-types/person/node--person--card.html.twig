@@ -9,17 +9,18 @@ Descr: defines "person" and outputs fields for person card
 
 #}
 {# set wrapper bem calsses #}
-{% set person_base_class = 'person' %}
-{% set person_modifiers =  ["card"]%}
-{% set person_classes = ['person', 'card'] %}
-
-
+{%
+  set blockClasses = [
+    'person',
+    view_mode ? 'person--' ~ view_mode|clean_class,
+  ]
+%}
 
 {# set var person #}
 {% set remote_uuid = content.field_remote_uuid[0]['#context']['value'] %}
 {% set person = parse_people_json(remote_uuid) %}
-{# {{dump(person)}} #}
-
+{# {{dump(person)}}
+{{vardumper()}} #}
 
 {# job title #}
 {% if person.jobtitle %}
@@ -41,8 +42,15 @@ Descr: defines "person" and outputs fields for person card
 {% endif %}
 
 {# departments #}
-{% if person.departments %}
+{% if content.field_departments_programs %}
   {% set show_departments = true %}
+  {% set departments_programs %}
+    <ul>
+      {% for item in content.field_departments_programs["#items"]["#list"] %}
+        <li>{{item}}</li>
+      {% endfor %}
+    </ul>
+  {% endset %}
 {% endif %}
 
 {# person type #}
@@ -72,13 +80,15 @@ Descr: defines "person" and outputs fields for person card
 } %}{% endembed %} #}
 
 
-<div {{ bem(person_base_class, (person_modifiers), person_blockname, person_classes) }} {% if person_nodeId %} aria-labelledby="item--{{person_nodeId}}" {% endif %}>
+<div {{attributes.addClass(blockClasses)}} {% if person_nodeId %} aria-labelledby="item--{{person_nodeId}}" {% endif %}>
+
 	{{title_suffix}}
 	<figure class='person__image'>
 		{{image}}
 	</figure>
 	<div class="person__name-title">
-		{% include "@content/atoms/_heading.twig" with {
+  <a class="person__name" href="{{card_link_url}}">{{person.title}}</a>
+		{# {% include "@content/atoms/_heading.twig" with {
       "heading_level": 2,
 "heading": person.title,
 
@@ -90,7 +100,7 @@ Descr: defines "person" and outputs fields for person card
       "heading_base_class": card_title_base_class|default('title'),
       "heading_class" : ['person__name'],
       "isAriaLabel" : node.id
-    } %}
+    } %} #}
 		{% if show_jobtitle %}
 			<p class="person__title">
 				{{ person.jobtitle }}
@@ -111,11 +121,11 @@ Descr: defines "person" and outputs fields for person card
 		</div>
 	{% endif %}
 
-	{% if show_departments %}
+	{# {% if show_departments %}
 		<div class="person__departments">
-{{person.departments}}
+{{departments_programs}}
 
 		</div>
-	{% endif %}
+	{% endif %} #}
 </div>
 

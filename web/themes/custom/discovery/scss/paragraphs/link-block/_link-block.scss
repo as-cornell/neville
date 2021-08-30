@@ -11,7 +11,7 @@ Descr: sets up all uniquie styles for link-block pargraps on
   display: flex;
   align-items: center;
   flex-direction: column;
-  background: var(--as-gray-200);
+  background: linear-gradient(var(--as-white), var(--as-gray-200));
   padding: 3rem 0;
   border-radius: var(--border-radius);
   width: 120%;

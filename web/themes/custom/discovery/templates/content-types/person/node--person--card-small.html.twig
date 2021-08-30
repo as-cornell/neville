@@ -9,9 +9,15 @@ Descr: defines "person" and outputs fields for person card
 
 #}
 {# set wrapper bem calsses #}
-{% set person_base_class = 'person' %}
-{% set person_modifiers =  ["card-small"]%}
-{% set person_classes = ['person', 'card'] %}
+{# set classes for the container #}
+{%
+  set blockClasses = [
+    'person',
+
+    view_mode ? 'person--' ~ view_mode|clean_class,
+
+  ]
+%}
 
 
 
@@ -72,15 +78,20 @@ Descr: defines "person" and outputs fields for person card
 } %}{% endembed %} #}
 
 {{title_suffix}}
-<div {{ bem(person_base_class, (person_modifiers), person_blockname, person_classes) }} {% if person_nodeId %} aria-labelledby="item--{{person_nodeId}}" {% endif %}>
+<div {{attributes.addClass(blockClasses)}} {% if person_nodeId %} aria-labelledby="item--{{person_nodeId}}" {% endif %}>
+
 	<figure>
   {{image}}
   </figure>
 	
 	
   
-  <div {{ bem(person_copy_base_class|default('person__copy'), (person_copy_modifiers), person_copy_blockname) }}>
-		{% include "@content/atoms/_heading.twig" with {
+  <div class="person__copy">
+    <a class="person__name" href="{{card_link_url}}">
+      {{person.title}}
+    </a>
+
+		{# {% include "@content/atoms/_heading.twig" with {
       "heading_level": 2,
       "heading": person.title,
       "heading_url": card_title_link|default(card_link_url),
@@ -91,18 +102,18 @@ Descr: defines "person" and outputs fields for person card
       "heading_base_class": card_title_base_class|default('title'),
       "heading_class" : ['person__name'],
       "isAriaLabel" : node.id
-    } %}
+    } %} #}
   {% if show_jobtitle %}
-    <span class="person__title">
+    <p class="person__title">
       {{ person.jobtitle }}
-    </span>
+    </p>
   {% endif %}
 
-	{% if show_departments %}
+	{# {% if show_departments %}
 		<div class="person__departments">
       {{person.departments}}
 		</div>
-	{% endif %}
+	{% endif %} #}
   </div>
 </div>
 

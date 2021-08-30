@@ -137,7 +137,7 @@ font size bases to be used as extends
 
 .base-28 {
   font-size: var(--base-28);
-  line-height: 1.4; }
+  line-height: 1; }
 
 .base-36 {
   font-size: var(--base-36);
@@ -164,7 +164,7 @@ font size bases to be used as extends
   -gradients
 */
 :root {
-  --box-shadow: 0 12px 16px var(--as-gray-400);
+  --box-shadow: 0 8px 12px var(--as-gray-400);
   --box-shadow-dark: 0 0 16px var(--as-gray-700);
   --button-gradient: linear-gradient(
     120deg,
@@ -228,9 +228,9 @@ All kinds of buttony things
 /* ---- flickity-button ---- */
 .flickity-button {
   position: absolute;
-  background: #333;
+  background: var(--as-teal-400);
   border: none;
-  color: rgba(255, 255, 255, 0.75); }
+  color: var(--as-white); }
 
 .flickity-button:hover {
   cursor: pointer; }
@@ -256,31 +256,35 @@ All kinds of buttony things
   top: 50%;
   width: 32px;
   height: 32px;
-  border-radius: 50%;
-  /* vertically center */
-  transform: translateY(-50%); }
+  top: calc(50% - 16px);
+  border-radius: 12px;
+  transition: all 150ms ease-in;
+  /* vertically center */ }
   @media only screen and (min-width: 782px) {
     .flickity-prev-next-button {
-      width: 44px;
-      height: 44px; } }
+      width: 40px;
+      height: 40px;
+      top: calc(50% - 20px); } }
+  .flickity-prev-next-button:hover {
+    transform: scale(1.1); }
 
 .flickity-prev-next-button.previous {
   left: -16px; }
   @media only screen and (min-width: 782px) {
     .flickity-prev-next-button.previous {
-      left: -40px; } }
+      left: -48px; } }
   @media only screen and (min-width: 1432px) {
     .flickity-prev-next-button.previous {
-      left: -48; } }
+      left: -52; } }
 
 .flickity-prev-next-button.next {
   right: -16px; }
   @media only screen and (min-width: 782px) {
     .flickity-prev-next-button.next {
-      right: -40px; } }
+      right: -48px; } }
   @media only screen and (min-width: 1432px) {
     .flickity-prev-next-button.next {
-      right: -48; } }
+      right: -52; } }
 
 /* right to left */
 .flickity-rtl .flickity-prev-next-button.previous {
