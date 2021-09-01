@@ -91,6 +91,7 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 	</div>
   {% if show_sidebarContent %}
     <nav class="nav--site" aria-label="Section links" id="section-menu">
+    {# abbreviated main menu provided via domain menus for departments.as when logged in as admin#}
     {% if roles.0 == 'administrator' %}
       {{ drupal_entity('block', 'domainmenusactivedomainmenu_2', check_access=false) }}
     {% else %}
