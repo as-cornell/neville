@@ -65,6 +65,7 @@ class parseArticleJson extends \Twig_Extension
             $article_record['imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/4_5/public/field/image/Klarmanarticle.jpg';
             $article_record['thumbnail_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/1_1_thumbnail_forced/public/field/image/Klarmanarticle.jpg';
             }
+            }
           }
       if (!empty($article_json['included'][3])) {
         if ($article_json['included'][3]['type'] == 'file--file') {
