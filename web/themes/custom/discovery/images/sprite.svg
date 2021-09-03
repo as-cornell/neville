@@ -1,5 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
+<symbol id="figure-caption" viewBox="0 0 347 404" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M61 168.5L117 119L181.5 181L226 137.5L285 181M55 272.5H78M146 272.5H191.5M55 323H288.5M56 71H290V223H56V71ZM34 391H313C324.598 391 334 381.598 334 370V34C334 22.402 324.598 13 313 13H34C22.402 13 13 22.402 13 34V370C13 381.598 22.402 391 34 391Z" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
 <symbol viewBox="0 0 34 34" id="burger" xmlns="http://www.w3.org/2000/svg"><path d="M0 2a2 2 0 012-2h30a2 2 0 012 2v3.23H0V2zM0 9h34v6H0zM0 19h34v6H0zM0 28.77h34V32a2 2 0 01-2 2H2a2 2 0 01-2-2v-3.23z"/></symbol>
 
 <symbol viewBox="0 0 52 32" id="chevron-down" xmlns="http://www.w3.org/2000/svg"><path d="M24.03 30.704L1.473 7.93a2.832 2.832 0 010-3.977l2.63-2.656a2.767 2.767 0 013.935-.005L26 19.341 43.962 1.29a2.767 2.767 0 013.934.005l2.631 2.656a2.831 2.831 0 010 3.977L27.97 30.704a2.767 2.767 0 01-3.94 0z"/></symbol>

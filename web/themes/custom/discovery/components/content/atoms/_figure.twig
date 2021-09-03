@@ -28,20 +28,20 @@
 	{% endif %}
 
 	{% if hasCredit or hasCaption %}
-		<div class="caption">
-			<figcaption {{ bem('caption', (figcaption_modifiers), figcaption_blockname|default(image_figure_base_class)) }}>
-				{% if hasCredit %}
-					<span class="credit">
-						{{credit}}
-					</span>
-				{% endif %}
-				{% if hasCaption %}
-					<span class="caption">
-						{{ img_caption }}
-					</span>
-				{% endif %}
-			</figcaption>
-		</div>
+
+		<figcaption {{ bem('caption', (figcaption_modifiers), figcaption_blockname|default(image_figure_base_class)) }}>
+			{% if hasCredit %}
+				<span class="credit">
+					{{credit}}
+				</span>
+			{% endif %}
+			{% if hasCaption %}
+				<span class="caption">
+					{{ img_caption }}
+				</span>
+			{% endif %}
+		</figcaption>
+
 
 	{% endif %}
 </figure>

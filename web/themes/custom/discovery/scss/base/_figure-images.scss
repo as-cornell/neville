@@ -15,48 +15,77 @@ figure {
   margin: 0;
   padding: 0;
   border-radius: var(--border-radius);
+  // TESTING SPACING
+  // height: 0;
+  // padding-top: 400px / 600px * 100%;
+  // overflow: hidden;
 
+  img {
+    // margin-top: 400px / 600px * -100%;
+    // object-fit: cover;
+    // height: 400px / 600px * 100%;
+  }
   figcaption {
     font-size: var(--base-18);
     padding: 1em;
     background: var(--as-gray-200);
   }
+  // if active then js enabled
   &.active {
     // messin
     display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 1fr auto auto;
-    img {
+    overflow: hidden;
+    img,
+    figcaption,
+    button {
+      grid-row: 1;
+      grid-column: 1;
       z-index: 1;
-      grid-column: 1 / -1;
-      grid-row: 1 / 3;
     }
-    .caption {
-      grid-column: 1 / -1;
-      grid-row: 3;
-      position: relative;
-      figcaption {
-        width: calc(100% - 2em);
-        transition: all 250ms ease-in;
-        transform: translateY(-100%);
-        position: absolute;
-      }
+
+    figcaption {
+      font-size: var(--base-16);
+      align-self: flex-end;
+      transform: translateY(100%);
+      transition: transform 250ms ease-in;
+      background-color: var(--as-teal-600);
+      color: var(--as-white);
       &.shown {
-        figcaption {
-          transform: translateY(0);
-        }
+        transform: translateY(0);
+      }
+      .caption {
+        display: block;
+        width: calc(100% - 2rem);
+        // padding: 0.75rem;
       }
     }
     button {
-      width: 4em;
-      cursor: pointer;
-      background: none;
-      z-index: 1;
-      grid-column: 2;
-      grid-row: 2;
+      align-self: flex-end;
+      justify-self: flex-end;
+      height: 3.75em;
+      width: 3.5em;
+      border: none;
+      background: var(--as-white);
+      margin: 0.5em;
+      padding: 0.5em 0.5em 0.25em 0.5em;
+      border-radius: var(--border-radius);
+      // @include boxShadow();
+      transform: scale(1);
+      transform-origin: center;
+      transition: transform 150ms ease-in;
+      > svg {
+        stroke: var(--as-teal-400);
+      }
+      &:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+      }
+      &:focus {
+        outline: 2px dashed var(--as-teal-400);
+      }
     }
-    svg {
-      fill: var(--as-white);
-    }
+    // svg {
+    //   fill: var(--as-white);
+    // }
   }
 }
