@@ -51,17 +51,23 @@ class parseArticleJson extends \Twig_Extension
       // get alt tags from json
       if (!empty($article_json['included'][0]['relationships']['field_media_image']['data']['meta']['alt'])) {
         if ($article_json['included'][0]['type'] == 'media--image') {
-      $article_record['imagealt'] = $article_json['included'][0]['relationships']['field_media_image']['data']['meta']['alt'];
+          $article_record['imagealt'] = $article_json['included'][0]['relationships']['field_media_image']['data']['meta']['alt'];
+          }else{
+          $article_record['imagealt'] = 'Image from '. $article_data['attributes']['title'];
           }
         }
       if (!empty($article_json['included'][2]['relationships']['field_media_image']['data']['meta']['alt'])) {
         if ($article_json['included'][2]['type'] == 'media--image') {
-      $article_record['newsletterimagealt'] = $article_json['included'][0]['relationships']['field_media_image']['data']['meta']['alt'];
+          $article_record['newsletterimagealt'] = $article_json['included'][2]['relationships']['field_media_image']['data']['meta']['alt'];
+          }else{
+          $article_record['newsletterimagealt'] = $article_json['included'][0]['relationships']['field_media_image']['data']['meta']['alt'];
           }
         }
       if (!empty($article_json['included'][4]['relationships']['field_media_image']['data']['meta']['alt'])) {
         if ($article_json['included'][4]['type'] == 'media--image') {
-      $article_record['thumbnailimagealt'] = $article_json['included'][0]['relationships']['field_media_image']['data']['meta']['alt'];
+          $article_record['thumbnailimagealt'] = $article_json['included'][4]['relationships']['field_media_image']['data']['meta']['alt'];
+          }else{
+          $article_record['newsletterimagealt'] = $article_json['included'][0]['relationships']['field_media_image']['data']['meta']['alt'];
           }
         }
       //dump($article_json['included']);
