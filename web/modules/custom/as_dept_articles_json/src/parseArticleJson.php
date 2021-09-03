@@ -48,13 +48,24 @@ class parseArticleJson extends \Twig_Extension
     $related_people = [];
     $article_json = as_dept_articles_json_get_article_json($remote_uuid);
     if (!empty($article_json['data'])) {
-      // get image path and alt tag from json
+      // get alt tags from json
       if (!empty($article_json['included'][0]['relationships']['field_media_image']['data']['meta']['alt'])) {
         if ($article_json['included'][0]['type'] == 'media--image') {
       $article_record['imagealt'] = $article_json['included'][0]['relationships']['field_media_image']['data']['meta']['alt'];
           }
         }
+      if (!empty($article_json['included'][2]['relationships']['field_media_image']['data']['meta']['alt'])) {
+        if ($article_json['included'][2]['type'] == 'media--image') {
+      $article_record['newsletterimagealt'] = $article_json['included'][0]['relationships']['field_media_image']['data']['meta']['alt'];
+          }
+        }
+      if (!empty($article_json['included'][4]['relationships']['field_media_image']['data']['meta']['alt'])) {
+        if ($article_json['included'][4]['type'] == 'media--image') {
+      $article_record['thumbnailimagealt'] = $article_json['included'][0]['relationships']['field_media_image']['data']['meta']['alt'];
+          }
+        }
       //dump($article_json['included']);
+      // get main article image path from json
       if (!empty($article_json['included'][1])) {
         if ($article_json['included'][1]['type'] == 'file--file') {
           if (!empty($article_json['included'][1]['attributes']['filename'])) {
@@ -67,6 +78,7 @@ class parseArticleJson extends \Twig_Extension
               }
             }
           }
+      // get newsletter image path from json
       if (!empty($article_json['included'][3])) {
         if ($article_json['included'][3]['type'] == 'file--file') {
           if (!empty($article_json['included'][3]['attributes']['filename'])) {
@@ -77,6 +89,7 @@ class parseArticleJson extends \Twig_Extension
             }
           }
         }
+      // get thumbnail image path from json - will rewrite forced thumbnails if there's a separate thumbnail
       if (!empty($article_json['included'][5])) {
         if ($article_json['included'][5]['type'] == 'file--file') {
           if (!empty($article_json['included'][5]['attributes']['filename'])) {
