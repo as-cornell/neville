@@ -18,11 +18,6 @@ content: content
 
 } %} #}
 
-{# sev variables to show or hide menu based on role and site url #}
-{% set roles = user.getroles(TRUE) %}
-{% set nomenu = ['http://localhost:65409/','https://departments.as.cornell.edu/'] %}
-{% set menupath = url('<front>')|render|render %}
-
 <header class="header" id="top">
 	<div id="skip">
 		<a href="#main-menu">
@@ -54,13 +49,9 @@ content: content
 	{{ drupal_block('college_header_logos_block') }}
 
 
-	{# ADDED MAIN MENU FOR DIFFERENT LINKS PER DOMAIN #}
+	{# TOP MENU PROVIDED BY DOMAIN MENUS #}
 	<nav class="header__mainNav nav--main" aria-label="Main menu" id="main-menu">
-	{% if roles.0 == 'administrator' %}
 		{{ drupal_entity('block', 'domainmenusactivedomainmenu', check_access=false) }}
-	{% else %}
-		{{ drupal_menu('top-nav', 2, 2, expand=true) }}
-	{% endif %}
 	</nav>
 
 	<div class="header__buttons">
