@@ -24,7 +24,8 @@ Descr: sets up all generic styles for list-block paragraphs
 
 // Adjust list block grid layout according to basic page layout
 
-.basicPage--has-sidebar {
+.basicPage--has-sidebar,
+.article {
   .list-block__list {
     // display: grid;
     // grid-template-columns: 1fr;

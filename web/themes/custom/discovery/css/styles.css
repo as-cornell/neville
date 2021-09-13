@@ -235,23 +235,23 @@ img {
   display: block; }
 
 figure {
-  margin: 0;
+  margin: 1rem 0;
   padding: 0;
   border-radius: var(--border-radius); }
   figure figcaption {
     font-size: var(--base-18);
     padding: 1em;
     background: var(--as-gray-200); }
-  figure.active {
+  figure.activeCaptions {
     display: grid;
     overflow: hidden; }
-    figure.active img,
-    figure.active figcaption,
-    figure.active button {
+    figure.activeCaptions img,
+    figure.activeCaptions figcaption,
+    figure.activeCaptions button {
       grid-row: 1;
       grid-column: 1;
       z-index: 1; }
-    figure.active figcaption {
+    figure.activeCaptions figcaption {
       font-size: var(--base-16);
       -ms-flex-item-align: end;
           align-self: flex-end;
@@ -259,12 +259,12 @@ figure {
       transition: transform 250ms ease-in;
       background-color: var(--as-teal-600);
       color: var(--as-white); }
-      figure.active figcaption.shown {
+      figure.activeCaptions figcaption.shown {
         transform: translateY(0); }
-      figure.active figcaption .caption {
+      figure.activeCaptions figcaption .caption {
         display: block;
         width: calc(100% - 2rem); }
-    figure.active button {
+    figure.activeCaptions button {
       -ms-flex-item-align: end;
           align-self: flex-end;
       justify-self: flex-end;
@@ -278,13 +278,15 @@ figure {
       transform: scale(1);
       transform-origin: center;
       transition: transform 150ms ease-in; }
-      figure.active button > svg {
+      figure.activeCaptions button > svg {
         stroke: var(--as-teal-400); }
-      figure.active button:hover {
+      figure.activeCaptions button:hover {
         transform: scale(1.05);
         cursor: pointer; }
-      figure.active button:focus {
+      figure.activeCaptions button:focus {
         outline: 2px dashed var(--as-teal-400); }
+  figure--portrait {
+    max-width: 500px; }
 
 /* -------------------------
 
@@ -579,6 +581,19 @@ ICON/SVG buttons
   box-shadow: var(--box-shadow); }
   .button:hover {
     background-position: right center; }
+
+/* -------------------------
+
+Title: _embeded-entities
+Descr: 
+   wierd one that will do the spacing around embeded entites. Seems to be more consistent doing that rather than doing the spacing in say a <figure> that is withing an embed entity
+
+--------------------------- */
+.embedded-entity.align-left {
+  margin-right: 1rem; }
+
+.embedded-entity.align-right {
+  margin-left: 1rem; }
 
 /* -------------------------
 
@@ -1143,7 +1158,7 @@ Still needs: expand toggle for showing main nav on mobile
     .nav--main .nav-0__item.has-sub button {
       -ms-flex: 1rem;
           flex: 1rem;
-      padding: 0 0.5em; }
+      padding: 0 1em; }
     @media only screen and (min-width: 782px) {
       .nav--main .nav-0__item.has-sub.subnav-open, .nav--main .nav-0__item.has-sub:hover {
         box-shadow: var(--box-shadow); } }
@@ -1694,6 +1709,8 @@ Descr:
     .article--card a.article__title-link:hover:before {
       left: 0;
       width: 100%; }
+  .article--card figure {
+    margin: 0; }
 
 .article--card-small {
   border: none;
@@ -1709,7 +1726,8 @@ Descr:
   .article--card-small figure {
     -ms-flex: 0 0 30%;
         flex: 0 0 30%;
-    margin-right: 1rem; }
+    margin-right: 1rem;
+    margin-top: 0; }
   .article--card-small img {
     border-radius: var(--border-radius); }
   .article--card-small .article__copy {
@@ -2527,7 +2545,8 @@ Descr: sets up all generic styles for list-block paragraphs
   grid-template-columns: 1fr; }
 
 @media only screen and (min-width: 480px) {
-  .basicPage--has-sidebar .list-block__list {
+  .basicPage--has-sidebar .list-block__list,
+  .article .list-block__list {
     grid-template-columns: repeat(2, 1fr); } }
 
 .basicPage--full-page .list-block__list {

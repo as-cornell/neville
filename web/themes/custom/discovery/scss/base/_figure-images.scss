@@ -12,18 +12,10 @@ img {
   display: block;
 }
 figure {
-  margin: 0;
+  margin: 1rem 0;
   padding: 0;
   border-radius: var(--border-radius);
-  // TESTING SPACING
-  // height: 0;
-  // padding-top: 400px / 600px * 100%;
-  // overflow: hidden;
-
   img {
-    // margin-top: 400px / 600px * -100%;
-    // object-fit: cover;
-    // height: 400px / 600px * 100%;
   }
   figcaption {
     font-size: var(--base-18);
@@ -31,7 +23,7 @@ figure {
     background: var(--as-gray-200);
   }
   // if active then js enabled
-  &.active {
+  &.activeCaptions {
     // messin
     display: grid;
     overflow: hidden;
@@ -87,5 +79,8 @@ figure {
     // svg {
     //   fill: var(--as-white);
     // }
+  }
+  &--portrait {
+    max-width: 500px;
   }
 }

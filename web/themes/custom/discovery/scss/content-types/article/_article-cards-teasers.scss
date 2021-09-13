@@ -72,6 +72,9 @@ Descr:
       }
     }
   }
+  figure {
+    margin: 0;
+  }
 }
 
 .article--card-small {
@@ -88,6 +91,7 @@ Descr:
   figure {
     flex: 0 0 30%;
     margin-right: 1rem;
+    margin-top: 0;
 
     // @include boxShadow();
   }

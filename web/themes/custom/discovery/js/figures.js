@@ -1,7 +1,7 @@
 
 (function ($) {
   console.log('it figures');
-  $(".article__thumbnail > .figure--hasCaption, .pcWrapper--ftb .figure--hasCaption").addClass("active").append("<button class='toggle--figcaption'><svg class='icon' viewbox='0 0 68 80'><use xlink:href='#figure-caption'></use></svg></button>");
+  $(".paragraph--type--formatted-text-block .figure--hasCaption, .article__thumbnail .figure--hasCaption").addClass("activeCaptions").append("<button class='toggle--figcaption' aria-label='show caption'><svg class='icon' viewbox='0 0 68 80'><use xlink:href='#figure-caption'></use></svg></button>");
 
   $(".toggle--figcaption").on({
     click: function () {

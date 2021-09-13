@@ -1,0 +1,16 @@
+/* -------------------------
+
+Title: _embeded-entities
+Descr: 
+   wierd one that will do the spacing around embeded entites. Seems to be more consistent doing that rather than doing the spacing in say a <figure> that is withing an embed entity
+
+--------------------------- */
+
+.embedded-entity {
+  &.align-left {
+    margin-right: 1rem;
+  }
+  &.align-right {
+    margin-left: 1rem;
+  }
+}
