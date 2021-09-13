@@ -80,10 +80,10 @@ setting image
 	{% set image %}
 	{{content.field_newsletter_image}}
 	{% endset %}
-{% elseif article.newsletter_imagepath %}
+{% elseif article.landscape_imagepath %}
 	{% set image %}
 	<figure>
-		<img src="{{article.newsletter_imagepath}}" alt="{{article.newsletterimagealt}}">
+		<img src="{{article.newsletter_imagepath}}" alt="{{article.landscapeimagealt}}">
 	</figure>
 	{% endset %}
 {% else %}
