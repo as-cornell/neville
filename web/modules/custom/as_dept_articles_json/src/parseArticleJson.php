@@ -67,7 +67,7 @@ class parseArticleJson extends \Twig_Extension
         if ($article_json['included'][4]['type'] == 'media--image') {
           $article_record['thumbnailimagealt'] = $article_json['included'][4]['relationships']['field_media_image']['data']['meta']['alt'];
           }else{
-          $article_record['newsletterimagealt'] = $article_json['included'][0]['relationships']['field_media_image']['data']['meta']['alt'];
+          $article_record['landscapeimagealt'] = $article_json['included'][0]['relationships']['field_media_image']['data']['meta']['alt'];
           }
         }
       //dump($article_json['included']);
@@ -88,10 +88,10 @@ class parseArticleJson extends \Twig_Extension
       if (!empty($article_json['included'][3])) {
         if ($article_json['included'][3]['type'] == 'file--file') {
           if (!empty($article_json['included'][3]['attributes']['filename'])) {
-            $article_record['newsletter_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/6_4_newsletter/public/field/image/'.$article_json['included'][3]['attributes']['filename'];
+            $article_record['landscape_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/6_4_newsletter/public/field/image/'.$article_json['included'][3]['attributes']['filename'];
 
           }else{
-            $article_record['newsletter_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/6_4_newsletter/public/field/image/Klarmanarticle.jpg';
+            $article_record['landscape_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/6_4_newsletter/public/field/image/Klarmanarticle.jpg';
             }
           }
         }
