@@ -566,7 +566,7 @@ ICON/SVG buttons
 "Buttons"
 ----
 */
-.button {
+.button, .list-block > a {
   padding: 0.5em 1em;
   border-radius: var(--border-radius);
   color: var(--as-white);
@@ -579,7 +579,7 @@ ICON/SVG buttons
   background-position: left center;
   font-weight: var(--semi);
   box-shadow: var(--box-shadow); }
-  .button:hover {
+  .button:hover, .list-block > a:hover {
     background-position: right center; }
 
 /* -------------------------
@@ -1661,7 +1661,7 @@ Descr:
 .article--card {
   box-shadow: var(--box-shadow); }
   .article--card .article__copy {
-    padding: 0 1rem;
+    padding: 1rem;
     display: grid;
     gap: 0px;
     grid-template-columns: 1fr 1fr 1fr;
@@ -1676,10 +1676,9 @@ Descr:
   .article--card .article__label {
     grid-area: label;
     color: var(--as-black);
-    font-size: var(--base-16);
+    font-size: var(--base-18);
     font-weight: var(--semi);
-    font-family: var(--font-serif);
-    margin-top: 0.5em; }
+    font-family: var(--font-serif); }
   .article--card .article__date {
     grid-area: date;
     text-align: left;
@@ -1692,7 +1691,6 @@ Descr:
   .article--card a.article__title-link {
     display: block;
     color: var(--as-teal-500);
-    padding-bottom: 1em;
     text-decoration: underline;
     -webkit-text-decoration-color: var(--as-teal-300);
             text-decoration-color: var(--as-teal-300);
@@ -1759,6 +1757,8 @@ Descr:
   background: var(--as-white);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow); }
+  .article--teaser figure {
+    margin: 0; }
   .article--teaser .article__copy {
     font-size: var(--base-20);
     display: block;
@@ -2541,8 +2541,11 @@ Descr: sets up all generic styles for list-block paragraphs
 .list-block__list {
   margin-top: 2rem;
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 1.5rem;
   grid-template-columns: 1fr; }
+
+.list-block > a {
+  margin-top: 1em; }
 
 @media only screen and (min-width: 480px) {
   .basicPage--has-sidebar .list-block__list,
@@ -2554,12 +2557,6 @@ Descr: sets up all generic styles for list-block paragraphs
   @media only screen and (min-width: 480px) {
     .basicPage--full-page .list-block__list {
       grid-template-columns: repeat(2, 1fr); } }
-  @media only screen and (min-width: 782px) {
-    .basicPage--full-page .list-block__list {
-      grid-template-columns: repeat(3, 1fr); } }
-  @media only screen and (min-width: 1224px) {
-    .basicPage--full-page .list-block__list {
-      grid-template-columns: repeat(4, 1fr); } }
 
 /* -------------------------
 
@@ -2661,9 +2658,9 @@ Descr: sets up photo with text items
     padding: 3rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow); }
-    .photo-with-text--spotlight .button {
+    .photo-with-text--spotlight .button, .photo-with-text--spotlight .list-block > a {
       position: relative; }
-      .photo-with-text--spotlight .button:after {
+      .photo-with-text--spotlight .button:after, .photo-with-text--spotlight .list-block > a:after {
         position: absolute;
         height: 2px;
         width: 200px;

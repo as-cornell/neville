@@ -11,7 +11,7 @@ Descr:
 .article--card {
   box-shadow: var(--box-shadow);
   .article__copy {
-    padding: 0 1rem;
+    padding: 1rem;
     @include baseGrid($g-gap: 0px);
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
@@ -30,10 +30,10 @@ Descr:
   .article__label {
     grid-area: label;
     color: var(--as-black);
-    font-size: var(--base-16);
+    font-size: var(--base-18);
     font-weight: var(--semi);
     font-family: var(--font-serif);
-    margin-top: 0.5em;
+    // margin-top: 0.5em;
   }
   .article__date {
     grid-area: date;
@@ -51,7 +51,7 @@ Descr:
     display: block;
     color: var(--as-teal-500);
 
-    padding-bottom: 1em;
+    // padding-bottom: 1em;
     text-decoration: underline;
     text-decoration-color: var(--as-teal-300);
     position: relative;
@@ -133,6 +133,7 @@ Descr:
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   figure {
+    margin: 0;
   }
   .article__copy {
     font-size: var(--base-20);

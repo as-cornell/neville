@@ -17,8 +17,12 @@ Descr: sets up all generic styles for list-block paragraphs
   &__list {
     margin-top: 2rem;
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: 1.5rem;
     grid-template-columns: 1fr;
+  }
+  > a {
+    @extend .button;
+    margin-top: 1em;
   }
 }
 
@@ -43,11 +47,11 @@ Descr: sets up all generic styles for list-block paragraphs
     @include mq(small) {
       grid-template-columns: repeat(2, 1fr);
     }
-    @include mq(medium) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    @include mq(large) {
-      grid-template-columns: repeat(4, 1fr);
-    }
+    // @include mq(medium) {
+    //   grid-template-columns: repeat(3, 1fr);
+    // }
+    // @include mq(large) {
+    //   grid-template-columns: repeat(4, 1fr);
+    // }
   }
 }

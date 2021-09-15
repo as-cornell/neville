@@ -41,7 +41,7 @@ Descr: defines "article" and outputs fields for article card
 	{% set localorremote = "local"%}
 
 	{# card label #}
-	{% if content.field_card_label %}
+	{% if content.field_card_label.0 %}
 		{% set show_label = true %}
 		{% set card_label = content.field_card_label %}
 	{% endif %}
@@ -51,7 +51,7 @@ Descr: defines "article" and outputs fields for article card
 {# 
 setting image
   - if local image path set use that
-  - if no local image path and article.imagepath use that
+  - if no local image check for article.thumbnail_imagepath
   - default to stock image
 #}
 {% if content.field_image.0 %}
@@ -61,13 +61,19 @@ setting image
 {% elseif article.imagepath %}
   {% set image %}
     <figure>
-      <img src="{{article.thumbnail_imagepath}}" alt="{{article.thumbnailimagealt}}">
+    {# article.thumbnail_image should be field_thumbnail_image #}
+      {# <img src="{{article.thumbnail_imagepath}}" alt="{{article.thumbnailimagealt}}"> #}
+<img src="https://as.cornell.edu/sites/default/files/styles/1_1_thumbnail/public/2021-02/2016_0098_085_select-edit1500x1000px.jpg" alt="{{article.thumbnailimagealt}}">
+
+
     </figure>
   {% endset %}
 {% else %}
   {% set image %}
     <figure>
-      <img src="https://as.cornell.edu/sites/default/files/styles/4_5/public/2021-03/up20150602038select1500x1000px.jpg" alt="Flowering tree in spring">
+<img src="https://as.cornell.edu/sites/default/files/styles/1_1_thumbnail/public/2021-02/2016_0098_085_select-edit1500x1000px.jpg" alt="Klarman Hall">
+
+
     </figure>
   {% endset %}
 {% endif %}

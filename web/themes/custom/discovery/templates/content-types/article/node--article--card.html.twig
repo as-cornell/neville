@@ -77,13 +77,15 @@ setting image
 {% elseif article.imagepath %}
 	{% set image %}
 	<figure>
-		<img src="{{article.imagepath}}" alt="{{article.alt}}">
+		{# <img src="{{article.imagepath}}" alt="{{article.alt}}"> #}
+<img src="https://departments.as.cornell.edu/sites/default/files/styles/portrait/public/2021-09/2020_1227_060.jpg" alt="Flowering tree in spring">
+
 	</figure>
 	{% endset %}
 {% else %}
 	{% set image %}
-	<figure>
-		<img src="https://as.cornell.edu/sites/default/files/styles/4_5/public/2021-03/up20150602038select1500x1000px.jpg" alt="Flowering tree in spring">
+	<figure>;lksjf;laksfjs
+    <img src="https://departments.as.cornell.edu/sites/default/files/styles/portrait/public/2021-09/2020_1227_060.jpg" alt="Flowering tree in spring">
 	</figure>
 	{% endset %}
 {% endif %}
