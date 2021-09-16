@@ -74,7 +74,7 @@ Descr:
       "content"
       "sidebar";
     @include mq(medium) {
-      grid-template-columns: minmax(8em, 16em) minmax(22em, 40em);
+      grid-template-columns: minmax(8em, 15em) minmax(22em, 40em);
       grid-template-areas:
         " title title "
         "nav content "

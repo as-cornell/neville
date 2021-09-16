@@ -81,7 +81,7 @@ Descr:
   border: none;
   margin-bottom: 1rem;
   display: flex;
-  // justify-content: space-between;
+  justify-content: space-between;
   align-items: flex-start;
   background: none;
   box-shadow: none;
@@ -90,7 +90,7 @@ Descr:
   }
   figure {
     flex: 0 0 30%;
-    margin-right: 1rem;
+    // margin-right: 1rem;
     margin-top: 0;
 
     // @include boxShadow();
@@ -99,7 +99,7 @@ Descr:
     border-radius: var(--border-radius);
   }
   .article__copy {
-    flex: 0 0 60%;
+    flex: 0 0 calc(70% - 1rem);
     padding: 0;
     display: flex;
     flex-flow: column-reverse;
@@ -187,6 +187,24 @@ Descr:
     @include mq(medium) {
       width: calc(50% - 0.5rem);
       // height: 150px;
+    }
+  }
+}
+
+.basicPage {
+  .carousel {
+    div[class*="teaser"],
+    article[class*="teaser"] {
+      width: calc(100% - 2rem);
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      transform: translateX(0.5rem);
+      @include mq(medium) {
+        width: calc(50% - 2rem);
+      }
+      @include mq(large) {
+        width: calc(33% - 2rem);
+      }
     }
   }
 }

@@ -28,6 +28,10 @@ Still needs: expand toggle for showing main nav on mobile
     margin-left: -1rem;
     justify-content: flex-end;
   }
+  .icon--button > svg {
+    transform-origin: center;
+    transition: transform 150ms ease-in;
+  }
   .nav {
     padding: 0;
     margin: 0;
@@ -116,15 +120,14 @@ Still needs: expand toggle for showing main nav on mobile
       ul {
         max-height: 1000px;
       }
-      button {
+      .icon-button > svg {
         transform: rotate(180deg);
-        transform-origin: 50% 50%;
       }
     }
     &.has-sub {
       .nav-0__link {
         flex: calc(100% - 3rem);
-        padding: 1em 0 1em 1em;
+        padding: 0.75em 0 0.75em 0.75em;
       }
       button {
         flex: 1rem;
@@ -134,13 +137,16 @@ Still needs: expand toggle for showing main nav on mobile
         &.subnav-open,
         &:hover {
           box-shadow: var(--box-shadow);
+          .icon--button > svg {
+            transform: rotate(180deg);
+          }
         }
       }
     }
     @include mq(medium) {
       flex: 1 0 auto;
       flex-wrap: nowrap;
-
+      margin-right: 0.5em;
       &:after {
         width: calc(100%);
         height: 4px;
@@ -181,6 +187,7 @@ Still needs: expand toggle for showing main nav on mobile
       background: transparent;
       color: var(--as-black);
       white-space: nowrap;
+      padding: 0.75em 0;
       &:before {
         top: 0;
         width: 100%;
@@ -209,7 +216,7 @@ Still needs: expand toggle for showing main nav on mobile
       margin-bottom: 1px;
       overflow: hidden;
       @include mq(medium) {
-        padding: 1em;
+        padding: 0.75em;
         font-weight: var(--regular);
       }
       &:before {
@@ -222,9 +229,9 @@ Still needs: expand toggle for showing main nav on mobile
         width: 4px;
         border-radius: 2px;
         @include mq(medium) {
-          top: calc(100% - 4px);
+          top: calc(100% - 2px);
           width: 100%;
-          height: 4px;
+          height: 2px;
           background: var(--as-red-400);
           transform: translateX(calc((100% + 1em) * -1));
           transition: all 250ms ease-in;
@@ -235,7 +242,7 @@ Still needs: expand toggle for showing main nav on mobile
         background: var(--as-gray-200);
         @include mq(medium) {
           &::before {
-            transform: translateX(-1em);
+            transform: translateX(-0.8em);
           }
         }
       }
@@ -255,6 +262,9 @@ Still needs: expand toggle for showing main nav on mobile
       flex-direction: column;
       position: absolute;
       top: 100%;
+      border-radius: 0 var(--border-radius) var(--border-radius)
+        var(--border-radius);
+      overflow: hidden;
     }
   }
 }
