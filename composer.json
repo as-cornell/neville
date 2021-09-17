@@ -35,6 +35,7 @@
         "drupal/entity_usage": "^2.0@beta",
         "drupal/field_group": "^3.1",
         "drupal/image_widget_crop": "^2.3",
+        "drupal/imagecache_external": "^3.0",
         "drupal/jquery_ui_accordion": "^1.1",
         "drupal/masquerade": "^2.0@beta",
         "drupal/media_entity_browser": "^2.0@alpha",

@@ -48,11 +48,7 @@ class parsePeopleJson extends \Twig_Extension
     $people_json = as_dept_people_json_get_person_json($pathtoken);
     if (!empty($people_json['data'])) {
       // get image path from json
-      if (!empty($people_json['included'])) {
-        //old for jsonapi_image_styles
-        //$person_record['imagepath'] = $people_json['included'][1]['attributes']['image_style_uri'][0]['person_image'];
-        $person_record['imagepath'] = 'https://as.cornell.edu'.$people_json['included'][1]['attributes']['uri']['url'];
-        }
+
       foreach ($people_json['data'] as $person_data) {
         $person_record['alt'] = 'Image of ' . $person_data['attributes']['title'];
         $person_record['netid'] = $person_data['attributes']['field_person_netid'];
@@ -119,6 +115,12 @@ class parsePeopleJson extends \Twig_Extension
         }
       }
     }
+    if (!empty($people_json['included'])) {
+        //old for jsonapi_image_styles
+        //$person_record['imagepath'] = $people_json['included'][1]['attributes']['image_style_uri'][0]['person_image'];
+        $person_record['imageuri'] = $people_json['included'][1]['attributes']['uri']['value'];
+        $person_record['imagepath'] = 'https://as.cornell.edu'.$people_json['included'][1]['attributes']['uri']['url'];
+        }
 
     return $person_record;
   }
