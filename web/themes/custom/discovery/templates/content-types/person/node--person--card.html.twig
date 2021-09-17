@@ -61,9 +61,9 @@ Descr: defines "person" and outputs fields for person card
 {% if person.imagepath %}
 
 
-{{vardumper(person.imagepath)}}
+
 {{ person.imagepath|imagecache_external('as_thumbnail') }}
-<img src="'http://localhost:55645/'{{person.imagpath|imagecache_external('as_thumbnail') }}" alt="{{person.alt}}"/>
+<img src="{{ person.imagpath|imagecache_external('as_thumbnail') }}" alt="{{person.alt}}"/>
 
 
 	{% set image %}
