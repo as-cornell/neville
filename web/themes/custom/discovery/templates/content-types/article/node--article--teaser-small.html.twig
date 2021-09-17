@@ -78,6 +78,7 @@ setting image
   - default to stock image
 #}
 
+
 {% if content.field_newsletter_image.0 %}
 	{% set image %}
 	{{content.field_newsletter_image}}
@@ -85,12 +86,17 @@ setting image
 {% else %}
 	{% set image %}
 	<figure>
-		{{ drupal_image('article.imagepath', 'medium')}}
-		<img src="{{article.landscape_imagepath}}" alt="{{article.landscapeimagealt}}">
+		{% if article.landscape_imagepath %}
+			<img src="{{article.landscape_imagepath|imagecache_external('landscape')}}" alt="{{article.landscapeimagealt}}">
+		{% elseif article.imagepath %}
+			<img src="{{article.imagepath|imagecache_external('landscape')}}" alt="{{article.imagealt}}">
+		{% else %}
+			<img src="https://as.cornell.edu/sites/default/files/styles/6_4_newsletter/public/field/image/Klarmanarticle.jpg" alt="Klarmann Hall">
+		{% endif %}
 	</figure>
 	{% endset %}
 {% endif %}
-{{vardumper(article)}}
+
 <div class="article article--teaser-small" aria-labelledby="item--{{nodeId}}">
 
 	<div class="article__image">

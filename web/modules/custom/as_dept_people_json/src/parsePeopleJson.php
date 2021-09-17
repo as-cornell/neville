@@ -118,7 +118,7 @@ class parsePeopleJson extends \Twig_Extension
     if (!empty($people_json['included'])) {
         //old for jsonapi_image_styles
         //$person_record['imagepath'] = $people_json['included'][1]['attributes']['image_style_uri'][0]['person_image'];
-        $person_record['imageuri'] = $people_json['included'][1]['attributes']['uri']['value'];
+        //$person_record['imageuri'] = $people_json['included'][1]['attributes']['uri']['value'];
         $person_record['imagepath'] = 'https://as.cornell.edu'.$people_json['included'][1]['attributes']['uri']['url'];
         }
 

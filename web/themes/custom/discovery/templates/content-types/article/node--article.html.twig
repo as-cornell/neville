@@ -126,17 +126,15 @@ setting image
 	{% set image %}
 	{{content.field_image}}
 	{% endset %}
-{% elseif article.imagepath %}
-	{% set image %}
-	<figure>
-		<img src="{{article.imagepath}}" alt="{{article.imagealt}}">
-	</figure>
-	{% endset %}
 {% else %}
 	{% set image %}
-	<figure>
-		<img src="https://as.cornell.edu/sites/default/files/styles/4_5/public/2021-03/up20150602038select1500x1000px.jpg" alt="Flowering tree in spring">
-	</figure>
+		<figure>
+			{% if article.imagepath %}
+				<img src="{{article.imagepath|imagecache_external('portrait')}}" alt="{{article.imagealt}}">
+			{% else %}
+				<img src="https://as.cornell.edu/sites/default/files/styles/4_5/public/field/image/Klarmanarticle.jpg" alt="Klarmann Hall">
+			{% endif %}
+		</figure>
 	{% endset %}
 {% endif %}
 
