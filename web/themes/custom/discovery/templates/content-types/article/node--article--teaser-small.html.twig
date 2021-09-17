@@ -44,8 +44,8 @@ Descr: defines "article" and outputs fields for article teaser-small
 
 
 	{# 
-						  else set to local and set all variables from "content"
-						#}
+									  else set to local and set all variables from "content"
+									#}
 {% else %}
 	{% set title = label %}
 	{# card label #}
@@ -90,7 +90,7 @@ setting image
 	</figure>
 	{% endset %}
 {% endif %}
-
+{{vardumper(article)}}
 <div class="article article--teaser-small" aria-labelledby="item--{{nodeId}}">
 
 	<div class="article__image">
@@ -110,10 +110,10 @@ setting image
         "isAriaLabel" : nodeId
     } %}
 		{# {% if show_label %}
-							<span class="article__label">
-								{{ card_label }}
-							</span>
-						{% endif %} #}
+													<span class="article__label">
+														{{ card_label }}
+													</span>
+												{% endif %} #}
 		{% if show_dateline %}
 			<span class="article__date">
 				{{ dateline }}
