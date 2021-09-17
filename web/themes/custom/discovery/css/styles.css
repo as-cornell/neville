@@ -968,7 +968,8 @@ Descr: otpN small and large, hovers and toggles for subNav
       border-radius: 0;
       -ms-flex: 0 0 2rem;
           flex: 0 0 2rem;
-      margin-bottom: 1px; }
+      margin-bottom: 1px;
+      cursor: pointer; }
       .nav--site .nav .icon--button:focus {
         opacity: 1; }
     .nav--site .nav a {
