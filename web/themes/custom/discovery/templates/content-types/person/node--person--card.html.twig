@@ -59,13 +59,21 @@ Descr: defines "person" and outputs fields for person card
 
 {# set image #}
 {% if person.imagepath %}
+
+
+
+<img src="{{person.imagepath|imagecache_external('as_thumbnail')}}" alt="{{person.alt}}"/>
+
+
 	{% set image %}
 		<img src="{{person.imagepath}}" alt="{{person.alt}}">
   {% endset %}
   {% else %}
+
   {% set image %}
-		<img src="https://people.as.cornell.edu/sites/people/files/Klarmanarticle_4784_2.jpg" alt="Klarman Hall"/>
+		<img src="https://people.as.cornell.edu/sites/people/files/thomas-d-fox.jpg" alt="Klarman Hall"/>
   {% endset %}
+
 {% endif %}
 
 

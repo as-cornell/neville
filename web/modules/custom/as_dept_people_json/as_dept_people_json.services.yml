@@ -3,3 +3,7 @@ services:
     class: Drupal\as_dept_people_json\parsePeopleJson
     tags:
       - { name: twig.extension }
+  as_dept_people_json.imagecacheExternal:
+    class: Drupal\as_dept_people_json\imagecacheExternal
+    tags:
+      - { name: twig.extension }
