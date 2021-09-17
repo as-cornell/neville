@@ -62,8 +62,7 @@ Descr: defines "person" and outputs fields for person card
 
 
 
-{{ person.imagepath|imagecache_external('as_thumbnail') }}
-<img src="{{ person.imagpath|imagecache_external('as_thumbnail') }}" alt="{{person.alt}}"/>
+<img src="{{person.imagepath|imagecache_external('as_thumbnail')}}" alt="{{person.alt}}"/>
 
 
 	{% set image %}
