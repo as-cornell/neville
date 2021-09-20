@@ -167,7 +167,9 @@ font size bases to be used as extends
   -gradients
 */
 :root {
-  --box-shadow: 0 4px 8px var(--as-gray-400);
+  --box-shadow: 0.1px 0.6px 1px rgba(0, 0, 0, 0.024),
+    0.3px 1.4px 2.7px rgba(0, 0, 0, 0.035),
+    0.7px 2.7px 5.8px rgba(0, 0, 0, 0.046), 2px 8px 12px rgba(0, 0, 0, 0.07);
   --box-shadow-dark: 0 0 16px var(--as-gray-700);
   --button-gradient: linear-gradient(
     120deg,
@@ -184,6 +186,9 @@ font size bases to be used as extends
     var(--as-teal-600) 0%,
     var(--as-teal-500) 95%
   ); }
+
+.with-drop-shadow {
+  box-shadow: 0.2px 0.4px 6.1px rgba(0, 0, 0, 0.021), 1.2px 2px 8.3px rgba(0, 0, 0, 0.034), 3.3px 5.7px 9.8px rgba(0, 0, 0, 0.047), 7px 12px 12px rgba(0, 0, 0, 0.07); }
 
 @keyframes simpleFadeIn {
   0% {
@@ -2155,8 +2160,10 @@ Descr:
       .landingPage--pano .pano img {
         border-radius: 8px; }
       .landingPage--pano .pano__text {
-        animation: 2s simpleFadeIn 1 forwards ease-in;
-        text-shadow: var(--box-shadow-dark); }
+        animation: 2s simpleFadeIn 1 forwards ease-in; }
+        @media only screen and (min-width: 782px) {
+          .landingPage--pano .pano__text {
+            text-shadow: var(--box-shadow-dark); } }
   .landingPage--homepage aside {
     display: none; }
 
@@ -2527,11 +2534,14 @@ Descr: sets up all uniquie styles for link-block pargraps on
       align-items: center;
   -ms-flex-direction: column;
       flex-direction: column;
-  background: linear-gradient(var(--as-white), var(--as-gray-200));
+  background: var(--as-gray-200);
   padding: 3rem 0;
   border-radius: var(--border-radius);
-  width: 120%;
-  margin: 4rem 0 0 -10%; }
+  width: 100%; }
+  @media only screen and (min-width: 782px) {
+    .link-block {
+      width: 120%;
+      margin: 4rem 0 0 -10%; } }
   .link-block__label {
     text-align: center; }
   .link-block__links {
@@ -2542,8 +2552,12 @@ Descr: sets up all uniquie styles for link-block pargraps on
         justify-content: center;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    max-width: 80%;
-    margin-top: 2rem; }
+    -ms-flex-line-pack: center;
+        align-content: center;
+    margin-top: 2rem;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    width: 100%; }
     .link-block__links > a {
       padding: 0.5em 1em;
       border-radius: var(--border-radius);
@@ -2556,9 +2570,19 @@ Descr: sets up all uniquie styles for link-block pargraps on
       background-size: 150% auto;
       background-position: left center;
       font-weight: var(--semi);
-      box-shadow: var(--box-shadow); }
+      box-shadow: var(--box-shadow);
+      width: calc(100% - 4em);
+      margin-top: 0; }
       .link-block__links > a:hover {
         background-position: right center; }
+    @media only screen and (min-width: 782px) {
+      .link-block__links {
+        -ms-flex-direction: row;
+            flex-direction: row;
+        max-width: 80%; }
+        .link-block__links > a {
+          width: -webkit-max-content;
+          width: max-content; } }
 
 /* -------------------------
 
@@ -2566,21 +2590,25 @@ Title: _list-block
 Descr: sets up all generic styles for list-block paragraphs
 
 --------------------------- */
-.list-block__label {
-  margin-top: 1em; }
-
-.list-block__text {
-  max-width: 80%;
-  margin-top: 1em; }
-
-.list-block__list {
-  margin-top: 2rem;
-  display: grid;
-  grid-gap: 1.5rem;
-  grid-template-columns: 1fr; }
-
-.list-block > a {
-  margin-top: 1em; }
+.list-block {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+  .list-block__label {
+    margin-top: 1em; }
+  .list-block__text {
+    max-width: 80%;
+    margin-top: 1em; }
+  .list-block__list {
+    margin-top: 2rem;
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: 1fr; }
+  .list-block > a {
+    margin-top: 1em;
+    -ms-flex-item-align: center;
+        align-self: center; }
 
 @media only screen and (min-width: 480px) {
   .basicPage--has-sidebar .list-block__list,
@@ -2620,31 +2648,38 @@ Descr: sets up all uniquie styles for pano pargraps on
   --articles
 
 --------------------------- */
-.pano {
-  display: grid; }
-  .pano__image, .pano__text {
-    grid-column: 1;
-    grid-row: 1; }
-  .pano__text {
-    font-family: var(--font-serif);
-    font-weight: var(--semi);
-    justify-self: center;
-    -ms-flex-item-align: end;
-        align-self: flex-end;
-    color: var(--as-white);
-    z-index: 1;
-    font-size: var(--base-28);
-    text-align: center; }
-    .pano__text .credit {
-      display: none; }
-  @media only screen and (min-width: 782px) {
+.pano__text {
+  font-family: var(--font-serif);
+  font-weight: var(--semi);
+  justify-self: center;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  z-index: 1;
+  font-size: var(--base-28);
+  text-align: center;
+  margin-bottom: 1em; }
+
+.pano .credit {
+  display: none; }
+
+@media only screen and (min-width: 782px) {
+  .pano {
+    display: grid; }
+    .pano__image, .pano__text {
+      grid-column: 1;
+      grid-row: 1; }
     .pano__text {
+      color: var(--as-white);
       max-width: 80%;
       animation: 2s captionFadeIn 1 forwards ease-in;
       font-weight: var(--heavy);
-      font-size: var(--base-84);
+      font-size: var(--base-48);
       line-height: 1;
-      margin-bottom: 2rem; } }
+      margin-bottom: 2re0m; } }
+
+@media only screen and (min-width: 900px) {
+  .pano__text {
+    font-size: var(--base-84); } }
 
 /* -------------------------
 
@@ -2690,9 +2725,12 @@ Descr: sets up photo with text items
   .photo-with-text--spotlight {
     background-image: linear-gradient(130deg, var(--as-teal-400) 0%, var(--as-teal-200) 6%, #f4f6f4 8%);
     width: calc(100% - 6rem);
-    padding: 3rem;
+    padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow); }
+    @media only screen and (min-width: 782px) {
+      .photo-with-text--spotlight {
+        padding: 3rem; } }
     .photo-with-text--spotlight .button, .photo-with-text--spotlight .list-block > a {
       position: relative; }
       .photo-with-text--spotlight .button:after, .photo-with-text--spotlight .list-block > a:after {

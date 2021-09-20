@@ -7,6 +7,9 @@ Descr: sets up all generic styles for list-block paragraphs
 
 .list-block {
   // margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+
   &__label {
     margin-top: 1em;
   }
@@ -23,6 +26,7 @@ Descr: sets up all generic styles for list-block paragraphs
   > a {
     @extend .button;
     margin-top: 1em;
+    align-self: center;
   }
 }
 

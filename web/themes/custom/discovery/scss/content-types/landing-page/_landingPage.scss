@@ -107,7 +107,9 @@ Descr:
       }
       &__text {
         animation: 2s simpleFadeIn 1 forwards ease-in;
-        text-shadow: var(--box-shadow-dark);
+        @include mq(medium) {
+          text-shadow: var(--box-shadow-dark);
+        }
       }
     }
   }

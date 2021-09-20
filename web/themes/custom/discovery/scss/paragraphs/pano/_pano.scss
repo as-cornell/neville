@@ -9,33 +9,39 @@ Descr: sets up all uniquie styles for pano pargraps on
 --------------------------- */
 
 .pano {
-  display: grid;
-  &__image,
-  &__text {
-    grid-column: 1;
-    grid-row: 1;
-  }
   &__text {
     font-family: var(--font-serif);
     font-weight: var(--semi);
     justify-self: center;
     align-self: flex-end;
-    color: var(--as-white);
     z-index: 1;
     font-size: var(--base-28);
     text-align: center;
-    .credit {
-      display: none;
-    }
+    margin-bottom: 1em;
+  }
+  .credit {
+    display: none;
   }
   @include mq(medium) {
+    display: grid;
+    &__image,
     &__text {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    &__text {
+      color: var(--as-white);
       max-width: 80%;
       animation: 2s captionFadeIn 1 forwards ease-in;
       font-weight: var(--heavy);
-      font-size: var(--base-84);
+      font-size: var(--base-48);
       line-height: 1;
-      margin-bottom: 2rem;
+      margin-bottom: 2re0m;
+    }
+  }
+  @include mq(header) {
+    &__text {
+      font-size: var(--base-84);
     }
   }
 }

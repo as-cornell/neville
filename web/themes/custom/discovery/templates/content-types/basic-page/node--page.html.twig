@@ -78,13 +78,8 @@ Descr: This is the framework for a basic page contnet type. Sets up variables an
 <main{{attributes.addClass(blockClasses)}} id="mainContent">
 
 	<div class="title">
-		{% include "@content/atoms/_heading.twig" with {
-        "heading_level" : 1,
-        "heading" : label,
-        "heading_modifiers" : heading_modifiers,
-        "heading_base_class" : heading_base_class,
-        "heading_class" : heading_class
-      } %}
+  <h1>{{label}}</h1>
+
 	</div>
 	<div class="content">
 		{{mainContent}}
