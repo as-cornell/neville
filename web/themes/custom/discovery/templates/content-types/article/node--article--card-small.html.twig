@@ -55,31 +55,23 @@ setting image
   - default to stock image
 #}
 {% if content.field_image.0 %}
-  {% set image %}
-    {{content.field_image}}
-  {% endset %}
-{% elseif article.imagepath %}
-  {% set image %}
-    <figure>
-    {# article.thumbnail_image should be field_thumbnail_image #}
-      {# <img src="{{article.thumbnail_imagepath}}" alt="{{article.thumbnailimagealt}}"> #}
-<img src="https://as.cornell.edu/sites/default/files/styles/1_1_thumbnail/public/2021-02/2016_0098_085_select-edit1500x1000px.jpg" alt="{{article.thumbnailimagealt}}">
-
-
-    </figure>
-  {% endset %}
+	{% set image %}
+	{{content.field_image}}
+	{% endset %}
 {% else %}
-  {% set image %}
-    <figure>
-      <img src="https://as.cornell.edu/sites/default/files/styles/1_1_thumbnail/public/2021-02/2016_0098_085_select-edit1500x1000px.jpg" alt="Klarman Hall">
-    </figure>
-  {% endset %}
+	{% set image %}
+		<figure>
+			{% if article.imagepath %}
+				<img src="{{article.imagepath|imagecache_external('portrait')}}" alt="{{article.imagealt}}">
+			{% else %}
+				<img src="https://as.cornell.edu/sites/default/files/styles/4_5/public/field/image/Klarmanarticle.jpg" alt="Klarmann Hall">
+			{% endif %}
+		</figure>
+	{% endset %}
 {% endif %}
-{# {{vardumper()}} #}
 
 <article {{attributes.addClass(blockClasses)}} {% if nodeId %} aria-labelledby="item--{{nodeId}}" {% endif %}>
 
-{# {{localorremote}} #}
 {{title_suffix}}
 {{image}}
 

@@ -70,26 +70,21 @@ class parseArticleJson extends \Twig_Extension
           $article_record['landscapeimagealt'] = $article_json['included'][0]['relationships']['field_media_image']['data']['meta']['alt'];
           }
         }
-      //dump($article_json['included']);
       // get main article image path from json
       if (!empty($article_json['included'][1])) {
         if ($article_json['included'][1]['type'] == 'file--file') {
-          if (!empty($article_json['included'][1]['attributes']['filename'])) {
-            $article_record['imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/4_5/public/field/image/'.$article_json['included'][1]['attributes']['filename'];
-            $article_record['thumbnail_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/1_1_thumbnail_forced/public/field/image/'.$article_json['included'][1]['attributes']['filename'];
-
+          if (!empty($article_json['included'][1]['attributes']['uri']['url'])) {
+            $article_record['imagepath'] = 'https://as.cornell.edu'.$article_json['included'][1]['attributes']['uri']['url'];
           }else{
             $article_record['imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/4_5/public/field/image/Klarmanarticle.jpg';
-            $article_record['thumbnail_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/1_1_thumbnail_forced/public/field/image/Klarmanarticle.jpg';
-              }
             }
           }
+        }
       // get newsletter image path from json
       if (!empty($article_json['included'][3])) {
         if ($article_json['included'][3]['type'] == 'file--file') {
-          if (!empty($article_json['included'][3]['attributes']['filename'])) {
-            $article_record['landscape_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/6_4_newsletter/public/field/image/'.$article_json['included'][3]['attributes']['filename'];
-
+          if (!empty($article_json['included'][3]['attributes']['uri']['url'])) {
+            $article_record['landscape_imagepath'] = 'https://as.cornell.edu'.$article_json['included'][3]['attributes']['uri']['url'];
           }else{
             $article_record['landscape_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/6_4_newsletter/public/field/image/Klarmanarticle.jpg';
             }
@@ -98,9 +93,8 @@ class parseArticleJson extends \Twig_Extension
       // get thumbnail image path from json - will rewrite forced thumbnails if there's a separate thumbnail
       if (!empty($article_json['included'][5])) {
         if ($article_json['included'][5]['type'] == 'file--file') {
-          if (!empty($article_json['included'][5]['attributes']['filename'])) {
-            $article_record['thumbnail_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/1_1_thumbnail_forced/public/field/image/'.$article_json['included'][5]['attributes']['filename'];
-
+          if (!empty($article_json['included'][5]['attributes']['uri']['url'])) {
+            $article_record['thumbnail_imagepath'] = 'https://as.cornell.edu'.$article_json['included'][5]['attributes']['uri']['url'];
           }else{
             $article_record['thumbnail_imagepath'] = 'https://as.cornell.edu/sites/default/files/styles/1_1_thumbnail_forced/public/field/image/Klarmanarticle.jpg';
             }

@@ -80,29 +80,20 @@ setting image
 	{% set image %}
 	{{content.field_newsletter_image}}
 	{% endset %}
-{% elseif article.landscape_imagepath %}
-	{% set image %}
-	<figure>
-		<img src="{{article.newsletter_imagepath}}" alt="{{article.landscapeimagealt}}">
-	</figure>
-	{% endset %}
 {% else %}
 	{% set image %}
-	<figure>
-{# {{ drupal_image('public://2021-07/giant-side-close.jpg', 'landscape')}} #}
-<img src="https://departments.as.cornell.edu/sites/default/files/styles/landscape/public/2021-09/2020_1227_060.jpg" alt="">
-
-
-</figure>
+		<figure>
+			{% if article.landscape_imagepath %}
+				<img src="{{article.landscape_imagepath|imagecache_external('landscape')}}" alt="{{article.landscapeimagealt}}">
+			{% elseif article.imagepath %}
+				<img src="{{article.imagepath|imagecache_external('landscape')}}" alt="{{article.imagealt}}">
+			{% else %}
+				<img src="https://as.cornell.edu/sites/default/files/styles/6_4_newsletter/public/field/image/Klarmanarticle.jpg" alt="Klarmann Hall">
+			{% endif %}
+		</figure>
 	{% endset %}
-{% endif %} 
-{# {% set image %}
-<figure>
-<img src="/sites/default/files/styles/landscape/public/2021-07/giant-side%20%281%29.jpg?h=6b5b50d2&itok=go5yxNB5" alt="">
-</figure>
-{% endset %} #}
+{% endif %}
 
-{# {{vardumper(article)}} #}
 
 <article {{ bem(card_base_class, (card_modifiers), article_blockname, article_classes) }} {% if nodeId %} aria-labelledby="item--{{nodeId}}" {% endif %}> 
 
