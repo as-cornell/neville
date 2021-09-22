@@ -73,11 +73,12 @@ footer {
       > ul {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        // justify-content: space-between;
         > li {
-          flex: 0 0 45%;
+          // flex: 0 0 45%;
+          margin-right: 1em;
           @include mq(large) {
-            flex: 0 1 23%;
+            // flex: 0 1 23%;
           }
           font-weight: var(--regular);
           // margin-right: 0.5rem;
@@ -135,15 +136,13 @@ footer {
       grid-column: 3;
       grid-row: 3;
       ul {
-        // @extend .inline;
+        display: flex;
       }
-      // @include mq(large) {
-      //   grid-column: 11 / -1;
-      //   grid-row: 2;
-      // }
+
       font-size: var(--base-16);
     }
     .socialLink {
+      margin-right: 1em;
       &:before {
         background: var(--as-white);
       }

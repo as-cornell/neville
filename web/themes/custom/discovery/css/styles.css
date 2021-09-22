@@ -600,6 +600,33 @@ Descr:
 .embedded-entity.align-right {
   margin-left: 1rem; }
 
+.socialLink {
+  text-indent: -9999px;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+  display: block;
+  margin-bottom: 0.5rem; }
+  .socialLink:before {
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 0;
+    left: 0;
+    content: ""; }
+  .socialLink--twitter:before {
+    -webkit-clip-path: url(#twitter);
+            clip-path: url(#twitter); }
+  .socialLink--facebook:before {
+    -webkit-clip-path: url(#facebook);
+            clip-path: url(#facebook); }
+  .socialLink--instagram:before {
+    -webkit-clip-path: url(#instagram);
+            clip-path: url(#instagram); }
+  .socialLink--linkedin:before {
+    -webkit-clip-path: url(#linkedin);
+            clip-path: url(#linkedin); }
+
 /* -------------------------
 
 Title: Cards
@@ -1337,17 +1364,10 @@ footer {
         display: -ms-flexbox;
         display: flex;
         -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
+            flex-wrap: wrap; }
         footer .footer__importantLinks > ul > li {
-          -ms-flex: 0 0 45%;
-              flex: 0 0 45%;
+          margin-right: 1em;
           font-weight: var(--regular); }
-          @media only screen and (min-width: 1224px) {
-            footer .footer__importantLinks > ul > li {
-              -ms-flex: 0 1 23%;
-                  flex: 0 1 23%; } }
           footer .footer__importantLinks > ul > li > a {
             margin-bottom: 0.5em;
             display: block; }
@@ -1386,8 +1406,13 @@ footer {
       grid-column: 3;
       grid-row: 3;
       font-size: var(--base-16); }
-    footer .footer .socialLink:before {
-      background: var(--as-white); }
+      footer .footer__socialLinks ul {
+        display: -ms-flexbox;
+        display: flex; }
+    footer .footer .socialLink {
+      margin-right: 1em; }
+      footer .footer .socialLink:before {
+        background: var(--as-white); }
     footer .footer__otherInformation {
       grid-column: 1 / -1;
       grid-row: 4; }

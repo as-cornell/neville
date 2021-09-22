@@ -1,0 +1,51 @@
+// social media links
+.socialLink {
+  text-indent: -9999px;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+  display: block;
+  margin-bottom: 0.5rem;
+  &:before {
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 0;
+    left: 0;
+    // background: var(--as-red);
+    // background-image: var(--blue-purple);
+    // background-size: 100%;
+    // animation: bg-animation 3s infinite alternate;
+    content: "";
+  }
+  &--twitter {
+    &:before {
+      clip-path: url(#twitter);
+    }
+  }
+  &--facebook {
+    &:before {
+      clip-path: url(#facebook);
+    }
+  }
+  &--instagram {
+    &:before {
+      clip-path: url(#instagram);
+    }
+  }
+  &--linkedin {
+    &:before {
+      clip-path: url(#linkedin);
+    }
+  }
+  // &--dark-teal {
+  //   &:before {
+  //     background: var(--as-teal-dark);
+  //   }
+  // }
+  // &--white {
+  //   &:before {
+  //     background: var(--as-white);
+  //   }
+  // }
+}
