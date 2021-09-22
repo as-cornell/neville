@@ -126,9 +126,10 @@ footer {
         grid-column: 2 / -1;
         grid-row: 2;
         flex-direction: row;
+        justify-content: space-between;
       }
       > div {
-        margin-right: 2rem;
+        // margin-right: 2rem;
       }
       font-size: var(--base-16);
     }
@@ -143,8 +144,13 @@ footer {
     }
     .socialLink {
       margin-right: 1em;
+      transform: scale(1);
+      transition: transform 200ms ease-in;
       &:before {
         background: var(--as-white);
+      }
+      &:hover {
+        transform: scale(1.1);
       }
     }
     &__otherInformation {

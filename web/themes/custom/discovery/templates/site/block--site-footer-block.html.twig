@@ -32,8 +32,10 @@
 
 	<div class="footer__contacts">
 		<div class="footer__address">
-			{{department_address}}
-			<br/>
+			{% if department_address %}
+				{{department_address}}
+				<br/>
+			{% endif %}
 			Ithaca, NY 14853
 			<br/>
 			United States
@@ -43,7 +45,6 @@
 			{% endif %}
 		</div>
 		<div class="footer__email">
-
 			<a href="mailto:{{department_email}}">
 				Email
 				{{ drupal_config('system.site', 'name') }}

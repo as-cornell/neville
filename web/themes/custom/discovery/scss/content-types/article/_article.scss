@@ -87,6 +87,9 @@
   }
   &__thumbnail {
     grid-area: thumbnail;
+    img {
+      border-radius: var(--border-radius);
+    }
   }
   &__otherNews {
     grid-area: otherNews;
