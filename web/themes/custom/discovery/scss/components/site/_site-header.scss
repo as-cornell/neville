@@ -79,10 +79,10 @@ header {
     margin: 1rem 0;
     @include mq(medium) {
       grid-column: 1;
-      margin: 2rem 0 2rem 0;
+      margin: 2rem 0 1rem 0;
     }
     @include mq(large) {
-      margin: 3rem 2rem 2rem 0;
+      margin: 2rem 2rem 1rem 0;
       background-size: contain;
       background-repeat: no-repeat;
       // width: 500px;

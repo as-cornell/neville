@@ -8,3 +8,13 @@ Descr: sets most universl paragraphs stuff
 .paragraph + .paragraph {
   margin-top: 4rem;
 }
+/*
+  Universal "Go get first paragraph in .content and do something
+  -remove top margin from labels
+*/
+.content > .paragraph:first-of-type {
+  h2,
+  h3 {
+    margin-top: 0;
+  }
+}

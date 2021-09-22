@@ -1545,10 +1545,10 @@ header {
     @media only screen and (min-width: 782px) {
       header .header__logo {
         grid-column: 1;
-        margin: 2rem 0 2rem 0; } }
+        margin: 2rem 0 1rem 0; } }
     @media only screen and (min-width: 1224px) {
       header .header__logo {
-        margin: 3rem 2rem 2rem 0;
+        margin: 2rem 2rem 1rem 0;
         background-size: contain;
         background-repeat: no-repeat; } }
     header .header__logo--two-logos .logo--one {
@@ -2069,7 +2069,7 @@ Descr:
 
 @media only screen and (min-width: 1224px) {
   .basicPage--has-aside {
-    grid-template-columns: minmax(6em, 14em) minmax(20em, 34em) 1fr;
+    grid-template-columns: minmax(6em, 14em) minmax(20em, 30em) 8em;
     grid-template-areas: "title title title" "nav content aside" "sidebar content aside"; } }
 
 .basicPage--full-page.basicPage--has-aside {
@@ -2341,6 +2341,14 @@ Descr: sets most universl paragraphs stuff
 --------------------------- */
 .paragraph + .paragraph {
   margin-top: 4rem; }
+
+/*
+  Universal "Go get first paragraph in .content and do something
+  -remove top margin from labels
+*/
+.content > .paragraph:first-of-type h2,
+.content > .paragraph:first-of-type h3 {
+  margin-top: 0; }
 
 /* -------------------------
 

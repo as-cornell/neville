@@ -52,21 +52,7 @@ Descr:
   }
   &--has-sidebar {
     grid-template-rows: auto auto 1fr;
-    // aside {
-    //   position: sticky;
-    //   top: 0;
-    //   z-index: 1;
-    //   margin-bottom: 2rem;
-    //   @include mq(medium) {
-    //     grid-area: aside;
-    //   }
-    //   .page_component_entity {
-    //     display: none;
-    //     @include mq(large) {
-    //       display: block;
-    //     }
-    //   }
-    // }
+
     grid-template-areas:
       "nav"
       "title"
@@ -107,7 +93,7 @@ Descr:
         "sidebar content";
     }
     @include mq(large) {
-      grid-template-columns: minmax(6em, 14em) minmax(20em, 34em) 1fr;
+      grid-template-columns: minmax(6em, 14em) minmax(20em, 30em) 8em;
       grid-template-areas:
         "title title title"
         "nav content aside"
